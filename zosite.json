@@ -1,0 +1,17 @@
+{
+  "name": "tinytoolboxes",
+  "local_port": 52049,
+  "entrypoint": "bun server.ts",
+  "env": {
+    "SPACE_ASSETS_DIR": "./assets"
+  },
+  "publish": {
+    "label": "tinytoolboxes",
+    "type": "http",
+    "entrypoint": "bun server.ts",
+    "published_port": 53230,
+    "env": {
+      "SPACE_ASSETS_DIR": "./assets"
+    }
+  }
+}
