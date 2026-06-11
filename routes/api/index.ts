@@ -12,32 +12,51 @@ export interface ApiRouteManifest {
   public: boolean;
 }
 
-export const apiRouteManifest: Record<string, ApiRouteManifest> = {};
+export const apiRouteManifest: Record<string, ApiRouteManifest> = {
+  "/ads.txt": { file: "ads.txt", public: true },
+  "/api/rhyme-zone": { file: "api-rhyme-zone", public: true },
+  "/robots.txt": { file: "robots.txt", public: true },
+  "/sitemap.xml": { file: "sitemap.xml", public: true },
+};
 
 export const apiRoutes: Record<string, ApiRouteConfig> = {};
 
 export async function loadApiRoutes(
   writeError: (route: string, type: "import", error: unknown) => Promise<void>,
-  clearError: (route: string) => Promise<void>,
+  clearError: (route: string) => Promise<void>
 ): Promise<void> {
   for (const [path, manifest] of Object.entries(apiRouteManifest)) {
     try {
       const module = await import(`./${manifest.file}.ts`);
+      let handler: ApiRouteHandler;
 
-      if (typeof module.default !== "function") {
-        throw new Error(`Route ${path} must have a default export function`);
+      if (typeof module.default === "function") {
+        handler = module.default;
+      } else if (typeof module.default === "object" && module.default !== null) {
+        const methods: Record<string, ApiRouteHandler> = {};
+        for (const [key, val] of Object.entries(module.default)) {
+          if (typeof val === "function") methods[key.toUpperCase()] = val as ApiRouteHandler;
+        }
+        if (Object.keys(methods).length === 0) {
+          throw new Error(`Route ${path} default export has no handler methods`);
+        }
+        handler = async (c: Context) => {
+          const fn = methods[c.req.method];
+          if (!fn) return c.json({ error: "Method not allowed" }, 405);
+          return fn(c);
+        };
+      } else {
+        throw new Error(`Route ${path} must export a default function or method handlers`);
       }
 
       apiRoutes[path] = {
-        handler: module.default,
+        handler,
         public: manifest.public,
       };
 
-      // Clear any previous error for this route
       await clearError(path);
     } catch (error) {
       await writeError(path, "import", error);
-      // Route is skipped - not added to apiRoutes
     }
   }
 }

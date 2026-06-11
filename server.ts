@@ -14,6 +14,7 @@ const HANDLE = RAW_HANDLE ? escapeHtml(RAW_HANDLE) : "";
 interface SiteSettings {
   site_title?: string;
   site_description?: string;
+  site_url?: string;
   og_image_url?: string;
   favicon_url?: string;
   custom_head_html?: string;
@@ -130,6 +131,8 @@ function injectMeta(rawPath: string): string {
     ? `https://${RAW_HANDLE}.zo.space`
     : "https://zo.space";
 
+  const canonicalOrigin = siteSettings.site_url || spaceOrigin;
+
   const ogBgUrl =
     pageMeta?.page_og_image_url || siteSettings.og_image_url || "";
   const spaceOgBase = `https://zo.computer/api/space-og?handle=${encodeURIComponent(RAW_HANDLE)}&path=${encodeURIComponent(rawPath)}`;
@@ -140,7 +143,7 @@ function injectMeta(rawPath: string): string {
     ? `${ogWithBg}&hide_overlay=1`
     : ogWithBg;
 
-  const canonicalUrl = `${spaceOrigin}${path}`;
+  const canonicalUrl = `${canonicalOrigin}${path}`;
 
   const values: Record<string, string> = {
     TITLE: title,

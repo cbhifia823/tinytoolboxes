@@ -1,0 +1,378 @@
+      after: "UPS 收 8 kg 而不是 3 kg —— 即实际重量的 2.7 倍。如果 UPS 收 $6/kg，每箱运费 $48 而不是 $18。如果改用 40 × 35 × 18 cm 的箱：(40 × 35 × 18) ÷ 5,000 = 25,200 ÷ 5,000 = 5.04 kg —— 每箱省差不多 $18，寄得多的话一个月省几百到几千美元。",
+    },
+    sectionLimits: {
+      heading: "UPS 尺寸和重量上限",
+      intro: "算体积重量之前，先了解标准 UPS 寄件的尺寸和重量上限：",
+      items: [
+        { label: "最高重量", text: "大部分 UPS 服务每件最高 150 磅（68 kg）。" },
+        { label: "最长边长度", text: "最长单边 108 英寸（274 cm）。" },
+        { label: "长度加腰围", text: "总和不能超过 165 英寸（419 cm）。腰围 = 2 ×（宽 + 高）。" },
+        { label: "超大件附加费", text: "长度超过 96 英寸，或者长加腰围超过 130 英寸，会额外加「大件」附加费。" },
+      ],
+      footer: "超过这些限制的件要改用 UPS Freight 寄，计费和处理都不同。",
+    },
+    sectionTips: {
+      heading: "怎样减 UPS 体积重量收费",
+      items: [
+        { name: "用合适 size 的箱。", text: "用贴近产品尺寸的箱是减体积重量最有效的方法。箱合适、没什么空隙，体积重量小，填充物料费也省了。" },
+        { name: "省用填充物。", text: "只用保护产品所需的最少填充。气泡袋、纸填充、泡沫都是额外空间，会增加体积重量但没实际用处。" },
+        { name: "谈自定除数。", text: "寄得多的商家可以和 UPS 谈账户价，除数可能高于 5,000（比如 6,000）—— 体积重量立即降 16.7%。" },
+        { name: "比较 UPS 服务级别。", text: "UPS Ground 一般对重件、平件较便宜；UPS Air 每 kg 贵些，但急件值得用。一定要跨服务级别比较计费重量。" },
+        { name: "考虑均一价。", text: "小箱重件的情况下，USPS 均一价箱或者 UPS Simple Rate 可能比体积重量算法便宜。" },
+      ],
+    },
+    sectionFaq: {
+      heading: "常见问题",
+      items: [
+        { q: "UPS 对所有件都收体积重量，还是只收超大件？", a: "UPS Ground、UPS Air 和 International 服务全部都会用体积重量。和 USPS 不同（USPS 有最低立方英尺门槛），UPS 没有任何尺寸豁免 —— 即使小件，只要算出的 DIM 重量高于实际重量都会被收体积重量。" },
+        { q: "什么是 UPS Hundredweight Service？", a: "UPS Hundredweight Service 是一个专为同日同目的地寄 100 磅以上多件的商家设的批量定价方案。不是逐件算，而是合计总重量算，对于一次寄多箱去同一地址的商家可以省不少。" },
+        { q: "UPS 怎样核实件子的尺寸？", a: "UPS 在分拣中心用自动测量系统，包括 3D 摄影机和激光尺寸机，在传送带上扫描每件包裹。如果量到的尺寸和寄件人申报的不同，UPS 会按量到的尺寸调整收费，重复出错可能会被审查账户。" },
+        { q: "实际重量和计费重量有什么区别？", a: "实际重量是放上秤到的重量，会进位到最近的整磅或 0.5 kg。体积重量是根据件子的体积和 DIM 除数算出来。计费重量就是两者中高的那个 —— UPS 真正收你那个。当体积重量高于实际重量，你其实是在付钱买「空间」而不是「重量」。" },
+      ],
+    },
+    relatedHeading: "相关计算器",
+    relatedText: "也可以试一下我们的",
+    relatedFedex: "FedEx 体积重量计算器",
+    relatedDhl: "DHL 体积重量计算器",
+    relatedGeneric: "多语言体积重量计算器，支持各大快递",
+    ui: { length: "长度", width: "宽度", height: "高度", actualWeight: "实际重量", factor: "DIM 除数" },
+  },
+  es: {
+    pageTitle: "Calculadora de peso dimensional de UPS",
+    intro: "Una página útil y aburrida con un solo trabajo: ayudar a los envíos a calcular el peso facturable de UPS rápidamente.",
+    subtitle: "Calcula el peso facturable de UPS a partir de las dimensiones de la caja en segundos. Pensada para personas que buscan cotizaciones de envío, peso facturable y fórmulas de peso dimensional.",
+    unitMetric: "cm / kg",
+    unitImperial: "in / lb",
+    unitsLabel: "Unidades",
+    resultsTitle: "Resultado",
+    formulaLabel: "Fórmula UPS",
+    resultFormulaLabel: "Fórmula",
+    billableLabel: "Peso facturable",
+    actualLabel: "Peso real",
+    volumetricLabel: "Peso volumétrico (DIM)",
+    loadExample: "Cargar ejemplo",
+    examplesTitle: "Prueba un ejemplo predefinido",
+    faqTitle: "Preguntas frecuentes",
+    faq: [
+      ["¿Qué es el peso dimensional de UPS?", "Es el peso que UPS puede usar para facturar cuando un paquete ocupa más espacio del que su peso real sugiere."],
+      ["¿Por qué es importante el peso facturable?", "Porque el transportista suele cobrar el mayor entre el peso real y el peso dimensional."],
+      ["¿Puedo cambiar las unidades?", "Sí, cambia entre cm/kg y in/lb cuando quieras."],
+    ],
+    examples: [
+      { label: "Paquete pequeño", dims: [30, 20, 15], actual: 4 },
+      { label: "Caja minorista", dims: [40, 30, 20], actual: 6 },
+      { label: "Caja grande", dims: [60, 40, 40], actual: 12 },
+    ],
+    sectionHow: {
+      heading: "Cómo funciona la facturación por peso dimensional de UPS",
+      p1: "UPS utiliza una técnica de fijación de precios llamada peso dimensional (también peso DIM o peso volumétrico) para garantizar que los paquetes grandes y ligeros paguen un precio justo por el espacio que ocupan. Un paquete físicamente grande pero muy ligero, como una caja de almohadas o espuma inflable, ocupa tanto espacio en un camión o avión de UPS como un paquete denso y pesado, pero generaría muchos menos ingresos si se facturara solo por peso real.",
+      p2: "UPS calcula el peso dimensional con la fórmula: (Largo × Ancho × Alto) ÷ 5.000 para centímetros (resultado en kg), o (L × A × H) ÷ 139 para pulgadas (resultado en libras). UPS compara el peso dimensional con el peso real en una balanza y cobra el mayor: este es el \"peso facturable\".",
+      p3: "A diferencia de algunas políticas más antiguas, UPS aplica actualmente el precio por peso dimensional a todos los paquetes de UPS Ground, UPS Air y UPS International. No hay un tamaño mínimo de paquete que los exima del cálculo de peso dimensional.",
+    },
+    sectionExample: {
+      heading: "Ejemplo práctico: minorista de ropa",
+      intro: "Una tienda de ropa envía suéteres en cajas de 50 cm × 40 cm × 20 cm. Cada suéter pesa 600 gramos (0,6 kg) y envían 5 por caja, para un peso real de 3 kg.",
+      calc: "Peso dimensional = (50 × 40 × 20) ÷ 5.000 = 40.000 ÷ 5.000 = 8 kg",
+      after: "UPS factura 8 kg en lugar de 3 kg — 2,7× el peso real. Con una tarifa UPS de $6/kg, el costo de envío es $48 por caja en lugar de $18. Cambiando a una caja de 40 × 35 × 18 cm: (40 × 35 × 18) ÷ 5.000 = 25.200 ÷ 5.000 = 5,04 kg — un ahorro de casi $18 por envío, sumando cientos o miles de dólares al mes para envíos de alto volumen.",
+    },
+    sectionLimits: {
+      heading: "Límites de tamaño y peso de UPS",
+      intro: "Antes de calcular el peso dimensional, conviene conocer los límites absolutos de tamaño y peso del envío estándar de UPS:",
+      items: [
+        { label: "Peso máximo", text: "150 lb (68 kg) por paquete en la mayoría de servicios UPS." },
+        { label: "Largo máximo", text: "108 pulgadas (274 cm) en el lado más largo." },
+        { label: "Largo más contorno", text: "No puede superar 165 pulgadas (419 cm) en total. Contorno = 2 × (ancho + alto)." },
+        { label: "Recargo por tamaño", text: "Paquetes con largo superior a 96 pulgadas, o largo más contorno superior a 130 pulgadas, tienen un recargo adicional por \"paquete grande\"." },
+      ],
+      footer: "Los paquetes que superen estos límites deben enviarse como UPS Freight en lugar del servicio de paquetería estándar, con precios y manejo diferentes.",
+    },
+    sectionTips: {
+      heading: "Consejos para reducir los cargos por peso dimensional de UPS",
+      items: [
+        { name: "Usa cajas del tamaño adecuado.", text: "Usar cajas cercanas a las dimensiones de tu producto es la forma más eficaz de reducir los cargos por peso dimensional. Una caja ajustada con poco material de relleno ahorra en peso dimensional y en coste de relleno." },
+        { name: "Usa relleno con eficiencia.", text: "Usa solo el acolchado mínimo necesario para proteger el producto. Cojines de aire, papel y espuma ocupan espacio que aumenta el peso dimensional sin aportar volumen útil." },
+        { name: "Negocia un divisor personalizado.", text: "Las empresas con alto volumen pueden negociar tarifas por cuenta con UPS, que pueden incluir un divisor mayor (p. ej., 6.000 en lugar de 5.000), reduciendo el peso dimensional en un 16,7%." },
+        { name: "Compara niveles de servicio UPS.", text: "UPS Ground suele ser más económico para envíos pesados por tierra; UPS Air cuesta más por kg pero puede justificarse para entregas urgentes. Compara el peso facturable entre niveles de servicio." },
+        { name: "Explora alternativas de tarifa plana.", text: "Para paquetes por debajo de ciertos umbrales, las cajas de tarifa plana de USPS o UPS Simple Rate pueden ser más baratas que el precio por peso dimensional, sobre todo para artículos densos y pesados en cajas pequeñas." },
+      ],
+    },
+    sectionFaq: {
+      heading: "Preguntas frecuentes",
+      items: [
+        { q: "¿UPS aplica peso dimensional a todos los paquetes o solo a los grandes?", a: "UPS aplica peso dimensional a todos los paquetes enviados por UPS Ground, UPS Air e International. A diferencia de USPS (que tiene un umbral mínimo de pie cúbico), UPS no tiene umbral de tamaño: incluso los paquetes pequeños están sujetos al precio por peso dimensional si el peso DIM calculado supera al peso real." },
+        { q: "¿Qué es UPS Hundredweight Service?", a: "UPS Hundredweight Service es un programa de precios por volumen para envíos de varios paquetes de 100 lb o más al mismo destino el mismo día. En lugar de valorar cada paquete por separado, todos se valoran juntos por el peso total, lo que puede reducir mucho el coste por paquete para empresas que envían varias cajas a una misma dirección." },
+        { q: "¿Cómo verifica UPS las dimensiones de los paquetes?", a: "UPS utiliza sistemas automatizados de medición en sus centros de clasificación, incluidas cámaras 3D y medidores láser, que escanean los paquetes a medida que avanzan por las cintas transportadoras. Si las dimensiones medidas difieren de las declaradas por el remitente, UPS aplica un ajuste de facturación según las dimensiones medidas. Las discrepancias reiteradas pueden provocar una revisión de la cuenta." },
+        { q: "¿Cuál es la diferencia entre peso real y peso facturable?", a: "El peso real es lo que pesa el paquete en una balanza, redondeado hacia arriba a la libra entera o 0,5 kg más cercanos. El peso dimensional es el peso calculado a partir del volumen del paquete usando el factor DIM. El peso facturable es simplemente el mayor de estos dos valores: lo que UPS te cobrará. Cuando el peso dimensional supera al real, estás pagando por \"espacio ocupado\" en lugar de \"materia transportada\"." },
+      ],
+    },
+    relatedHeading: "Calculadoras relacionadas",
+    relatedText: "También prueba nuestra",
+    relatedFedex: "Calculadora de peso dimensional de FedEx",
+    relatedDhl: "Calculadora de peso dimensional de DHL",
+    relatedGeneric: "calculadora multilingüe de peso volumétrico compatible con los principales transportistas",
+    ui: { length: "Largo", width: "Ancho", height: "Alto", actualWeight: "Peso real", factor: "Factor DIM" },
+  },
+};
+
+const SITE_URL = "https://www.tinytoolboxes.com";
+const PAGE_PATH = "/ups-dimensional-weight-calculator";
+const METRIC_FACTOR = 5000;
+const IMPERIAL_FACTOR = 139;
+
+function applySEO(o: { title: string; description: string; path: string; jsonLd?: object | object[] }) {
+  if (typeof document === "undefined") return;
+  const url = SITE_URL + o.path;
+  document.title = o.title;
+  const head = document.head;
+  const upsert = (sel: string, mk: () => HTMLElement, attr: string, val: string) => {
+    let el = head.querySelector(sel) as HTMLElement | null;
+    if (!el) { el = mk(); head.appendChild(el); }
+    el.setAttribute(attr, val);
+  };
+  const meta = (name: string, content: string) => upsert(`meta[name="${name}"]`, () => { const m = document.createElement("meta"); m.setAttribute("name", name); return m; }, "content", content);
+  const prop = (p: string, content: string) => upsert(`meta[property="${p}"]`, () => { const m = document.createElement("meta"); m.setAttribute("property", p); return m; }, "content", content);
+  meta("description", o.description);
+  upsert('link[rel="canonical"]', () => { const l = document.createElement("link"); l.setAttribute("rel", "canonical"); return l; }, "href", url);
+  prop("og:title", o.title); prop("og:description", o.description); prop("og:url", url); prop("og:type", "website"); prop("og:site_name", "TinyToolboxes");
+  meta("twitter:card", "summary"); meta("twitter:title", o.title); meta("twitter:description", o.description);
+  const old = head.querySelectorAll('script[type="application/ld+json"][data-ttb]');
+  old.forEach((n) => n.remove());
+  if (o.jsonLd) {
+    const arr = Array.isArray(o.jsonLd) ? o.jsonLd : [o.jsonLd];
+    arr.forEach((data) => { const s = document.createElement("script"); s.setAttribute("type", "application/ld+json"); s.setAttribute("data-ttb", ""); s.textContent = JSON.stringify(data); head.appendChild(s); });
+  }
+}
+
+function roundToTwo(value: number) {
+  return Math.round(value * 100) / 100;
+}
+
+export default function UpsDimensionalWeightCalculator() {
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [unitSystem, setUnitSystem] = useState<"metric" | "imperial">("metric");
+  const [factor, setFactor] = useState(String(METRIC_FACTOR));
+  const [length, setLength] = useState("40");
+  const [width, setWidth] = useState("30");
+  const [height, setHeight] = useState("20");
+  const [actualWeight, setActualWeight] = useState("8");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") window.localStorage.setItem("ttb-locale", locale);
+    const L = LANGUAGES[locale];
+    applySEO({
+      title: `${L.pageTitle} | TinyToolboxes`,
+      description: L.subtitle,
+      path: PAGE_PATH,
+      jsonLd: [
+        { "@context": "https://schema.org", "@type": "WebApplication", name: L.pageTitle, url: SITE_URL + PAGE_PATH, description: L.subtitle, applicationCategory: "BusinessApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: L.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+      ],
+    });
+  }, [locale]);
+
+  useEffect(() => {
+    setFactor(String(unitSystem === "metric" ? METRIC_FACTOR : IMPERIAL_FACTOR));
+  }, [unitSystem]);
+
+  const L = LANGUAGES[locale];
+
+  const units = unitSystem === "metric" ? { dim: "cm", weight: "kg" } : { dim: "in", weight: "lb" };
+  const dims = [length, width, height].map((value) => Number(value) || 0);
+  const volume = dims.reduce((acc, value) => acc * value, 1);
+  const factorNumber = Number(factor) || (unitSystem === "metric" ? METRIC_FACTOR : IMPERIAL_FACTOR);
+  const volumetricWeight = factorNumber > 0 ? volume / factorNumber : 0;
+  const actual = Number(actualWeight) || 0;
+  const billableWeight = Math.max(actual, volumetricWeight);
+  const formatter = useMemo(() => new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }), []);
+  const formulaText = `${L.formulaLabel}: L × W × H ÷ ${unitSystem === "metric" ? METRIC_FACTOR : IMPERIAL_FACTOR}`;
+
+  const loadExample = (dims: [number, number, number], actual: number) => {
+    setLength(String(dims[0]));
+    setWidth(String(dims[1]));
+    setHeight(String(dims[2]));
+    setActualWeight(String(actual));
+  };
+
+  return (
+    <main className="min-h-screen bg-neutral-950 text-neutral-50">
+      <section className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-8">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl shadow-black/30 backdrop-blur lg:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-3xl space-y-3">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-neutral-300">
+                <Scale className="h-3.5 w-3.5" /> {L.intro}
+              </div>
+              <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-5xl">{L.pageTitle}</h1>
+              <p className="max-w-2xl text-sm leading-6 text-neutral-300 sm:text-base">{L.subtitle}</p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              {LOCALES.map((item) => (
+                <button key={item.id} onClick={() => setLocale(item.id)} className={`rounded-full border px-3 py-1 text-xs font-medium transition ${locale === item.id ? "border-emerald-400/60 bg-emerald-400/15 text-emerald-100" : "border-white/10 bg-black/20 text-neutral-300 hover:bg-white/5"}`}>
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:w-[18rem]">
+            <button onClick={() => setUnitSystem("metric")} className={`rounded-2xl border px-4 py-3 text-sm transition ${unitSystem === "metric" ? "border-emerald-400/60 bg-emerald-400/15 text-emerald-100" : "border-white/10 bg-black/20 text-neutral-300 hover:bg-white/5"}`}>
+              {L.unitMetric}
+            </button>
+            <button onClick={() => setUnitSystem("imperial")} className={`rounded-2xl border px-4 py-3 text-sm transition ${unitSystem === "imperial" ? "border-emerald-400/60 bg-emerald-400/15 text-emerald-100" : "border-white/10 bg-black/20 text-neutral-300 hover:bg-white/5"}`}>
+              {L.unitImperial}
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <h2 className="text-xl font-semibold text-white">{L.unitsLabel}</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <label className="block space-y-2">
+                <span className="text-sm text-neutral-300">{L.ui.length}</span>
+                <input type="number" value={length} onChange={(e) => setLength(e.target.value)} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+              </label>
+              <label className="block space-y-2">
+                <span className="text-sm text-neutral-300">{L.ui.width}</span>
+                <input type="number" value={width} onChange={(e) => setWidth(e.target.value)} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+              </label>
+              <label className="block space-y-2">
+                <span className="text-sm text-neutral-300">{L.ui.height}</span>
+                <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+              </label>
+            </div>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <label className="block space-y-2">
+                <span className="text-sm text-neutral-300">{L.ui.actualWeight}</span>
+                <input type="number" value={actualWeight} onChange={(e) => setActualWeight(e.target.value)} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+              </label>
+              <label className="block space-y-2">
+                <span className="text-sm text-neutral-300">{L.ui.factor}</span>
+                <input type="number" value={factor} onChange={(e) => setFactor(e.target.value)} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+              </label>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-emerald-400/20 bg-emerald-400/5 p-5">
+            <h2 className="text-xl font-semibold text-white">{L.resultsTitle}</h2>
+            <div className="mt-4 space-y-3">
+              <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{L.billableLabel}</p>
+                <p className="mt-2 text-3xl font-semibold text-emerald-200">{formatter.format(roundToTwo(billableWeight))} {units.weight}</p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                  <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{L.actualLabel}</p>
+                  <p className="mt-2 text-lg text-white">{formatter.format(roundToTwo(actual))} {units.weight}</p>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                  <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{L.volumetricLabel}</p>
+                  <p className="mt-2 text-lg text-white">{formatter.format(roundToTwo(volumetricWeight))} {units.weight}</p>
+                </div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{L.resultFormulaLabel}</p>
+                <p className="mt-2 font-mono text-sm text-emerald-100">{formulaText}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <h2 className="text-xl font-semibold text-white">{L.examplesTitle}</h2>
+            <div className="mt-4 space-y-2">
+              {L.examples.map((example) => (
+                <button key={example.label} onClick={() => loadExample(example.dims, example.actual)} className="w-full rounded-2xl border border-white/10 bg-black/20 p-4 text-left transition hover:border-emerald-300/40 hover:bg-white/5">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-medium text-white">{example.label}</span>
+                    <span>{example.dims.join(" × ")} {units.dim}</span>
+                  </div>
+                  <p className="mt-1 text-neutral-400">{L.actualLabel}: {example.actual} {units.weight}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+            <h2 className="text-xl font-semibold text-white">{L.faqTitle}</h2>
+            <div className="mt-4 space-y-3">
+              {L.faq.map(([q, a]) => (
+                <details key={q} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
+                  <summary className="cursor-pointer list-none text-sm font-medium text-white">{q}</summary>
+                  <p className="mt-2 text-sm leading-6 text-neutral-300">{a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <AdSenseSlot clientId={ADSENSE_CLIENT_ID} slotId={ADSENSE_SLOTS.footer} label="Google Ad slot" size="728 × 90 footer slot" minHeight={90} />
+
+        <article className="mt-6 space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
+          <div>
+            <h2 className="text-2xl font-bold text-white">{L.sectionHow.heading}</h2>
+            <p className="mt-3 leading-7">{L.sectionHow.p1}</p>
+            <p className="mt-3 leading-7">{L.sectionHow.p2}</p>
+            <p className="mt-3 leading-7">{L.sectionHow.p3}</p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-white">{L.sectionExample.heading}</h2>
+            <p className="mt-3 leading-7">{L.sectionExample.intro}</p>
+            <div className="mt-3 rounded-2xl border border-emerald-300/20 bg-emerald-300/5 px-5 py-4 font-mono text-sm text-emerald-100">
+              {L.sectionExample.calc}
+            </div>
+            <p className="mt-3 leading-7">{L.sectionExample.after}</p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-white">{L.sectionLimits.heading}</h2>
+            <p className="mt-3 leading-7">{L.sectionLimits.intro}</p>
+            <ul className="mt-3 space-y-2 text-white/70">
+              {L.sectionLimits.items.map((item) => (
+                <li key={item.label} className="flex gap-2">
+                  <span className="shrink-0 text-emerald-300">→</span>
+                  <span><strong className="text-white">{item.label}:</strong> {item.text}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-3 leading-7">{L.sectionLimits.footer}</p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-white">{L.sectionTips.heading}</h2>
+            <ul className="mt-3 space-y-3 text-white/70">
+              {L.sectionTips.items.map((item) => (
+                <li key={item.name}>
+                  <strong className="text-white">{item.name}</strong> {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold text-white">{L.sectionFaq.heading}</h2>
+            <div className="mt-4 space-y-5">
+              {L.sectionFaq.items.map((faq) => (
+                <div key={faq.q}>
+                  <h3 className="font-semibold text-white">{faq.q}</h3>
+                  <p className="mt-1 text-white/70">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+
+        <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-neutral-300">
+          <div className="flex items-center gap-3 text-white">
+            <Truck className="h-5 w-5 text-emerald-300" />
+            <span className="text-base font-semibold">{L.relatedHeading}</span>
+          </div>
+          <p className="mt-3 leading-6 text-neutral-300">
+            {L.relatedText} <a href="/fedex-dimensional-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedFedex}</a>, <a href="/dhl-dimensional-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedDhl}</a>, and the <a href="/volumetric-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedGeneric}</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
