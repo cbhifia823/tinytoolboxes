@@ -62,17 +62,7 @@ export const UI_COPY: Record<LocaleKey, {
     worksOnAnyDevice: "适用于任何设备",
   },
   es: {
-    loading: "Cargando...",
-    pageNotFound: "Página no encontrada",
-    builtOnZo: "Construido en Zo",
-    collapseThemePicker: "Cerrar selector de tema",
-    openThemePicker: "Abrir selector de tema",
-    copyPromptPrefix: "Copiar prompt: ",
-    askZoUpdateTheme: "Pedir a Zo que actualice el tema",
-    background: "Fondo",
-    freeToUse: "Gratis",
-    noSignUp: "Sin registro",
-    worksOnAnyDevice: "Funciona en cualquier dispositivo",
+    typescript es: { loading: "Cargando...", pageNotFound: "Página no encontrada", builtOnZo: "Creado con Zo", collapseThemePicker: "Cerrar selector de tema", openThemePicker: "Abrir selector de tema", copyPromptPrefix: "Copiar el prompt: ", askZoUpdateTheme: "Pedir a Zo que actualice el tema", background: "Fondo", freeToUse: "Gratis", noSignUp: "Sin necesidad de registrarse", worksOnAnyDevice: "Funciona en cualquier dispositivo", } ",
   },
 };
 
