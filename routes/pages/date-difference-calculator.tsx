@@ -28,6 +28,25 @@ const LANGUAGES = {
     suggestionsTitle: "You may also like",
     suggestionsSubtitle: "Related tools",
     suggestions: ["Age Calculator", "Business Day Calculator", "Invoice Due Date Calculator"],
+    faqTitle: "Frequently Asked Questions",
+    faq: [
+      {
+        q: "Does this calculator include or exclude the start and end date?",
+        a: "This calculator counts the total number of days elapsed between the two dates. The end date is excluded from the count — meaning the number shown represents complete days that have passed. For example, from January 1 to January 2 is 1 day, not 2. This is the most common convention and matches how most software systems and financial contracts calculate date differences.",
+      },
+      {
+        q: "How many days are in a year?",
+        a: "A standard year has 365 days. A leap year has 366 days, occurring every four years (with exceptions for century years not divisible by 400). For long-range astronomical calculations, the average Gregorian year is 365.2425 days — often approximated as 365.25 days for rough purposes.",
+      },
+      {
+        q: "What is the difference between days elapsed and days remaining?",
+        a: "Days elapsed is the count of days from a past date to today (or another reference date). Days remaining is the count of days from today until a future date. Both use the same underlying subtraction, but the direction and framing are different.",
+      },
+      {
+        q: "How do I calculate exactly how many weeks are between two dates?",
+        a: "Divide the total number of days by 7. The whole number part of the result is the number of complete weeks. The remainder tells you the extra days. For example, 45 days is 6 weeks and 3 days (45 ÷ 7 = 6 remainder 3).",
+      },
+    ],
   },
   "zh-hk": {
     name: "繁體中文",
@@ -55,6 +74,25 @@ const LANGUAGES = {
     suggestionsTitle: "你可能會喜歡",
     suggestionsSubtitle: "相關工具",
     suggestions: ["年齡計算機", "工作日計算機", "發票到期日計算機"],
+    faqTitle: "常見問題",
+    faq: [
+      {
+        q: "呢個計算機會唔會計埋開始同結束嗰日？",
+        a: "呢個計算機係計兩個日期之間經過咗幾多日。結束日期唔會計入去——即係顯示嘅數字代表已經過咗嘅完整日數。例如，1月1號到1月2號係1日，唔係2日。呢個係最常見嘅計算慣例，亦都同大部份軟件系統同財務合約嘅日期計算方式一致。",
+      },
+      {
+        q: "一年有幾多日？",
+        a: "平年有365日。閏年有366日，每四年出現一次（但係世紀年份如果唔能夠被400整除就唔係閏年）。如果要精確咁計兩個日期之間嘅年數，一定要用實際日曆嚟計埋閏年。",
+      },
+      {
+        q: "「已經過咗幾多日」同「仲有幾多日」有咩分別？",
+        a: "「已經過咗幾多日」係由過去某個日期到今日（或者另一個參考日期）嘅日數。「仲有幾多日」係由今日到未來某個日期嘅日數。兩者背後嘅計算方式一樣，但方向同含義唔同。",
+      },
+      {
+        q: "點樣計算兩個日期之間有幾多個星期？",
+        a: "將總日數除以7。整數部份就係完整週數，餘數就係額外嘅日數。例如，45日就係6個星期零3日（45 ÷ 7 = 6 餘 3）。",
+      },
+    ],
   },
   "zh-cn": {
     name: "简体中文",
@@ -82,6 +120,25 @@ const LANGUAGES = {
     suggestionsTitle: "你可能会喜欢",
     suggestionsSubtitle: "相关工具",
     suggestions: ["年龄计算器", "工作日计算器", "发票到期日计算器"],
+    faqTitle: "常见问题",
+    faq: [
+      {
+        q: "这个计算器会包括开始和结束日期吗？",
+        a: "这个计算器计算的是两个日期之间经过了多少天。结束日期不计入——即显示的数字代表已经过去的完整天数。例如，1月1日到1月2日是1天，不是2天。这是最常见的计算惯例，也与大多数软件系统和财务合同的日期计算方式一致。",
+      },
+      {
+        q: "一年有多少天？",
+        a: "平年有365天。闰年有366天，每四年出现一次（但世纪年份如果不能被400整除则不是闰年）。要精确计算两个日期之间的年数，必须使用实际日历来计入闰年。",
+      },
+      {
+        q: "「已经过了多少天」和「还剩多少天」有什么区别？",
+        a: "「已经过了多少天」是从过去某个日期到今天（或另一个参考日期）的天数。「还剩多少天」是从今天到未来某个日期的天数。两者的计算方式相同，但方向和含义不同。",
+      },
+      {
+        q: "如何计算两个日期之间有多少个星期？",
+        a: "将总天数除以7。整数部分就是完整周数，余数就是额外的天数。例如，45天就是6周零3天（45 ÷ 7 = 6 余 3）。",
+      },
+    ],
   },
   es: {
     name: "Español",
@@ -109,6 +166,25 @@ const LANGUAGES = {
     suggestionsTitle: "Te puede interesar",
     suggestionsSubtitle: "Herramientas relacionadas",
     suggestions: ["Calculadora de edad", "Calculadora de días hábiles", "Calculadora de vencimiento"],
+    faqTitle: "Preguntas frecuentes",
+    faq: [
+      {
+        q: "¿Esta calculadora incluye o excluye la fecha de inicio y fin?",
+        a: "Esta calculadora cuenta el número total de días transcurridos entre las dos fechas. La fecha de fin se excluye del conteo — es decir, el número mostrado representa los días completos que han pasado. Por ejemplo, del 1 de enero al 2 de enero es 1 día, no 2. Esta es la convención más común y coincide con cómo la mayoría de sistemas informáticos y contratos financieros calculan las diferencias de fechas.",
+      },
+      {
+        q: "¿Cuántos días tiene un año?",
+        a: "Un año estándar tiene 365 días. Un año bisiesto tiene 366 días y ocurre cada cuatro años (con excepciones para los años seculares no divisibles por 400). Para calcular con precisión el número de años entre dos fechas específicas, se debe usar el calendario real para tener en cuenta los años bisiestos.",
+      },
+      {
+        q: "¿Cuál es la diferencia entre días transcurridos y días restantes?",
+        a: "Los días transcurridos son el número de días desde una fecha pasada hasta hoy (u otra fecha de referencia). Los días restantes son el número de días desde hoy hasta una fecha futura. Ambos usan la misma resta subyacente, pero la dirección y el contexto son diferentes.",
+      },
+      {
+        q: "¿Cómo calculo exactamente cuántas semanas hay entre dos fechas?",
+        a: "Divide el número total de días por 7. La parte entera del resultado es el número de semanas completas. El resto indica los días adicionales. Por ejemplo, 45 días son 6 semanas y 3 días (45 ÷ 7 = 6 resto 3).",
+      },
+    ],
   },
 };
 
@@ -316,28 +392,14 @@ export default function DateDifferenceCalculator() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold text-white">{content.faqTitle}</h2>
                 <div className="mt-4 space-y-5">
-                  <div>
-                    <h3 className="font-semibold text-white">Does this calculator include or exclude the start and end date?</h3>
-                    <p className="mt-1 text-white/70">This calculator counts the total number of days elapsed between the two dates. The end date is excluded from the count — meaning the number shown represents complete days that have passed. For example, from January 1 to January 2 is 1 day, not 2. This is the most common convention and matches how most software systems and financial contracts calculate date differences.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">How many days are in a year?</h3>
-                    <p className="mt-1 text-white/70">A standard year has 365 days. A leap year has 366 days, occurring every four years (with exceptions for century years not divisible by 400). For long-range astronomical calculations, the average Gregorian year is 365.2425 days — often approximated as 365.25 days for rough purposes. When calculating an exact number of years between two specific dates, the actual calendar must be used to account for leap years precisely.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">What is the difference between days elapsed and days remaining?</h3>
-                    <p className="mt-1 text-white/70">Days elapsed is the count of days from a past date to today (or another reference date). Days remaining is the count of days from today until a future date. Both use the same underlying subtraction, but the direction and framing are different. A project that started 45 days ago and is due in 15 days has 45 elapsed days and 15 remaining days in a total project duration of 60 days.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">How do I calculate exactly how many weeks are between two dates?</h3>
-                    <p className="mt-1 text-white/70">Divide the total number of days by 7. The whole number part of the result is the number of complete weeks. The remainder tells you the extra days. For example, 45 days is 6 weeks and 3 days (45 ÷ 7 = 6 remainder 3). If you want to know whether two dates are exactly a whole number of weeks apart, check that the day of the week is the same for both dates.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">What is the Unix epoch / Unix timestamp?</h3>
-                    <p className="mt-1 text-white/70">The Unix epoch is the reference point used in most software systems for representing time: midnight on January 1, 1970, Coordinated Universal Time (UTC). A Unix timestamp is the number of seconds that have elapsed since that moment. For example, January 1, 2024 00:00:00 UTC is Unix timestamp 1704067200. This integer representation makes date arithmetic extremely fast for computers, since calculating the difference between two timestamps is just a single subtraction operation.</p>
-                  </div>
+                  {content.faq.map((item: { q: string; a: string }, i: number) => (
+                    <div key={i}>
+                      <h3 className="font-semibold text-white">{item.q}</h3>
+                      <p className="mt-1 text-white/70">{item.a}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </article>
