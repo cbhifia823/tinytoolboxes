@@ -7,6 +7,7 @@ import {
   InfoIcon,
   ThemeIcon,
 } from "@/components/icons";
+import { useLocale, UI_COPY, type LocaleKey } from "@/lib/locale";
 
 interface HomeProps {
   error?: Error;
@@ -307,7 +308,7 @@ function CopyablePrompt({
         "copyable-prompt-tooltip inline-flex cursor-pointer items-center gap-2 border-[var(--space-primary-muted)] text-left text-[var(--space-primary-muted)] transition-colors hover:border-[var(--space-primary)] hover:text-[var(--space-primary)]",
         className,
       ].join(" ")}
-      aria-label={`Copy prompt: ${prompt}`}
+      aria-label={`${UI_COPY[locale].copyPromptPrefix}${prompt}`}
     >
       {iconSide === "left" ? icon : null}
       <span>{children ?? prompt}</span>
@@ -358,11 +359,13 @@ function ThemePresetPanel({
   backgroundId,
   onThemeChange,
   onBackgroundChange,
+  locale,
 }: {
   themeId: SpaceThemeId;
   backgroundId: SpaceBackgroundId;
   onThemeChange: (id: SpaceThemeId) => void;
   onBackgroundChange: (id: SpaceBackgroundId) => void;
+  locale: LocaleKey;
 }) {
   const [open, setOpen] = React.useState(true);
   const selectedTheme = SPACE_THEME_PRESETS.find(
@@ -387,13 +390,13 @@ function ThemePresetPanel({
       >
         <div className="mb-2 flex items-center justify-between gap-2">
           <p className="text-sm font-normal text-muted-foreground">
-            Ask Zo to update theme
+            {UI_COPY[locale].askZoUpdateTheme}
           </p>
           <button
             type="button"
             onClick={() => setOpen(false)}
             className="cursor-pointer rounded-md p-1 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
-            aria-label="Collapse theme picker"
+            aria-label={UI_COPY[locale].collapseThemePicker}
           >
             <CloseIcon className="size-4" />
           </button>
@@ -415,7 +418,7 @@ function ThemePresetPanel({
           />
         </div>
         <PresetSection
-          title="Background"
+          title={UI_COPY[locale].background}
           presets={SPACE_BACKGROUND_PRESETS}
           selectedId={backgroundId}
           onSelect={onBackgroundChange}
@@ -431,7 +434,7 @@ function ThemePresetPanel({
             ? "pointer-events-none scale-95 opacity-0"
             : "pointer-events-auto scale-100 opacity-100",
         ].join(" ")}
-        aria-label="Open theme picker"
+        aria-label={UI_COPY[locale].openThemePicker}
       >
         <ThemeIcon className="size-4" />
       </button>
@@ -672,6 +675,7 @@ export default function Home({ error }: HomeProps) {
   const [backgroundId, setBackgroundId] = React.useState<SpaceBackgroundId>(
     DEFAULT_SPACE_BACKGROUND_ID,
   );
+  const locale = useLocale();
 
   return (
     <main
@@ -714,6 +718,7 @@ export default function Home({ error }: HomeProps) {
         backgroundId={backgroundId}
         onThemeChange={setThemeId}
         onBackgroundChange={setBackgroundId}
+        locale={locale}
       />
     </main>
   );

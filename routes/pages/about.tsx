@@ -20,7 +20,7 @@ const LANGUAGES: Record<LocaleKey, { kicker: string; title: string; p1: string; 
     kicker: "TinyToolboxes",
     title: "關於",
     p1: "TinyToolboxes 係一組簡單、單一用途嘅網頁工具，幫你快快搞掂日常任務。冇多餘嘢，唔使登入，每頁專注做好一件事。",
-    p2: "每個工具都專注於完成一項任務——計算器、轉換器、計數器——而不強迫您通過註冊或隱藏答案在廣告後面。該網站是作為個人項目構建和維護的，對任何發現這些工具有用的人開放。",
+    p2: "每個工具都專注做一件嘢——計算器、轉換器、計數器——唔使您註冊，亦唔會將答案收埋喺廣告後面。呢個網站係個人項目，由我一手一腳建構同維護，歡迎任何覺得呢啲工具有用嘅人使用。",
   },
   "zh-cn": {
     kicker: "TinyToolboxes",

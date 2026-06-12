@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { pageRoutes } from "../routes/pages";
 import { pathToTitle } from "../lib/text";
+import { useLocale, UI_COPY } from "./lib/locale";
 
 const SEO_MANAGED_ATTR = "data-zo-default-seo";
 
@@ -13,9 +14,10 @@ function getOgImageUrl(handle: string, path: string): string {
 }
 
 function PageLoader() {
+  const locale = useLocale();
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground">Loading...</div>
+      <div className="animate-pulse text-muted-foreground">{UI_COPY[locale].loading}</div>
     </div>
   );
 }
@@ -171,6 +173,7 @@ function SeoDefaults() {
 }
 
 function NotFound() {
+  const locale = useLocale();
   const custom404Route = window.__ZO_SITE_SETTINGS__?.custom_404_route;
   const Custom404 = custom404Route
     ? pageRoutes[custom404Route]?.component
@@ -190,7 +193,7 @@ function NotFound() {
     <div className="min-h-screen bg-background flex items-center justify-center">
       <div className="text-center space-y-2">
         <h1 className="text-4xl font-bold text-foreground">404</h1>
-        <p className="text-muted-foreground">Page not found</p>
+        <p className="text-muted-foreground">{UI_COPY[locale].pageNotFound}</p>
       </div>
     </div>
   );
@@ -207,6 +210,7 @@ function NotFound() {
 // Paid users can also disable this badge via Space Settings, which sets
 // `hide_built_on_zo_badge` on `window.__ZO_SITE_SETTINGS__`.
 function BuiltOnZoBadge() {
+  const locale = useLocale();
   const [hovered, setHovered] = React.useState(false);
   const href = import.meta.env.VITE_ZO_BADGE_HREF || "https://zo.computer";
 
@@ -253,7 +257,7 @@ function BuiltOnZoBadge() {
         transition:
           "background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease, transform 180ms ease",
       }}
-      aria-label="Built on Zo"
+      aria-label={UI_COPY[locale].builtOnZo}
     >
       <img
         src="/favicon.svg"
@@ -267,7 +271,7 @@ function BuiltOnZoBadge() {
           transition: "filter 180ms ease",
         }}
       />
-      <span>Built on Zo</span>
+      <span>{UI_COPY[locale].builtOnZo}</span>
     </a>
   );
 }
