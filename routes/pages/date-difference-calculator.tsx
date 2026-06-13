@@ -52,6 +52,41 @@ const LANGUAGES = {
     articleTitle3: "Practical Uses for Date Difference",
     articleTitle4: "Working Days vs Calendar Days",
     articleTitle5: "Date Formats Around the World",
+    article1: [
+      "Calculating the number of days between two dates seems like simple arithmetic — but it hides surprising complexity. The most fundamental challenge is that months have different lengths: January has 31 days, February has 28 or 29, April has 30, and so on. A naive approach of multiplying months by 30 will produce errors that compound over longer date ranges.",
+      "Leap years add another layer of complexity. A year is a leap year if it is divisible by 4 — except that century years (1900, 2100) are not leap years unless they are also divisible by 400 (making 2000 a leap year but 2100 not). This means that calculating \"how many days from February 28, 1900 to February 28, 1904\" requires knowing that 1900 was not a leap year despite being divisible by 4.",
+      "Different calendar systems add a further dimension of difficulty. The Gregorian calendar used internationally today replaced the Julian calendar in most of Europe during the 16th–18th centuries. Dates before those transitions differ between the two systems. Lunar calendars (used for religious and cultural observances in Islamic, Hebrew, Chinese, and Hindu traditions) add months differently and cannot be converted to Gregorian dates with simple arithmetic.",
+    ],
+    article2: [
+      "Modern date-difference calculators use a common approach: convert both dates to a numeric representation based on days elapsed since a fixed reference point, subtract the two numbers, then convert back to a human-readable format.",
+      "The most widely used reference point in software is the Unix epoch: midnight on January 1, 1970 (UTC). Every moment in time can be expressed as the number of seconds (or milliseconds) since that point. To find the number of days between two dates, subtract their epoch values and divide by 86,400 (the number of seconds in a day).",
+      "When you need a breakdown in years, months, and days — rather than just total days — the algorithm becomes more involved. The standard approach subtracts year-by-year first, then month-by-month, adjusting for the fact that months have different lengths. For example, one month after January 31 is February 28 (or 29 in a leap year), not March 3. This \"end-of-month\" adjustment is a frequent source of discrepancy between different date calculators.",
+    ],
+    article3: [
+      "Knowing the exact number of days between two dates has a wide range of real-world applications across personal, professional, and medical contexts:",
+    ],
+    article3List: [
+      { label: "Project management", text: "Calculate elapsed time from project kick-off to today, or total duration from start to deadline, to track progress against milestones." },
+      { label: "Age calculation", text: "Determine exact age in years, months, and days from a birth date to today — or between any two dates." },
+      { label: "Loan and lease terms", text: "Calculate the exact number of days in a loan period for interest accrual, or verify that a lease runs for the contracted number of months." },
+      { label: "Event countdowns", text: "Count down the days until a wedding, product launch, exam, or holiday." },
+      { label: "Anniversaries", text: "Find how many days have passed since a significant event — a business founding date, a sobriety milestone, or a relationship anniversary." },
+      { label: "Medical and health", text: "Pregnancy due date calculation uses 280 days (40 weeks) from the last menstrual period. Medication courses, recovery timelines, and follow-up appointments are often scheduled a specific number of days from a reference date." },
+    ],
+    article4: [
+      "One of the most important distinctions in date calculations is whether you are counting calendar days or working days (also called business days). The difference is significant: 30 calendar days span roughly 4 weeks and 2 days, while 30 working days span approximately 6 calendar weeks once weekends are excluded.",
+      "Commercial contracts typically use calendar days for payment terms (Net 30, Net 60) because they create a predictable, fixed date that both parties can calculate independently without needing to agree on which days are holidays. Service-level agreements (SLAs), on the other hand, frequently use business days because it is unreasonable to require a vendor to deliver work on a weekend or a public holiday.",
+      "For international date notation, ISO 8601 is the globally recognised standard: dates are written as YYYY-MM-DD. This format is unambiguous across all locales, sorts correctly as text, and is the format used in databases, APIs, and software systems worldwide. The ISO 8601 standard also defines durations (P1Y2M3D = 1 year, 2 months, 3 days) and time intervals, making it the most comprehensive framework for date and time communication.",
+    ],
+    article5: [
+      "Date formatting conventions vary dramatically by country and region, and the ambiguity they create causes real-world errors in contracts, travel bookings, medical records, and software systems.",
+    ],
+    article5List: [
+      { label: "MM/DD/YYYY (United States)", text: "The month-first format used in the US is unique among major economies. January 2 is written as 01/02/2024." },
+      { label: "DD/MM/YYYY (UK, Australia, most of Europe, India, Latin America)", text: "The day-first format is far more widespread globally. The same date, February 1, would be written as 01/02/2024 — identical to the US notation for January 2." },
+      { label: "YYYY/MM/DD (ISO 8601, China, Japan, Korea)", text: "The year-first format is used in East Asia and is also the basis for ISO 8601. January 2, 2024 is 2024/01/02 or 2024-01-02 in ISO notation." },
+    ],
+    article5Footer: "The ambiguity of formats like 01/02/2024 is dangerous — it means January 2 in the US and February 1 in the UK. Whenever writing a date for an international audience, use the YYYY-MM-DD format or spell out the month name (e.g. \"2 January 2024」) to eliminate any possibility of misreading.",
   },
   "zh-hk": {
     name: "繁體中文",
@@ -103,6 +138,41 @@ const LANGUAGES = {
     articleTitle3: "日期差嘅實際用途",
     articleTitle4: "工作日同日曆日嘅分別",
     articleTitle5: "世界各地嘅日期格式",
+    article1: [
+      "計兩個日期之間有幾多日睇落好似好簡單嘅算術——但查實背後隱藏住令人意外嘅複雜性。最基本嘅挑戰係每個月嘅日數都唔同：1月有31日，2月有28或者29日，4月有30日，如此類推。一個天真嘅做法係將月份乘30，但咁樣喺長嘅日期範圍入面會累積誤差。",
+      "閏年帶嚟另一層複雜性。年份如果可以整除4就係閏年——但係世紀年份（1900、2100）除非仲可以整除400，否則唔係閏年（所以2000年係閏年，但2100年唔係）。呢個意思即係，計「1900年2月28號到1904年2月28號之間有幾多日」需要知道1900年雖然可以被4整除，但唔係閏年。",
+      "唔同嘅曆法系統帶嚟更多嘅難度。今日國際通用嘅公曆喺16至18世紀期間取代咗歐洲大部份地區嘅儒略曆。喺轉換之前嘅日期，兩個系統會有差異。陰曆（喺伊斯蘭、希伯來、中國同印度傳統入面用嚟做宗教同文化紀念）添加月份嘅方式唔同，冇辦法用簡單嘅算術轉換成公曆日期。",
+    ],
+    article2: [
+      "現代日期差計算器用一個通用嘅方法：將兩個日期都轉換成以固定參考點起計嘅日數數字表示，將兩個數字相減，然後轉換返做人類睇得明嘅格式。",
+      "軟件入面最常用嘅參考點係Unix紀元：1970年1月1號午夜（UTC）。每一個時間點都可以表示為由嗰一刻開始經過嘅秒數（或者毫秒數）。要搵出兩個日期之間嘅日數，只需要將佢哋嘅紀元值相減，然後除以86,400（一日嘅秒數）。",
+      "當你需要嘅係年、月、日嘅詳細拆解——而唔單止係總日數——演算法就會變得更加複雜。標準做法係先逐年減，然後逐月減，需要調整每個月日數唔同嘅事實。例如，1月31號之後一個月係2月28號（閏年就係29號），而唔係3月3號。呢種「月底調整」係唔同日期計算器之間成日出現差異嘅原因。",
+    ],
+    article3: [
+      "知道兩個日期之間嘅準確日數喺個人、專業同醫療範疇有廣泛嘅實際應用：",
+    ],
+    article3List: [
+      { label: "項目管理", text: "計算由項目啟動到今日經過咗幾多時間，或者由開始到截止日期嘅總持續時間，用嚟追蹤進度係咪符合里程碑。" },
+      { label: "年齡計算", text: "由出生日期到今日——或者任何兩個日期之間——準確計出歲數、月數同日數。" },
+      { label: "貸款同租約條款", text: "計算貸款期嘅準確日數用嚟計利息，或者驗證租約係咪按照合約嘅月數執行。" },
+      { label: "活動倒數", text: "倒數距離婚禮、產品發布、考試或者假期仲有幾多日。" },
+      { label: "紀念日", text: "搵出由某個重要事件到而家經過咗幾多日——例如公司創立日期、戒酒里程碑，或者感情紀念日。" },
+      { label: "醫療同健康", text: "懷孕預產期計算使用由最後一次經期起計280日（40週）。藥物療程、康復時間表同覆診預約通常都係由參考日期起計特定日數嚟安排。" },
+    ],
+    article4: [
+      "日期計算入面最重要嘅區分之一就係你數緊嘅係日曆日定係工作日（又叫營業日）。兩者嘅差別好大：30個日曆日大約等於4個星期零2日，而30個工作日撇除週末之後大約等於6個日曆星期。",
+      "商業合約通常用日曆日嚟計付款期限（Net 30、Net 60），因為咁樣可以產生一個雙方都可以獨立計算嘅可預測固定日期，唔需要同意邊啲日子係假期。另一方面，服務水平協議（SLA）成日都用工作日，因為要求供應商喺週末或者公眾假期交付工作係唔合理嘅。",
+      "對於國際日期標記，ISO 8601係全球公認嘅標準：日期寫成YYYY-MM-DD。呢個格式喺所有地區都冇歧義，按文字排序時會正確排列，亦都係全球數據庫、API同軟件系統入面使用嘅格式。ISO 8601標準仲定義咗持續時間（P1Y2M3D = 1年2個月3日）同時間間隔，係最全面嘅日期同時間溝通框架。",
+    ],
+    article5: [
+      "日期格式慣例喺唔同國家同地區之間差異好大，而佢哋造成嘅歧義會喺合約、旅行預訂、醫療記錄同軟件系統入面引致真實世界嘅錯誤。",
+    ],
+    article5List: [
+      { label: "MM/DD/YYYY（美國）", text: "美國使用嘅月份先行格式喺主要經濟體入面獨一無二。1月2號會寫成01/02/2024。" },
+      { label: "DD/MM/YYYY（英國、澳洲、大部份歐洲、印度、拉丁美洲）", text: "日期先行格式喺全球廣泛得多。同樣嘅日期，2月1號會寫成01/02/2024——同美國標記1月2號嘅寫法一模一樣。" },
+      { label: "YYYY/MM/DD（ISO 8601、中國、日本、韓國）", text: "年份先行格式喺東亞使用，亦都係ISO 8601嘅基礎。2024年1月2號係2024/01/02或者2024-01-02（ISO標記）。" },
+    ],
+    article5Footer: "好似01/02/2024咁樣嘅格式歧義係危險嘅——喺美國佢代表1月2號，喺英國就代表2月1號。任何時候寫日期俾國際受眾，都應該用YYYY-MM-DD格式，或者拼寫出月份名（例如「2 January 2024」）嚟消除任何誤讀嘅可能性。",
   },
   "zh-cn": {
     name: "简体中文",
@@ -154,6 +224,41 @@ const LANGUAGES = {
     articleTitle3: "日期差的实际用途",
     articleTitle4: "工作日与日历日的区别",
     articleTitle5: "世界各地的日期格式",
+    article1: [
+      "计算两个日期之间的天数看起来像是简单的算术——但实际上隐藏着令人意外的复杂性。最基本的挑战是每个月的天数都不同：1月有31天，2月有28或29天，4月有30天，以此类推。一个天真的做法是将月份乘以30，但这会在较长的日期范围内累积误差。",
+      "闰年带来另一层复杂性。年份如果可以整除4就是闰年——但世纪年份（1900、2100）除非还可以整除400，否则不是闰年（所以2000年是闰年，但2100年不是）。这意味着，计算「1900年2月28日到1904年2月28日之间有多少天」需要知道1900年虽然可以被4整除，但不是闰年。",
+      "不同的历法系统带来更多的难度。今日国际通用的公历在16至18世纪期间取代了欧洲大部分地区的儒略历。在转换之前的日期，两个系统会有差异。阴历（在伊斯兰、希伯来、中国和印度传统中用于宗教和文化纪念）添加月份的方式不同，无法用简单的算术转换成公历日期。",
+    ],
+    article2: [
+      "现代日期差计算器使用一个通用的方法：将两个日期都转换成以固定参考点起计的天数数字表示，将两个数字相减，然后转换回人类可读的格式。",
+      "软件中最常用的参考点是Unix纪元：1970年1月1日午夜（UTC）。每个时间点都可以表示为从那一刻开始经过的秒数（或毫秒数）。要找出两个日期之间的天数，只需将它们的纪元值相减，然后除以86,400（一天的秒数）。",
+      "当你需要的是年、月、日的详细分解——而不仅仅是总天数——算法就会变得更加复杂。标准做法是先逐年减，然后逐月减，需要调整每个月的天数不同的事实。例如，1月31日之后一个月是2月28日（闰年则是29日），而不是3月3日。这种「月底调整」是不同日期计算器之间经常出现差异的原因。",
+    ],
+    article3: [
+      "知道两个日期之间的准确天数在个人、专业和医疗领域有广泛的实际应用：",
+    ],
+    article3List: [
+      { label: "项目管理", text: "计算从项目启动到今天经过了多少时间，或从开始到截止日期的总持续时间，用于追踪进度是否符合里程碑。" },
+      { label: "年龄计算", text: "从出生日期到今天——或任何两个日期之间——准确计算出岁数、月数和天数。" },
+      { label: "贷款和租约条款", text: "计算贷款期的准确天数用于计算利息，或验证租约是否按合同的月数执行。" },
+      { label: "活动倒计时", text: "倒计时距离婚礼、产品发布、考试或假期还有多少天。" },
+      { label: "纪念日", text: "找出从某个重要事件到现在经过了多少天——例如公司创立日期、戒酒里程碑，或感情纪念日。" },
+      { label: "医疗和健康", text: "怀孕预产期计算使用从最后一次经期起计280天（40周）。药物疗程、康复时间表和复诊预约通常都是由参考日期起计特定天数来安排。" },
+    ],
+    article4: [
+      "日期计算中最重要的区分之一就是你在数的是日历日还是工作日（也叫营业日）。两者的差别很大：30个日历日大约等于4周零2天，而30个工作日撇除周末后大约等于6个日历周。",
+      "商业合同通常使用日历日来计算付款期限（Net 30、Net 60），因为这样可以产生一个双方都可以独立计算的可预测固定日期，不需要同意哪些日子是假期。另一方面，服务水平协议（SLA）经常使用工作日，因为要求供应商在周末或公共假期交付工作是不合理的。",
+      "对于国际日期标记，ISO 8601是全球公认的标准：日期写成YYYY-MM-DD。这个格式在所有地区都没有歧义，按文字排序时会正确排列，也是全球数据库、API和软件系统中使用的格式。ISO 8601标准还定义了持续时间（P1Y2M3D = 1年2个月3天）和时间间隔，是最全面的日期和时间沟通框架。",
+    ],
+    article5: [
+      "日期格式惯例在不同国家和地区之间差异很大，而它们造成的歧义会在合同、旅行预订、医疗记录和软件系统中引致真实世界的错误。",
+    ],
+    article5List: [
+      { label: "MM/DD/YYYY（美国）", text: "美国使用的月份先行格式在主要经济体中独一无二。1月2日会写成01/02/2024。" },
+      { label: "DD/MM/YYYY（英国、澳大利亚、大部分欧洲、印度、拉丁美洲）", text: "日期先行格式在全球广泛得多。同样的日期，2月1日会写成01/02/2024——与美国标记1月2日的写法一模一样。" },
+      { label: "YYYY/MM/DD（ISO 8601、中国、日本、韩国）", text: "年份先行格式在东亚使用，也是ISO 8601的基础。2024年1月2日是2024/01/02或2024-01-02（ISO标记）。" },
+    ],
+    article5Footer: "像01/02/2024这样的格式歧义是危险的——在美国它代表1月2日，在英国则代表2月1日。任何时候写日期给国际受众，都应该使用YYYY-MM-DD格式，或拼写出月份名称（例如「2 January 2024」）来消除任何误读的可能性。",
   },
   es: {
     name: "Español",
@@ -205,6 +310,41 @@ const LANGUAGES = {
     articleTitle3: "Usos prácticos de las diferencias de fechas",
     articleTitle4: "Días laborables vs días naturales",
     articleTitle5: "Formatos de fecha en el mundo",
+    article1: [
+      "Calcular el número de días entre dos fechas parece aritmética sencilla, pero esconde una complejidad sorprendente. El desafío más fundamental es que los meses tienen diferentes longitudes: enero tiene 31 días, febrero tiene 28 o 29, abril tiene 30, y así sucesivamente. Un enfoque ingenuo de multiplicar los meses por 30 producirá errores que se acumulan en rangos de fechas más largos.",
+      "Los años bisiestos añaden otra capa de complejidad. Un año es bisiesto si es divisible por 4, excepto que los años seculares (1900, 2100) no son bisiestos a menos que también sean divisibles por 400 (haciendo que 2000 sea bisiesto pero 2100 no). Esto significa que calcular \"cuántos días hay del 28 de febrero de 1900 al 28 de febrero de 1904\" requiere saber que 1900 no fue bisiesto a pesar de ser divisible por 4.",
+      "Los diferentes sistemas de calendario añaden otra dimensión de dificultad. El calendario gregoriano utilizado internacionalmente hoy reemplazó al calendario juliano en la mayor parte de Europa durante los siglos XVI al XVIII. Las fechas anteriores a esas transiciones difieren entre los dos sistemas. Los calendarios lunares (utilizados para observancias religiosas y culturales en las tradiciones islámica, hebrea, china e hindú) añaden meses de manera diferente y no pueden convertirse a fechas gregorianas con aritmética simple.",
+    ],
+    article2: [
+      "Las calculadoras modernas de diferencia de fechas utilizan un enfoque común: convierten ambas fechas a una representación numérica basada en los días transcurridos desde un punto de referencia fijo, restan los dos números y luego vuelven a convertirlos a un formato legible.",
+      "El punto de referencia más utilizado en software es la época Unix: medianoche del 1 de enero de 1970 (UTC). Cada momento en el tiempo puede expresarse como el número de segundos (o milisegundos) desde ese punto. Para encontrar el número de días entre dos fechas, resta sus valores de época y divide por 86.400 (el número de segundos en un día).",
+      "Cuando necesitas un desglose en años, meses y días — en lugar de solo el total de días — el algoritmo se vuelve más complejo. El enfoque estándar resta año por año primero, luego mes por mes, ajustando por el hecho de que los meses tienen diferentes longitudes. Por ejemplo, un mes después del 31 de enero es el 28 de febrero (o 29 en año bisiesto), no el 3 de marzo. Este ajuste de \"fin de mes\" es una fuente frecuente de discrepancias entre diferentes calculadoras de fechas.",
+    ],
+    article3: [
+      "Conocer el número exacto de días entre dos fechas tiene una amplia gama de aplicaciones en contextos personales, profesionales y médicos:",
+    ],
+    article3List: [
+      { label: "Gestión de proyectos", text: "Calcula el tiempo transcurrido desde el inicio del proyecto hasta hoy, o la duración total desde el inicio hasta la fecha límite, para hacer seguimiento del progreso respecto a los hitos." },
+      { label: "Cálculo de edad", text: "Determina la edad exacta en años, meses y días desde una fecha de nacimiento hasta hoy, o entre dos fechas cualesquiera." },
+      { label: "Condiciones de préstamos y arrendamientos", text: "Calcula el número exacto de días en un período de préstamo para la acumulación de intereses, o verifica que un arrendamiento dure el número de meses contratado." },
+      { label: "Cuentas regresivas de eventos", text: "Cuenta los días que faltan para una boda, lanzamiento de producto, examen o festividad." },
+      { label: "Aniversarios", text: "Averigua cuántos días han pasado desde un evento significativo: la fecha de fundación de un negocio, un hito de sobriedad o un aniversario de relación." },
+      { label: "Medicina y salud", text: "El cálculo de la fecha prevista de parto utiliza 280 días (40 semanas) desde el último período menstrual. Los tratamientos médicos, los plazos de recuperación y las citas de seguimiento suelen programarse a un número específico de días desde una fecha de referencia." },
+    ],
+    article4: [
+      "Una de las distinciones más importantes en los cálculos de fechas es si estás contando días naturales o días laborables (también llamados días hábiles). La diferencia es significativa: 30 días naturales abarcan aproximadamente 4 semanas y 2 días, mientras que 30 días laborables abarcan aproximadamente 6 semanas naturales una vez excluidos los fines de semana.",
+      "Los contratos comerciales suelen utilizar días naturales para los plazos de pago (Net 30, Net 60) porque crean una fecha fija y predecible que ambas partes pueden calcular de forma independiente sin necesidad de acordar qué días son festivos. Los acuerdos de nivel de servicio (SLA), por otro lado, utilizan frecuentemente días hábiles porque no es razonable exigir a un proveedor que entregue trabajo en fin de semana o en un día festivo.",
+      "Para la notación internacional de fechas, ISO 8601 es el estándar reconocido mundialmente: las fechas se escriben como AAAA-MM-DD. Este formato no es ambiguo en todas las configuraciones regionales, se ordena correctamente como texto y es el formato utilizado en bases de datos, API y sistemas de software en todo el mundo. El estándar ISO 8601 también define duraciones (P1A2M3D = 1 año, 2 meses, 3 días) e intervalos de tiempo, siendo el marco más completo para la comunicación de fechas y horas.",
+    ],
+    article5: [
+      "Las convenciones de formato de fecha varían enormemente según el país y la región, y la ambigüedad que crean causa errores reales en contratos, reservas de viajes, registros médicos y sistemas de software.",
+    ],
+    article5List: [
+      { label: "MM/DD/AAAA (Estados Unidos)", text: "El formato de mes primero utilizado en EE. UU. es único entre las principales economías. El 2 de enero se escribe como 01/02/2024." },
+      { label: "DD/MM/AAAA (Reino Unido, Australia, la mayor parte de Europa, India, América Latina)", text: "El formato de día primero está mucho más extendido a nivel mundial. La misma fecha, el 1 de febrero, se escribiría como 01/02/2024, idéntica a la notación estadounidense para el 2 de enero." },
+      { label: "AAAA/MM/DD (ISO 8601, China, Japón, Corea)", text: "El formato de año primero se utiliza en Asia Oriental y también es la base de ISO 8601. El 2 de enero de 2024 es 2024/01/02 o 2024-01-02 en notación ISO." },
+    ],
+    article5Footer: "La ambigüedad de formatos como 01/02/2024 es peligrosa: significa 2 de enero en EE. UU. y 1 de febrero en el Reino Unido. Siempre que escribas una fecha para una audiencia internacional, utiliza el formato AAAA-MM-DD o escribe el nombre del mes (por ejemplo, \"2 January 2024」) para eliminar cualquier posibilidad de mala interpretación.",
   },
 };
 
@@ -368,47 +508,54 @@ export default function DateDifferenceCalculator() {
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
               <div>
                 <h2 className="text-2xl font-bold text-white">{content.articleTitle1}</h2>
-                <p className="mt-3 leading-7">Calculating the number of days between two dates seems like simple arithmetic — but it hides surprising complexity. The most fundamental challenge is that months have different lengths: January has 31 days, February has 28 or 29, April has 30, and so on. A naive approach of multiplying months by 30 will produce errors that compound over longer date ranges.</p>
-                <p className="mt-3 leading-7">Leap years add another layer of complexity. A year is a leap year if it is divisible by 4 — except that century years (1900, 2100) are not leap years unless they are also divisible by 400 (making 2000 a leap year but 2100 not). This means that calculating "how many days from February 28, 1900 to February 28, 1904" requires knowing that 1900 was not a leap year despite being divisible by 4.</p>
-                <p className="mt-3 leading-7">Different calendar systems add a further dimension of difficulty. The Gregorian calendar used internationally today replaced the Julian calendar in most of Europe during the 16th–18th centuries. Dates before those transitions differ between the two systems. Lunar calendars (used for religious and cultural observances in Islamic, Hebrew, Chinese, and Hindu traditions) add months differently and cannot be converted to Gregorian dates with simple arithmetic.</p>
+                {content.article1.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold text-white">{content.articleTitle2}</h2>
-                <p className="mt-3 leading-7">Modern date-difference calculators use a common approach: convert both dates to a numeric representation based on days elapsed since a fixed reference point, subtract the two numbers, then convert back to a human-readable format.</p>
-                <p className="mt-3 leading-7">The most widely used reference point in software is the Unix epoch: midnight on January 1, 1970 (UTC). Every moment in time can be expressed as the number of seconds (or milliseconds) since that point. To find the number of days between two dates, subtract their epoch values and divide by 86,400 (the number of seconds in a day).</p>
-                <p className="mt-3 leading-7">When you need a breakdown in years, months, and days — rather than just total days — the algorithm becomes more involved. The standard approach subtracts year-by-year first, then month-by-month, adjusting for the fact that months have different lengths. For example, one month after January 31 is February 28 (or 29 in a leap year), not March 3. This "end-of-month" adjustment is a frequent source of discrepancy between different date calculators.</p>
+                {content.article2.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold text-white">{content.articleTitle3}</h2>
-                <p className="mt-3 leading-7">Knowing the exact number of days between two dates has a wide range of real-world applications across personal, professional, and medical contexts:</p>
-                <ul className="mt-3 space-y-2 text-white/70">
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Project management:</strong> Calculate elapsed time from project kick-off to today, or total duration from start to deadline, to track progress against milestones.</li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Age calculation:</strong> Determine exact age in years, months, and days from a birth date to today — or between any two dates.</li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Loan and lease terms:</strong> Calculate the exact number of days in a loan period for interest accrual, or verify that a lease runs for the contracted number of months.</li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Event countdowns:</strong> Count down the days until a wedding, product launch, exam, or holiday.</li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Anniversaries:</strong> Find how many days have passed since a significant event — a business founding date, a sobriety milestone, or a relationship anniversary.</li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Medical and health:</strong> Pregnancy due date calculation uses 280 days (40 weeks) from the last menstrual period. Medication courses, recovery timelines, and follow-up appointments are often scheduled a specific number of days from a reference date.</li>
-                </ul>
+                {content.article3.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
+                {content.article3List && (
+                  <ul className="mt-3 space-y-2 text-white/70">
+                    {content.article3List.map((item: { label: string; text: string }, i: number) => (
+                      <li key={i} className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">{item.label}:</strong> {item.text}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold text-white">{content.articleTitle4}</h2>
-                <p className="mt-3 leading-7">One of the most important distinctions in date calculations is whether you are counting calendar days or working days (also called business days). The difference is significant: 30 calendar days span roughly 4 weeks and 2 days, while 30 working days span approximately 6 calendar weeks once weekends are excluded.</p>
-                <p className="mt-3 leading-7">Commercial contracts typically use calendar days for payment terms (Net 30, Net 60) because they create a predictable, fixed date that both parties can calculate independently without needing to agree on which days are holidays. Service-level agreements (SLAs), on the other hand, frequently use business days because it is unreasonable to require a vendor to deliver work on a weekend or a public holiday.</p>
-                <p className="mt-3 leading-7">For international date notation, ISO 8601 is the globally recognised standard: dates are written as YYYY-MM-DD. This format is unambiguous across all locales, sorts correctly as text, and is the format used in databases, APIs, and software systems worldwide. The ISO 8601 standard also defines durations (P1Y2M3D = 1 year, 2 months, 3 days) and time intervals, making it the most comprehensive framework for date and time communication.</p>
+                {content.article4.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
               </div>
 
               <div>
                 <h2 className="text-2xl font-bold text-white">{content.articleTitle5}</h2>
-                <p className="mt-3 leading-7">Date formatting conventions vary dramatically by country and region, and the ambiguity they create causes real-world errors in contracts, travel bookings, medical records, and software systems.</p>
-                <ul className="mt-3 space-y-3 text-white/70">
-                  <li><strong className="text-white">MM/DD/YYYY (United States):</strong> The month-first format used in the US is unique among major economies. January 2 is written as 01/02/2024.</li>
-                  <li><strong className="text-white">DD/MM/YYYY (UK, Australia, most of Europe, India, Latin America):</strong> The day-first format is far more widespread globally. The same date, February 1, would be written as 01/02/2024 — identical to the US notation for January 2.</li>
-                  <li><strong className="text-white">YYYY/MM/DD (ISO 8601, China, Japan, Korea):</strong> The year-first format is used in East Asia and is also the basis for ISO 8601. January 2, 2024 is 2024/01/02 or 2024-01-02 in ISO notation.</li>
-                </ul>
-                <p className="mt-4 leading-7">The ambiguity of formats like 01/02/2024 is dangerous — it means January 2 in the US and February 1 in the UK. Whenever writing a date for an international audience, use the YYYY-MM-DD format or spell out the month name (e.g. "2 January 2024") to eliminate any possibility of misreading.</p>
+                {content.article5.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
+                {content.article5List && (
+                  <ul className="mt-3 space-y-3 text-white/70">
+                    {content.article5List.map((item: { label: string; text: string }, i: number) => (
+                      <li key={i}><strong className="text-white">{item.label}:</strong> {item.text}</li>
+                    ))}
+                  </ul>
+                )}
+                {content.article5Footer && (
+                  <p className="mt-4 leading-7">{content.article5Footer}</p>
+                )}
               </div>
 
               <div>
