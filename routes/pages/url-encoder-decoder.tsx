@@ -13,6 +13,96 @@ const LANGUAGES = {
     reserveAdSub: "之後可直接放 AdSense 程式碼。",
 adLabel: "Advertisement",
 adBadge: "Reserved",
+
+    inputLabel: "Entrada",
+    encodedLabel: "Codificado",
+    decodedLabel: "Decodificado",
+    sidebarTitle: "Uso rapido",
+    sidebarSub: "Para enlaces, cadenas de consulta y parametros.",
+    sidebarItem1: "Pega una URL sin codificar para codificarla.",
+    sidebarItem2: "Pega texto codificado para decodificarlo.",
+    articleTitle1: "Que es la codificacion de URL?",
+    article1: [
+      "Las URLs solo pueden contener de forma segura un subconjunto limitado de caracteres ASCII. Letras (A-Z, a-z), digitos (0-9) y algunos simbolos no reservados como guiones, guiones bajos, puntos y tildes se pueden usar tal cual. Todo lo demas - espacios, ampersands, signos de igual, almohadillas, caracteres no ASCII como chino o arabe, y muchos signos de puntuacion - deben transformarse antes de aparecer en una URL.",
+      "Esta transformacion se llama codificacion porcentual (comunmente llamada codificacion de URL), definida en RFC 3986. El estandar divide los caracteres de URL en reservados (con significado especial como / y ?) y no reservados (seguros en cualquier lugar). Los caracteres reservados deben codificarse cuando se usan fuera de su funcion estructural.",
+      "Sin codificacion de URL, una URL como https://example.com/search?q=hello world&lang=en seria ambigua para un servidor web. Codificada se convierte en https://example.com/search?q=hello%20world&lang=en, que no es ambigua.",
+    ],
+    articleTitle2: "Como funciona la codificacion porcentual",
+    article2: [
+      "Cada caracter que necesita codificacion se convierte primero a su representacion de bytes en UTF-8. Luego cada byte se escribe como un signo de porcentaje seguido de dos digitos hexadecimales.",
+      "Para caracteres ASCII: espacio (ASCII 32, hex 20) se convierte en %20. El arroba @ (ASCII 64, hex 40) se convierte en %40. Una barra diagonal / (ASCII 47, hex 2F) se convierte en %2F.",
+      "Para caracteres no ASCII: el caracter chino U+4F60 se codifica en UTF-8 como tres bytes: E4 BD A0, resultando en %E4%BD%A0. Por eso las URLs con chino, arabe o caracteres acentuados aparecen como largas cadenas codificadas.",
+    ],
+    articleTitle3: "Referencia de caracteres codificados comunes",
+    article3: ["Estos son los caracteres codificados porcentualmente mas frecuentes en las URLs."],
+    articleTitle4: "Cuando necesitas codificacion de URL?",
+    article4: [
+      "La codificacion de URL es necesaria cuando caracteres especiales aparecen donde serian malinterpretados.",
+      "Parametros de busqueda: Google codifica terminos como hello world a ?q=hello+world o ?q=hello%20world.",
+      "Envio de formularios HTML: los navegadores codifican los datos antes de enviarlos.",
+      "Solicitudes API con caracteres especiales: ampersands, signos de igual o barras deben codificarse.",
+      "Contenido no ASCII en URLs: compartir enlaces con titulos en chino o arabe requiere codificacion.",
+      "Enlaces de correo con asunto predefinido: los enlaces mailto requieren codificacion.",
+    ],
+    articleTitle5: "Codificacion URL vs Codificacion Base64",
+    article5: [
+      "La codificacion URL y Base64 son formas de representar datos como texto, pero con propositos diferentes.",
+      "La codificacion URL hace que el texto sea seguro para usar en URLs. Sigue siendo legible para ASCII y solo transforma caracteres problematicos.",
+      "Base64 convierte datos binarios (imagenes, archivos, protocolos binarios) en una cadena de 64 caracteres ASCII seguros. Aumenta el tamano ~33% y es ilegible sin decodificar.",
+    ],
+    faqTitle: "Preguntas frecuentes",
+    faq: [
+      { q: "Cual es la diferencia entre %20 y + para espacios en URLs?", a: "Ambos representan un espacio. %20 es la codificacion porcentual estricta, valida en cualquier parte de la URL. El signo + representa un espacio solo en cadenas de consulta (formato application/x-www-form-urlencoded). En rutas URL, + es un signo mas literal." },
+      { q: "Por que una URL tiene %E4%B8%AD en lugar de caracteres chinos reales?", a: "El caracter chino (U+4E2D) se codifica en UTF-8 como bytes E4 B8 AD, dando %E4%B8%AD. Los navegadores modernos muestran los caracteres decodificados en la barra de direcciones, pero la URL subyacente usa codificacion porcentual." },
+      { q: "Es la codificacion URL lo mismo que la codificacion de entidades HTML?", a: "No. La codificacion de entidades HTML usa &amp; para & o &lt; para <. Evita que los caracteres se interpreten como marcado HTML. La codificacion URL es un sistema separado para hacer que los caracteres sean seguros dentro de las URLs." },
+      { q: "Puedo usar esta herramienta para decodificar una URL de la barra de direcciones?", a: "Si. Pega la URL codificada y la version decodificada aparece inmediatamente. Util para leer consultas de busqueda, entender URLs de redireccion o inspeccionar endpoints API con parametros codificados." },
+      { q: "Que caracteres son seguros y no necesitan codificacion?", a: "Caracteres no reservados segun RFC 3986: letras A-Z y a-z, digitos 0-9, guion, guion bajo, punto y tilde. Estos nunca necesitan codificacion porcentual. Todos los demas caracteres, incluidos los estructurales (/, ?, #, &, =) y los no ASCII, deben codificarse cuando se usan como datos." },
+    ],
+
+    inputLabel: "Input",
+    encodedLabel: "Encoded",
+    decodedLabel: "Decoded",
+    sidebarTitle: "Quick use",
+    sidebarSub: "For links, query strings, and parameters.",
+    sidebarItem1: "Paste a raw URL to encode it.",
+    sidebarItem2: "Paste encoded text to decode it.",
+    articleTitle1: "What is URL Encoding?",
+    article1: [
+      "URLs can only safely contain a limited subset of ASCII characters. Letters (AZ, az), digits (09), and a handful of unreserved symbols like hyphens, underscores, periods, and tildes are safe to use as-is. Everything else - spaces, ampersands, equals signs, hash symbols, non-ASCII characters like Chinese or Arabic script, and many punctuation marks - must be transformed before they can appear in a URL.",
+      "This transformation is called percent-encoding (commonly called URL encoding). It is defined in RFC 3986. The standard divides URL characters into reserved (special meaning like / and ?) and unreserved (safe anywhere). Reserved characters must be encoded when used outside their intended structural role.",
+      "Without URL encoding, a URL like https://example.com/search?q=hello world&lang=en would be ambiguous. Encoding it produces https://example.com/search?q=hello%20world&lang=en, which is unambiguous.",
+    ],
+    articleTitle2: "How Percent-Encoding Works",
+    article2: [
+      "Each character that needs encoding is first converted to its byte representation in UTF-8. Then each byte is written as a percent sign followed by two hexadecimal digits.",
+      "For ASCII characters: space (32, 0x20) becomes %20. The at-sign @ (64, 0x40) becomes %40. A forward slash / (47, 0x2F) becomes %2F.",
+      "For non-ASCII: the Chinese character U+4F60 encodes to UTF-8 bytes E4 BD A0, becoming %E4%BD%A0. This is why Chinese, Arabic, or accented characters appear as long percent-encoded strings.",
+    ],
+    articleTitle3: "Common Encoded Characters Reference",
+    article3: ["Here are the most frequently encountered percent-encoded characters in URLs."],
+    articleTitle4: "When Do You Need URL Encoding?",
+    article4: [
+      "URL encoding is needed whenever special characters appear where they would be misinterpreted.",
+      "Search query parameters: Google encodes search terms like hello world as ?q=hello+world or ?q=hello%20world.",
+      "HTML form submissions: browsers encode input data before sending it.",
+      "API requests with special characters: ampersands, equals signs, or slashes must be encoded.",
+      "Non-ASCII content in URLs: Chinese or Arabic titles require encoding for valid URLs.",
+      "Email links with pre-filled subjects: mailto links require encoding for email clients.",
+    ],
+    articleTitle5: "URL Encoding vs Base64 Encoding",
+    article5: [
+      "URL encoding and Base64 encoding both represent data as text but serve different purposes.",
+      "URL encoding makes text safe for URLs. It is human-readable for ASCII and only transforms problematic characters.",
+      "Base64 encoding converts binary data (images, files, binary protocols) into 64 safe ASCII characters. It increases data size by ~33% and is unreadable without decoding.",
+    ],
+    faqTitle: "Frequently Asked Questions",
+    faq: [
+      { q: "What is the difference between %20 and + for spaces in URLs?", a: "Both represent a space. %20 is strict percent-encoding valid anywhere. + represents a space only in query strings (application/x-www-form-urlencoded). In URL paths, + is a literal plus sign." },
+      { q: "Why does a URL have %E4%B8%AD instead of actual Chinese characters?", a: "The Chinese character (U+4E2D) encodes to UTF-8 bytes E4 B8 AD, giving %E4%B8%AD. Modern browsers display decoded characters in the address bar, but the underlying URL uses percent-encoding." },
+      { q: "Is URL encoding the same as HTML entity encoding?", a: "No. HTML entity encoding uses entities like &amp; for & or &lt; for <. It prevents HTML interpretation inside documents. URL encoding is separate - it makes characters safe within URLs." },
+      { q: "Can I use this tool to decode a URL from a browser address bar?", a: "Yes. Paste the encoded URL and the decoded version appears immediately. Useful for reading search queries, redirect URLs, or API endpoints with encoded parameters." },
+      { q: "What characters are safe and don't need encoding?", a: "RFC 3986 unreserved characters: AZ, az, 09, hyphen, underscore, period, and tilde. All other characters including structural ones (/, ?, #, &, =) and non-ASCII should be encoded when used as data." },
+    ],
   },
   "zh-hk": {
     name: "繁體中文",
@@ -24,6 +114,51 @@ adBadge: "Reserved",
     reserveAd: "預留 Google 廣告位",
     reserveAdSub: "之後可直接放 AdSense 程式碼。",
 adLabel: "廣告", adBadge: "已預留",
+
+    inputLabel: "輸入",
+    encodedLabel: "已編碼",
+    decodedLabel: "已解碼",
+    sidebarTitle: "快速使用",
+    sidebarSub: "處理連結、查詢字串同參數。",
+    sidebarItem1: "貼上原始 URL 進行編碼。",
+    sidebarItem2: "貼上已編碼文字進行解碼。",
+    articleTitle1: "咩係 URL 編碼？",
+    article1: [
+      "URL 只可以安全咁包含有限嘅 ASCII 字符。字母（A-Z、a-z）、數字（0-9）同少量非保留符號（例如連字號、底線、句號同波浪號）可以直接使用。其他所有嘢——空格、& 符號、等號、井號、非 ASCII 字符（例如中文或阿拉伯文），同好多標點符號——都必須喺放入 URL 之前做轉換。",
+      "呢個轉換過程叫做百分號編碼（通常叫 URL 編碼），由 RFC 3986 定義。標準將 URL 字符分為「保留字符」（有特殊意義，例如 / 同 ?）同「非保留字符」（邊度用都得）。保留字符喺唔係用嚟做結構用途嗰陣必須編碼——例如喺查詢參數值入面嘅 & 符號必須變成 %26，以免俾人誤會係參數分隔符。",
+      "如果冇 URL 編碼，一個 URL 例如 https://example.com/search?q=hello world&lang=en 會令網頁伺服器無所適從，因為空格同 & 符號都係有結構意義嘅字符。編碼之後變成 https://example.com/search?q=hello%20world&lang=en，咁就清清楚楚。",
+    ],
+    articleTitle2: "百分號編碼點樣運作",
+    article2: [
+      "每個需要編碼嘅字符，會先轉成佢嘅 UTF-8 字節表示，然後每個字節寫成百分號加兩個十六進制數字。",
+      "ASCII 字符好簡單：空格（ASCII 32，十六進制 20）變成 %20。@ 符號（ASCII 64，十六進制 40）變成 %40。斜線 /（ASCII 47，十六進制 2F）變成 %2F。",
+      "非 ASCII 字符要先用 UTF-8 編碼。中文字「你」（U+4F60）嘅 UTF-8 編碼係三個字節：E4 BD A0。百分號編碼之後變成 %E4%BD%A0。呢個就係點解包含中文、阿拉伯文或者有重音符號嘅 URL，喺瀏覽器網址列顯示做一長串百分號編碼嘅原因。",
+    ],
+    articleTitle3: "常見編碼字符對照表",
+    article3: ["以下係 URL 入面最常見嘅百分號編碼字符。"],
+    articleTitle4: "幾時需要用 URL 編碼？",
+    article4: [
+      "每當特殊字符出現喺可能會被誤解嘅地方，就需要用 URL 編碼。",
+      "搜尋查詢參數：Google 會將你嘅搜尋字詞編碼，例如搜尋「hello world」會變成 ?q=hello+world 或者 ?q=hello%20world。",
+      "HTML 表單提交：瀏覽器會喺發送之前將輸入資料編碼。",
+      "帶特殊字符嘅 API 請求：如果 API 參數值入面有 & 符號、等號或者斜線，就要編碼。",
+      "URL 入面嘅非 ASCII 內容：分享包含中文或者阿拉伯文標題嘅連結，需要編碼非 ASCII 字符。",
+      "帶預填主旨嘅電郵連結：mailto 連結需要編碼先可以俾電郵客戶端正確解析。",
+    ],
+    articleTitle5: "URL 編碼 vs Base64 編碼",
+    article5: [
+      "URL 編碼同 Base64 編碼都係將數據用文字表示嘅方法，但用途完全唔同。",
+      "URL 編碼係為咗令文字可以安全咁放喺 URL 入面。ASCII 字符仲係可以睇得明，只係轉換咗喺 URL 入面會有問題嘅字符。",
+      "Base64 編碼係將任意二進制數據（包括圖像、檔案、二進制協議）轉成 64 個安全 ASCII 字符嘅字串。佢會將數據大細增加約 33%，而且唔解碼嘅話完全睇唔明。",
+    ],
+    faqTitle: "常見問題",
+    faq: [
+      { q: "URL 入面嘅 %20 同 + 號有咩分別？", a: "兩個都代表空格，但使用場景唔同。%20 係嚴格嘅百分號編碼，喺 URL 任何位置都有效。+ 號只係喺查詢字串入面代表空格（根據 application/x-www-form-urlencoded 格式）。喺 URL 路徑入面，+ 就係加號，唔係空格。" },
+      { q: "點解 URL 有時會出現 %E4%B8%AD 而唔係實際嘅中文字？", a: "中文字「中」（U+4E2D）嘅 UTF-8 編碼係字節 E4 B8 AD。每個字節做百分號編碼就係 %E4%B8%AD。現代瀏覽器會喺網址列顯示解碼後嘅字符俾你睇，但實際傳送去伺服器嘅 URL 係百分號編碼嘅版本。" },
+      { q: "URL 編碼同 HTML 實體編碼係咪同一樣嘢？", a: "唔係。HTML 實體編碼用 &amp; 代表 &，用 &lt; 代表 <，係用嚟防止字符俾人當做 HTML 標記嚟解析。URL 編碼係完全獨立嘅系統，用嚟令字符喺 URL 入面可以安全使用。" },
+      { q: "我可唔可以用呢個工具解碼瀏覽器網址列嘅 URL？", a: "可以。將編碼咗嘅 URL 貼入輸入框，解碼版本就會即刻顯示。呢個功能對於閱讀搜尋查詢、理解重定向網址、或者檢查包含編碼參數嘅 API 端點好有用。" },
+      { q: "邊啲字符係「安全」嘅，唔需要編碼？", a: "RFC 3986 定義嘅非保留字符包括：大細楷字母 A-Z 同 a-z、數字 0-9、連字號（-）、底線（_）、句號（.）同波浪號（~）。呢啲字符永遠唔需要百分號編碼。其他所有字符，包括有特殊結構意義嘅（/、?、#、&、=）同所有非 ASCII 字符，喺用嚟做數據值嗰陣都需要編碼。" },
+    ],
   },
   "zh-cn": {
     name: "简体中文",
@@ -35,6 +170,51 @@ adLabel: "廣告", adBadge: "已預留",
     reserveAd: "预留 Google 广告位",
     reserveAdSub: "之後可直接放 AdSense 程式碼。",
 adLabel: "广告", adBadge: "已预留",
+
+    inputLabel: "输入",
+    encodedLabel: "已编码",
+    decodedLabel: "已解码",
+    sidebarTitle: "快速使用",
+    sidebarSub: "处理链接、查询字符串和参数。",
+    sidebarItem1: "粘贴原始 URL 进行编码。",
+    sidebarItem2: "粘贴已编码文本进行解码。",
+    articleTitle1: "什么是 URL 编码？",
+    article1: [
+      "URL 只能安全地包含有限的 ASCII 字符。字母（A-Z、a-z）、数字（0-9）和少量非保留符号（如连字符、下划线、句号和波浪号）可以直接使用。其他所有内容——空格、& 符号、等号、井号、非 ASCII 字符（如中文或阿拉伯文），以及许多标点符号——放入 URL 之前都必须进行转换。",
+      "这种转换称为百分号编码（通常叫 URL 编码），由 RFC 3986 定义。该标准将 URL 字符分为「保留字符」（有特殊含义，如 / 和 ?）和「非保留字符」（任何地方都安全）。保留字符在非结构用途时必须编码——例如查询参数值中的 & 符号必须变成 %26，以免被误认为是参数分隔符。",
+      "如果没有 URL 编码，像 https://example.com/search?q=hello world&lang=en 这样的 URL 会让网络服务器困惑，因为空格和 & 符号都是具有结构意义的字符。编码后变成 https://example.com/search?q=hello%20world&lang=en，含义就清楚了。",
+    ],
+    articleTitle2: "百分号编码如何工作",
+    article2: [
+      "每个需要编码的字符，先转换为其 UTF-8 字节表示，然后将每个字节写为百分号加两个十六进制数字。",
+      "ASCII 字符很简单：空格（ASCII 32，十六进制 20）变成 %20。@ 符号（ASCII 64，十六进制 40）变成 %40。斜线 /（ASCII 47，十六进制 2F）变成 %2F。",
+      "非 ASCII 字符需要先用 UTF-8 编码。中文字「你」（U+4F60）的 UTF-8 编码是三个字节：E4 BD A0。百分号编码后变成 %E4%BD%A0。这就是为什么包含中文、阿拉伯文或带重音字符的 URL，在浏览器地址栏中显示为一长串百分号编码的原因。",
+    ],
+    articleTitle3: "常见编码字符对照表",
+    article3: ["以下是 URL 中最常见的百分号编码字符。"],
+    articleTitle4: "什么时候需要 URL 编码？",
+    article4: [
+      "每当特殊字符出现在可能被误解的地方，就需要 URL 编码。",
+      "搜索查询参数：Google 会将你的搜索词编码，如搜索「hello world」变成 ?q=hello+world 或 ?q=hello%20world。",
+      "HTML 表单提交：浏览器在发送前将输入数据编码。",
+      "带特殊字符的 API 请求：如果 API 参数值中含有 & 符号、等号或斜线，必须编码。",
+      "URL 中的非 ASCII 内容：分享含中文或阿拉伯文标题的链接需要编码非 ASCII 字符。",
+      "带预填主题的邮件链接：mailto 链接需要编码才能让邮件客户端正确解析。",
+    ],
+    articleTitle5: "URL 编码 vs Base64 编码",
+    article5: [
+      "URL 编码和 Base64 编码都是用文本表示数据的方式，但用途完全不同。",
+      "URL 编码是为了让文本可以安全地放在 URL 中。ASCII 字符仍然可读，只转换在 URL 中有问题的字符。",
+      "Base64 编码将任意二进制数据（包括图像、文件、二进制协议）转换为 64 个安全 ASCII 字符的字符串。它会使数据大小增加约 33%，不解码完全不可读。",
+    ],
+    faqTitle: "常见问题",
+    faq: [
+      { q: "URL 中的 %20 和 + 号有什么区别？", a: "两者都代表空格，但使用场景不同。%20 是严格的百分号编码，在 URL 任何位置都有效。+ 号仅在查询字符串中代表空格（根据 application/x-www-form-urlencoded 格式）。在 URL 路径中，+ 就是加号，不是空格。" },
+      { q: "为什么 URL 中有时会出现 %E4%B8%AD 而不是实际的中文字？", a: "中文字「中」（U+4E2D）的 UTF-8 编码是字节 E4 B8 AD。每个字节百分号编码后就是 %E4%B8%AD。现代浏览器在地址栏中显示解码后的字符，但发送给服务器和存储在链接中的实际 URL 是百分号编码版本。" },
+      { q: "URL 编码和 HTML 实体编码是一回事吗？", a: "不是。HTML 实体编码用 &amp; 表示 &，用 &lt; 表示 <，用于防止字符被当做 HTML 标记解析。URL 编码是完全独立的系统，用于让字符在 URL 中安全使用。" },
+      { q: "我可以用这个工具解码浏览器地址栏中的 URL 吗？", a: "可以。将编码后的 URL 粘贴到输入框中，解码版本会立即显示。这个功能对于阅读搜索查询、理解重定向网址或检查包含编码参数的 API 端点很有用。" },
+      { q: "哪些字符是「安全」的，不需要编码？", a: "RFC 3986 定义的非保留字符包括：大小写字母 A-Z 和 a-z、数字 0-9、连字符（-）、下划线（_）、句号（.）和波浪号（~）。这些字符永远不需要百分号编码。其他所有字符，包括有特殊结构意义的（/、?、#、&、=）和所有非 ASCII 字符，在用作数据值时都需要编码。" },
+    ],
   },
   es: {
     name: "Español",
@@ -147,32 +327,32 @@ export default function UrlEncoderDecoder() {
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <label className="block space-y-2">
-                <span className="text-sm text-neutral-300">Input</span>
+                <span className="text-sm text-neutral-300">{content.inputLabel}</span>
                 <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={7} className="w-full rounded-3xl border border-white/10 bg-black/30 p-5 text-sm leading-6 text-white outline-none focus:border-emerald-400/60" />
               </label>
-              <div className="mt-5 grid gap-4"><div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">Encoded</p><p className="mt-2 break-words text-sm text-white">{encoded}</p></div><div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">Decoded</p><p className="mt-2 break-words text-sm text-white">{decoded}</p></div></div>
+              <div className="mt-5 grid gap-4"><div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{content.encodedLabel}</p><p className="mt-2 break-words text-sm text-white">{encoded}</p></div><div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{content.decodedLabel}</p><p className="mt-2 break-words text-sm text-white">{decoded}</p></div></div>
             </div>
 
             <SearchBox locale={locale} value={search} onChange={setSearch} onNavigate={(href) => (window.location.href = href)} />
 
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
               <div>
-                <h2 className="text-2xl font-bold text-white">What is URL Encoding?</h2>
-                <p className="mt-3 leading-7">URLs can only safely contain a limited subset of ASCII characters. Letters (A–Z, a–z), digits (0–9), and a handful of unreserved symbols like hyphens, underscores, periods, and tildes are safe to use as-is. Everything else — spaces, ampersands, equals signs, hash symbols, non-ASCII characters like Chinese or Arabic script, and many punctuation marks — must be transformed before they can appear in a URL.</p>
-                <p className="mt-3 leading-7">This transformation is called percent-encoding (commonly called URL encoding). It is defined in RFC 3986, the specification that governs the syntax of Uniform Resource Identifiers. The standard divides URL characters into "reserved" (which have special meaning in URL structure, like / and ?) and "unreserved" (safe anywhere). Reserved characters must be encoded when used outside their intended structural role — for example, an ampersand in a query parameter value must become %26 so it is not mistaken for a parameter separator.</p>
-                <p className="mt-3 leading-7">Without URL encoding, a URL like <span className="font-mono text-emerald-200">https://example.com/search?q=hello world&amp;lang=en</span> would be ambiguous to a web server, because the space and ampersand are structurally meaningful characters. Encoding it produces <span className="font-mono text-emerald-200">https://example.com/search?q=hello%20world&amp;lang=en</span>, which is unambiguous.</p>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle1}</h2>
+                {content.article1.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">How Percent-Encoding Works</h2>
-                <p className="mt-3 leading-7">The mechanics of percent-encoding are straightforward. Each character that needs to be encoded is first converted to its byte representation in UTF-8. Then each byte is written as a percent sign followed by two hexadecimal digits representing that byte's value.</p>
-                <p className="mt-3 leading-7">For ASCII characters, this is simple: the character's ASCII code is its UTF-8 value. A space (ASCII 32, hex 20) becomes <span className="font-mono text-emerald-200">%20</span>. The at-sign @ (ASCII 64, hex 40) becomes <span className="font-mono text-emerald-200">%40</span>. A forward slash / (ASCII 47, hex 2F) becomes <span className="font-mono text-emerald-200">%2F</span>.</p>
-                <p className="mt-3 leading-7">For non-ASCII characters, the process involves UTF-8 encoding first. The Chinese character 你 (U+4F60) is encoded in UTF-8 as three bytes: E4 BD A0. Percent-encoded, it becomes <span className="font-mono text-emerald-200">%E4%BD%A0</span>. This is why URLs containing Chinese, Arabic, or accented characters appear as long strings of percent-encoded sequences in browser address bars when copied as plain text.</p>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle2}</h2>
+                {content.article2.map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">Common Encoded Characters Reference</h2>
-                <p className="mt-3 leading-7">Here are the most frequently encountered percent-encoded characters:</p>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle3}</h2>
+                <p className="mt-3 leading-7">{content.article3[0]}</p>
                 <div className="mt-3 overflow-x-auto">
                   <table className="w-full border-collapse text-sm">
                     <thead>
@@ -200,47 +380,32 @@ export default function UrlEncoderDecoder() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">When Do You Need URL Encoding?</h2>
-                <p className="mt-3 leading-7">URL encoding is needed whenever special characters appear in a context where they would otherwise be misinterpreted. Common situations include:</p>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle4}</h2>
+                <p className="mt-3 leading-7">{content.article4[0]}</p>
                 <ul className="mt-3 space-y-2 text-white/70">
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><span><strong className="text-white">Search query parameters.</strong> Google encodes your search terms: searching "hello world" becomes <span className="font-mono text-emerald-200">?q=hello+world</span> or <span className="font-mono text-emerald-200">?q=hello%20world</span>. Without encoding, the space would break the URL structure.</span></li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><span><strong className="text-white">HTML form submissions.</strong> When a user submits a form, the browser encodes the input data before sending it as a query string or request body.</span></li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><span><strong className="text-white">API requests with special characters.</strong> If an API parameter value contains an ampersand, equals sign, or slash, those must be encoded so the server parses the parameters correctly.</span></li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><span><strong className="text-white">Non-ASCII content in URLs.</strong> Sharing a link to a page with a Chinese or Arabic title requires encoding the non-ASCII characters so the URL is valid on all systems.</span></li>
-                  <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><span><strong className="text-white">Email links with pre-filled subjects or bodies.</strong> A mailto link like <span className="font-mono text-emerald-200">mailto:?subject=Hello%20World&amp;body=See%20this%3A</span> requires encoding so email clients parse it correctly.</span></li>
+                  {content.article4.slice(1).map((p: string, i: number) => (
+                    <li key={i} className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><span>{p}</span></li>
+                  ))}
                 </ul>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">URL Encoding vs Base64 Encoding</h2>
-                <p className="mt-3 leading-7">URL encoding and Base64 encoding are both ways of representing data as text, but they serve entirely different purposes and should not be confused.</p>
-                <p className="mt-3 leading-7">URL encoding is designed to make arbitrary text safe for use inside a URL. It is human-readable for ASCII characters — a percent-encoded URL is still mostly legible. It only transforms characters that would be problematic in a URL context. The output is always longer than the input, but only slightly so for ASCII text.</p>
-                <p className="mt-3 leading-7">Base64 encoding converts arbitrary binary data (including images, files, and binary protocols) into a string of 64 safe ASCII characters. It is used for embedding images directly into HTML or CSS, encoding email attachments in MIME format, and transmitting JSON Web Tokens (JWTs). Base64 increases data size by approximately 33% and produces output that is completely unreadable without decoding. It is the wrong tool for encoding URLs and the right tool for encoding binary payloads.</p>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle5}</h2>
+                <p className="mt-3 leading-7">{content.article5[0]}</p>
+                {content.article5.slice(1).map((p: string, i: number) => (
+                  <p key={i} className="mt-3 leading-7">{p}</p>
+                ))}
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold text-white">{content.faqTitle}</h2>
                 <div className="mt-4 space-y-5">
-                  <div>
-                    <h3 className="font-semibold text-white">What is the difference between %20 and + for spaces in URLs?</h3>
-                    <p className="mt-1 text-white/70">Both represent a space, but in different contexts. <span className="font-mono text-emerald-200">%20</span> is the strict percent-encoding of a space and is valid anywhere in a URL. A plus sign <span className="font-mono text-emerald-200">+</span> represents a space only in the query string portion of a URL, as defined by the application/x-www-form-urlencoded format used by HTML forms. In a URL path, a literal <span className="font-mono text-emerald-200">+</span> is not a space — it is a plus sign. This distinction matters when constructing URLs manually.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">Why does a URL sometimes have %E4%B8%AD instead of actual Chinese characters?</h3>
-                    <p className="mt-1 text-white/70">The Chinese character 中 (U+4E2D) is encoded in UTF-8 as the bytes E4 B8 AD. Percent-encoding each byte gives <span className="font-mono text-emerald-200">%E4%B8%AD</span>. Modern browsers display the decoded characters in the address bar for readability, but the underlying URL that gets sent to servers and stored in links is the percent-encoded form.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">Is URL encoding the same as HTML entity encoding?</h3>
-                    <p className="mt-1 text-white/70">No. HTML entity encoding replaces characters with HTML entities like <span className="font-mono text-emerald-200">&amp;amp;</span> for &amp; or <span className="font-mono text-emerald-200">&amp;lt;</span> for &lt;. It is used inside HTML documents to prevent characters from being interpreted as HTML markup. URL encoding is entirely separate and used to make characters safe within a URL. The two systems have different character sets, different escaping syntax, and different use cases.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">Can I use this tool to decode a URL I found in a browser's address bar?</h3>
-                    <p className="mt-1 text-white/70">Yes. Paste the encoded URL or query string into the input box and the decoded version will appear immediately. This is useful for reading search queries, understanding redirect URLs, or inspecting API endpoints that contain encoded parameters.</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-white">What characters are "safe" and don't need encoding in a URL?</h3>
-                    <p className="mt-1 text-white/70">RFC 3986 defines unreserved characters as: uppercase and lowercase letters A–Z and a–z, digits 0–9, hyphen (-), underscore (_), period (.), and tilde (~). These characters never need to be percent-encoded. All other characters, including those with special structural meaning in URLs (/, ?, #, &amp;, =) and all non-ASCII characters, should be encoded when used as literal data values.</p>
-                  </div>
+                  {content.faq.map((item: { q: string; a: string }, i: number) => (
+                    <div key={i}>
+                      <h3 className="font-semibold text-white">{item.q}</h3>
+                      <p className="mt-1 text-white/70">{item.a}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </article>
@@ -248,7 +413,7 @@ export default function UrlEncoderDecoder() {
             <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5"><div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">AdSense space reserved</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div><div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" /></section>
           </div>
 
-          <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5"><div className="flex items-center gap-3"><div className="rounded-2xl bg-white/10 p-3 text-white"><Link2 className="h-5 w-5" /></div><div><h2 className="text-lg font-semibold">Quick use</h2><p className="text-sm text-neutral-300">For links, query strings, and parameters.</p></div></div><div className="space-y-3 text-sm text-neutral-300"><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Paste a raw URL to encode it.</p><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Paste encoded text to decode it.</p></div></aside>
+          <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5"><div className="flex items-center gap-3"><div className="rounded-2xl bg-white/10 p-3 text-white"><Link2 className="h-5 w-5" /></div><div><h2 className="text-lg font-semibold">{content.sidebarTitle}</h2><p className="text-sm text-neutral-300">{content.sidebarSub}</p></div></div><div className="space-y-3 text-sm text-neutral-300"><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{content.sidebarItem1}</p><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{content.sidebarItem2}</p></div></aside>
         </div>
       </section>
     </main>
