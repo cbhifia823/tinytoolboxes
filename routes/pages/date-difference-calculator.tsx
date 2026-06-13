@@ -47,6 +47,11 @@ const LANGUAGES = {
         a: "Divide the total number of days by 7. The whole number part of the result is the number of complete weeks. The remainder tells you the extra days. For example, 45 days is 6 weeks and 3 days (45 ÷ 7 = 6 remainder 3).",
       },
     ],
+    articleTitle1: "Why Date Difference Calculation is Tricky",
+    articleTitle2: "How Date Differences are Calculated",
+    articleTitle3: "Practical Uses for Date Difference",
+    articleTitle4: "Working Days vs Calendar Days",
+    articleTitle5: "Date Formats Around the World",
   },
   "zh-hk": {
     name: "繁體中文",
@@ -93,6 +98,11 @@ const LANGUAGES = {
         a: "將總日數除以7。整數部份就係完整週數，餘數就係額外嘅日數。例如，45日就係6個星期零3日（45 ÷ 7 = 6 餘 3）。",
       },
     ],
+    articleTitle1: "點解日期差計算會咁複雜",
+    articleTitle2: "點樣計算日期差",
+    articleTitle3: "日期差嘅實際用途",
+    articleTitle4: "工作日同日曆日嘅分別",
+    articleTitle5: "世界各地嘅日期格式",
   },
   "zh-cn": {
     name: "简体中文",
@@ -139,6 +149,11 @@ const LANGUAGES = {
         a: "将总天数除以7。整数部分就是完整周数，余数就是额外的天数。例如，45天就是6周零3天（45 ÷ 7 = 6 余 3）。",
       },
     ],
+    articleTitle1: "为什么日期差计算这么复杂",
+    articleTitle2: "日期差如何计算",
+    articleTitle3: "日期差的实际用途",
+    articleTitle4: "工作日与日历日的区别",
+    articleTitle5: "世界各地的日期格式",
   },
   es: {
     name: "Español",
@@ -185,6 +200,11 @@ const LANGUAGES = {
         a: "Divide el número total de días por 7. La parte entera del resultado es el número de semanas completas. El resto indica los días adicionales. Por ejemplo, 45 días son 6 semanas y 3 días (45 ÷ 7 = 6 resto 3).",
       },
     ],
+    articleTitle1: "Por qué calcular diferencias de fechas es complicado",
+    articleTitle2: "Cómo se calculan las diferencias de fechas",
+    articleTitle3: "Usos prácticos de las diferencias de fechas",
+    articleTitle4: "Días laborables vs días naturales",
+    articleTitle5: "Formatos de fecha en el mundo",
   },
 };
 
@@ -347,21 +367,21 @@ export default function DateDifferenceCalculator() {
 
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
               <div>
-                <h2 className="text-2xl font-bold text-white">Why Date Difference Calculation is Tricky</h2>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle1}</h2>
                 <p className="mt-3 leading-7">Calculating the number of days between two dates seems like simple arithmetic — but it hides surprising complexity. The most fundamental challenge is that months have different lengths: January has 31 days, February has 28 or 29, April has 30, and so on. A naive approach of multiplying months by 30 will produce errors that compound over longer date ranges.</p>
                 <p className="mt-3 leading-7">Leap years add another layer of complexity. A year is a leap year if it is divisible by 4 — except that century years (1900, 2100) are not leap years unless they are also divisible by 400 (making 2000 a leap year but 2100 not). This means that calculating "how many days from February 28, 1900 to February 28, 1904" requires knowing that 1900 was not a leap year despite being divisible by 4.</p>
                 <p className="mt-3 leading-7">Different calendar systems add a further dimension of difficulty. The Gregorian calendar used internationally today replaced the Julian calendar in most of Europe during the 16th–18th centuries. Dates before those transitions differ between the two systems. Lunar calendars (used for religious and cultural observances in Islamic, Hebrew, Chinese, and Hindu traditions) add months differently and cannot be converted to Gregorian dates with simple arithmetic.</p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">How Date Differences are Calculated</h2>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle2}</h2>
                 <p className="mt-3 leading-7">Modern date-difference calculators use a common approach: convert both dates to a numeric representation based on days elapsed since a fixed reference point, subtract the two numbers, then convert back to a human-readable format.</p>
                 <p className="mt-3 leading-7">The most widely used reference point in software is the Unix epoch: midnight on January 1, 1970 (UTC). Every moment in time can be expressed as the number of seconds (or milliseconds) since that point. To find the number of days between two dates, subtract their epoch values and divide by 86,400 (the number of seconds in a day).</p>
                 <p className="mt-3 leading-7">When you need a breakdown in years, months, and days — rather than just total days — the algorithm becomes more involved. The standard approach subtracts year-by-year first, then month-by-month, adjusting for the fact that months have different lengths. For example, one month after January 31 is February 28 (or 29 in a leap year), not March 3. This "end-of-month" adjustment is a frequent source of discrepancy between different date calculators.</p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">Practical Uses for Date Difference</h2>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle3}</h2>
                 <p className="mt-3 leading-7">Knowing the exact number of days between two dates has a wide range of real-world applications across personal, professional, and medical contexts:</p>
                 <ul className="mt-3 space-y-2 text-white/70">
                   <li className="flex gap-2"><span className="text-emerald-300 shrink-0">→</span><strong className="text-white">Project management:</strong> Calculate elapsed time from project kick-off to today, or total duration from start to deadline, to track progress against milestones.</li>
@@ -374,14 +394,14 @@ export default function DateDifferenceCalculator() {
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">Working Days vs Calendar Days</h2>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle4}</h2>
                 <p className="mt-3 leading-7">One of the most important distinctions in date calculations is whether you are counting calendar days or working days (also called business days). The difference is significant: 30 calendar days span roughly 4 weeks and 2 days, while 30 working days span approximately 6 calendar weeks once weekends are excluded.</p>
                 <p className="mt-3 leading-7">Commercial contracts typically use calendar days for payment terms (Net 30, Net 60) because they create a predictable, fixed date that both parties can calculate independently without needing to agree on which days are holidays. Service-level agreements (SLAs), on the other hand, frequently use business days because it is unreasonable to require a vendor to deliver work on a weekend or a public holiday.</p>
                 <p className="mt-3 leading-7">For international date notation, ISO 8601 is the globally recognised standard: dates are written as YYYY-MM-DD. This format is unambiguous across all locales, sorts correctly as text, and is the format used in databases, APIs, and software systems worldwide. The ISO 8601 standard also defines durations (P1Y2M3D = 1 year, 2 months, 3 days) and time intervals, making it the most comprehensive framework for date and time communication.</p>
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white">Date Formats Around the World</h2>
+                <h2 className="text-2xl font-bold text-white">{content.articleTitle5}</h2>
                 <p className="mt-3 leading-7">Date formatting conventions vary dramatically by country and region, and the ambiguity they create causes real-world errors in contracts, travel bookings, medical records, and software systems.</p>
                 <ul className="mt-3 space-y-3 text-white/70">
                   <li><strong className="text-white">MM/DD/YYYY (United States):</strong> The month-first format used in the US is unique among major economies. January 2 is written as 01/02/2024.</li>
