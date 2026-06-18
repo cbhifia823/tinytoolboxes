@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Calculator, Globe2, Search, Scale, Sparkles, Truck } from "lucide-react";
+import { ArrowRight, Calculator, Globe2, Search, Scale, Sparkles, Truck } from "lucide-react";
 
-type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
+type LocaleKey = "en" | "zh-hk" | "zh-cn" | "ja" | "es";
 
 const LOCALES: Array<{ id: LocaleKey; label: string }> = [
   { id: "en", label: "EN" },
   { id: "zh-hk", label: "繁" },
   { id: "zh-cn", label: "简" },
+  { id: "ja", label: "日" },
   { id: "es", label: "ES" },
 ];
 
@@ -204,7 +205,7 @@ const COPY: Record<LocaleKey, {
     heroNote: "Rápido, aburrido y útil.",
     searchLabel: "Buscar la colección",
     searchPlaceholder: "Prueba: weight, date, word, url, rhyme",
-    searchHints: ["weight", "date", "word", "url", "rhyme"],
+    searchHints: ["peso", "fecha", "palabra", "url", "rima"],
     adLabel: "Espacio reservado para Google Ads",
     adNote: "Luego puedes poner AdSense sin cambiar el diseño.",
     sectionTitle: "Calculadora",
@@ -283,16 +284,6 @@ function Header({ locale, onLocaleChange }: { locale: LocaleKey; onLocaleChange:
   );
 }
 
-function AdBlock({ title, note }: { title: string; note: string }) {
-  return (
-    <section className="rounded-3xl border border-dashed border-white/10 bg-white/5 p-5 text-sm text-white/75">
-      <div className="flex items-center gap-2 text-emerald-200"><BadgeDollarSign className="h-4 w-4" /><span className="font-medium">{title}</span></div>
-      <p className="mt-2 text-white/55">{note}</p>
-      <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-    </section>
-  );
-}
-
 function SearchBar({ locale }: { locale: LocaleKey }) {
   const copy = COPY[locale];
   const [query, setQuery] = useState("");
@@ -309,7 +300,6 @@ function SearchBar({ locale }: { locale: LocaleKey }) {
     <section className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div><p className="text-sm font-medium text-emerald-300">{copy.searchLabel}</p><p className="mt-1 text-sm text-white/60">{copy.searchFooter}</p></div>
-        <div className="text-xs text-white/45">{copy.adLabel}</div>
       </div>
       <div className="mt-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3"><Search className="h-4 w-4 text-emerald-300" /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={copy.searchPlaceholder} className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/35" /></div>
       <div className="mt-4 flex flex-wrap gap-2">{copy.searchHints.map((hint) => (<button key={hint} onClick={() => setQuery(hint)} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75 hover:border-emerald-300/40 hover:bg-emerald-300/10">{hint}</button>))}</div>
@@ -362,7 +352,7 @@ const EXAMPLE_PRESETS = [
 ] as const;
 
 export default function VolumetricWeightCalculator() {
-  const [locale, setLocale] = useState<LocaleKey>("en");
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
   const [carrier, setCarrier] = useState<CarrierId>("generic");
   const [unit, setUnit] = useState<"cm" | "in">("cm");
   const [length, setLength] = useState("40");
@@ -372,7 +362,11 @@ export default function VolumetricWeightCalculator() {
   const [factor, setFactor] = useState("6000");
 
   useEffect(() => {
-    const L = COPY[locale];
+    window.localStorage.setItem("ttb-locale", locale);
+  }, [locale]);
+
+  useEffect(() => {
+    const L = COPY[locale] || COPY.en;
     applySEO({
       title: `${L.title} | TinyToolboxes`,
       description: L.subtitle,
@@ -435,10 +429,8 @@ export default function VolumetricWeightCalculator() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
-          <div className="space-y-6">
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
-
+        <div className="mt-6">
+          <div className="mx-auto max-w-3xl space-y-6">
             {/* Calculator */}
             <section className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
               <div className="flex items-center justify-between gap-3">
@@ -538,7 +530,6 @@ export default function VolumetricWeightCalculator() {
 
             <SearchBar locale={locale} />
           </div>
-          <aside className="space-y-6 lg:sticky lg:top-6 lg:self-start"><AdBlock title={copy.adLabel} note={copy.adNote} /></aside>
         </div>
 
         <footer className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-6 text-sm text-white/45"><span>{copy.footer}</span><span>{copy.searchFooter}</span></footer>

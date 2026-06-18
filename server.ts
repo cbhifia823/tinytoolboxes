@@ -90,7 +90,7 @@ if (Object.keys(clientSettings).length > 0) {
 
 const PLACEHOLDER_RE = /__ZO_OG_(TITLE|DESCRIPTION|IMAGE|URL)__/g;
 
-function injectMeta(rawPath: string): string {
+function injectMeta(rawPath: string, reqHost?: string): string {
   const path = escapeHtml(rawPath);
   const isHome = rawPath === "/";
   const pageMeta = pagesMeta[rawPath];
@@ -135,14 +135,18 @@ function injectMeta(rawPath: string): string {
 
   const ogBgUrl =
     pageMeta?.page_og_image_url || siteSettings.og_image_url || "";
+
   const spaceOgBase = `https://zo.computer/api/space-og?handle=${encodeURIComponent(RAW_HANDLE)}&path=${encodeURIComponent(rawPath)}`;
   const ogWithBg = ogBgUrl
     ? `${spaceOgBase}&bg=${encodeURIComponent(`${spaceOrigin}${ogBgUrl}`)}`
     : spaceOgBase;
-  const ogImage = siteSettings.hide_handle_overlay
-    ? `${ogWithBg}&hide_overlay=1`
-    : ogWithBg;
 
+  let ogImage: string;
+  if (ogBgUrl && !RAW_HANDLE) {
+    ogImage = ogBgUrl;
+  } else {
+    ogImage = ogWithBg;
+  }
   const canonicalUrl = `${canonicalOrigin}${path}`;
 
   const values: Record<string, string> = {
@@ -295,7 +299,7 @@ app.use(async (c, next) => {
   }
 
   // SPA fallback with server-side meta injection
-  return c.html(injectMeta(path));
+  return c.html(injectMeta(path, c.req.header("host")));
 });
 
 const port = process.env.PORT

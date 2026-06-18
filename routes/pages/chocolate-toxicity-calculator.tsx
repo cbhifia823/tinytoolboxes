@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, AlertTriangle, BadgeDollarSign, Dog, Search } from "lucide-react";
+import CHOCOLATE_CONTENT from "../data/chocolate-content.json";
 
 const LANGUAGES = {
   en: {
@@ -99,11 +100,11 @@ const LANGUAGES = {
 const TOOLS = [
   { title: { en: "Xylitol Toxicity Calculator", "zh-hk": "木糖醇毒性計算機", "zh-cn": "木糖醇毒性计算器", es: "Calculadora de toxicidad del xilitol" }, description: { en: "Check xylitol poisoning risk in dogs.", "zh-hk": "計狗狗食咗香口膠、糖果、花生醬嘅木糖醇風險。", "zh-cn": "计算狗狗吃口香糖、糖果、花生酱的木糖醇风险。", es: "Riesgo de xilitol para perros." }, href: "/xylitol-toxicity-calculator", keywords: ["xylitol", "dog", "toxic"] },
   { title: { en: "Lily Toxicity Checker", "zh-hk": "貓貓百合毒性檢查器", "zh-cn": "猫咪百合毒性检查器", es: "Comprobador de toxicidad del lirio" }, description: { en: "Look up which lilies are dangerous to cats.", "zh-hk": "查邊種百合對貓貓有毒。", "zh-cn": "查找对猫咪有毒的百合。", es: "Verificar qué lirios son peligrosos para gatos." }, href: "/lily-toxicity-checker", keywords: ["lily", "cat", "toxic"] },
-  { title: "Pet Calorie Calculator (RER)", description: "Daily calorie needs for dogs and cats.", href: "/pet-calorie-calculator", keywords: ["calorie", "rer", "feeding"] },
-  { title: "Can My Dog Eat This?", description: "Lookup safe and unsafe foods for dogs.", href: "/can-my-dog-eat", keywords: ["food", "dog", "safe"] },
-  { title: "Dog Age in Human Years", description: "Convert your dog's age using the UCSD formula.", href: "/dog-age-calculator", keywords: ["dog", "age"] },
-  { title: "Cat Age in Human Years", description: "Convert your cat's age into human years.", href: "/cat-age-calculator", keywords: ["cat", "age"] },
-  { title: "Puppy Adult Weight Predictor", description: "Estimate your puppy's adult weight.", href: "/puppy-weight-predictor", keywords: ["puppy", "weight"] },
+  { title: { en: "Pet Calorie Calculator (RER)", "zh-hk": "寵物卡路里計算機 (RER)", "zh-cn": "宠物卡路里计算器 (RER)", es: "Calculadora de calorías para mascotas (RER)" }, description: { en: "Daily calorie needs for dogs and cats.", "zh-hk": "計算狗狗同貓貓嘅每日熱量需求。", "zh-cn": "计算狗狗和猫咪的每日热量需求。", es: "Necesidades calóricas diarias para perros y gatos." }, href: "/pet-calorie-calculator", keywords: ["calorie", "rer", "feeding"] },
+  { title: { en: "Can My Dog Eat This?", "zh-hk": "狗狗可以食呢個嗎？", "zh-cn": "狗狗可以吃这个吗？", es: "¿Puede mi perro comer esto?" }, description: { en: "Lookup safe and unsafe foods for dogs.", "zh-hk": "查閱狗狗可以食同唔可以食嘅食物。", "zh-cn": "查阅狗狗可以吃和不可以吃的食物。", es: "Consulta alimentos seguros e inseguros para perros." }, href: "/can-my-dog-eat", keywords: ["food", "dog", "safe"] },
+  { title: { en: "Dog Age in Human Years", "zh-hk": "狗狗年齡換算人類歲數", "zh-cn": "狗狗年龄换算人类岁数", es: "Edad del perro en años humanos" }, description: { en: "Convert your dog's age using the UCSD formula.", "zh-hk": "用 UCSD 公式換算狗狗年齡。", "zh-cn": "使用 UCSD 公式换算狗狗年龄。", es: "Convierte la edad de tu perro usando la fórmula UCSD." }, href: "/dog-age-calculator", keywords: ["dog", "age"] },
+  { title: { en: "Cat Age in Human Years", "zh-hk": "貓貓年齡換算人類歲數", "zh-cn": "猫咪年龄换算人类岁数", es: "Edad del gato en años humanos" }, description: { en: "Convert your cat's age into human years.", "zh-hk": "將貓貓年齡換算為人類歲數。", "zh-cn": "将猫咪年龄换算为人类岁数。", es: "Convierte la edad de tu gato en años humanos." }, href: "/cat-age-calculator", keywords: ["cat", "age"] },
+  { title: { en: "Puppy Adult Weight Predictor", "zh-hk": "狗BB成年體重預測器", "zh-cn": "狗宝宝成年体重预测器", es: "Predictor de peso adulto para cachorros" }, description: { en: "Estimate your puppy's adult weight.", "zh-hk": "估算你狗BB嘅成年體重。", "zh-cn": "估算你狗宝宝的成年体重。", es: "Estima el peso adulto de tu cachorro." }, href: "/puppy-weight-predictor", keywords: ["puppy", "weight"] },
 ];
 
 const CHOCOLATE_TYPES = {
@@ -188,6 +189,7 @@ export default function ChocolateToxicityCalculator() {
   }, [weight, weightUnit, chocType, amount, amountUnit]);
 
   const content = LANGUAGES[locale];
+  const artContent = CHOCOLATE_CONTENT[locale];
   const hints = locale === "zh-hk" ? ["木糖醇", "百合", "卡路里", "食物"] : locale === "zh-cn" ? ["木糖醇", "百合", "卡路里", "食物"] : ["xylitol", "lily", "calorie", "food"];
   const filteredTools = useMemo(() => { const q = search.trim().toLowerCase(); if (!q) return TOOLS; return TOOLS.filter((t) => `${t.title[locale]} ${t.description[locale]} ${t.keywords.join(" ")}`.toLowerCase().includes(q)); }, [search]);
   const riskColor = computation?.level === "lifethreatening" ? "from-red-500 to-rose-600 text-white" : computation?.level === "severe" ? "from-orange-500 to-red-500 text-white" : computation?.level === "moderate" ? "from-amber-400 to-orange-500 text-neutral-900" : computation?.level === "mild" ? "from-yellow-300 to-amber-400 text-neutral-900" : "from-emerald-400 to-teal-500 text-neutral-900";
@@ -211,7 +213,7 @@ export default function ChocolateToxicityCalculator() {
               <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-100">
                 <div className="flex items-center gap-2 font-semibold text-rose-200"><AlertTriangle className="h-4 w-4" />{content.emergency}</div>
                 <p className="mt-2 leading-6 text-rose-100/85">{content.emergencyNote}</p>
-                <p className="mt-2 text-xs text-rose-200/70">ASPCA Animal Poison Control: <span className="font-semibold">(888) 426-4435</span> · Pet Poison Helpline: <span className="font-semibold">(855) 764-7661</span></p>
+                <p className="mt-2 text-xs text-rose-200/70">{artContent.emergencyPhoneText}</p>
               </div>
             </div>
 
@@ -244,11 +246,11 @@ export default function ChocolateToxicityCalculator() {
               {computation && (
                 <div className="space-y-3">
                   <div className="grid gap-3 sm:grid-cols-3">
-                    <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">Theobromine</p><p className="mt-2 text-2xl font-semibold text-white">{computation.totalTheobromine.toFixed(0)} mg</p></div>
+                    <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{artContent.theobromineLabel}</p><p className="mt-2 text-2xl font-semibold text-white">{computation.totalTheobromine.toFixed(0)} mg</p></div>
                     <div className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{content.result}</p><p className="mt-2 text-2xl font-semibold text-white">{computation.dose.toFixed(1)} <span className="text-sm text-white/60">mg/kg</span></p></div>
                     <div className={`rounded-2xl bg-gradient-to-br p-4 ${riskColor}`}><p className="text-xs uppercase tracking-[0.2em] opacity-80">{content.risk}</p><p className="mt-2 text-lg font-semibold">{content[computation.level]}</p></div>
                   </div>
-                  <p className="text-xs text-white/45">Thresholds: &lt;20 mg/kg safe · 20-40 mild · 40-60 moderate · 60-100 severe · ≥100 mg/kg potentially fatal.</p>
+                  <p className="text-xs text-white/45">{artContent.thresholdsText}</p>
                 </div>
               )}
             </div>
@@ -263,36 +265,34 @@ export default function ChocolateToxicityCalculator() {
 
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
               <div>
-                <h2 className="text-2xl font-bold text-white">Why Chocolate is Dangerous for Dogs</h2>
-                <p className="mt-3 leading-7">Chocolate contains two methylxanthine compounds — theobromine and caffeine — that dogs metabolize far more slowly than humans do. While people clear theobromine from their bloodstream in 2–3 hours, dogs take roughly 17.5 hours to do the same, which allows the chemical to accumulate to toxic levels. Theobromine overstimulates the central nervous system, raises heart rate and blood pressure, and in severe cases can cause seizures, internal bleeding, and cardiac failure.</p>
-                <p className="mt-3 leading-7">The toxic dose depends on three variables: the dog's body weight, the type of chocolate, and the amount eaten. Darker, more cocoa-rich products contain dramatically more theobromine per gram than milk or white chocolate. A single 100-gram bar of baking chocolate can be life-threatening for a 10 kg dog, while the same dog would need to eat several full-size milk chocolate bars to reach the same risk level.</p>
+                <h2 className="text-2xl font-bold text-white">{artContent.articleWhyTitle}</h2>
+                <p className="mt-3 leading-7">{artContent.articleWhyText1}</p>
+                <p className="mt-3 leading-7">{artContent.articleWhyText2}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Theobromine Content by Chocolate Type</h2>
-                <p className="mt-3 leading-7">Approximate theobromine content used in this calculator (mg per gram of chocolate):</p>
+                <h2 className="text-2xl font-bold text-white">{artContent.articleTypesTitle}</h2>
                 <ul className="mt-3 space-y-2 text-white/70">
-                  <li><strong className="text-white">White chocolate</strong> — about 0.009 mg/g. Effectively non-toxic for theobromine but the fat and sugar can still cause pancreatitis.</li>
-                  <li><strong className="text-white">Milk chocolate</strong> — about 2 mg/g. A standard 43 g bar contains ~85 mg theobromine.</li>
-                  <li><strong className="text-white">Semi-sweet / dark chocolate</strong> — about 5 mg/g. Includes most chocolate chips and dark bars.</li>
-                  <li><strong className="text-white">Baker's / unsweetened chocolate</strong> — about 14 mg/g. The most dangerous common form.</li>
-                  <li><strong className="text-white">Cocoa powder</strong> — about 20 mg/g. Even a small amount can be toxic to a small dog.</li>
+                  {artContent.articleTypes.map((item: string, i: number) => <li key={i}>{item}</li>)}
                 </ul>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Signs of Chocolate Poisoning</h2>
-                <p className="mt-3 leading-7">Symptoms can appear within 6–12 hours of ingestion and may last up to 72 hours. Common early signs include vomiting, diarrhea, restlessness, excessive panting, and increased thirst and urination. As toxicity progresses, dogs may show muscle tremors, an unusually fast heart rate, elevated body temperature, and seizures. Severe cases can lead to coma or sudden death from cardiac arrhythmia.</p>
-                <p className="mt-3 leading-7">If your dog ate chocolate, do not wait for symptoms before calling a veterinarian. Early intervention — usually inducing vomiting and administering activated charcoal — is far more effective than treating symptoms once they appear.</p>
+                <h2 className="text-2xl font-bold text-white">{artContent.articleSignsTitle}</h2>
+                <p className="mt-3 leading-7">{artContent.articleSignsText}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold text-white">{artContent.faqSectionTitle}</h2>
                 <div className="mt-4 space-y-5">
-                  <div><h3 className="font-semibold text-white">My dog ate chocolate but the calculator says "safe" — should I still call the vet?</h3><p className="mt-1 text-white/70">Yes. This calculator is an estimate based on average theobromine concentrations, not a substitute for veterinary judgment. Individual chocolate products vary, dogs can have unusual sensitivities, and the fat and sugar in chocolate can cause pancreatitis even when theobromine is below the toxic threshold. A quick phone call to a vet or poison helpline costs nothing and gives you peace of mind.</p></div>
-                  <div><h3 className="font-semibold text-white">What should I do right now if my dog just ate chocolate?</h3><p className="mt-1 text-white/70">First, identify what type of chocolate, when it was eaten, and roughly how much. Then call your veterinarian or a pet poison helpline immediately. If it has been less than 2 hours since ingestion, the vet may instruct you to induce vomiting at home with hydrogen peroxide — but only do this under direct veterinary guidance, as it can be dangerous if done incorrectly. Bring the wrapper or packaging to the vet if possible.</p></div>
-                  <div><h3 className="font-semibold text-white">Are cats also at risk from chocolate?</h3><p className="mt-1 text-white/70">Yes, cats are actually more sensitive to theobromine than dogs on a per-kilogram basis. However, cats rarely eat chocolate because, unlike dogs, they cannot taste sweetness — they lack the sweet receptor gene. Cases of feline chocolate poisoning do occur and should be treated as a veterinary emergency.</p></div>
-                  <div><h3 className="font-semibold text-white">Is there an antidote for theobromine?</h3><p className="mt-1 text-white/70">There is no specific antidote. Treatment is supportive: inducing vomiting if recently ingested, activated charcoal to bind remaining theobromine in the gut, IV fluids, anti-seizure medication if needed, and cardiac monitoring. The faster treatment begins, the better the outcome.</p></div>
+                  {artContent.faq.map(([q, a]: [string, string], i: number) => (
+                    <div key={i}>
+                      <h3 className="font-semibold text-white">{q}</h3>
+                      <p className="mt-1 text-white/70">{a}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85"><strong className="text-amber-200">Disclaimer:</strong> This tool is for informational purposes only and is not a substitute for professional veterinary advice, diagnosis, or treatment. Always seek the advice of a licensed veterinarian with any questions about your pet's health.</div>
+              <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85">
+                <strong className="text-amber-200">Disclaimer:</strong> {artContent.disclaimerText}
+              </div>
             </article>
 
             <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
@@ -302,11 +302,11 @@ export default function ChocolateToxicityCalculator() {
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">
-            <div className="flex items-center gap-3"><div className="rounded-2xl bg-amber-400/15 p-3"><Dog className="h-5 w-5 text-amber-300" /></div><div><h2 className="text-lg font-semibold">Pet emergencies</h2><p className="text-sm text-amber-100/80">Toxic exposure tools for pet owners.</p></div></div>
+            <div className="flex items-center gap-3"><div className="rounded-2xl bg-amber-400/15 p-3"><Dog className="h-5 w-5 text-amber-300" /></div><div><h2 className="text-lg font-semibold">{artContent.sidebarTitle}</h2><p className="text-sm text-amber-100/80">{artContent.sidebarSubtitle}</p></div></div>
             <div className="space-y-3 text-sm text-amber-100/80">
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">When in doubt, call your veterinarian. Time matters.</p>
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Save these phone numbers in your phone before an emergency happens.</p>
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Keep chocolate, sugar-free candy, lilies, and other toxins out of reach.</p>
+              {artContent.sidebarTips.map((tip: string, i: number) => (
+                <p key={i} className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">{tip}</p>
+              ))}
             </div>
           </aside>
         </div>

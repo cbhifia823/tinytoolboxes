@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BadgeDollarSign, Bone, Search } from "lucide-react";
+import petCalorieContent from "../data/pet-calorie-content.json";
 
 const LANGUAGES = {
   en: {
@@ -168,6 +169,7 @@ export default function PetCalorieCalculator() {
   }, [weight, weightUnit, species, activityId]);
 
   const content = LANGUAGES[locale];
+  const article = petCalorieContent[locale];
   const hints = locale === "zh-hk" ? ["朱古力", "木糖醇", "百合", "狗狗年齡"] : locale === "zh-cn" ? ["巧克力", "木糖醇", "百合", "狗狗年龄"] : ["chocolate", "xylitol", "lily", "dog age"];
   const filteredTools = useMemo(() => { const q = search.trim().toLowerCase(); if (!q) return TOOLS; return TOOLS.filter((t) => `${t.title[locale]} ${t.description[locale]} ${t.keywords.join(" ")}`.toLowerCase().includes(q)); }, [search]);
   const activityLabel = (a: typeof ACTIVITY.dog[number]) => locale === "zh-hk" ? a.label_zhhk : locale === "zh-cn" ? a.label_zhcn : locale === "es" ? a.label_es : a.label_en;
@@ -242,41 +244,43 @@ export default function PetCalorieCalculator() {
 
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
               <div>
-                <h2 className="text-2xl font-bold text-white">How Pet Calorie Needs Are Calculated</h2>
-                <p className="mt-3 leading-7">Veterinary nutritionists use a two-step formula. First, the <strong className="text-white">Resting Energy Requirement (RER)</strong> — the calories burned just to maintain basic body functions at rest — is calculated using a metabolic-weight equation:</p>
-                <p className="mt-3 rounded-2xl border border-amber-400/30 bg-black/30 p-4 text-center font-mono text-lg text-amber-200">RER (kcal/day) = 70 × (body weight in kg)<sup>0.75</sup></p>
-                <p className="mt-3 leading-7">Second, the RER is multiplied by an <strong className="text-white">activity factor</strong> reflecting life stage, neuter status, body condition, and exercise level. The result is the <strong className="text-white">Maintenance Energy Requirement (MER)</strong> — the realistic daily calorie target. The factors used by this tool follow the WSAVA Global Nutrition Committee and the AAHA-AAFP guidelines.</p>
+                <h2 className="text-2xl font-bold text-white">{article.calcTitle}</h2>
+                <p className="mt-3 leading-7">{article.calcText1}</p>
+                <p className="mt-3 rounded-2xl border border-amber-400/30 bg-black/30 p-4 text-center font-mono text-lg text-amber-200" dangerouslySetInnerHTML={{ __html: article.calcFormula }} />
+                <p className="mt-3 leading-7">{article.calcText2}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Activity Factors Explained</h2>
+                <h2 className="text-2xl font-bold text-white">{article.factorsTitle}</h2>
                 <ul className="mt-3 space-y-2 text-white/70">
-                  <li>• <strong className="text-white">Puppies / kittens</strong> grow rapidly and need 2–3× their RER. Growth slows after the first 4 months.</li>
-                  <li>• <strong className="text-white">Neutered adults</strong> burn ~10–20% fewer calories than intact adults — a leading cause of post-neuter weight gain when food portions are not adjusted.</li>
-                  <li>• <strong className="text-white">Working dogs and athletes</strong> (sled dogs, agility, herding) can need 3–8× RER. The 4× factor in this calculator covers most active hobby dogs.</li>
-                  <li>• <strong className="text-white">Weight loss programs</strong> aim for RER × 1.0 calculated on the <em>target weight</em>, not the current weight. Most healthy pets can safely lose 1–2% of body weight per week.</li>
-                  <li>• <strong className="text-white">Pregnancy and lactation</strong> rapidly increase needs. Lactating dogs may eat 4–8× their non-pregnancy intake at peak milk production.</li>
+                  {(article.factors as string[]).map((item: string, i: number) => (
+                    <li key={i}>• {item}</li>
+                  ))}
                 </ul>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Why a Calculator Number is a Starting Point, Not a Prescription</h2>
-                <p className="mt-3 leading-7">Real-world calorie needs vary by 20–30% between individuals of the same weight and life stage. Breed, environment temperature, coat density, underlying health conditions, and individual metabolism all play a role. Use the MER number as a starting point for two weeks, then weigh your pet:</p>
+                <h2 className="text-2xl font-bold text-white">{article.startingTitle}</h2>
+                <p className="mt-3 leading-7">{article.startingText1}</p>
                 <ul className="mt-3 space-y-2 text-white/70">
-                  <li>• Holding steady at ideal body condition — you have found maintenance.</li>
-                  <li>• Gaining weight — reduce by 10% and reassess in two weeks.</li>
-                  <li>• Losing weight unintentionally — increase by 10% and reassess.</li>
+                  {(article.startingItems as string[]).map((item: string, i: number) => (
+                    <li key={i}>• {item}</li>
+                  ))}
                 </ul>
-                <p className="mt-3 leading-7">A vet-administered Body Condition Score (BCS) is more accurate than the scale alone, since fit, muscular pets weigh more than thin pets of the same breed.</p>
+                <p className="mt-3 leading-7">{article.startingText2}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold text-white">{article.faqTitle}</h2>
                 <div className="mt-4 space-y-5">
-                  <div><h3 className="font-semibold text-white">What is the difference between RER and MER?</h3><p className="mt-1 text-white/70">RER (Resting Energy Requirement) is what the pet would need lying still in a thermoneutral environment. MER (Maintenance Energy Requirement) includes the calories for normal daily activity, growth, reproduction, or other physiological demands. Feeding amounts are based on MER, not RER.</p></div>
-                  <div><h3 className="font-semibold text-white">How do I translate MER into cups of food?</h3><p className="mt-1 text-white/70">Divide the MER by the kcal-per-cup figure on your pet food bag (sometimes labeled "metabolizable energy" or "ME"). For example, an MER of 800 kcal/day and a food with 400 kcal/cup means 2 cups per day. Treats should be counted in the total — no more than 10% of daily intake.</p></div>
-                  <div><h3 className="font-semibold text-white">My pet is overweight. Should I use ideal weight or current weight?</h3><p className="mt-1 text-white/70">For weight loss, use the <em>target</em> ideal weight in the calculator and multiply by 1.0 (or 0.8 for obese-prone). Crash diets can be dangerous, especially in cats — feline rapid weight loss can trigger hepatic lipidosis. Aim for 1–2% body weight loss per week and consult your vet before starting.</p></div>
-                  <div><h3 className="font-semibold text-white">Are these the same numbers used by vets?</h3><p className="mt-1 text-white/70">Yes. The RER formula 70 × BW^0.75 is the standard equation used by veterinary nutritionists worldwide. The activity factors come from peer-reviewed guidelines published by the WSAVA, AAHA, and AAFP.</p></div>
+                  {(article.faqs as [string, string][]).map(([q, a], i: number) => (
+                    <div key={i}>
+                      <h3 className="font-semibold text-white">{q}</h3>
+                      <p className="mt-1 text-white/70">{a}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85"><strong className="text-amber-200">Disclaimer:</strong> Calorie calculators provide estimates only. Sick, growing, pregnant, or obese pets need individual veterinary nutritional guidance.</div>
+              <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85">
+                <strong className="text-amber-200">{article.disclaimerLabel}</strong> {article.disclaimer}
+              </div>
             </article>
 
             <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
@@ -286,11 +290,17 @@ export default function PetCalorieCalculator() {
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">
-            <div className="flex items-center gap-3"><div className="rounded-2xl bg-amber-400/15 p-3"><Bone className="h-5 w-5 text-amber-300" /></div><div><h2 className="text-lg font-semibold">Feeding tips</h2><p className="text-sm text-amber-100/80">Calories are only half the story.</p></div></div>
+            <div className="flex items-center gap-3">
+              <div className="rounded-2xl bg-amber-400/15 p-3"><Bone className="h-5 w-5 text-amber-300" /></div>
+              <div>
+                <h2 className="text-lg font-semibold">{article.sidebarTitle}</h2>
+                <p className="text-sm text-amber-100/80">{article.sidebarSubtitle}</p>
+              </div>
+            </div>
             <div className="space-y-3 text-sm text-amber-100/80">
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Weigh food, do not "scoop and guess" — kibble densities vary widely.</p>
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Treats count toward daily calories. Keep them under 10% of total.</p>
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Reassess every life stage transition — neutering, adulthood, senior years.</p>
+              {(article.tips as string[]).map((tip: string, i: number) => (
+                <p key={i} className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">{tip}</p>
+              ))}
             </div>
           </aside>
         </div>

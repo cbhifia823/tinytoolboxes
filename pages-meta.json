@@ -1,1 +1,12 @@
-{}
+{
+  "/chocolate-toxicity-calculator": { "page_og_image_url": "/images/og-pets.png" },
+  "/xylitol-toxicity-calculator": { "page_og_image_url": "/images/og-pets.png" },
+  "/lily-toxicity-checker": { "page_og_image_url": "/images/og-pets.png" },
+  "/pet-calorie-calculator": { "page_og_image_url": "/images/og-pets.png" },
+  "/can-my-dog-eat": { "page_og_image_url": "/images/og-pets.png" },
+  "/can-my-cat-eat": { "page_og_image_url": "/images/og-pets.png" },
+  "/puppy-adult-weight-calculator": { "page_og_image_url": "/images/og-pets.png" },
+  "/pet-body-condition-score": { "page_og_image_url": "/images/og-pets.png" },
+  "/dog-age-calculator": { "page_og_image_url": "/images/og-pets.png" },
+  "/cat-age-calculator": { "page_og_image_url": "/images/og-pets.png" }
+}

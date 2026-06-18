@@ -15,6 +15,7 @@ export interface ApiRouteManifest {
 export const apiRouteManifest: Record<string, ApiRouteManifest> = {
   "/ads.txt": { file: "ads.txt", public: true },
   "/api/rhyme-zone": { file: "api-rhyme-zone", public: true },
+  "/cfb0a610a0e2c65de2c1dd1eb565313c.txt": { file: "indexnow-key", public: true },
   "/robots.txt": { file: "robots.txt", public: true },
   "/sitemap.xml": { file: "sitemap.xml", public: true },
 };

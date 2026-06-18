@@ -2,5 +2,7 @@
   "site_title": "TinyToolboxes",
   "site_description": "Free single-purpose online tools for calculations, conversions, and everyday tasks. No clutter, no sign-up, just fast answers.",
   "site_url": "https://www.tinytoolboxes.com",
-  "hide_built_on_zo_badge": true
+  "hide_built_on_zo_badge": true,
+  "og_image_url": "/images/og-tinytoolboxes.jpg",
+  "custom_head_html": "<meta property=\"og:image\" content=\"https://padawan.zo.space/images/og-tinytoolboxes.jpg\">\n<meta name=\"twitter:image\" content=\"https://padawan.zo.space/images/og-tinytoolboxes.jpg\">"
 }

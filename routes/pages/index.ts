@@ -86,6 +86,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./can-my-dog-eat")),
     public: true,
   },
+  "/can-my-cat-eat": {
+    component: lazy(() => import("./can-my-cat-eat")),
+    public: true,
+  },
   "/cat-age-calculator": {
     component: lazy(() => import("./cat-age-calculator")),
     public: true,
@@ -122,6 +126,14 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./xylitol-toxicity-calculator")),
     public: true,
   },
+  "/breed/:slug": {
+    component: lazy(() => import("./breed")),
+    public: true,
+  },
+  "/breeds": {
+    component: lazy(() => import("./breeds-index")),
+    public: true,
+  },
   "/about": {
     component: lazy(() => import("./about")),
     public: true,
@@ -132,6 +144,14 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
   },
   "/privacy-policy": {
     component: lazy(() => import("./privacy-policy")),
+    public: true,
+  },
+  "/puppy-adult-weight-calculator": {
+    component: lazy(() => import("./puppy-adult-weight-calculator")),
+    public: true,
+  },
+  "/pet-body-condition-score": {
+    component: lazy(() => import("./pet-body-condition-score")),
     public: true,
   },
 };

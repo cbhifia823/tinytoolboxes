@@ -1,1 +1,154 @@
-{"en": {"articleWhyTitle": "Common Foods That Are Toxic to Dogs", "articleToxic": ["Chocolate — contains theobromine and caffeine", "Grapes and raisins — can cause acute kidney failure", "Onions and garlic — damage red blood cells, causing anemia", "Xylitol — found in sugar-free gum, peanut butter, and baked goods", "Macadamia nuts — cause weakness, vomiting, and hyperthermia", "Avocado — contains persin (especially dangerous for birds and some dogs)", "Alcohol — even small amounts can cause severe toxicity", "Raw dough — expands in the stomach and produces alcohol"], "articleSafeTitle": "Foods That Are Safe in Moderation", "articleSafe": ["Plain cooked chicken, turkey, or lean beef", "Carrots, green beans, and cucumber slices", "Plain pumpkin (not pie filling) — great for digestion", "Blueberries and apple slices (no seeds)", "Plain cooked rice or pasta", "Peanut butter (check for xylitol first)", "Plain yogurt (in small amounts)"], "articleEmergencyTitle": "What to Do If Your Dog Eats Something Suspicious", "articleEmergency": "Call your veterinarian or an animal poison control center immediately. Save the packaging and note approximately how much was eaten and when. Do not induce vomiting unless specifically instructed by a vet. ASPCA Poison Control: (888) 426-4435 (US)."}, "zh-hk": {"articleWhyTitle": "對狗狗有毒嘅常見食物", "articleToxic": ["朱古力 — 含有可可鹼同咖啡因", "提子同提子乾 — 可以引起急性腎衰竭", "洋蔥同大蒜 — 破壞紅血球，引起貧血", "木糖醇 — 存在於無糖口香糖、花生醬同烘焙食品中", "夏威夷果仁 — 引起虛弱、嘔吐同高溫症", "牛油果 — 含有 Persin（對雀鳥同某啲狗特別危險）", "酒精 — 即使少量都可以引起嚴重中毒", "生麵團 — 喺胃入面膨脹並產生酒精"], "articleSafeTitle": "適量食用安全嘅食物", "articleSafe": ["煮熟嘅雞肉、火雞肉或瘦牛肉（原味）", "紅蘿蔔、青豆同青瓜片", "原味南瓜（唔係批餡） — 對消化好好", "藍莓同蘋果片（去核）", "原味白飯或意粉", "花生醬（先檢查有冇木糖醇）", "原味乳酪（少量）"], "articleEmergencyTitle": "如果狗狗食咗可疑嘅嘢應該點做", "articleEmergency": "即刻打電話畀獸醫或者動物中毒控制中心。保留包裝，記低大約食咗幾多同幾時食。除非獸醫特別指示，否則唔好自己催吐。ASPCA 中毒控制：(888) 426-4435（美國）。"}, "zh-cn": {"articleWhyTitle": "对狗狗有毒的常见食物", "articleToxic": ["巧克力 — 含有可可碱和咖啡因", "葡萄和葡萄干 — 可引起急性肾衰竭", "洋葱和大蒜 — 破坏红血球，引起贫血", "木糖醇 — 存在于无糖口香糖、花生酱和烘焙食品中", "夏威夷果 — 引起虚弱、呕吐和高温症", "牛油果 — 含有 Persin（对鸟类和某些狗特别危险）", "酒精 — 即使少量都可以引起严重中毒", "生面团 — 在胃里膨胀并产生酒精"], "articleSafeTitle": "适量食用安全的食物", "articleSafe": ["煮熟的鸡肉、火鸡肉或瘦牛肉（原味）", "胡萝卜、青豆和黄瓜片", "原味南瓜（不是派馅） — 对消化很好", "蓝莓和苹果片（去核）", "原味白饭或意粉", "花生酱（先检查有没有木糖醇）", "原味酸奶（少量）"], "articleEmergencyTitle": "如果狗狗吃了可疑的东西应该怎么做", "articleEmergency": "马上打电话给兽医或动物中毒控制中心。保留包装，记下大约吃了多少和什么时候吃。除非兽医特别指示，否则不要自己催吐。ASPCA 中毒控制：(888) 426-4435（美国）。"}, "es": {"articleWhyTitle": "Alimentos comunes tóxicos para perros", "articleToxic": ["Chocolate — contiene teobromina y cafeína", "Uvas y pasas — pueden causar insuficiencia renal aguda", "Cebolla y ajo — dañan los glóbulos rojos, causando anemia", "Xilitol — presente en chicles sin azúcar, mantequilla de maní y repostería", "Nueces de macadamia — causan debilidad, vómitos e hipertermia", "Aguacate — contiene persina (especialmente peligroso para aves y algunos perros)", "Alcohol — incluso pequeñas cantidades pueden causar toxicidad grave", "Masa cruda — se expande en el estómago y produce alcohol"], "articleSafeTitle": "Alimentos seguros con moderación", "articleSafe": ["Pollo, pavo o carne magra cocidos (sin condimentos)", "Zanahorias, judías verdes y rodajas de pepino", "Calabaza natural (no relleno de tarta) — excelente para la digestión", "Arándanos y rodajas de manzana (sin semillas)", "Arroz o pasta cocidos (sin salsa)", "Mantequilla de maní (revisa primero que no tenga xilitol)", "Yogur natural (en pequeñas cantidades)"], "articleEmergencyTitle": "Qué hacer si tu perro come algo sospechoso", "articleEmergency": "Llama a tu veterinario o a un centro de control de intoxicaciones animales inmediatamente. Guarda el envoltorio y anota aproximadamente cuánto comió y cuándo. No induzcas el vómito a menos que un veterinario te lo indique específicamente. Control de Intoxicaciones ASPCA: (888) 426-4435 (EE.UU.)."}}
+{
+  "en": {
+    "articleToxicTitle": "Common Foods That Are Toxic to Dogs",
+    "articleToxicP1": "A surprising number of everyday human foods can harm dogs. The most well-known offenders are chocolate, grapes, raisins, onions, garlic, macadamia nuts, and xylitol — but the list keeps growing as research improves. Some toxins are dose-dependent and only matter in quantity, while others (like xylitol and grapes) can cause severe harm from a single small exposure.",
+    "articleToxicP2": "The five foods that veterinary toxicology services rank as the most common causes of severe poisoning are: chocolate, xylitol-sweetened products, grapes/raisins, onions and the allium family, and rodenticides. Knowing what these look like at home — and where you keep them — is the simplest way to prevent emergencies.",
+    "articleSafeTitle": "Foods That Are Safe in Moderation",
+    "articleSafeP1": "Most fruits and vegetables that we eat without seasoning, salt, sugar, or fat are safe for dogs as occasional treats. Carrots, blueberries, plain pumpkin, plain cooked sweet potato, plain cooked chicken, and cooked plain egg are all popular training treats. The keyword is <em>plain</em> — once butter, oil, salt, garlic, or onion enter the picture, a safe food can become an unsafe one.",
+    "articleSafeP2": "As a rule, treats should make up no more than 10% of your dog’s daily caloric intake. The rest should come from a complete and balanced dog food. Treats given outside that 10% are the most common cause of slow, creeping weight gain in pet dogs.",
+    "articleEmergencyTitle": "What to Do If Your Dog Eats Something Suspicious",
+    "articleEmergencyP1": "Stay calm and act quickly. Note exactly what was eaten, how much, and when. Take a photo of the packaging. Call your veterinarian or one of these 24/7 helplines first — do not induce vomiting unless told to by a professional, since some toxins (like batteries or sharp objects) make vomiting more dangerous than the original ingestion.",
+    "articleEmergencyP2": "<strong>ASPCA Animal Poison Control Center</strong>: (888) 426-4435 (US, $95 fee). <strong>Pet Poison Helpline</strong>: (855) 764-7661 ($85 fee). Both keep a record number you can give your vet to share treatment recommendations.",
+    "articleFaqTitle": "Frequently Asked Questions",
+    "articleFaqs": [
+      {
+        "q": "My dog ate one grape — is that an emergency?",
+        "a": "Yes, call a vet. Grape toxicity is famously unpredictable — some dogs eat handfuls without issue, others develop kidney failure from a single grape. There is no known “safe dose” so all grape and raisin ingestion should be treated as potentially serious."
+      },
+      {
+        "q": "Why are onions and garlic toxic if they are in so many human foods?",
+        "a": "Onion, garlic, leeks, and chives contain N-propyl disulfide, which damages dog red blood cells and causes hemolytic anemia. The dose matters — a tiny amount in seasoning is usually not enough to cause symptoms — but cumulative exposure over time also adds up. It is safest to avoid sharing any seasoned human food."
+      },
+      {
+        "q": "Can puppies eat the same things as adult dogs?",
+        "a": "Generally yes, with smaller portion sizes and extra caution for choking hazards. Puppies are more sensitive to fat (pancreatitis risk) and sugar. They also bite into things harder and need pieces cut smaller. Some treats marketed as “puppy chews” can be too hard for milk teeth."
+      },
+      {
+        "q": "Is this list complete?",
+        "a": "No — this covers about 50 of the most commonly asked foods. There are many more. When in doubt, look it up in a reputable veterinary source (VeterinaryPartner, ASPCA, AKC) or call a poison helpline before letting your dog try something new."
+      }
+    ],
+    "articleDisclaimer": "This list is a quick reference, not a substitute for veterinary advice. Individual dogs can have allergies, medical conditions, or sensitivities not covered here.",
+    "sidebarTitle": "Top toxic foods",
+    "sidebarSubtitle": "Memorize these.",
+    "sidebarItems": [
+      "Chocolate · Grapes · Raisins",
+      "Xylitol · Macadamia · Onion · Garlic",
+      "Alcohol · Raw dough · Walnuts"
+    ]
+  },
+  "zh-hk": {
+    "articleToxicTitle": "對狗狗有毒嘅常見食物",
+    "articleToxicP1": "好多日常人類食物其實會對狗狗有害。最為人熟悉嘅包括朱古力、提子、提子乾、洋蔥、大蒜、夏威夷果仁同木糖醇——隨住研究進步，呢個清單仲會繼續增加。有啞毒素係劑量相關，要食到一定份量先會有問題；但有啞（例如木糖醇同提子）只要食好少就可以造成嚴重傷害。",
+    "articleToxicP2": "獸醫毒理學服務列為最常見嚴重中毒原因嘅五大類食物係：朱古力、含木糖醇產品、提子／提子乾、洋蔥同蔥屬植物、以及老鼠藥。喔屋企認得呢啞嘢——同埋知道佢咋放喔邊——就係預防緊急情況最簡單嘅方法。",
+    "articleSafeTitle": "適量食用安全嘅食物",
+    "articleSafeP1": "大部分冇加調味、鹽、糖或油嘅蔬果對狗狗係安全嘅，可以喔係間中嘅小食。紅蘿蔔、藍莓、原味南瓜、原味煮熟番薯、原味煮熟雞肉同煮熟原味雞蛋都係受歡迎嘅訓練零食。關鍵詞係<em>原味</em>——一旦加入牛油、油、鹽、大蒜或洋蔥，安全嘅食物就可以變成唔安全。",
+    "articleSafeP2": "一般嘆講，零食唔應該超過狗狗每日卡路里攝取量嘅 10%。其餘應該嘆自完整均衡嘅狗糧。超出呢 10% 嘅零食係導致寵物狗狗慢慢增重嘅最常見原因。",
+    "articleEmergencyTitle": "如果狗狗食咗可疑嘅嘢應該點做",
+    "articleEmergencyP1": "保持冷靜，盡快行動。記低佢食咗啥、食咗幾多同幾時食。幫包裝影相。首先打電話畲獸醫或者以下 24/7 熱線——唔好自己催吐，除非有專業人士指示，因為某啞毒素（例如電池或尖銳物品）催吐會比原本誤食更加危險。",
+    "articleEmergencyP2": "<strong>ASPCA 動物中毒控制中心</strong>：(888) 426-4435（美國，收費 $95 美元）。<strong>寵物中毒熱線</strong>：(855) 764-7661（收費 $85 美元）。兩個熱線都會提供一個個案編號，你可以交畲獸醫嘆分享治療建議。",
+    "articleFaqTitle": "常見問題",
+    "articleFaqs": [
+      {
+        "q": "我隻狗食咗一粒提子——係唔係緊急情況？",
+        "a": "係，即刻打電話畲獸醫。提子毒性係出晒名難以預測——有啞狗狗食咗好多都冇事，但有啞食一粒就腎衰竭。冇已知嘅「安全劑量」，所以所有提子同提子乾誤食都應該視為可能嚴重。"
+      },
+      {
+        "q": "點解洋蔥同大蒜有毒，但唔少人類食物都有用到？",
+        "a": "洋蔥、大蒜、韭蔥同細香蔥含有 N-propyl disulfide，會破壞狗狗嘅紅血球，引起溶血性貧血。劑量係關鍵——調味料入面嘅少少通常唔會引起症狀——但長期累積暴露都會加起來。最安全係避免分享任何調味過嘅人類食物。"
+      },
+      {
+        "q": "狗BB可以食同成犬一樣嘅嘢嗎？",
+        "a": "一般可以，但要份量更細同更小心咽噓風險。狗BB對脂肪（膺臟炎風險）同糖更加敏感。佢咋咬嘢會更用力，需要切得更細粒。一啞標榜「幼犬咀嘊零食」嘅產品可能對乳齒嘆講太硬。"
+      },
+      {
+        "q": "呢個清單係唔係完整？",
+        "a": "唔係——呢度涵蓋大約 50 種最常被問到嘅食物。仲有好多其他。如果有懷疑，喔畲狗狗試新嘢之前，去可靠嘅獸醫來源（VeterinaryPartner、ASPCA、AKC）查吓，或者打電話畲中毒熱線。"
+      }
+    ],
+    "articleDisclaimer": "呢個清單只係快速參考，唔可以代替獸醫建議。個別狗狗可能會有呢度冇提及嘅過敏、疾病或敏感性。",
+    "sidebarTitle": "最毒嘅食物",
+    "sidebarSubtitle": "記住呢啞。",
+    "sidebarItems": [
+      "朱古力 · 提子 · 提子乾",
+      "木糖醇 · 夏威夷果仁 · 洋蔥 · 大蒜",
+      "酒精 · 生麵團 · 合桃"
+    ]
+  },
+  "zh-cn": {
+    "articleToxicTitle": "对狗狗有毒的常见食物",
+    "articleToxicP1": "很多日常人类食物其实会对狗狗有害。最为人熟知的包括巧克力、葡萄、葡萄干、洋葱、大蒜、夏威夷果和木糖醇——随着研究进步，这个清单还会继续增加。有些毒素是剂量相关的，要吃到一定份量才会有问题；但有些（例如木糖醇和葡萄）只要吃很少就可以造成严重伤害。",
+    "articleToxicP2": "兽医毒理学服务列为最常见严重中毒原因的五大类食物是：巧克力、含木糖醇产品、葡萄/葡萄干、洋葱和葱属植物、以及老鼠药。在家里认得这些东西——并且知道它们放在哪——就是预防紧急情况最简单的方法。",
+    "articleSafeTitle": "适量食用安全的食物",
+    "articleSafeP1": "大部分没加调味、盐、糖或油的蔬果对狗狗是安全的，可以当作间中的小食。胡萝卜、蓝莓、原味南瓜、原味煮熟红薯、原味煮熟鸡肉和煮熟原味鸡蛋都是受欢迎的训练零食。关键词是<em>原味</em>——一旦加入黄油、油、盐、大蒜或洋葱，安全的食物就可以变成不安全。",
+    "articleSafeP2": "一般来说，零食不应该超过狗狗每日卡路里摄取量的 10%。其余应该来自完整均衡的狗粮。超出这 10% 的零食是导致宠物狗狗慢慢增重的最常见原因。",
+    "articleEmergencyTitle": "如果狗狗吃了可疑的东西应该怎么做",
+    "articleEmergencyP1": "保持冷静，尽快行动。记下它吃了什么、吃了多少和什么时候吃的。给包装拍照。首先打电话给兽医或以下 24/7 热线——不要自己催吐，除非有专业人士指示，因为某些毒素（例如电池或尖锐物品）催吐会比原本误食更加危险。",
+    "articleEmergencyP2": "<strong>ASPCA 动物中毒控制中心</strong>：(888) 426-4435（美国，收费 $95 美元）。<strong>宠物中毒热线</strong>：(855) 764-7661（收费 $85 美元）。两个热线都会提供一个个案编号，你可以交给兽医来分享治疗建议。",
+    "articleFaqTitle": "常见问题",
+    "articleFaqs": [
+      {
+        "q": "我的狗吃了一颗葡萄——是紧急情况吗？",
+        "a": "是的，立刻打电话给兽医。葡萄毒性是出了名难以预测——有些狗狗吃了很多都没事，但有些吃一颗就腎衰竭。没有已知的“安全剂量”，所以所有葡萄和葡萄干误食都应该视为可能严重。"
+      },
+      {
+        "q": "为什么洋葱和大蒜有毒，但很多人类食物都有用到？",
+        "a": "洋葱、大蒜、韭葱和细香葱含有 N-propyl disulfide，会破坏狗狗的红血球，引起溶血性贫血。剂量是关键——调味料里那少少通常不会引起症状——但长期累积暴露也会加起来。最安全是避免分享任何调味过的人类食物。"
+      },
+      {
+        "q": "小狗可以吃和成犬一样的东西吗？",
+        "a": "一般可以，但要份量更小和更小心咽噓风险。小狗对脂肪（胰脏炎风险）和糖更加敏感。它们咬东西会更用力，需要切得更小块。一些标榜“幼犬咀嚼零食”的产品可能对乳牙来说太硬。"
+      },
+      {
+        "q": "这个清单完整吗？",
+        "a": "不完整——这里涵盖大约 50 种最常被问到的食物。还有很多其他。如果有疑问，在给狗狗尝试新东西之前，去可靠的兽医来源（VeterinaryPartner、ASPCA、AKC）查一下，或者打电话给中毒热线。"
+      }
+    ],
+    "articleDisclaimer": "这个清单只是快速参考，不可以替代兽医建议。个别狗狗可能会有这里没提及的过敏、疾病或敏感性。",
+    "sidebarTitle": "最毒的食物",
+    "sidebarSubtitle": "记住这些。",
+    "sidebarItems": [
+      "巧克力 · 葡萄 · 葡萄干",
+      "木糖醇 · 夏威夷果 · 洋葱 · 大蒜",
+      "酒精 · 生面团 · 核桃"
+    ]
+  },
+  "es": {
+    "articleToxicTitle": "Alimentos comunes tóxicos para perros",
+    "articleToxicP1": "Una cantidad sorprendente de alimentos humanos cotidianos pueden dañar a los perros. Los más conocidos son el chocolate, las uvas, las pasas, la cebolla, el ajo, las nueces de macadamia y el xilitol, pero la lista sigue creciendo a medida que avanza la investigación. Algunas toxinas dependen de la dosis y solo importan en cantidad, mientras que otras (como el xilitol y las uvas) pueden causar daños graves con una sola exposición pequeña.",
+    "articleToxicP2": "Los cinco alimentos que los servicios de toxicología veterinaria clasifican como las causas más comunes de intoxicación grave son: chocolate, productos con xilitol, uvas/pasas, cebollas y la familia allium, y rodenticidas. Saber cómo se ven en casa, y dónde los guardas, es la forma más sencilla de prevenir emergencias.",
+    "articleSafeTitle": "Alimentos seguros con moderación",
+    "articleSafeP1": "La mayoría de las frutas y verduras que comemos sin condimentos, sal, azúcar ni grasa son seguras para los perros como golosinas ocasionales. Zanahorias, arándanos, calabaza natural, camote cocido sin condimentos, pollo cocido sin condimentos y huevo cocido sin condimentos son premios de entrenamiento populares. La palabra clave es <em>sin condimentos</em>: una vez que la mantequilla, el aceite, la sal, el ajo o la cebolla entran en escena, un alimento seguro puede volverse inseguro.",
+    "articleSafeP2": "Como regla general, las golosinas no deben superar el 10% de la ingesta calórica diaria de tu perro. El resto debe provenir de un alimento para perros completo y equilibrado. Las golosinas fuera de ese 10% son la causa más común del aumento de peso lento y progresivo en los perros de compañía.",
+    "articleEmergencyTitle": "Qué hacer si tu perro come algo sospechoso",
+    "articleEmergencyP1": "Mantén la calma y actúa rápido. Anota exactamente qué comió, cuánto y cuándo. Toma una foto del envoltorio. Llama primero a tu veterinario o a una de estas líneas de ayuda 24/7: no induzcas el vómito a menos que te lo indique un profesional, ya que algunas toxinas (como pilas u objetos afilados) hacen que vomitar sea más peligroso que la ingestión original.",
+    "articleEmergencyP2": "<strong>Centro de Control de Intoxicaciones Animales de ASPCA</strong>: (888) 426-4435 (EE.UU., tarifa de $95). <strong>Línea de Ayuda contra Intoxicaciones de Mascotas</strong>: (855) 764-7661 (tarifa de $85). Ambas te dan un número de registro que puedes dar a tu veterinario para compartir recomendaciones de tratamiento.",
+    "articleFaqTitle": "Preguntas frecuentes",
+    "articleFaqs": [
+      {
+        "q": "¿Mi perro comió una uva, es una emergencia?",
+        "a": "Sí, llama al veterinario. La toxicidad de la uva es famosamente impredecible: algunos perros comen puñados sin problema, otros desarrollan insuficiencia renal por una sola uva. No se conoce una “dosis segura”, por lo que toda ingestión de uvas y pasas debe tratarse como potencialmente grave."
+      },
+      {
+        "q": "¿Por qué la cebolla y el ajo son tóxicos si están en tantos alimentos humanos?",
+        "a": "La cebolla, el ajo, el puerro y el cebollino contienen disulfuro de N-propilo, que daña los glóbulos rojos de los perros y causa anemia hemolítica. La dosis importa: una cantidad mínima en condimentos generalmente no causa síntomas, pero la exposición acumulativa con el tiempo también suma. Lo más seguro es evitar compartir cualquier alimento humano condimentado."
+      },
+      {
+        "q": "¿Los cachorros pueden comer lo mismo que los perros adultos?",
+        "a": "Generalmente sí, con porciones más pequeñas y mayor precaución por riesgos de asfixia. Los cachorros son más sensibles a la grasa (riesgo de pancreatitis) y al azúcar. También muerden con más fuerza y necesitan trozos más pequeños. Algunos premios etiquetados como “mordedores para cachorros” pueden ser demasiado duros para los dientes de leche."
+      },
+      {
+        "q": "¿Esta lista es completa?",
+        "a": "No: esto cubre alrededor de 50 de los alimentos más preguntados. Hay muchos más. En caso de duda, consulta una fuente veterinaria confiable (VeterinaryPartner, ASPCA, AKC) o llama a una línea de intoxicaciones antes de dejar que tu perro pruebe algo nuevo."
+      }
+    ],
+    "articleDisclaimer": "Esta lista es una referencia rápida, no un sustituto del consejo veterinario. Cada perro puede tener alergias, condiciones médicas o sensibilidades no cubiertas aquí.",
+    "sidebarTitle": "Alimentos más tóxicos",
+    "sidebarSubtitle": "Memoriza estos.",
+    "sidebarItems": [
+      "Chocolate · Uvas · Pasas",
+      "Xilitol · Macadamia · Cebolla · Ajo",
+      "Alcohol · Masa cruda · Nueces"
+    ]
+  }
+}

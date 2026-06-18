@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, ArrowRight, BadgeDollarSign, Bone, Cat, Dog, Flower2, Globe2, Heart, PawPrint, Search, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowRight, BadgeDollarSign, Bone, BookOpen, Cat, Dog, Flower2, Globe2, Heart, PawPrint, Scale, Search, Sparkles } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -32,6 +32,9 @@ const COPY: Record<LocaleKey, {
   footer: string;
   searchFooter: string;
   faqTitle: string;
+  breedsTitle: string;
+  breedsSubtitle: string;
+  browseBreeds: string;
   faqs: Array<{ q: string; a: string }>;
 }> = {
   en: {
@@ -52,6 +55,9 @@ const COPY: Record<LocaleKey, {
     careSubtitle: "Feeding amounts, food safety lookups, and routine planning.",
     funTitle: "Fun & age",
     funSubtitle: "Convert your pet's age to human years using science-backed formulas.",
+    breedsTitle: "Breed guides",
+    breedsSubtitle: "Traits, health issues, weight, and temperament for 45 popular dog and cat breeds.",
+    browseBreeds: "Browse all breeds →",
     backToMain: "All TinyToolboxes",
     footer: "TinyToolboxes for Pets",
     searchFooter: "Need a non-pet tool? Visit the main site.",
@@ -81,6 +87,9 @@ const COPY: Record<LocaleKey, {
     careSubtitle: "餵食份量、食物安全查詢、日常計劃。",
     funTitle: "趣味 & 年齡",
     funSubtitle: "用科學公式將寵物年齡換成人類年齡。",
+    breedsTitle: "品種指南",
+    breedsSubtitle: "45 個熱門狗貓品種嘅特質、健康問題、體重同性格。",
+    browseBreeds: "瀏覽所有品種 →",
     backToMain: "返回主站",
     footer: "TinyToolboxes 寵物版",
     searchFooter: "想搵非寵物工具？返主站睇。",
@@ -110,6 +119,9 @@ const COPY: Record<LocaleKey, {
     careSubtitle: "喂食份量、食物安全查询、日常计划。",
     funTitle: "趣味 & 年龄",
     funSubtitle: "用科学公式将宠物年龄换算为人类年龄。",
+    breedsTitle: "品种指南",
+    breedsSubtitle: "45 个热门狗猫品种的特质、健康问题、体重和性格。",
+    browseBreeds: "浏览所有品种 →",
     backToMain: "返回主站",
     footer: "TinyToolboxes 宠物版",
     searchFooter: "想找非宠物工具？回主站看看。",
@@ -139,6 +151,9 @@ const COPY: Record<LocaleKey, {
     careSubtitle: "Cantidades de comida, búsqueda de seguridad alimentaria y planificación.",
     funTitle: "Edad y curiosidades",
     funSubtitle: "Convierte la edad de tu mascota a años humanos con fórmulas con base científica.",
+    breedsTitle: "Guías de razas",
+    breedsSubtitle: "Rasgos, problemas de salud, peso y temperamento de 45 razas populares de perros y gatos.",
+    browseBreeds: "Ver todas las razas →",
     backToMain: "Volver al sitio principal",
     footer: "TinyToolboxes para Mascotas",
     searchFooter: "¿Necesitas otra herramienta? Visita el sitio principal.",
@@ -167,6 +182,9 @@ const PET_TOOLS: PetTool[] = [
   { group: "emergency", title: { en: "Lily Toxicity Checker for Cats", "zh-hk": "貓貓百合毒性檢查", "zh-cn": "猫咪百合毒性检查", es: "Verificador de toxicidad de lirios para gatos" }, description: { en: "Identify which lily species are deadly versus mild for cats.", "zh-hk": "辨別邊啲百合品種對貓致命、邊啲輕微。", "zh-cn": "辨别哪些百合品种对猫致命、哪些轻微。", es: "Identifica qué especies de lirios son mortales y cuáles son leves para los gatos." }, href: "/lily-toxicity-checker", icon: Flower2, emoji: "🌸" },
   { group: "care", title: { en: "Pet Calorie Calculator (RER)", "zh-hk": "寵物卡路里計算機 (RER)", "zh-cn": "宠物卡路里计算器 (RER)", es: "Calculadora de calorías para mascotas (RER)" }, description: { en: "Daily calorie target for dogs and cats by weight and activity.", "zh-hk": "根據體重同活動量計算狗狗貓貓每日所需卡路里。", "zh-cn": "根据体重和活动量计算狗狗猫咪每日所需卡路里。", es: "Objetivo calórico diario para perros y gatos según peso y actividad." }, href: "/pet-calorie-calculator", icon: Bone, emoji: "🍖" },
   { group: "care", title: { en: "Can My Dog Eat This?", "zh-hk": "狗狗可以食呢樣嗎？", "zh-cn": "狗狗可以吃这个吗？", es: "¿Mi perro puede comer esto?" }, description: { en: "Yes / no / limit lookup for 50+ common human foods.", "zh-hk": "查詢 50+ 種常見人類食物對狗狗係安全定危險。", "zh-cn": "查询 50+ 种常见人类食物对狗狗是安全还是危险。", es: "Búsqueda sí / no / límite para más de 50 alimentos humanos comunes." }, href: "/can-my-dog-eat", icon: Dog, emoji: "🥑" },
+  { group: "care", title: { en: "Can My Cat Eat This?", "zh-hk": "貓貓可以食咩？", "zh-cn": "猫咪能吃什么？", es: "¿Puede mi gato comer esto?" }, description: { en: "Yes / no / limit lookup for 50+ common human foods — cat-specific safety notes.", "zh-hk": "查詢 50+ 種常見人類食物對貓嘅安全性，附貓專屬說明。", "zh-cn": "查询 50+ 种常见人类食物对猫的安全性，附猫专属说明。", es: "Búsqueda sí / no / límite para más de 50 alimentos — notas de seguridad específicas para gatos." }, href: "/can-my-cat-eat", icon: Cat, emoji: "🐟" },
+  { group: "care", title: { en: "Puppy Adult Weight Predictor", "zh-hk": "幼犬成年體重預測器", "zh-cn": "幼犬成年体重预测器", es: "Predictor de peso adulto del cachorro" }, description: { en: "Estimate puppy adult weight from age, current weight, and breed size.", "zh-hk": "根據週齡、現時體重同品種估算幼犬成年體重。", "zh-cn": "根据周龄、当前体重和品种估算幼犬成年体重。", es: "Estima el peso adulto desde la edad, peso actual y tamaño de raza." }, href: "/puppy-adult-weight-calculator", icon: PawPrint, emoji: "🐾" },
+  { group: "care", title: { en: "Body Condition Score (BCS) Quiz", "zh-hk": "寵物體況評分（BCS）測驗", "zh-cn": "宠物体况评分（BCS）测验", es: "Quiz de Condición Corporal (BCS)" }, description: { en: "Vet-style visual quiz to score your pet on the 1–9 BCS scale.", "zh-hk": "獸醫式視覺測驗，喺 1–9 BCS 量表上評估你寵物。", "zh-cn": "兽医式视觉测验，在 1–9 BCS 量表上评估你的宠物。", es: "Quiz visual al estilo veterinario en la escala BCS 1–9." }, href: "/pet-body-condition-score", icon: Scale, emoji: "⚖️" },
   { group: "fun", title: { en: "Dog Age in Human Years", "zh-hk": "狗狗年齡換算（人類年齡）", "zh-cn": "狗狗年龄换算（人类年龄）", es: "Edad de perro en años humanos" }, description: { en: "UCSD DNA-methylation formula, more accurate than the old 'multiply by 7'.", "zh-hk": "用 UCSD DNA 甲基化公式，比舊式「乘 7」更準確。", "zh-cn": "用 UCSD DNA 甲基化公式，比旧式「乘 7」更准确。", es: "Fórmula de metilación del ADN de UCSD, más precisa que el viejo 'multiplicar por 7'." }, href: "/dog-age-calculator", icon: Dog, emoji: "🐶" },
   { group: "fun", title: { en: "Cat Age in Human Years", "zh-hk": "貓貓年齡換算（人類年齡）", "zh-cn": "猫咪年龄换算（人类年龄）", es: "Edad de gato en años humanos" }, description: { en: "Feline life-stage chart based on AAFP/IOM guidelines.", "zh-hk": "根據 AAFP／IOM 貓科生命階段指引換算。", "zh-cn": "根据 AAFP／IOM 猫科生命阶段指引换算。", es: "Tabla de etapas de vida felina basada en las guías AAFP/IOM." }, href: "/cat-age-calculator", icon: Cat, emoji: "🐱" },
 ];
@@ -398,6 +416,25 @@ export default function PetsHome() {
               <p className="mt-2 max-w-2xl text-sm leading-6 text-amber-100/75">{copy.funSubtitle}</p>
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 {fun.map((tool) => <ToolCard key={tool.href} tool={tool} locale={locale} />)}
+              </div>
+            </section>
+
+            {/* Breed guides section */}
+            <section className="rounded-3xl border border-amber-200/10 bg-amber-200/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
+              <div className="flex items-center gap-2 text-sm font-medium text-amber-200">
+                <BookOpen className="h-4 w-4" />
+                <span className="uppercase tracking-[0.18em]">{copy.breedsTitle}</span>
+              </div>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-amber-100/75">{copy.breedsSubtitle}</p>
+              <div className="mt-4 flex flex-wrap gap-2 text-sm text-amber-100/60">
+                {["🐕 Golden Retriever", "🐕 Labrador", "🐈 British Shorthair", "🐕 French Bulldog", "🐈 Maine Coon"].map((b) => (
+                  <span key={b} className="rounded-full border border-amber-200/10 bg-black/20 px-3 py-1">{b}</span>
+                ))}
+              </div>
+              <div className="mt-4">
+                <a href="/breeds" className="inline-flex items-center gap-2 rounded-2xl border border-amber-300/30 bg-amber-300/10 px-4 py-2 text-sm font-medium text-amber-100 transition hover:border-amber-300/50 hover:bg-amber-300/20">
+                  {copy.browseBreeds}
+                </a>
               </div>
             </section>
 

@@ -86,7 +86,7 @@ const LANGUAGES: Record<LocaleKey, L> = {
       ["Why is billable weight important?", "Because the carrier usually charges the greater of actual weight and dimensional weight."],
       ["Can I change units?", "Yes, switch between cm/kg and in/lb anytime."],
     ],
-    quickLinksTitle: "{L.quickLinks}",
+    quickLinksTitle: "FedEx Quick Links",
     examples: [
       { label: "Small parcel", dims: [30, 20, 15], actual: 4 },
       { label: "Retail box", dims: [40, 30, 20], actual: 6 },
@@ -96,7 +96,7 @@ const LANGUAGES: Record<LocaleKey, L> = {
     inputWidth: "Width",
     inputHeight: "Height",
     inputActualWeight: "Actual weight",
-    inputFactor: "{L.ui.factor}",
+    inputFactor: "Dimensional factor",
     sectionHow: {
       heading: "How FedEx Dimensional Weight Pricing Works",
       p1: "FedEx uses dimensional weight (also called DIM weight) pricing for all FedEx Express and FedEx Ground shipments. The concept is simple: carriers charge for the space a package occupies in their vehicles, not just its physical weight. A large, light box takes up the same cargo space as a small, heavy box — so FedEx bills whichever measurement results in higher revenue: actual weight or dimensional weight.",
@@ -120,7 +120,7 @@ const LANGUAGES: Record<LocaleKey, L> = {
     },
     sectionOneRate: {
       heading: "FedEx One Rate: When DIM Weight Doesn't Apply",
-      p1: "{L.sectionOneRate.p1.startsWith('FedEx') ? L.sectionOneRate.p1 : 'FedEx One Rate is a flat-rate'} pricing program for packages shipped in official FedEx One Rate packaging. Unlike standard FedEx pricing, One Rate charges a fixed price regardless of actual weight (up to 50 lbs) or dimensional weight — as long as you use the provided FedEx envelopes, paks, tubes, boxes, or extra-large boxes.",
+      p1: "FedEx One Rate is a flat-rate pricing program for packages shipped in official FedEx One Rate packaging. Unlike standard FedEx pricing, One Rate charges a fixed price regardless of actual weight (up to 50 lbs) or dimensional weight — as long as you use the provided FedEx envelopes, paks, tubes, boxes, or extra-large boxes.",
       p2: "This makes FedEx One Rate particularly cost-effective for dense, heavy items that would otherwise have high actual-weight billing. A 20 lb metal component shipped in a FedEx One Rate box pays the same flat price as a 2 lb component in the same box. However, for very light items in large packages where dimensional weight would be much higher than actual weight, standard FedEx pricing may actually be cheaper.",
     },
     sectionFaq: {
@@ -132,11 +132,11 @@ const LANGUAGES: Record<LocaleKey, L> = {
         { q: "What is the cubic pricing rule for FedEx?", a: "FedEx occasionally uses \"cubic pricing\" for some FedEx Ground shipments, which calculates cost based on the total cubic volume of the package rather than dimensional weight. This typically affects packages over a certain size threshold. For most standard commercial shippers, dimensional weight is the relevant calculation — but if you ship very large packages frequently, ask your FedEx account representative about applicable pricing rules." },
       ],
     },
-    relatedHeading: "{L.relatedHeading}",
-    relatedText: "{L.relatedText}",
-    relatedUps: "{L.relatedUps}",
-    relatedDhl: "{L.relatedDhl}",
-    relatedGeneric: "{L.relatedGeneric}",
+    relatedHeading: "Related calculators",
+    relatedText: "Also try our",
+    relatedUps: "UPS dimensional weight calculator",
+    relatedDhl: "DHL dimensional weight calculator",
+    relatedGeneric: "multilingual volumetric weight calculator",
   },
   "zh-hk": {
     pageTitle: "FedEx 體積重量計算器",
@@ -638,7 +638,7 @@ export default function FedExDimensionalWeightCalculator() {
                       <span className="font-medium text-white">{example.label}</span>
                       <span>{example.dims.join(" × ")} {units.dim}</span>
                     </div>
-                    <p className="mt-1 text-neutral-400">Actual weight: {example.actual} {units.weight}</p>
+                    <p className="mt-1 text-neutral-400">{L.actualLabel}: {example.actual} {units.weight}</p>
                   </button>
                 ))}
               </div>
@@ -667,55 +667,46 @@ export default function FedExDimensionalWeightCalculator() {
           <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
             <div>
               <h2 className="text-2xl font-bold text-white">{L.sectionHow.heading}</h2>
-              <p className="mt-3 leading-7">FedEx uses dimensional weight (also called DIM weight) pricing for all FedEx Express and FedEx Ground shipments. The concept is simple: carriers charge for the space a package occupies in their vehicles, not just its physical weight. A large, light box takes up the same cargo space as a small, heavy box — so FedEx bills whichever measurement results in higher revenue: actual weight or dimensional weight.</p>
-              <p className="mt-3 leading-7">FedEx calculates dimensional weight using: <span className="font-mono text-emerald-200">(Length × Width × Height) ÷ 5,000</span> in centimetres (result in kg), or <span className="font-mono text-emerald-200">(L × W × H) ÷ 139</span> in inches (result in pounds). The billable weight is the greater of actual weight and dimensional weight. FedEx rounds all measurements up to the nearest whole number before calculating.</p>
+              <p className="mt-3 leading-7">{L.sectionHow.p1}</p>
+              <p className="mt-3 leading-7">{L.sectionHow.p2}</p>
             </div>
 
             <div>
               <h2 className="text-2xl font-bold text-white">{L.sectionExample.heading}</h2>
-              <p className="mt-3 leading-7">An online retailer ships phone accessories in 30 cm × 25 cm × 20 cm boxes. Each box's actual weight is 500g (0.5 kg).</p>
+              <p className="mt-3 leading-7">{L.sectionExample.intro}</p>
               <div className="mt-3 rounded-2xl border border-emerald-300/20 bg-emerald-300/5 px-5 py-4 font-mono text-sm text-emerald-100">
-                Dimensional weight = (30 × 25 × 20) ÷ 5,000 = 15,000 ÷ 5,000 = 3 kg
+                {L.sectionExample.calc}
               </div>
-              <p className="mt-3 leading-7">FedEx bills 3 kg instead of 0.5 kg — a 6× multiple. By switching to a tighter 25 × 20 × 15 cm box: (25 × 20 × 15) ÷ 5,000 = 7,500 ÷ 5,000 = 1.5 kg. The cost per package is cut in half. For a business shipping 200 packages per day, this difference in box selection can save $40,000–$80,000 per year depending on rate agreements.</p>
+              <p className="mt-3 leading-7">{L.sectionExample.after}</p>
             </div>
 
             <div>
               <h2 className="text-2xl font-bold text-white">{L.sectionLimits.heading}</h2>
               <ul className="mt-3 space-y-2 text-white/70">
-                <li className="flex gap-2"><span className="shrink-0 text-emerald-300">→</span><strong className="text-white">Maximum weight:</strong> 150 lbs (68 kg) for FedEx Express and Ground standard packages.</li>
-                <li className="flex gap-2"><span className="shrink-0 text-emerald-300">→</span><strong className="text-white">Maximum length:</strong> 119 inches (302 cm) for the single longest dimension.</li>
-                <li className="flex gap-2"><span className="shrink-0 text-emerald-300">→</span><strong className="text-white">Length plus girth:</strong> Must not exceed 165 inches (419 cm). Girth = 2 × (width + height).</li>
-                <li className="flex gap-2"><span className="shrink-0 text-emerald-300">→</span><strong className="text-white">Oversized/additional handling:</strong> Packages exceeding 96 inches on the longest side, or length plus girth over 130 inches, incur additional handling surcharges on top of standard rates.</li>
-                <li className="flex gap-2"><span className="shrink-0 text-emerald-300">→</span><strong className="text-white">FedEx Freight:</strong> Packages exceeding these standard limits must ship via FedEx Freight, which uses different pricing and handling procedures.</li>
+                {L.sectionLimits.items.map((item) => (
+                  <li key={item.label} className="flex gap-2">
+                    <span className="shrink-0 text-emerald-300">→</span>
+                    <strong className="text-white">{item.label}:</strong> {item.text}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
               <h2 className="text-2xl font-bold text-white">{L.sectionOneRate.heading}</h2>
-              <p className="mt-3 leading-7">{L.sectionOneRate.p1.startsWith('FedEx') ? L.sectionOneRate.p1 : 'FedEx One Rate is a flat-rate'} pricing program for packages shipped in official FedEx One Rate packaging. Unlike standard FedEx pricing, One Rate charges a fixed price regardless of actual weight (up to 50 lbs) or dimensional weight — as long as you use the provided FedEx envelopes, paks, tubes, boxes, or extra-large boxes.</p>
-              <p className="mt-3 leading-7">This makes FedEx One Rate particularly cost-effective for dense, heavy items that would otherwise have high actual-weight billing. A 20 lb metal component shipped in a FedEx One Rate box pays the same flat price as a 2 lb component in the same box. However, for very light items in large packages where dimensional weight would be much higher than actual weight, standard FedEx pricing may actually be cheaper.</p>
+              <p className="mt-3 leading-7">{L.sectionOneRate.p1}</p>
+              <p className="mt-3 leading-7">{L.sectionOneRate.p2}</p>
             </div>
 
             <div>
               <h2 className="text-2xl font-bold text-white">{L.sectionFaq.heading}</h2>
               <div className="mt-4 space-y-5">
-                <div>
-                  <h3 className="font-semibold text-white">Does FedEx dimensional weight apply to residential deliveries?</h3>
-                  <p className="mt-1 text-white/70">Yes. FedEx dimensional weight applies to both commercial and residential deliveries. However, residential deliveries also incur a separate residential delivery surcharge (typically $5–$10 per package). Both the dimensional weight and any applicable surcharges are calculated independently and added to the total shipping cost.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">What is FedEx Ground Economy (formerly SmartPost)?</h3>
-                  <p className="mt-1 text-white/70">FedEx Ground Economy is a lower-cost service for lightweight packages that uses USPS for the final delivery mile. It is slower than standard FedEx Ground but typically cheaper for packages under 70 lbs. Dimensional weight still applies, but the overall rate structure is different. It is best suited for non-urgent e-commerce shipments to residential addresses.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">How do I dispute a FedEx dimensional weight charge?</h3>
-                  <p className="mt-1 text-white/70">If you believe FedEx measured your package incorrectly, contact FedEx billing with your tracking number and the actual measured dimensions of your package. Provide photographic evidence of the package with a measuring tape if possible. FedEx will review the scan data from their dimensioning systems. Billing disputes must typically be filed within 60 days of the invoice date.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white">What is the cubic pricing rule for FedEx?</h3>
-                  <p className="mt-1 text-white/70">FedEx occasionally uses "cubic pricing" for some FedEx Ground shipments, which calculates cost based on the total cubic volume of the package rather than dimensional weight. This typically affects packages over a certain size threshold. For most standard commercial shippers, dimensional weight is the relevant calculation — but if you ship very large packages frequently, ask your FedEx account representative about applicable pricing rules.</p>
-                </div>
+                {L.sectionFaq.items.map((item) => (
+                  <div key={item.q}>
+                    <h3 className="font-semibold text-white">{item.q}</h3>
+                    <p className="mt-1 text-white/70">{item.a}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </article>
@@ -725,7 +716,7 @@ export default function FedExDimensionalWeightCalculator() {
               <Truck className="h-5 w-5 text-emerald-300" />
               <span className="text-base font-semibold">{L.relatedHeading}</span>
             </div>
-            <p className="mt-3 leading-6 text-neutral-300">{L.relatedText} <a href="/ups-dimensional-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedUps}</a>, <a href="/dhl-dimensional-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedDhl}</a>, and the <a href="/volumetric-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedGeneric}</a>.</p>
+            <p className="mt-3 leading-6 text-neutral-300">{L.relatedText} <a href="/ups-dimensional-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedUps}</a>, <a href="/dhl-dimensional-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedDhl}</a>, <a href="/volumetric-weight-calculator" className="text-emerald-300 hover:underline">{L.relatedGeneric}</a>.</p>
           </div>
         </div>
       </section>
