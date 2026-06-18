@@ -17,6 +17,31 @@ const LANGUAGES = {
     safe: "Safe — Non-toxic",
     searchLabel: "Search lily species",
     searchPlaceholder: "Try: Easter, Tiger, Peace, Calla, Stargazer",
+    noMatch: "No match. Try \"easter\", \"calla\", or \"peace\".",
+    toolSearchLabel: "Search tools",
+    toolSearchPlaceholder: "Search tools",
+    sidebarTitle: "Cat-safe living",
+    sidebarSubtitle: "Prevention matters most.",
+    sidebarTip1: "Avoid bouquets that contain any Lilium or Hemerocallis varieties.",
+    sidebarTip2: "Tell florists you have a cat before they arrange a delivery.",
+    sidebarTip3: "Treatment within 6 hours gives the best prognosis.",
+    article1Title: "True Lilies vs Lookalikes",
+    article1P1: "\"Lily\" is a loose word in everyday language. To a cat owner, it should mean one specific thing: any plant in the genus <em>Lilium</em> (true lilies) or <em>Hemerocallis</em> (daylilies). Every part of these plants — petals, leaves, stems, pollen, even the water in a vase — contains an unidentified nephrotoxic compound that causes acute kidney failure in cats. As little as two petals, or grooming pollen from fur, can be fatal without treatment.",
+    article1P2: "Many flowers called \"lily\" are not actually toxic in this way. Peace lily (Spathiphyllum), calla lily (Zantedeschia), and Peruvian lily (Alstroemeria) are different plant families. They contain calcium oxalates or mild irritants that cause drooling and stomach upset but do not damage the kidneys. Lily of the valley (Convallaria) is its own danger \u2014 it contains cardiac glycosides that affect the heart, not the kidneys.",
+    article2Title: "Why Are Cats Uniquely Vulnerable?",
+    article2P1: "The exact mechanism is still being researched, but cats — and only cats among common pets — develop nephrotoxic damage from Lilium and Hemerocallis exposure. Dogs, rabbits, and rodents do not show the same kidney injury. Within 12–24 hours of ingestion, the cat's renal tubular cells begin to die; if untreated by 18 hours, the kidney damage is often permanent. Survival rates are excellent (above 90%) when treatment begins within 6 hours of exposure, but drop dramatically after 24 hours.",
+    articleTreatTitle: "What Treatment Looks Like",
+    articleTreatP1: "Veterinarians will induce vomiting if exposure is recent, administer activated charcoal, and start aggressive intravenous fluid therapy for at least 48–72 hours to flush the kidneys and maintain urine output. Blood work is monitored to track kidney values (BUN, creatinine, SDMA). In severe cases, hemodialysis can be used. Cats that survive may have permanent renal compromise requiring lifelong management.",
+    faqTitle: "Frequently Asked Questions",
+    faq1Q: "My cat brushed against a lily but didn't eat it — is that dangerous?",
+    faq1A: "It can be. Cats groom themselves constantly, and pollen that lands on the fur is licked off and ingested. Even small amounts of pollen are enough to cause kidney injury. Bathe the cat to remove any pollen and call a veterinarian for advice regardless of whether you saw the cat ingest anything.",
+    faq2Q: "What signs of lily poisoning should I watch for?",
+    faq2A: "Early signs (within 0–12 hours): drooling, vomiting, loss of appetite, lethargy. Later signs (12–72 hours): increased then decreased urination, dehydration, seizures, and collapse as kidney failure progresses. Do not wait for these signs — by the time later signs appear, the kidneys may already be irreparably damaged.",
+    faq3Q: "Are lilies dangerous to dogs?",
+    faq3A: "Most true lilies cause only mild gastrointestinal upset in dogs — vomiting and diarrhea — without the kidney injury seen in cats. Lily of the valley, however, is dangerous to dogs because of its cardiac toxins. Always keep these plants out of any pet's reach.",
+    faq4Q: "Can I keep lilies in a home with cats if they're out of reach?",
+    faq4A: "It is risky. Cats jump higher and more deliberately than most owners expect, and pollen can drift onto countertops or fall to the floor. Veterinarians and the ASPCA strongly recommend that homes with cats avoid Lilium and Hemerocallis entirely — choose cat-safe alternatives like orchids, roses, sunflowers, or African violets.",
+    disclaimer: "This tool is for informational purposes only. Always seek the advice of a licensed veterinarian for any suspected pet poisoning.",
   },
   "zh-hk": {
     name: "繁體中文",
@@ -33,6 +58,31 @@ const LANGUAGES = {
     safe: "安全 — 無毒",
     searchLabel: "搜尋百合品種",
     searchPlaceholder: "例如：復活節、虎、和平、馬蹄蓮、星佳沙",
+    noMatch: "無匹配。試「復活節」、「馬蹄蓮」或「和平」.",
+    toolSearchLabel: "搜尋工具",
+    toolSearchPlaceholder: "搜尋工具",
+    sidebarTitle: "貓貓安全生活",
+    sidebarSubtitle: "預防最重要。",
+    sidebarTip1: "避免使用包含任何 Lilium 或 Hemerocallis 品種嘅花束。",
+    sidebarTip2: "同花店講你有貓，佢哋先安排送貨。",
+    sidebarTip3: "喺 6 小時內治療，預後最好。",
+    article1Title: "真百合同似百合嘅分別",
+    article1P1: "\"百合\"係日常語言嘅模糊詞。對貓貓主人嚟講，應該指特定嘅植物：屬 <em>Lilium</em>（真百合）或 <em>Hemerocallis</em>（萱草）嘅任何植物。這些植物嘅所有部分——花瓣、葉、莖、花粉，甚至花瓶入面嘅水——都含有未確認嘅腎毒性化合物，會令貓貓急性腎衰竭。少少花瓣，或者喺毛上嘅花粉，都可能致命。",
+    article1P2: "好多叫「百合」嘅花其實唔係咁樣有毒。和平百合（Spathiphyllum）、馬蹄蓮（Zantedeschia）同秘魯百合（Alstroemeria）係唔同嘅植物科。佢哋含有草酸鈣或輕微刺激物，會引起流口水同腸胃不適，但唔會傷腎。鈴蘭（Convallaria）係另一種危險——佢含有強心苷，會影響心臟，唔係腎臟。",
+    article2Title: "點解貓貓特別易受影響？",
+    article2P1: "準確機制仲喺研究，但貓貓——同其他常見寵物相比，只有貓貓——會因為接觸 Lilium 同 Hemerocallis 而受腎毒性傷害。狗、兔同嚙齒類動物唔會受同樣腎臟傷害。喺攝入後 12–24 小時內，貓貓嘅腎小管細胞開始死亡；如果喺 18 小時內唔治療，腎臟傷害通常係永久。喺接觸後 6 小時內開始治療，存活率好高（超過 90%），但喺 24 小時後會急劇下降。",
+    articleTreatTitle: "治療點樣進行",
+    articleTreatP1: "獸醫會喺接觸後嘅近期內催吐，給予活性炭，同埋開始積極嘅靜脈輸液治療至少 48–72 小時，以沖洗腎臟同維持尿量。血液檢查會追蹤腎臟指標（BUN、肌酐、SDMA）。喺嚴重情況，可以用血液透析。存活嘅貓貓可能會有永久嘅腎臟問題，需要終身管理。",
+    faqTitle: "常見問題",
+    faq1Q: "貓貓接觸咗百合但唔係食咗——係咪危險？",
+    faq1A: "係。貓貓會不斷理毛，喺毛上嘅花粉會被舔食。少少花粉都足以令貓貓腎臟受傷。要洗貓貓，同埋無論有冇見到貓貓食咗咩，都要聯絡獸醫。",
+    faq2Q: "點樣識貓貓中毒？",
+    faq2A: "早期症狀（喺 0–12 小時內）：流口水、嘔吐、唔食、無精打采。後期症狀（喺 12–72 小時內）：先係尿多，後係尿少、脫水、抽搐、同埋因為腎衰竭而暈倒。唔好等症狀出現——喺後期症狀出現嗰陣，腎臟可能已經係永久受損。",
+    faq3Q: "百合對狗係咪危險？",
+    faq3A: "大多數真百合只會令狗嘅腸胃輕微不適——嘔吐同腹瀉——唔會令狗嘅腎臟受傷。鈴蘭對狗係危險嘅，因為佢有強心苷。要將這些植物放遠啲。",
+    faq4Q: "如果百合喺貓貓夠唔到嘅地方，我可以放喺屋企嗎？",
+    faq4A: "係咪危險。貓貓跳得高，同埋比主人預期嘅更刻意，花粉可能會飄到台面或者掉到地板。獸醫同 ASPCA 強烈建議有貓貓嘅屋企完全避免 Lilium 同 Hemerocallis——選擇貓貓安全嘅替代植物，例如蘭花、玫瑰、向日葵，或者非洲紫羅蘭。",
+    disclaimer: "本工具只係供參考。任何懷疑寵物中毒，都要諮詢持牌獸醫。",
   },
   "zh-cn": {
     name: "简体中文",
@@ -49,6 +99,31 @@ const LANGUAGES = {
     safe: "安全 — 无毒",
     searchLabel: "搜索百合品种",
     searchPlaceholder: "例如：复活节、虎、和平、马蹄莲、星佳沙",
+    noMatch: "无匹配。试 \"easter\", \"calla\", 或 \"peace\".",
+    toolSearchLabel: "搜索工具",
+    toolSearchPlaceholder: "搜索工具",
+    sidebarTitle: "猫咪安全生活",
+    sidebarSubtitle: "预防最重要。",
+    sidebarTip1: "避免使用包含任何 Lilium 或 Hemerocallis 品种的花束。",
+    sidebarTip2: "在花店订购前告知你有猫。",
+    sidebarTip3: "6 小时内治疗预后最好。",
+    article1Title: "真百合与相似植物的区别",
+    article1P1: "\"百合\"是日常语言中的模糊词。对猫主人来说，应该指特定植物：属 <em>Lilium</em>（真百合）或 <em>Hemerocallis</em>（萱草）的任何植物。这些植物的所有部分——花瓣、叶、茎、花粉，甚至花瓶里的水——都含有未确认的肾毒性化合物，会导致猫咪急性肾衰竭。少量花瓣或毛上的花粉都可能致命。",
+    article1P2: "许多叫「百合」的花其实不是这样有毒。和平百合（Spathiphyllum）、马蹄莲（Zantedeschia）和秘鲁百合（Alstroemeria）是不同的植物科。它们含有草酸钙或轻微刺激物，会引起流口水和肠胃不适，但不会伤肾。铃兰（Convallaria）是另一种危险——它含有强心苷，会影响心脏，不是肾脏。",
+    article2Title: "为什么猫咪特别易受伤害？",
+    article2P1: "准确机制仍在研究中，但猫咪——和其他常见宠物相比，只有猫咪——会因为接触 Lilium 和 Hemerocallis 而受到肾毒性伤害。狗、兔子和啮齿类动物不会受到同样的肾脏损伤。在摄入后 12–24 小时内，猫咪的肾小管细胞开始死亡；如果在 18 小时内未治疗，肾脏损伤通常是永久性的。在接触后 6 小时内开始治疗，存活率很高（超过 90%），但在 24 小时后急剧下降。",
+    articleTreatTitle: "治疗过程",
+    articleTreatP1: "兽医会在接触后近期催吐，给予活性炭，并开始积极的静脉输液治疗至少 48–72 小时，以冲洗肾脏并维持尿量。血液检查会追踪肾脏指标（BUN、肌酐、SDMA）。在严重情况下，可以使用血液透析。存活的猫咪可能会有永久性的肾脏问题，需要终身管理。",
+    faqTitle: "常见问题",
+    faq1Q: "猫咪接触了百合但没有吃——是否危险？",
+    faq1A: "是的。猫咪会不断理毛，落在毛上的花粉会被舔食。少量花粉足以导致肾脏损伤。要洗澡去除花粉，并联系兽医，无论是否看到猫咪摄入任何东西。",
+    faq2Q: "应该观察哪些百合中毒症状？",
+    faq2A: "早期症状（0–12 小时内）：流口水、呕吐、食欲减退、精神萎靡。后期症状（12–72 小时内）：先尿多后尿少、脱水、抽搐、以及因肾衰竭而晕倒。不要等待这些症状——当后期症状出现时，肾脏可能已经永久受损。",
+    faq3Q: "百合对狗是否危险？",
+    faq3A: "大多数真百合只会引起狗轻微胃肠道不适——呕吐和腹泻——不会像猫咪那样造成肾脏损伤。铃兰对狗是危险的，因为它含有强心苷。要将这些植物放在宠物够不到的地方。",
+    faq4Q: "如果百合在猫咪够不到的地方，我可以放在家里吗？",
+    faq4A: "有风险。猫咪跳得更高，比大多数主人预期的更刻意，花粉可能会飘到台面或掉到地板。兽医和 ASPCA 强烈建议有猫咪的家庭完全避免 Lilium 和 Hemerocallis——选择猫咪安全的替代植物，如兰花、玫瑰、向日葵或非洲紫罗兰。",
+    disclaimer: "本工具仅供信息参考。任何怀疑宠物中毒，都要咨询持牌兽医。",
   },
   es: {
     name: "Español",
@@ -65,6 +140,31 @@ const LANGUAGES = {
     safe: "Seguro — No tóxico",
     searchLabel: "Buscar especie de lirio",
     searchPlaceholder: "Prueba: Pascua, Tigre, Paz, Cala, Stargazer",
+    noMatch: "No hay coincidencia. Prueba \"easter\", \"calla\", o \"peace\".",
+    toolSearchLabel: "Buscar herramientas",
+    toolSearchPlaceholder: "Buscar herramientas",
+    sidebarTitle: "Vida segura para gatos",
+    sidebarSubtitle: "La prevención es lo más importante.",
+    sidebarTip1: "Evita ramos que contengan cualquier variedad de Lilium o Hemerocallis.",
+    sidebarTip2: "Avísales que tienes un gato antes de que organicen la entrega.",
+    sidebarTip3: "El tratamiento dentro de las 6 horas da el mejor pronóstico.",
+    article1Title: "Lirios verdaderos vs. similares",
+    article1P1: "\"Lirio\" es una palabra vaga en el lenguaje cotidiano. Para un dueño de gato, debería significar algo específico: cualquier planta del género <em>Lilium</em> (lirios verdaderos) o <em>Hemerocallis</em> (lirios de día). Todas las partes de estas plantas — pétalos, hojas, tallos, polen, incluso el agua en un jarrón — contienen un compuesto nefrotóxico no identificado que causa insuficiencia renal aguda en gatos. Tan solo dos pétalos, o el polen en el pelaje, pueden ser fatales sin tratamiento.",
+    article1P2: "Muchas flores llamadas \"lirio\" no son realmente tóxicas de esta manera. El lirio de la paz (Spathiphyllum), la cala (Zantedeschia) y el lirio peruano (Alstroemeria) son familias de plantas diferentes. Contienen oxalatos de calcio o irritantes leves que causan babeo y malestar estomacal pero no dañan los riñones. El lirio del valle (Convallaria) es su propio peligro — contiene glucósidos cardíacos que afectan el corazón, no los riñones.",
+    article2Title: "¿Por qué los gatos son vulnerables?",
+    article2P1: "El mecanismo exacto aún se está investigando, pero los gatos — y solo los gatos entre mascotas comunes — desarrollan daño nefrotóxico por exposición a Lilium y Hemerocallis. Los perros, conejos y roedores no muestran el mismo daño renal. Dentro de las 12–24 horas de ingestión, las células tubulares renales del gato comienzan a morir; si no se trata en 18 horas, el daño renal suele ser permanente. Las tasas de supervivencia son excelentes (por encima del 90%) cuando el tratamiento comienza dentro de las 6 horas de exposición, pero caen drásticamente después de las 24 horas.",
+    articleTreatTitle: "¿Cómo se ve el tratamiento?",
+    articleTreatP1: "Los veterinarios inducirán el vómito si la exposición es reciente, administrarán carbón activado y comenzarán terapia intravenosa agresiva por al menos 48–72 horas para limpiar los riñones y mantener la producción de orina. Se monitorea el trabajo de sangre para rastrear valores renales (BUN, creatinina, SDMA). En casos graves, se puede usar hemodiálisis. Los gatos que sobreviven pueden tener compromiso renal permanente que requiere manejo de por vida.",
+    faqTitle: "Preguntas frecuentes",
+    faq1Q: "Mi gato se tocó un lirio pero no lo comió — ¿es peligroso?",
+    faq1A: "Sí. Los gatos se limpian constantemente, y el polen que cae en el pelaje se lamió e ingerido. Incluso pequeñas cantidades de polen son suficientes para causar daño renal. Baña al gato para remover cualquier polen y llama a un veterinario para consejos, sin importar si viste al gato ingerir algo.",
+    faq2Q: "¿Qué signos de envenenamiento por lirio debo vigilar?",
+    faq2A: "Signos tempranos (dentro de 0–12 horas): babeo, vómitos, pérdida de apetito, letargo. Signos tardíos (12–72 horas): aumento luego disminución de la micción, deshidratación, convulsiones y colapso a medida que progresa la insuficiencia renal. No esperes estos signos — cuando aparecen, los riñones pueden ya estar irreparablemente dañados.",
+    faq3Q: "¿Son peligrosos los lirios para perros?",
+    faq3A: "La mayoría de los lirios verdaderos causan solo malestar gastrointestinal leve en perros — vómitos y diarrea — sin el daño renal visto en gatos. El lirio del valle, sin embargo, es peligroso para perros por sus toxinas cardíacas. Mantén estas plantas fuera del alcance de cualquier mascota.",
+    faq4Q: "¿Puedo mantener lirios en un hogar con gatos si están fuera del alcance?",
+    faq4A: "Es riesgoso. Los gatos saltan más alto y con más deliberación que los dueños esperan, y el polen puede flotar sobre encimeras o caer al suelo. Los veterinarios y la ASPCA recomiendan fuertemente que los hogares con gatos eviten completamente Lilium y Hemerocallis — elige alternativas seguras para gatos como orquídeas, rosas, girasoles o violetas africanas.",
+    disclaimer: "Esta herramienta es solo para fines informativos. Siempre busca el consejo de un veterinario licenciado para cualquier sospecha de envenenamiento en mascotas.",
   },
 };
 
@@ -79,21 +179,21 @@ const TOOLS = [
 
 type Level = "deadly" | "mild" | "safe";
 
-const LILIES: Array<{ id: string; level: Level; names: { en: string; "zh-hk": string; "zh-cn": string; es: string }; scientific: string; note: string; keywords: string[] }> = [
-  { id: "easter", level: "deadly", names: { en: "Easter Lily", "zh-hk": "復活節百合", "zh-cn": "复活节百合", es: "Lirio de Pascua" }, scientific: "Lilium longiflorum", note: "All parts of the plant including pollen and vase water cause acute kidney failure in cats.", keywords: ["easter", "lilium", "longiflorum"] },
-  { id: "tiger", level: "deadly", names: { en: "Tiger Lily", "zh-hk": "虎百合", "zh-cn": "虎百合", es: "Lirio tigre" }, scientific: "Lilium lancifolium / tigrinum", note: "Highly toxic. Even tiny ingestions can cause renal failure within 24-72 hours.", keywords: ["tiger", "lancifolium", "tigrinum"] },
-  { id: "asiatic", level: "deadly", names: { en: "Asiatic Lily", "zh-hk": "亞洲百合", "zh-cn": "亚洲百合", es: "Lirio asiático" }, scientific: "Lilium hybrid (Asiatic group)", note: "Common cut-flower lily. All parts highly toxic to cats.", keywords: ["asiatic", "lilium"] },
-  { id: "oriental", level: "deadly", names: { en: "Oriental Lily / Stargazer", "zh-hk": "東方百合／星佳沙", "zh-cn": "东方百合", es: "Lirio oriental / Stargazer" }, scientific: "Lilium hybrid (Oriental group)", note: "Stargazer is a popular florist variety. Acutely nephrotoxic.", keywords: ["oriental", "stargazer", "lilium"] },
-  { id: "daylily", level: "deadly", names: { en: "Daylily", "zh-hk": "萱草", "zh-cn": "萱草", es: "Hemerocalis" }, scientific: "Hemerocallis species", note: "Not a true Lilium, but equally toxic to cats — also causes acute kidney failure.", keywords: ["daylily", "hemerocallis"] },
-  { id: "rubrum", level: "deadly", names: { en: "Rubrum / Japanese Show Lily", "zh-hk": "鹿子百合", "zh-cn": "鹿子百合", es: "Lirio Rubrum" }, scientific: "Lilium speciosum", note: "Same toxicity profile as other Lilium species.", keywords: ["rubrum", "speciosum"] },
-  { id: "wood", level: "deadly", names: { en: "Wood Lily", "zh-hk": "森林百合", "zh-cn": "森林百合", es: "Lirio de bosque" }, scientific: "Lilium philadelphicum", note: "Wild North American Lilium. Toxic to cats.", keywords: ["wood", "philadelphicum"] },
-  { id: "redstar", level: "deadly", names: { en: "Red Star Lily / Stargazer Lily", "zh-hk": "紅色星佳沙", "zh-cn": "红星百合", es: "Lirio estrella roja" }, scientific: "Lilium hybrid", note: "Oriental hybrid. Same renal toxicity.", keywords: ["star", "red", "lilium"] },
-  { id: "calla", level: "mild", names: { en: "Calla Lily", "zh-hk": "馬蹄蓮", "zh-cn": "马蹄莲", es: "Cala" }, scientific: "Zantedeschia aethiopica", note: "NOT a true lily. Contains insoluble calcium oxalates causing oral irritation, drooling, vomiting. Not nephrotoxic.", keywords: ["calla", "zantedeschia"] },
-  { id: "peace", level: "mild", names: { en: "Peace Lily", "zh-hk": "和平百合／白鶴芋", "zh-cn": "和平百合", es: "Lirio de la paz" }, scientific: "Spathiphyllum species", note: "NOT a true lily. Calcium oxalate crystals cause mouth and throat irritation. Not fatal but uncomfortable.", keywords: ["peace", "spathiphyllum"] },
-  { id: "peruvian", level: "mild", names: { en: "Peruvian Lily / Alstroemeria", "zh-hk": "秘魯百合", "zh-cn": "秘鲁百合", es: "Alstroemeria" }, scientific: "Alstroemeria species", note: "NOT a true lily. May cause mild GI upset. Safer than true lilies but not 100% benign.", keywords: ["peruvian", "alstroemeria"] },
-  { id: "lily_valley", level: "mild", names: { en: "Lily of the Valley", "zh-hk": "鈴蘭", "zh-cn": "铃兰", es: "Lirio del valle" }, scientific: "Convallaria majalis", note: "NOT a true lily but contains cardiac glycosides. Can cause vomiting, arrhythmia, seizures. Different mechanism from Lilium.", keywords: ["valley", "convallaria"] },
-  { id: "canna", level: "safe", names: { en: "Canna Lily", "zh-hk": "美人蕉", "zh-cn": "美人蕉", es: "Cana" }, scientific: "Canna species", note: "NOT a true lily. Generally considered non-toxic to cats.", keywords: ["canna"] },
-  { id: "plantain", level: "safe", names: { en: "Plantain Lily / Hosta", "zh-hk": "玉簪", "zh-cn": "玉簪", es: "Hosta" }, scientific: "Hosta species", note: "NOT a true lily — but Hostas can cause GI upset in dogs and cats. Not nephrotoxic.", keywords: ["plantain", "hosta"] },
+const LILIES: Array<{ id: string; level: Level; names: { en: string; "zh-hk": string; "zh-cn": string; es: string }; scientific: string; note: { en: string; "zh-hk": string; "zh-cn": string; es: string }; keywords: string[] }> = [
+  { id: "easter", level: "deadly", names: { en: "Easter Lily", "zh-hk": "復活節百合", "zh-cn": "复活节百合", es: "Lirio de Pascua" }, scientific: "Lilium longiflorum", note: { en: "All parts of the plant including pollen and vase water cause acute kidney failure in cats.", "zh-hk": "植物所有部分包括花粉同花瓶水都會令貓貓急性腎衰竭。", "zh-cn": "植物所有部分包括花粉和花瓶水都会导致猫咪急性肾衰竭。", es: "Todas las partes de la planta, incluido el polen y el agua del jarrón, causan insuficiencia renal aguda en gatos." }, keywords: ["easter", "lilium", "longiflorum"] },
+  { id: "tiger", level: "deadly", names: { en: "Tiger Lily", "zh-hk": "虎百合", "zh-cn": "虎百合", es: "Lirio tigre" }, scientific: "Lilium lancifolium / tigrinum", note: { en: "Highly toxic. Even tiny ingestions can cause renal failure within 24-72 hours.", "zh-hk": "劇毒。即使極少量攝入都可喺 24-72 小時內引起腎衰竭。", "zh-cn": "剧毒。即使极少量摄入都可在 24-72 小时内引起肾衰竭。", es: "Altamente tóxico. Incluso ingestiones mínimas pueden causar insuficiencia renal en 24-72 horas." }, keywords: ["tiger", "lancifolium", "tigrinum"] },
+  { id: "asiatic", level: "deadly", names: { en: "Asiatic Lily", "zh-hk": "亞洲百合", "zh-cn": "亚洲百合", es: "Lirio asiático" }, scientific: "Lilium hybrid (Asiatic group)", note: { en: "Common cut-flower lily. All parts highly toxic to cats.", "zh-hk": "常見切花百合。所有部分對貓都係高度有毒。", "zh-cn": "常见切花百合。所有部分对猫都高度有毒。", es: "Lirio de flor cortada común. Todas las partes son altamente tóxicas para los gatos." }, keywords: ["asiatic", "lilium"] },
+  { id: "oriental", level: "deadly", names: { en: "Oriental Lily / Stargazer", "zh-hk": "東方百合／星佳沙", "zh-cn": "东方百合", es: "Lirio oriental / Stargazer" }, scientific: "Lilium hybrid (Oriental group)", note: { en: "Stargazer is a popular florist variety. Acutely nephrotoxic.", "zh-hk": "星佳沙係花店熱門品種。急性腎毒性。", "zh-cn": "星佳沙是花店热门品种。急性肾毒性。", es: "Stargazer es una variedad popular de floristería. Agudamente nefrotóxico." }, keywords: ["oriental", "stargazer", "lilium"] },
+  { id: "daylily", level: "deadly", names: { en: "Daylily", "zh-hk": "萱草", "zh-cn": "萱草", es: "Hemerocalis" }, scientific: "Hemerocallis species", note: { en: "Not a true Lilium, but equally toxic to cats — also causes acute kidney failure.", "zh-hk": "雖然唔係真正嘅 Lilium，但對貓一樣有毒——同樣引起急性腎衰竭。", "zh-cn": "虽然不是真正的 Lilium，但对猫一样有毒——同样引起急性肾衰竭。", es: "No es un verdadero Lilium, pero es igualmente tóxico para los gatos — también causa insuficiencia renal aguda." }, keywords: ["daylily", "hemerocallis"] },
+  { id: "rubrum", level: "deadly", names: { en: "Rubrum / Japanese Show Lily", "zh-hk": "鹿子百合", "zh-cn": "鹿子百合", es: "Lirio Rubrum" }, scientific: "Lilium speciosum", note: { en: "Same toxicity profile as other Lilium species.", "zh-hk": "同其他 Lilium 品種毒性相同。", "zh-cn": "与其他 Lilium 品种毒性相同。", es: "Mismo perfil de toxicidad que otras especies de Lilium." }, keywords: ["rubrum", "speciosum"] },
+  { id: "wood", level: "deadly", names: { en: "Wood Lily", "zh-hk": "森林百合", "zh-cn": "森林百合", es: "Lirio de bosque" }, scientific: "Lilium philadelphicum", note: { en: "Wild North American Lilium. Toxic to cats.", "zh-hk": "北美野生 Lilium。對貓有毒。", "zh-cn": "北美野生 Lilium。对猫有毒。", es: "Lilium silvestre de Norteamérica. Tóxico para los gatos." }, keywords: ["wood", "philadelphicum"] },
+  { id: "redstar", level: "deadly", names: { en: "Red Star Lily / Stargazer Lily", "zh-hk": "紅色星佳沙", "zh-cn": "红星百合", es: "Lirio estrella roja" }, scientific: "Lilium hybrid", note: { en: "Oriental hybrid. Same renal toxicity.", "zh-hk": "東方雜交品種。同樣有腎毒性。", "zh-cn": "东方杂交品种。同样有肾毒性。", es: "Híbrido oriental. Misma toxicidad renal." }, keywords: ["star", "red", "lilium"] },
+  { id: "calla", level: "mild", names: { en: "Calla Lily", "zh-hk": "馬蹄蓮", "zh-cn": "马蹄莲", es: "Cala" }, scientific: "Zantedeschia aethiopica", note: { en: "NOT a true lily. Contains insoluble calcium oxalates causing oral irritation, drooling, vomiting. Not nephrotoxic.", "zh-hk": "唔係真正嘅百合。含不溶性草酸鈣，會引起口腔刺激、流口水、嘔吐。唔會傷腎。", "zh-cn": "不是真正的百合。含不溶性草酸钙，会引起口腔刺激、流口水、呕吐。不会伤肾。", es: "NO es un lirio verdadero. Contiene oxalatos de calcio insolubles que causan irritación oral, babeo, vómitos. No es nefrotóxico." }, keywords: ["calla", "zantedeschia"] },
+  { id: "peace", level: "mild", names: { en: "Peace Lily", "zh-hk": "和平百合／白鶴芋", "zh-cn": "和平百合", es: "Lirio de la paz" }, scientific: "Spathiphyllum species", note: { en: "NOT a true lily. Calcium oxalate crystals cause mouth and throat irritation. Not fatal but uncomfortable.", "zh-hk": "唔係真正嘅百合。草酸鈣晶體引起口腔同喉嚨刺激。唔致命但會唔舒服。", "zh-cn": "不是真正的百合。草酸钙晶体引起口腔和喉咙刺激。不致命但会不舒服。", es: "NO es un lirio verdadero. Los cristales de oxalato de calcio causan irritación de boca y garganta. No es fatal pero es incómodo." }, keywords: ["peace", "spathiphyllum"] },
+  { id: "peruvian", level: "mild", names: { en: "Peruvian Lily / Alstroemeria", "zh-hk": "秘魯百合", "zh-cn": "秘鲁百合", es: "Alstroemeria" }, scientific: "Alstroemeria species", note: { en: "NOT a true lily. May cause mild GI upset. Safer than true lilies but not 100% benign.", "zh-hk": "唔係真正嘅百合。可能引起輕微腸胃不適。比真百合安全但唔係 100% 無害。", "zh-cn": "不是真正的百合。可能引起轻微肠胃不适。比真百合安全但不是 100% 无害。", es: "NO es un lirio verdadero. Puede causar malestar gastrointestinal leve. Más seguro que los lirios verdaderos pero no 100% benigno." }, keywords: ["peruvian", "alstroemeria"] },
+  { id: "lily_valley", level: "mild", names: { en: "Lily of the Valley", "zh-hk": "鈴蘭", "zh-cn": "铃兰", es: "Lirio del valle" }, scientific: "Convallaria majalis", note: { en: "NOT a true lily but contains cardiac glycosides. Can cause vomiting, arrhythmia, seizures. Different mechanism from Lilium.", "zh-hk": "唔係真正嘅百合但含強心苷。可能引起嘔吐、心律不正、抽搐。同 Lilium 嘅機制唔同。", "zh-cn": "不是真正的百合但含强心苷。可能引起呕吐、心律不齐、抽搐。与 Lilium 的机制不同。", es: "NO es un lirio verdadero pero contiene glucósidos cardíacos. Puede causar vómitos, arritmia, convulsiones. Mecanismo diferente al Lilium." }, keywords: ["valley", "convallaria"] },
+  { id: "canna", level: "safe", names: { en: "Canna Lily", "zh-hk": "美人蕉", "zh-cn": "美人蕉", es: "Cana" }, scientific: "Canna species", note: { en: "NOT a true lily. Generally considered non-toxic to cats.", "zh-hk": "唔係真正嘅百合。一般認為對貓無毒。", "zh-cn": "不是真正的百合。一般认为对猫无毒。", es: "NO es un lirio verdadero. Generalmente se considera no tóxico para los gatos." }, keywords: ["canna"] },
+  { id: "plantain", level: "safe", names: { en: "Plantain Lily / Hosta", "zh-hk": "玉簪", "zh-cn": "玉簪", es: "Hosta" }, scientific: "Hosta species", note: { en: "NOT a true lily — but Hostas can cause GI upset in dogs and cats. Not nephrotoxic.", "zh-hk": "唔係真正嘅百合——但玉簪可能會令貓狗腸胃不適。唔會傷腎。", "zh-cn": "不是真正的百合——但玉簪可能会让猫狗肠胃不适。不会伤肾。", es: "NO es un lirio verdadero — pero las Hostas pueden causar malestar gastrointestinal en perros y gatos. No es nefrotóxico." }, keywords: ["plantain", "hosta"] },
 ];
 
 const SITE_URL = "https://www.tinytoolboxes.com";
@@ -180,16 +280,16 @@ export default function LilyToxicityChecker() {
                       </div>
                       <span className="rounded-full bg-black/25 px-3 py-1 text-xs font-semibold uppercase tracking-wider">{content[l.level]}</span>
                     </div>
-                    <p className="mt-2 text-sm opacity-90">{l.note}</p>
+                    <p className="mt-2 text-sm opacity-90">{l.note[locale]}</p>
                   </div>
                 ))}
-                {!results.length && <p className="text-sm text-white/50">No match. Try "easter", "calla", or "peace".</p>}
+                {!results.length && <p className="text-sm text-white/50">{content.noMatch}</p>}
               </div>
             </div>
 
             <section className="rounded-3xl border border-white/10 bg-black/20 p-4">
-              <label className="block space-y-2"><span className="text-sm font-medium text-white/80">Search tools</span>
-                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3"><Search className="h-4 w-4 text-amber-300" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={content.searchPlaceholder} className="w-full bg-transparent text-sm text-white placeholder:text-white/35 outline-none" /></div>
+              <label className="block space-y-2"><span className="text-sm font-medium text-white/80">{content.toolSearchLabel}</span>
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3"><Search className="h-4 w-4 text-amber-300" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={content.toolSearchPlaceholder} className="w-full bg-transparent text-sm text-white placeholder:text-white/35 outline-none" /></div>
               </label>
               <div className="mt-3 flex flex-wrap gap-2">{hints.map((h) => <button key={h} type="button" onClick={() => setSearch(h)} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70 hover:bg-white/10 transition">{h}</button>)}</div>
               <div className="mt-4 grid gap-2">{filteredTools.map((t) => <button key={t.href} type="button" onClick={() => (window.location.href = t.href)} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-amber-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p><p className="mt-1 text-xs text-white/55">{t.description[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></button>)}</div>
@@ -197,28 +297,28 @@ export default function LilyToxicityChecker() {
 
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
               <div>
-                <h2 className="text-2xl font-bold text-white">True Lilies vs Lookalikes</h2>
-                <p className="mt-3 leading-7">"Lily" is a loose word in everyday language. To a cat owner, it should mean one specific thing: any plant in the genus <em>Lilium</em> (true lilies) or <em>Hemerocallis</em> (daylilies). Every part of these plants — petals, leaves, stems, pollen, even the water in a vase — contains an unidentified nephrotoxic compound that causes acute kidney failure in cats. As little as two petals, or grooming pollen from fur, can be fatal without treatment.</p>
-                <p className="mt-3 leading-7">Many flowers called "lily" are not actually toxic in this way. Peace lily (Spathiphyllum), calla lily (Zantedeschia), and Peruvian lily (Alstroemeria) are different plant families. They contain calcium oxalates or mild irritants that cause drooling and stomach upset but do not damage the kidneys. Lily of the valley (Convallaria) is its own danger — it contains cardiac glycosides that affect the heart, not the kidneys.</p>
+                <h2 className="text-2xl font-bold text-white">{content.article1Title}</h2>
+                <p className="mt-3 leading-7">{content.article1P1}</p>
+                <p className="mt-3 leading-7">{content.article1P2}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Why Are Cats Uniquely Vulnerable?</h2>
-                <p className="mt-3 leading-7">The exact mechanism is still being researched, but cats — and only cats among common pets — develop nephrotoxic damage from Lilium and Hemerocallis exposure. Dogs, rabbits, and rodents do not show the same kidney injury. Within 12–24 hours of ingestion, the cat's renal tubular cells begin to die; if untreated by 18 hours, the kidney damage is often permanent. Survival rates are excellent (above 90%) when treatment begins within 6 hours of exposure, but drop dramatically after 24 hours.</p>
+                <h2 className="text-2xl font-bold text-white">{content.article2Title}</h2>
+                <p className="mt-3 leading-7">{content.article2P1}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">What Treatment Looks Like</h2>
-                <p className="mt-3 leading-7">Veterinarians will induce vomiting if exposure is recent, administer activated charcoal, and start aggressive intravenous fluid therapy for at least 48–72 hours to flush the kidneys and maintain urine output. Blood work is monitored to track kidney values (BUN, creatinine, SDMA). In severe cases, hemodialysis can be used. Cats that survive may have permanent renal compromise requiring lifelong management.</p>
+                <h2 className="text-2xl font-bold text-white">{content.articleTreatTitle}</h2>
+                <p className="mt-3 leading-7">{content.articleTreatP1}</p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold text-white">{content.faqTitle}</h2>
                 <div className="mt-4 space-y-5">
-                  <div><h3 className="font-semibold text-white">My cat brushed against a lily but didn't eat it — is that dangerous?</h3><p className="mt-1 text-white/70">It can be. Cats groom themselves constantly, and pollen that lands on the fur is licked off and ingested. Even small amounts of pollen are enough to cause kidney injury. Bathe the cat to remove any pollen and call a veterinarian for advice regardless of whether you saw the cat ingest anything.</p></div>
-                  <div><h3 className="font-semibold text-white">What signs of lily poisoning should I watch for?</h3><p className="mt-1 text-white/70">Early signs (within 0–12 hours): drooling, vomiting, loss of appetite, lethargy. Later signs (12–72 hours): increased then decreased urination, dehydration, seizures, and collapse as kidney failure progresses. Do not wait for these signs — by the time later signs appear, the kidneys may already be irreparably damaged.</p></div>
-                  <div><h3 className="font-semibold text-white">Are lilies dangerous to dogs?</h3><p className="mt-1 text-white/70">Most true lilies cause only mild gastrointestinal upset in dogs — vomiting and diarrhea — without the kidney injury seen in cats. Lily of the valley, however, is dangerous to dogs because of its cardiac toxins. Always keep these plants out of any pet's reach.</p></div>
-                  <div><h3 className="font-semibold text-white">Can I keep lilies in a home with cats if they're out of reach?</h3><p className="mt-1 text-white/70">It is risky. Cats jump higher and more deliberately than most owners expect, and pollen can drift onto countertops or fall to the floor. Veterinarians and the ASPCA strongly recommend that homes with cats avoid Lilium and Hemerocallis entirely — choose cat-safe alternatives like orchids, roses, sunflowers, or African violets.</p></div>
+                  <div><h3 className="font-semibold text-white">{content.faq1Q}</h3><p className="mt-1 text-white/70">{content.faq1A}</p></div>
+                  <div><h3 className="font-semibold text-white">{content.faq2Q}</h3><p className="mt-1 text-white/70">{content.faq2A}</p></div>
+                  <div><h3 className="font-semibold text-white">{content.faq3Q}</h3><p className="mt-1 text-white/70">{content.faq3A}</p></div>
+                  <div><h3 className="font-semibold text-white">{content.faq4Q}</h3><p className="mt-1 text-white/70">{content.faq4A}</p></div>
                 </div>
               </div>
-              <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85"><strong className="text-amber-200">Disclaimer:</strong> This tool is for informational purposes only. Always seek the advice of a licensed veterinarian for any suspected pet poisoning.</div>
+              <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85">{content.disclaimer}</div>
             </article>
 
             <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
@@ -228,11 +328,11 @@ export default function LilyToxicityChecker() {
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">
-            <div className="flex items-center gap-3"><div className="rounded-2xl bg-amber-400/15 p-3"><Cat className="h-5 w-5 text-amber-300" /></div><div><h2 className="text-lg font-semibold">Cat-safe living</h2><p className="text-sm text-amber-100/80">Prevention matters most.</p></div></div>
+            <div className="flex items-center gap-3"><div className="rounded-2xl bg-amber-400/15 p-3"><Cat className="h-5 w-5 text-amber-300" /></div><div><h2 className="text-lg font-semibold">{content.sidebarTitle}</h2><p className="text-sm text-amber-100/80">{content.sidebarSubtitle}</p></div></div>
             <div className="space-y-3 text-sm text-amber-100/80">
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Avoid bouquets that contain any Lilium or Hemerocallis varieties.</p>
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Tell florists you have a cat before they arrange a delivery.</p>
-              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">Treatment within 6 hours gives the best prognosis.</p>
+              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">{content.sidebarTip1}</p>
+              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">{content.sidebarTip2}</p>
+              <p className="rounded-2xl border border-amber-400/20 bg-black/30 px-4 py-3">{content.sidebarTip3}</p>
             </div>
           </aside>
         </div>

@@ -11,6 +11,8 @@ const LANGUAGES: Record<LocaleKey, {
   searchPlaceholder: string;
   reserveAd: string;
   reserveAdSub: string;
+  adLabel: string;
+  adBadge: string;
   homePrice: string;
   deposit: string;
   rate: string;
@@ -26,6 +28,7 @@ const LANGUAGES: Record<LocaleKey, {
   stampDuty: string;
   lmi: string;
   upfront: string;
+  upfrontDetail: string;
   loanAmount: string;
   lvr: string;
   fhBuyer: string;
@@ -34,6 +37,23 @@ const LANGUAGES: Record<LocaleKey, {
   suggestionsTitle: string;
   suggestions: string[];
   articleTitle: string;
+  articleIntro: string;
+  sectionDepositTitle: string;
+  sectionDepositBody: string;
+  sectionStampTitle: string;
+  sectionStampBody: string;
+  sectionStampItems: string[];
+  sectionStampNote: string;
+  sectionFreqTitle: string;
+  sectionFreqBody: string;
+  sectionRateTitle: string;
+  sectionRateBody: string;
+  sectionRateItems: string[];
+  sectionRateCoda: string;
+  sectionNotInclTitle: string;
+  sectionNotInclItems: string[];
+  faqTitle: string;
+  faqItems: { q: string; a: string }[];
 }> = {
   en: {
     name: "English",
@@ -42,6 +62,9 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "Search tools",
     searchPlaceholder: "Try: BMI, calorie, percent, age",
     reserveAd: "Google Ads space reserved",
+    reserveAdSub: "This space is available for advertising.",
+    adLabel: "Advertisement",
+    adBadge: "Ad",
     homePrice: "Property price (AUD)",
     deposit: "Deposit (AUD)",
     rate: "Interest rate (% p.a.)",
@@ -57,6 +80,7 @@ const LANGUAGES: Record<LocaleKey, {
     stampDuty: "Stamp duty (estimate)",
     lmi: "LMI (estimate)",
     upfront: "Upfront costs",
+    upfrontDetail: "Deposit + stamp duty + LMI + ~$2,500 legal/conveyancing",
     loanAmount: "Loan amount",
     lvr: "LVR (loan-to-value)",
     fhBuyer: "First home buyer",
@@ -69,8 +93,45 @@ const LANGUAGES: Record<LocaleKey, {
       "Plan refinancing scenarios.",
     ],
     suggestionsTitle: "You may also like",
-    suggestions: ["Loan Calculator", "Currency Converter", "Percentage Calculator"],
+    suggestions: ["Loan Calculator", "Currency Converter", "Dog Age Calculator", "Percentage Calculator"],
     articleTitle: "Australian home loans: deposit, LMI, stamp duty, and what they really cost",
+    articleIntro: "Buying a home in Australia isn't just the loan repayment. The real budget includes stamp duty (state tax on the purchase), Lenders Mortgage Insurance (LMI) if your deposit is under 20%, conveyancing fees, building and pest inspections, and government registration fees. This calculator estimates all of the big-ticket items so you know what you actually need in the bank before settlement day.",
+    sectionDepositTitle: "The 20% deposit rule",
+    sectionDepositBody: "Lenders in Australia consider 20% the \"safe\" deposit threshold. Above 80% LVR (Loan-to-Value Ratio), banks require you to pay LMI — insurance that protects the bank if you default. LMI can easily run $10,000–$30,000 on a typical home loan, and it's usually added to the loan balance (you pay interest on it for 30 years). The most expensive money you'll ever borrow.",
+    sectionStampTitle: "Stamp duty varies enormously by state",
+    sectionStampBody: "",
+    sectionStampItems: [
+      "NSW & VIC have the highest base rates, typically 4–6% of property value.",
+      "First-home buyer concessions can reduce stamp duty to zero for properties under state-specific thresholds (e.g. $800,000 in NSW, $600,000 in VIC, $700,000 in QLD as of recent years).",
+      "ACT charges land tax on top of stamp duty.",
+      "Foreign buyer surcharges add 7–8% in most states.",
+    ],
+    sectionStampNote: "This calculator uses simplified rates that capture the broad shape; for a binding number, use your state's revenue office calculator or talk to a conveyancer.",
+    sectionFreqTitle: "Weekly vs fortnightly vs monthly",
+    sectionFreqBody: "If your bank lets you pay weekly or fortnightly without changing the total annual amount, take it. There are 26 fortnights and 12 months in a year — if the bank treats a fortnightly payment as \"half the monthly payment,\" you end up paying the equivalent of 13 monthly payments per year instead of 12. That's a free extra payment, and on a $640,000 loan at 6.5% it can shave 5+ years off a 30-year mortgage.",
+    sectionRateTitle: "The real cost of a 0.5% rate difference",
+    sectionRateBody: "On a $640,000 loan over 30 years, 6.0% vs 6.5% interest is:",
+    sectionRateItems: [
+      "At 6.0%: ~$3,836/month, ~$741,000 total interest",
+      "At 6.5%: ~$4,045/month, ~$816,000 total interest",
+    ],
+    sectionRateCoda: "Half a percent costs $75,000 over the life of the loan. This is why mortgage brokers and refinancing exist.",
+    sectionNotInclTitle: "What this calculator doesn't include",
+    sectionNotInclItems: [
+      "Council rates (~$1,500–$3,000/year)",
+      "Strata fees if you're buying an apartment ($2,000–$10,000+/year)",
+      "Building insurance ($800–$2,500/year)",
+      "Home and contents insurance",
+      "Body corporate special levies",
+    ],
+    faqTitle: "FAQ",
+    faqItems: [
+      { q: "Is LMI ever worth it?", a: "Sometimes. If property prices rise faster than your ability to save 20%, paying LMI to buy now can be cheaper than waiting. Run the numbers on rental vs LMI-loan over 5 years." },
+      { q: "Can I avoid LMI without 20% down?", a: "Yes, if you're in certain professions (doctors, lawyers, accountants) some lenders waive LMI. The First Home Guarantee scheme also lets eligible buyers purchase with 5% deposit and no LMI." },
+      { q: "What's the difference between principal & interest vs interest-only?", a: "P&I means each payment reduces the loan. Interest-only means you only pay the interest charge — the loan never shrinks. Most owner-occupied loans should be P&I; interest-only is a tax/cashflow tool used by investors." },
+      { q: "How accurate is the stamp duty estimate?", a: "Within 5–10% for standard purchases. For exact numbers, use the calculator on your state revenue office's website (revenue.nsw.gov.au, sro.vic.gov.au, etc)." },
+      { q: "Should I get pre-approval before I bid at auction?", a: "Yes, always. Auction contracts in Australia are unconditional — if you can't get the loan, you lose your deposit." },
+    ],
   },
   "zh-hk": {
     name: "繁體中文",
@@ -79,6 +140,9 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "搜尋工具",
     searchPlaceholder: "試下：BMI、卡路里、百分比、年齡",
     reserveAd: "預留 Google 廣告位",
+    reserveAdSub: "此位置可供廣告使用。",
+    adLabel: "廣告",
+    adBadge: "廣告",
     homePrice: "物業價格（澳元）",
     deposit: "首期（澳元）",
     rate: "年利率（%）",
@@ -94,6 +158,7 @@ const LANGUAGES: Record<LocaleKey, {
     stampDuty: "印花稅（估算）",
     lmi: "LMI 按揭保險（估算）",
     upfront: "首付前期費用",
+    upfrontDetail: "首期 + 印花稅 + LMI + ~$2,500 律師費／過戶費",
     loanAmount: "貸款金額",
     lvr: "LVR（貸款／估值）",
     fhBuyer: "首置買家",
@@ -106,8 +171,45 @@ const LANGUAGES: Record<LocaleKey, {
       "規劃轉按方案。",
     ],
     suggestionsTitle: "你可能會喜歡",
-    suggestions: ["貸款計算器", "貨幣換算器", "百分比計算器"],
+    suggestions: ["貸款計算機", "貨幣轉換器", "百分比計算機"],
     articleTitle: "澳洲按揭詳解：首期、LMI、印花稅同實際成本",
+    articleIntro: "喺澳洲買樓，唔止係每月供款咁簡單。真正嘅預算要包括印花稅（州政府對物業買賣徵收嘅稅）、LMI 按揭保險（如果首期低過 20%）、律師費、建築同蟲害檢查、仲有政府註冊費。呢個計算機會幫你估算晒所有大額開支，等你知道成交前究竟要準備幾多錢。",
+    sectionDepositTitle: "20% 首期法則",
+    sectionDepositBody: "澳洲銀行將 20% 首期視為「安全」門檻。如果 LVR（貸款估值比率）超過 80%，銀行就會要求你買 LMI——呢個係保護銀行嘅保險，唔係保護你。一個普通按揭嘅 LMI 好容易就要 $10,000–$30,000，而且通常會加落貸款額度一齊供（你要供 30 年利息）。可以話係你一生人借過最貴嘅錢。",
+    sectionStampTitle: "印花稅每個州差好遠",
+    sectionStampBody: "",
+    sectionStampItems: [
+      "NSW 同 VIC 嘅基本稅率最高，通常係物業價值嘅 4–6%。",
+      "首置買家豁免可以令印花稅減到零，但要符合各州嘅價格上限（例如 NSW $800,000、VIC $600,000、QLD $700,000，以近年政策為準）。",
+      "ACT 喺印花稅之上仲要加徵土地稅。",
+      "大部分州對海外買家額外徵收 7–8% 附加費。",
+    ],
+    sectionStampNote: "呢個計算機用簡化稅率，只反映大概數字；要準確數字，請用你嗰州稅務局嘅官方計算機，或者問律師。",
+    sectionFreqTitle: "每週 vs 半月 vs 每月供款",
+    sectionFreqBody: "如果銀行俾你每週或半月供款而唔改總年供款額，一定揀佢。一年有 26 個半月、12 個月——如果銀行將半月供款當成「半份月供」，你實際上等於一年供咗 13 次月供而唔係 12 次。呢個係免費嘅額外供款，以一筆 $640,000、利率 6.5% 嘅貸款計，可以令 30 年按揭縮短超過 5 年。",
+    sectionRateTitle: "0.5% 利率差異嘅真實成本",
+    sectionRateBody: "以 $640,000 貸款、30 年計，6.0% vs 6.5%：",
+    sectionRateItems: [
+      "6.0%：~每月 $3,836，~總利息 $741,000",
+      "6.5%：~每月 $4,045，~總利息 $816,000",
+    ],
+    sectionRateCoda: "半個百分點，30 年就要多俾 $75,000。呢個就係點解要搵按揭經紀同轉按。",
+    sectionNotInclTitle: "呢個計算機冇包嘅開支",
+    sectionNotInclItems: [
+      "市政費（~每年 $1,500–$3,000）",
+      "大廈管理費（如果買公寓，~每年 $2,000–$10,000+）",
+      "建築保險（~每年 $800–$2,500）",
+      "家居財物保險",
+      "大廈法團特別徵費",
+    ],
+    faqTitle: "常見問題",
+    faqItems: [
+      { q: "LMI 值唔值得買？", a: "有時值得。如果樓價升得快過你儲 20% 首期嘅速度，俾 LMI 即刻上車可能仲平過等。建議你計下租樓 vs LMI-按揭五年嘅總開支。" },
+      { q: "冇 20% 首期可唔可以唔俾 LMI？", a: "可以。如果你係某啲專業人士（醫生、律師、會計師），部分銀行會豁免 LMI。另外政府嘅「首置擔保計劃」都俾合資格買家用 5% 首期買樓而唔需要 LMI。" },
+      { q: "本息同還（P&I）同淨還息（Interest-only）有咩分別？", a: "P&I 即係每期供款都會減少本金。淨還息即係你只係還利息——貸款本金永遠唔會減少。大部分自住按揭應該揀 P&I；淨還息主要係投資者用嚟做稅務同現金流工具。" },
+      { q: "印花稅估算有幾準？", a: "一般標準買賣誤差喺 5–10% 之內。要準確數字，請用你嗰州稅務局網站嘅官方計算機（revenue.nsw.gov.au、sro.vic.gov.au 等）。" },
+      { q: "拍賣前應唔應該先做預批？", a: "一定要。澳洲嘅拍賣合約係無條件嘅——如果你攞唔到貸款，就會冇咗筆訂金。" },
+    ],
   },
   "zh-cn": {
     name: "简体中文",
@@ -116,6 +218,9 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "搜索工具",
     searchPlaceholder: "试试：BMI、卡路里、百分比、年龄",
     reserveAd: "预留 Google 广告位",
+    reserveAdSub: "此位置可供广告使用。",
+    adLabel: "广告",
+    adBadge: "广告",
     homePrice: "房价（澳元）",
     deposit: "首付（澳元）",
     rate: "年利率（%）",
@@ -131,6 +236,7 @@ const LANGUAGES: Record<LocaleKey, {
     stampDuty: "印花税（估算）",
     lmi: "LMI 按揭保险（估算）",
     upfront: "首付前期费用",
+    upfrontDetail: "首付 + 印花税 + LMI + ~$2,500 律师费／过户费",
     loanAmount: "贷款金额",
     lvr: "LVR（贷款／估值）",
     fhBuyer: "首次置业",
@@ -143,8 +249,45 @@ const LANGUAGES: Record<LocaleKey, {
       "规划转按方案。",
     ],
     suggestionsTitle: "你可能会喜欢",
-    suggestions: ["贷款计算器", "货币换算器", "百分比计算器"],
+    suggestions: ["贷款计算器", "货币转换器", "百分比计算器"],
     articleTitle: "澳洲按揭详解：首付、LMI、印花税与实际成本",
+    articleIntro: "在澳洲买房，不只是每月还款那么简单。真正的预算还包括印花税（州政府对房产交易征收的税）、LMI 按揭保险（如果首付低于 20%）、律师费、建筑与虫害检查、以及政府登记费。这个计算器帮你估算所有大额支出，让你在交割前清楚知道需要准备多少钱。",
+    sectionDepositTitle: "20% 首付法则",
+    sectionDepositBody: "澳洲银行将 20% 首付视为\"安全\"门槛。如果 LVR（贷款估值比）超过 80%，银行会要求你购买 LMI——这是保护银行的保险，不是保护你的。一笔普通按揭的 LMI 很容易就要 $10,000–$30,000，而且通常会加到贷款额度里一起还（你要为它付 30 年利息）。可以说是你这辈子借过最贵的钱。",
+    sectionStampTitle: "印花税各州差异巨大",
+    sectionStampBody: "",
+    sectionStampItems: [
+      "NSW 和 VIC 的基础税率最高，通常是房产价值的 4–6%。",
+      "首次置业豁免可将印花税降为零，但需符合各州的价格上限（如 NSW $800,000、VIC $600,000、QLD $700,000，以近年政策为准）。",
+      "ACT 在印花税之上还加征土地税。",
+      "大部分州对海外买家额外征收 7–8% 附加费。",
+    ],
+    sectionStampNote: "此计算器使用简化税率，仅反映大致数字；如需准确数字，请用所在州税务局官网的计算器，或咨询律师。",
+    sectionFreqTitle: "每周 vs 半月 vs 每月还款",
+    sectionFreqBody: "如果银行允许你每周或半月还款而不改变年供款总额，一定要选它。一年有 26 个半月、12 个月——如果银行将半月还款视为\"半月供\"，你实际上等于一年还了 13 次月供而不是 12 次。这是个免费的额外还款，以 $640,000、利率 6.5% 的贷款为例，可将 30 年按揭缩短超过 5 年。",
+    sectionRateTitle: "0.5% 利率差异的真实成本",
+    sectionRateBody: "以 $640,000 贷款、30 年为例，6.0% vs 6.5%：",
+    sectionRateItems: [
+      "6.0%：~每月 $3,836，~总利息 $741,000",
+      "6.5%：~每月 $4,045，~总利息 $816,000",
+    ],
+    sectionRateCoda: "半个百分点，30 年就要多付 $75,000。这就是为什么要找按揭经纪人及转按。",
+    sectionNotInclTitle: "此计算器未包含的开支",
+    sectionNotInclItems: [
+      "市政费（~每年 $1,500–$3,000）",
+      "物业管理费（如买公寓，~每年 $2,000–$10,000+）",
+      "建筑保险（~每年 $800–$2,500）",
+      "家居财物保险",
+      "业主法团特别征费",
+    ],
+    faqTitle: "常见问题",
+    faqItems: [
+      { q: "LMI 值不值得买？", a: "有时值得。如果房价涨得比你存 20% 首付的速度快，付 LMI 立即上车可能比等待更划算。建议你算一下租房 vs LMI-按揭五年的总支出。" },
+      { q: "没有 20% 首付能不能不付 LMI？", a: "可以。如果你是某些专业人士（医生、律师、会计师），部分银行会豁免 LMI。此外政府的\"首置担保计划\"也允许合资格买家以 5% 首付购房而无需 LMI。" },
+      { q: "本息同还（P&I）和只还利息（Interest-only）有什么区别？", a: "P&I 意味着每期还款都在减少本金。只还利息意味着你只支付利息——贷款本金永远不会减少。大部分自住按揭应选 P&I；只还利息主要是投资者用作税务和现金流工具。" },
+      { q: "印花税估算有多准？", a: "一般标准交易误差在 5–10% 以内。要准确数字，请用所在州税务局官网的计算器（revenue.nsw.gov.au、sro.vic.gov.au 等）。" },
+      { q: "拍卖前应不应该先做预批？", a: "一定要。澳洲的拍卖合同是无条件的——如果你拿不到贷款，就会失去定金。" },
+    ],
   },
   es: {
     name: "Español",
@@ -153,6 +296,9 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: BMI, calorie, percent, age",
     reserveAd: "Espacio reservado para Google Ads",
+    reserveAdSub: "Este espacio está disponible para publicidad.",
+    adLabel: "Anuncio",
+    adBadge: "Anuncio",
     homePrice: "Precio de la propiedad (AUD)",
     deposit: "Depósito (AUD)",
     rate: "Tasa de interés (% anual)",
@@ -168,6 +314,7 @@ const LANGUAGES: Record<LocaleKey, {
     stampDuty: "Impuesto de timbre (estimado)",
     lmi: "LMI (estimado)",
     upfront: "Costos iniciales",
+    upfrontDetail: "Depósito + impuesto de timbre + LMI + ~$2,500 honorarios legales",
     loanAmount: "Monto del préstamo",
     lvr: "LVR (préstamo/valor)",
     fhBuyer: "Comprador primera vivienda",
@@ -182,6 +329,43 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "También te puede interesar",
     suggestions: ["Calculadora de préstamos", "Conversor de divisas", "Calculadora de porcentajes"],
     articleTitle: "Hipotecas en Australia: depósito, LMI, impuesto de timbre y costo real",
+    articleIntro: "Comprar una casa en Australia no es solo la cuota del préstamo. El presupuesto real incluye impuesto de timbre (impuesto estatal sobre la compra), seguro hipotecario LMI si tu depósito es menor al 20%, honorarios legales, inspecciones de construcción y plagas, y tasas de registro. Esta calculadora estima todos los gastos importantes para que sepas cuánto necesitas realmente en el banco antes del día de liquidación.",
+    sectionDepositTitle: "La regla del 20% de depósito",
+    sectionDepositBody: "Los bancos australianos consideran el 20% como el umbral \"seguro\". Por encima del 80% de LVR (relación préstamo-valor), los bancos te exigen pagar LMI — un seguro que protege al banco si no pagas. El LMI puede costar fácilmente $10,000–$30,000 en una hipoteca típica, y normalmente se añade al saldo del préstamo (pagas intereses sobre él durante 30 años). El dinero más caro que jamás pedirás prestado.",
+    sectionStampTitle: "El impuesto de timbre varía enormemente por estado",
+    sectionStampBody: "",
+    sectionStampItems: [
+      "NSW y VIC tienen las tasas base más altas, típicamente 4–6% del valor de la propiedad.",
+      "Las exenciones para compradores de primera vivienda pueden reducir el impuesto a cero para propiedades bajo ciertos umbrales (p.ej. $800,000 en NSW, $600,000 en VIC, $700,000 en QLD).",
+      "ACT cobra impuesto territorial además del impuesto de timbre.",
+      "Los recargos para compradores extranjeros añaden un 7–8% en la mayoría de los estados.",
+    ],
+    sectionStampNote: "Esta calculadora usa tasas simplificadas; para una cifra vinculante, usa la calculadora de la oficina de impuestos de tu estado o consulta a un abogado.",
+    sectionFreqTitle: "Semanal vs quincenal vs mensual",
+    sectionFreqBody: "Si tu banco te permite pagar semanal o quincenalmente sin cambiar el monto total anual, acéptalo. Hay 26 quincenas y 12 meses en un año — si el banco trata un pago quincenal como \"la mitad del pago mensual,\" terminas pagando el equivalente a 13 pagos mensuales al año en lugar de 12. Es un pago extra gratuito, y en un préstamo de $640,000 al 6.5% puede reducir más de 5 años de una hipoteca de 30 años.",
+    sectionRateTitle: "El costo real de una diferencia de 0.5% en la tasa",
+    sectionRateBody: "En un préstamo de $640,000 a 30 años, 6.0% vs 6.5%:",
+    sectionRateItems: [
+      "Al 6.0%: ~$3,836/mes, ~$741,000 interés total",
+      "Al 6.5%: ~$4,045/mes, ~$816,000 interés total",
+    ],
+    sectionRateCoda: "Medio punto porcentual cuesta $75,000 durante la vida del préstamo. Por eso existen los brókers hipotecarios y el refinanciamiento.",
+    sectionNotInclTitle: "Lo que esta calculadora no incluye",
+    sectionNotInclItems: [
+      "Impuestos municipales (~$1,500–$3,000/año)",
+      "Cuotas de comunidad si compras un apartamento ($2,000–$10,000+/año)",
+      "Seguro de edificio ($800–$2,500/año)",
+      "Seguro de hogar y contenido",
+      "Derramas extraordinarias de la comunidad",
+    ],
+    faqTitle: "Preguntas frecuentes",
+    faqItems: [
+      { q: "¿Vale la pena el LMI?", a: "A veces. Si los precios de la vivienda suben más rápido que tu capacidad de ahorrar el 20%, pagar LMI para comprar ahora puede ser más barato que esperar. Haz números comparando alquiler vs préstamo con LMI a 5 años." },
+      { q: "¿Puedo evitar el LMI sin tener el 20%?", a: "Sí, si eres de ciertas profesiones (médicos, abogados, contables) algunos bancos renuncian al LMI. El plan First Home Guarantee también permite a compradores elegibles comprar con 5% de depósito sin LMI." },
+      { q: "¿Diferencia entre principal+intereses vs solo intereses?", a: "P&I significa que cada pago reduce el préstamo. Solo intereses significa que solo pagas el cargo por intereses — el préstamo nunca se reduce. La mayoría de préstamos para vivienda habitual deberían ser P&I; solo intereses lo usan inversores como herramienta fiscal." },
+      { q: "¿Qué tan precisa es la estimación del impuesto de timbre?", a: "Dentro del 5–10% para compras estándar. Para cifras exactas, usa la calculadora en la web de la oficina de impuestos de tu estado (revenue.nsw.gov.au, sro.vic.gov.au, etc)." },
+      { q: "¿Debo obtener preaprobación antes de pujar en subasta?", a: "Sí, siempre. Los contratos de subasta en Australia son incondicionales — si no consigues el préstamo, pierdes tu depósito." },
+    ],
   },
 };
 
@@ -259,6 +443,7 @@ const TOOLS = [
   { title: { en: "Word Counter", "zh-hk": "字數統計", "zh-cn": "字数统计", es: "Contador de palabras" }, description: { en: "Count words and characters.", "zh-hk": "統計字數同字元。", "zh-cn": "统计字数和字符。", es: "Cuenta palabras y caracteres." }, href: "/word-counter", keywords: ["word", "text"] },
   { title: { en: "Age Calculator", "zh-hk": "年齡計算機", "zh-cn": "年龄计算器", es: "Calculadora de edad" }, description: { en: "Calculate exact age.", "zh-hk": "計算準確年齡。", "zh-cn": "计算准确年龄。", es: "Calcula la edad exacta." }, href: "/age-calculator", keywords: ["age"] },
   { title: { en: "Business Day Calculator", "zh-hk": "工作日計算機", "zh-cn": "工作日计算器", es: "Calculadora de días hábiles" }, description: { en: "Add working days to any date.", "zh-hk": "加工作日至任何日期。", "zh-cn": "加工作日到任何日期。", es: "Agrega días hábiles." }, href: "/business-day-calculator", keywords: ["calendar", "workday"] },
+  { title: { en: "Dog Age Calculator", "zh-hk": "狗狗年齡換算（人類年齡）", "zh-cn": "狗狗年龄换算（人类年龄）", es: "Calculadora de edad de perro en años humanos" }, description: { en: "Convert dog age to human years.", "zh-hk": "將狗狗年齡換算為人類年齡。", "zh-cn": "将狗狗年龄换算为人类年龄。", es: "Convierte edad de perro a años humanos." }, href: "/dog-age-calculator", keywords: ["dog", "age"] },
 ];
 
 export default function MortgageCalculatorAustralia() {
@@ -375,7 +560,7 @@ export default function MortgageCalculatorAustralia() {
                   <div className="rounded-2xl border border-cyan-400/30 bg-cyan-400/10 p-4">
                     <p className="text-xs uppercase tracking-[0.2em] text-cyan-300/80">{content.upfront}</p>
                     <p className="mt-2 text-2xl font-bold text-white">{fmt(result.upfront)}</p>
-                    <p className="mt-1 text-xs text-white/55">Deposit + stamp duty + LMI + ~$2,500 legal/conveyancing</p>
+                    <p className="mt-1 text-xs text-white/55">{content.upfrontDetail}</p>
                   </div>
                 </div>
               )}
@@ -383,46 +568,37 @@ export default function MortgageCalculatorAustralia() {
 
             <article className="rounded-3xl border border-white/10 bg-white/5 p-6 prose prose-invert max-w-none prose-headings:text-white prose-headings:font-semibold prose-p:text-white/75 prose-li:text-white/75 prose-strong:text-white">
               <h2 className="text-2xl">{content.articleTitle}</h2>
-              <p>Buying a home in Australia isn't just the loan repayment. The real budget includes stamp duty (state tax on the purchase), Lenders Mortgage Insurance (LMI) if your deposit is under 20%, conveyancing fees, building and pest inspections, and government registration fees. This calculator estimates all of the big-ticket items so you know what you actually need in the bank before settlement day.</p>
+              <p>{content.articleIntro}</p>
 
-              <h3>The 20% deposit rule</h3>
-              <p>Lenders in Australia consider 20% the "safe" deposit threshold. Above 80% LVR (Loan-to-Value Ratio), banks require you to pay LMI — insurance that protects the bank if you default. LMI can easily run $10,000–$30,000 on a typical home loan, and it's usually added to the loan balance (you pay interest on it for 30 years). The most expensive money you'll ever borrow.</p>
+              <h3>{content.sectionDepositTitle}</h3>
+              <p>{content.sectionDepositBody}</p>
 
-              <h3>Stamp duty varies enormously by state</h3>
+              <h3>{content.sectionStampTitle}</h3>
+              {content.sectionStampBody && <p>{content.sectionStampBody}</p>}
               <ul>
-                <li><strong>NSW & VIC</strong> have the highest base rates, typically 4–6% of property value.</li>
-                <li><strong>First-home buyer concessions</strong> can reduce stamp duty to zero for properties under state-specific thresholds (e.g. $800,000 in NSW, $600,000 in VIC, $700,000 in QLD as of recent years).</li>
-                <li><strong>ACT</strong> charges land tax on top of stamp duty.</li>
-                <li><strong>Foreign buyer surcharges</strong> add 7–8% in most states.</li>
+                {content.sectionStampItems.map((item, i) => <li key={i}>{item}</li>)}
               </ul>
-              <p>This calculator uses simplified rates that capture the broad shape; for a binding number, use your state's revenue office calculator or talk to a conveyancer.</p>
+              <p>{content.sectionStampNote}</p>
 
-              <h3>Weekly vs fortnightly vs monthly</h3>
-              <p>If your bank lets you pay weekly or fortnightly without changing the total annual amount, take it. There are 26 fortnights and 12 months in a year — if the bank treats a fortnightly payment as "half the monthly payment," you end up paying the equivalent of 13 monthly payments per year instead of 12. That's a free extra payment, and on a $640,000 loan at 6.5% it can shave 5+ years off a 30-year mortgage.</p>
+              <h3>{content.sectionFreqTitle}</h3>
+              <p>{content.sectionFreqBody}</p>
 
-              <h3>The real cost of a 0.5% rate difference</h3>
-              <p>On a $640,000 loan over 30 years, 6.0% vs 6.5% interest is:</p>
+              <h3>{content.sectionRateTitle}</h3>
+              <p>{content.sectionRateBody}</p>
               <ul>
-                <li>At 6.0%: ~$3,836/month, ~$741,000 total interest</li>
-                <li>At 6.5%: ~$4,045/month, ~$816,000 total interest</li>
+                {content.sectionRateItems.map((item, i) => <li key={i}>{item}</li>)}
               </ul>
-              <p>Half a percent costs $75,000 over the life of the loan. This is why mortgage brokers and refinancing exist.</p>
+              <p>{content.sectionRateCoda}</p>
 
-              <h3>What this calculator doesn't include</h3>
+              <h3>{content.sectionNotInclTitle}</h3>
               <ul>
-                <li>Council rates (~$1,500–$3,000/year)</li>
-                <li>Strata fees if you're buying an apartment ($2,000–$10,000+/year)</li>
-                <li>Building insurance ($800–$2,500/year)</li>
-                <li>Home and contents insurance</li>
-                <li>Body corporate special levies</li>
+                {content.sectionNotInclItems.map((item, i) => <li key={i}>{item}</li>)}
               </ul>
 
-              <h3>FAQ</h3>
-              <p><strong>Is LMI ever worth it?</strong> Sometimes. If property prices rise faster than your ability to save 20%, paying LMI to buy now can be cheaper than waiting. Run the numbers on rental vs LMI-loan over 5 years.</p>
-              <p><strong>Can I avoid LMI without 20% down?</strong> Yes, if you're in certain professions (doctors, lawyers, accountants) some lenders waive LMI. The First Home Guarantee scheme also lets eligible buyers purchase with 5% deposit and no LMI.</p>
-              <p><strong>What's the difference between principal & interest vs interest-only?</strong> P&I means each payment reduces the loan. Interest-only means you only pay the interest charge — the loan never shrinks. Most owner-occupied loans should be P&I; interest-only is a tax/cashflow tool used by investors.</p>
-              <p><strong>How accurate is the stamp duty estimate?</strong> Within 5–10% for standard purchases. For exact numbers, use the calculator on your state revenue office's website (revenue.nsw.gov.au, sro.vic.gov.au, etc).</p>
-              <p><strong>Should I get pre-approval before I bid at auction?</strong> Yes, always. Auction contracts in Australia are unconditional — if you can't get the loan, you lose your deposit.</p>
+              <h3>{content.faqTitle}</h3>
+              {content.faqItems.map((item, i) => (
+                <p key={i}><strong>{item.q}</strong> {item.a}</p>
+              ))}
             </article>
 
             <section className="rounded-3xl border border-white/10 bg-black/20 p-4">
@@ -450,7 +626,7 @@ export default function MortgageCalculatorAustralia() {
               <h3 className="text-sm font-semibold text-white">{content.suggestionsTitle}</h3>
               <div className="mt-3 space-y-2">
                 {content.suggestions.map((name) => {
-                  const match = TOOLS.find((t) => t.title === name);
+                  const match = TOOLS.find((t) => t.title[locale] === name);
                   if (!match) return null;
                   return (
                     <a key={name} href={match.href} className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-sm text-white/80 transition hover:bg-white/10">
