@@ -485,6 +485,7 @@ export default function DHLDimensionalWeightCalculator() {
   }, [unitSystem]);
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     if (typeof window !== "undefined") window.localStorage.setItem("ttb-locale", locale);
   }, [locale]);
 

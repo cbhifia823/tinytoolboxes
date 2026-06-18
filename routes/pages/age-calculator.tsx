@@ -191,6 +191,7 @@ export default function AgeCalculator() {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
     const L = LANGUAGES[locale];
     applySEO({

@@ -362,6 +362,7 @@ export default function VolumetricWeightCalculator() {
   const [factor, setFactor] = useState("6000");
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
   }, [locale]);
 

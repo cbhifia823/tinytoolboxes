@@ -445,6 +445,7 @@ export default function UpsDimensionalWeightCalculator() {
   const [actualWeight, setActualWeight] = useState("8");
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     if (typeof window !== "undefined") window.localStorage.setItem("ttb-locale", locale);
     const L = LANGUAGES[locale];
     applySEO({
