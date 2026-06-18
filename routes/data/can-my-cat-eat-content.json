@@ -1,0 +1,206 @@
+{
+  "en": {
+    "articleCatTitle": "Why Cats Need Their Own Food Safety Guide",
+    "articleCatP1": "Cats are not small dogs. They are obligate carnivores — they lack several liver enzymes that dogs and humans use to detoxify plant compounds. This makes them exquisitely sensitive to foods that a dog might tolerate. Onions and garlic, for example, destroy cat red blood cells at doses far lower than for dogs. Lilies, entirely safe for dogs, cause fatal kidney failure in cats from a single leaf or lick of pollen.",
+    "articleCatP2": "The five most dangerous substances for cats, according to veterinary toxicology data, are: lilies (all Lilium and Hemerocallis species), paracetamol/acetaminophen (never give to cats), ethylene glycol (antifreeze — cats lick it from garages), onions/garlic (allium family, more potent for cats than dogs), and permethrin (flea treatments meant for dogs). A surprising number of cat poisonings happen from well-intentioned owners using dog products on cats.",
+    "articleToxicTitle": "The Most Dangerous Foods for Cats",
+    "articleToxicP1": "Cats encounter fewer food toxins than dogs — they are generally pickier eaters — but the ones that do harm them tend to be disproportionately severe. Cats lack the liver enzyme glucuronyl transferase, which makes them unable to process many compounds that dogs and humans handle easily. This single metabolic difference explains why a food that is only mildly harmful to a dog can be catastrophic for a cat.",
+    "articleToxicP2": "Allium family vegetables (onion, garlic, shallots, leeks, chives) are especially dangerous. Even powdered onion or garlic — in baby food, soup stock, or pasta sauce — can trigger hemolytic anemia in cats. Heinz body formation on red blood cells begins within hours of ingestion and can escalate to life-threatening anemia within days. The threshold is lower for cats than dogs: a teaspoon of onion powder can be enough to hospitalise a cat.",
+    "articleSafeTitle": "Cat-Safe Human Foods (In Tiny Amounts Only)",
+    "articleSafeP1": "Because cats are obligate carnivores, the list of human foods they can eat is shorter than for dogs. Plain, fully cooked, boneless, skinless chicken breast or lean fish (de-boned) are the safest options. Steamed plain pumpkin purée (no spices) can help with mild constipation. A few blueberries or a small slice of banana is non-toxic but nutritionally unnecessary — cats have no dietary requirement for carbohydrates or fruit.",
+    "articleSafeP2": "Never feed cats raw meat, raw fish, or raw eggs. Raw salmon can carry Neorickettsia helminthoeca which causes salmon poisoning disease — fatal without treatment. Raw egg whites contain avidin, which blocks biotin absorption over time and causes skin and coat problems. Treats of any kind should never exceed 5% of a cat's daily calories — even less than the 10% rule for dogs.",
+    "articleEmergencyTitle": "What To Do If Your Cat Eats Something Toxic",
+    "articleEmergencyP1": "Cats are harder to treat for poisoning than dogs because they metabolise toxins differently and cannot be safely made to vomit at home in most cases. Inducing vomiting in a cat can cause aspiration pneumonia or oesophageal damage. Instead, go straight to the nearest emergency veterinary hospital. Bring the packaging, a photo of the substance, and an estimate of how much was consumed and when.",
+    "articleEmergencyP2": "<strong>ASPCA Animal Poison Control Center</strong>: (888) 426-4435 (US, $95 consultation fee). <strong>Pet Poison Helpline</strong>: (855) 764-7661 ($85 fee). Both services maintain a case number your veterinarian can reference for treatment protocols. Note: the ASPCA APCC has a dedicated feline toxicology specialist on staff — ask for the feline team when you call.",
+    "articleFaqTitle": "Frequently Asked Questions",
+    "articleFaqs": [
+      {
+        "q": "My cat licked a lily — is that an emergency?",
+        "a": "Yes, go to an emergency vet immediately. True lilies (Lilium and Hemerocallis species including Easter lily, Tiger lily, Day lily, Stargazer lily) cause acute kidney failure in cats. All parts are toxic — petals, leaves, pollen, stamen, and the water in the vase. Even a few grains of pollen licked off the fur can be lethal. Treatment must start within hours for a chance of recovery. Do not wait for symptoms — by the time vomiting and lethargy appear, kidney damage has already begun."
+      },
+      {
+        "q": "I gave my cat a tiny bit of food with onion powder — is that dangerous?",
+        "a": "Yes, potentially. Onion powder is concentrated — one teaspoon of onion powder contains the equivalent of one medium onion. For a 4 kg (9 lb) cat, as little as 5 g of onion per kilogram of body weight can cause Heinz-body hemolytic anaemia. Even if the amount seems tiny, call a vet. Symptoms may not appear for 2–5 days but the blood cell damage begins within hours. Monitor for pale gums, weakness, rapid breathing, or dark urine."
+      },
+      {
+        "q": "Can cats eat grapes or raisins?",
+        "a": "The official veterinary position is to treat grape ingestion as potentially dangerous for cats too, although documented cases of grape toxicity in cats are far rarer than in dogs. The mechanism of grape/raisin toxicity is thought to be tartaric acid sensitivity, which theoretically could affect cats as well. Given the severity of the outcome (acute kidney failure), do not give cats grapes or raisins, and if your cat eats one, call your veterinarian."
+      },
+      {
+        "q": "Why can't I give my cat dog food or dog treats?",
+        "a": "Dog food is nutritionally incomplete for cats. Cats require taurine (an amino acid dogs can synthesise but cats cannot), arachidonic acid, pre-formed vitamin A, and higher protein levels. Eating dog food regularly causes taurine deficiency which leads to dilated cardiomyopathy (heart failure), retinal degeneration (blindness), and reproductive failure. An occasional stolen kibble will not harm a cat, but cat food must be their primary diet."
+      },
+      {
+        "q": "Is milk actually bad for cats?",
+        "a": "Most adult cats are lactose intolerant. Kittens produce lactase (the enzyme that digests milk sugar) but production drops off after weaning around 8–12 weeks. Giving an adult cat a saucer of milk often causes diarrhoea within hours. Small amounts of lactose-free cat milk or very small amounts of plain yoghurt are sometimes tolerated but are unnecessary. Fresh water is all a healthy cat needs to drink."
+      },
+      {
+        "q": "Is this database complete — are there foods missing?",
+        "a": "No database of cat-toxic foods is ever truly complete because new research emerges and individual cats can have idiosyncratic reactions. This tool covers the most commonly searched foods and the ones with the strongest evidence. For any substance not listed here, consult the ASPCA Animal Poison Control website (aspca.org/pet-care/animal-poison-control) or call a 24/7 poison helpline before letting your cat try it."
+      }
+    ],
+    "articleDisclaimer": "This tool is for general educational purposes only. It does not replace professional veterinary advice. If you suspect your cat has eaten something toxic, contact a veterinarian immediately — do not rely on a website lookup alone.",
+    "sidebarTitle": "Top Cat Toxins",
+    "sidebarSubtitle": "Most dangerous for cats — ranked",
+    "sidebarItems": [
+      "🐱 1. Lilies (all Lilium/Hemerocallis) — kidney failure from a single lick",
+      "🐱 2. Onion & garlic (cooked, raw, powder) — hemolytic anaemia",
+      "🐱 3. Paracetamol — cats cannot metabolise it, fatal even at baby doses",
+      "🐱 4. Essential oils & liquid potpourri — severe liver damage",
+      "🐱 5. Permethrin (dog flea spot-ons) — tremors, seizures, death"
+    ]
+  },
+  "zh-hk": {
+    "articleCatTitle": "點解貓需要自己嘅食物安全指南",
+    "articleCatP1": "貓唔係小型狗。佢哋係專性肉食動物——缺乏幾種狗同人類用嚟解毒植物化合物嘅肝酶。呢個令佢哋對狗可以容忍嘅食物極為敏感。例如，洋蔥同大蒜對貓紅血球嘅破壞劑量遠低過對狗。百合花對狗完全安全，但貓只要食一片葉或舔一下花粉就會致命腎衰竭。",
+    "articleCatP2": "根據獸醫毒理學數據，貓最危險嘅五種物質係：百合花（所有 Lilium 同 Hemerocallis 品種）、撲熱息痛／對乙酰氨基酚（絕對唔可以俾貓食）、乙二醇（防凍液——貓會喺車房舔到）、洋蔥／大蒜（蔥屬，對貓比對狗更強效）、同埋氯菊酯（俾狗用嘅跳蚤藥）。令人驚訝嘅係，好多貓中毒事件都係源於好心主人將狗用產品用喺貓身上。",
+    "articleToxicTitle": "對貓最危險嘅食物",
+    "articleToxicP1": "貓遇到嘅食物毒素比狗少——佢哋通常食嘢比較挑剔——但對佢哋有害嘅嘢往往格外嚴重。貓缺乏肝酶葡萄糖醛酸轉移酶，令佢哋無法處理好多狗同人類可以輕鬆應付嘅化合物。呢個單一代謝差異解釋咗點解一種對狗只有輕微害處嘅食物對貓可以係災難性嘅。",
+    "articleToxicP2": "蔥屬蔬菜（洋蔥、大蒜、紅蔥頭、韭蔥、細香蔥）特別危險。即使係粉狀洋蔥或大蒜——存在於嬰兒食品、湯底或意粉醬中——都可以引發貓嘅溶血性貧血。紅血球上嘅海因茨體喺食入後幾小時內開始形成，幾日內就可能升級為危及生命嘅貧血。貓嘅閾值比狗低：一茶匙洋蔥粉就足以令貓入院。",
+    "articleSafeTitle": "對貓安全嘅人類食物（只限極少量）",
+    "articleSafeP1": "因為貓係專性肉食動物，佢哋可以食嘅人類食物列表比狗短。原味、完全煮熟、去骨去皮嘅雞胸肉或瘦肉魚（去骨）係最安全嘅選擇。蒸熟嘅原味南瓜蓉（無香料）可以幫助輕微便秘。幾粒藍莓或一小片香蕉係無毒嘅但營養上冇需要——貓冇碳水化合物或水果嘅飲食需求。",
+    "articleSafeP2": "絕對唔好俾貓食生肉、生魚或生雞蛋。生三文魚可能帶有蠕蟲新立克次體，會引起三文魚中毒病——冇治療會致命。生蛋白含有親和素，長期會阻止生物素吸收，導致皮膚同毛髮問題。任何類型嘅零食都唔應該超過貓每日卡路里攝入量嘅 5%——比狗嘅 10% 規則仲要低。",
+    "articleEmergencyTitle": "如果貓食咗有毒物質應該點做",
+    "articleEmergencyP1": "貓中毒嘅治療比狗更難，因為佢哋代謝毒素嘅方式唔同，而且大多數情況下唔可以喺屋企安全催吐。喺貓身上催吐可能導致吸入性肺炎或食道損傷。相反，直接去最近嘅急診獸醫醫院。帶埋包裝、物質嘅相片，同埋估計食咗幾多同幾時食。",
+    "articleEmergencyP2": "<strong>ASPCA 動物毒物控制中心</strong>：(888) 426-4435（美國，$95 諮詢費）。<strong>寵物毒物熱線</strong>：(855) 764-7661（$85 費用）。兩個服務都會提供一個個案編號，俾你嘅獸醫參考治療方案。注意：ASPCA APCC 有專門嘅貓科毒理學專家——打電話時要求同貓科團隊通話。",
+    "articleFaqTitle": "常見問題",
+    "articleFaqs": [
+      {
+        "q": "我隻貓舔咗百合花——係唔係緊急情況？",
+        "a": "係，立即去急診獸醫。真百合（Lilium 同 Hemerocallis 品種，包括復活節百合、虎斑百合、萱草、星百合）會導致貓急性腎衰竭。所有部分都有毒——花瓣、葉、花粉、花蕊，同埋花瓶裏面嘅水。即使只係舔咗毛上面嘅幾粒花粉都可能致命。必須喺幾小時內開始治療先有機會康復。唔好等症狀出現——到嘔吐同嗜睡出現時，腎臟損傷已經開始。"
+      },
+      {
+        "q": "我俾咗貓食好少含有洋蔥粉嘅食物——有冇危險？",
+        "a": "有，有可能。洋蔥粉係濃縮嘅——一茶匙洋蔥粉等於一個中等洋蔥。對一隻 4 公斤（9 磅）嘅貓嚟講，每公斤體重只需 5 克洋蔥就可以引起海因茨體溶血性貧血。即使份量睇落好少，都要打電話俾獸醫。症狀可能要 2-5 日先出現，但血細胞損傷喺幾小時內就開始。留意牙齦蒼白、虛弱、呼吸急促或深色尿液。"
+      },
+      {
+        "q": "貓可唔可以食提子或提子乾？",
+        "a": "官方獸醫立場係將提子食入視為對貓都有潛在危險，雖然記錄在案嘅貓提子中毒案例比狗少好多。提子／提子乾毒性嘅機制被認為係酒石酸敏感性，理論上貓都可能受影響。考慮到結果嘅嚴重性（急性腎衰竭），唔好俾貓食提子或提子乾，如果貓食咗一粒，打電話俾你嘅獸醫。"
+      },
+      {
+        "q": "點解唔可以俾貓食狗糧或狗零食？",
+        "a": "狗糧對貓嚟講營養唔完整。貓需要牛磺酸（一種狗可以合成但貓唔可以嘅氨基酸）、花生四烯酸、預製維生素 A，同更高嘅蛋白質水平。經常食狗糧會導致牛磺酸缺乏，從而引起擴張型心肌病（心衰竭）、視網膜退化（失明）同生殖衰竭。間中偷食一粒狗糧唔會傷害貓，但貓糧必須係佢哋嘅主要飲食。"
+      },
+      {
+        "q": "牛奶係咪真係對貓唔好？",
+        "a": "大多數成年貓都有乳糖不耐症。幼貓會產生乳糖酶（消化乳糖嘅酶），但斷奶後大約 8-12 週，產量就會下降。俾成年貓一碟牛奶通常幾個鐘內就會腹瀉。少量不含乳糖嘅貓用奶或極少量原味乳酪有時可以接受但冇必要。乾淨嘅水就係健康貓需要飲嘅全部。"
+      },
+      {
+        "q": "呢個資料庫係咪完整——有冇遺漏嘅食物？",
+        "a": "冇一個貓有毒食物資料庫係真正完整嘅，因為新研究不斷出現，而且個別貓可能有特殊反應。呢個工具涵蓋最常被搜尋嘅食物同有最強證據嘅食物。對於未喺度列出嘅任何物質，請查閱 ASPCA 動物毒物控制網站（aspca.org/pet-care/animal-poison-control）或喺俾貓嘗試之前打電話俾 24/7 毒物熱線。"
+      }
+    ],
+    "articleDisclaimer": "呢個工具僅供一般教育用途。佢唔可以取代專業獸醫建議。如果你懷疑你嘅貓食咗有毒物質，立即聯絡獸醫——唔好單靠網站查詢。",
+    "sidebarTitle": "貓最常見毒素",
+    "sidebarSubtitle": "對貓最危險——排名",
+    "sidebarItems": [
+      "🐱 1. 百合花（所有 Lilium/Hemerocallis）——舔一下就腎衰竭",
+      "🐱 2. 洋蔥同大蒜（煮熟、生、粉狀）——溶血性貧血",
+      "🐱 3. 撲熱息痛——貓無法代謝，連嬰兒劑量都致命",
+      "🐱 4. 精油同液體香薰——嚴重肝損傷",
+      "🐱 5. 氯菊酯（狗用跳蚤滴劑）——震顫、癲癇、死亡"
+    ]
+  },
+  "zh-cn": {
+    "articleCatTitle": "为什么猫需要自己的食物安全指南",
+    "articleCatP1": "猫不是小型狗。它们是专性肉食动物——缺乏几种狗和人类用来解毒植物化合物的肝酶。这使它们对狗可以耐受的食物极为敏感。例如，洋葱和大蒜对猫红血球的破坏剂量远低于对狗。百合花对狗完全安全，但猫只要吃一片叶子或舔一下花粉就会致命肾衰竭。",
+    "articleCatP2": "根据兽医毒理学数据，猫最危险的五种物质是：百合花（所有 Lilium 和 Hemerocallis 品种）、扑热息痛/对乙酰氨基酚（绝对不可以给猫吃）、乙二醇（防冻液——猫会在车库里舔到）、洋葱/大蒜（葱属，对猫比对狗更强效）、以及氯菊酯（给狗用的跳蚤药）。令人惊讶的是，很多猫中毒事件都源于好心主人将狗用产品用在猫身上。",
+    "articleToxicTitle": "对猫最危险的食物",
+    "articleToxicP1": "猫遇到的食物毒素比狗少——它们通常吃东西比较挑剔——但对它们有害的东西往往格外严重。猫缺乏肝酶葡萄糖醛酸转移酶，使它们无法处理很多狗和人类可以轻松应付的化合物。这个单一代谢差异解释了为什么一种对狗只有轻微害处的食物对猫可以是灾难性的。",
+    "articleToxicP2": "葱属蔬菜（洋葱、大蒜、红葱头、韭葱、细香葱）特别危险。即使是粉状洋葱或大蒜——存在于婴儿食品、汤底或意面酱中——都可以引发猫的溶血性贫血。红血球上的海因茨体在食入后几小时内开始形成，几天内就可能升级为危及生命的贫血。猫的阈值比狗低：一茶匙洋葱粉就足以让猫住院。",
+    "articleSafeTitle": "对猫安全的人类食物（只限极少量）",
+    "articleSafeP1": "因为猫是专性肉食动物，它们可以吃的人类食物列表比狗短。原味、完全煮熟、去骨去皮的鸡胸肉或瘦肉鱼（去骨）是最安全的选择。蒸熟的原味南瓜泥（无香料）可以帮助轻微便秘。几粒蓝莓或一小片香蕉是无毒的但营养上不需要——猫没有碳水化合物或水果的饮食需求。",
+    "articleSafeP2": "绝对不要给猫吃生肉、生鱼或生鸡蛋。生三文鱼可能带有蠕虫新立克次体，会引起三文鱼中毒病——不治疗会致命。生蛋白含有亲和素，长期会阻止生物素吸收，导致皮肤和毛发问题。任何类型的零食都不应该超过猫每日卡路里摄入量的 5%——比狗的 10% 规则还要低。",
+    "articleEmergencyTitle": "如果猫吃了有毒物质应该怎么做",
+    "articleEmergencyP1": "猫中毒的治疗比狗更难，因为它们代谢毒素的方式不同，而且大多数情况下不能在家安全催吐。在猫身上催吐可能导致吸入性肺炎或食道损伤。相反，直接去最近的急诊兽医医院。带上包装、物质的照片，以及估计吃了多少和何时吃。",
+    "articleEmergencyP2": "<strong>ASPCA 动物毒物控制中心</strong>：(888) 426-4435（美国，$95 咨询费）。<strong>宠物毒物热线</strong>：(855) 764-7661（$85 费用）。两个服务都会提供一个案件编号，给你的兽医参考治疗方案。注意：ASPCA APCC 有专门的猫科毒理学专家——打电话时要求与猫科团队通话。",
+    "articleFaqTitle": "常见问题",
+    "articleFaqs": [
+      {
+        "q": "我的猫舔了百合花——是紧急情况吗？",
+        "a": "是，立即去急诊兽医。真百合（Lilium 和 Hemerocallis 品种，包括复活节百合、虎斑百合、萱草、星百合）会导致猫急性肾衰竭。所有部分都有毒——花瓣、叶、花粉、花蕊，以及花瓶里的水。即使只是舔了毛上的几粒花粉都可能致命。必须在几小时内开始治疗才有机会康复。不要等症状出现——到呕吐和嗜睡出现时，肾脏损伤已经开始。"
+      },
+      {
+        "q": "我给猫吃了很少含有洋葱粉的食物——有危险吗？",
+        "a": "有，有可能。洋葱粉是浓缩的——一茶匙洋葱粉等于一个中等洋葱。对一只 4 公斤（9 磅）的猫来说，每公斤体重只需 5 克洋葱就可以引起海因茨体溶血性贫血。即使分量看起来很少，都要打电话给兽医。症状可能要 2-5 天才出现，但血细胞损伤在几小时内就开始。留意牙龈苍白、虚弱、呼吸急促或深色尿液。"
+      },
+      {
+        "q": "猫可以吃葡萄或葡萄干吗？",
+        "a": "官方兽医立场是将葡萄食入视为对猫都有潜在危险，虽然记录在案的猫葡萄中毒案例比狗少很多。葡萄/葡萄干毒性的机制被认为是酒石酸敏感性，理论上猫都可能受影响。考虑到结果的严重性（急性肾衰竭），不要给猫吃葡萄或葡萄干，如果猫吃了一粒，打电话给你的兽医。"
+      },
+      {
+        "q": "为什么不可以给猫吃狗粮或狗零食？",
+        "a": "狗粮对猫来说营养不完整。猫需要牛磺酸（一种狗可以合成但猫不可以的氨基酸）、花生四烯酸、预制维生素 A，和更高的蛋白质水平。经常吃狗粮会导致牛磺酸缺乏，从而引起扩张型心肌病（心衰竭）、视网膜退化（失明）和生殖衰竭。偶尔偷吃一粒狗粮不会伤害猫，但猫粮必须是它们的主要饮食。"
+      },
+      {
+        "q": "牛奶是不是真的对猫不好？",
+        "a": "大多数成年猫都有乳糖不耐症。幼猫会产生乳糖酶（消化乳糖的酶），但断奶后大约 8-12 周，产量就会下降。给成年猫一碟牛奶通常几个小时内就会腹泻。少量不含乳糖的猫用奶或极少量原味酸奶有时可以接受但没必要。干净的水就是健康猫需要喝的全部。"
+      },
+      {
+        "q": "这个数据库是不是完整的——有没有遗漏的食物？",
+        "a": "没有一个猫有毒食物数据库是真正完整的，因为新研究不断出现，而且个别猫可能有特殊反应。这个工具涵盖最常被搜索的食物和有最强证据的食物。对于未在此列出的任何物质，请查阅 ASPCA 动物毒物控制网站（aspca.org/pet-care/animal-poison-control）或在给猫尝试之前打电话给 24/7 毒物热线。"
+      }
+    ],
+    "articleDisclaimer": "此工具仅供一般教育用途。它不能取代专业兽医建议。如果你怀疑你的猫吃了有毒物质，立即联系兽医——不要单靠网站查询。",
+    "sidebarTitle": "猫最常见毒素",
+    "sidebarSubtitle": "对猫最危险——排名",
+    "sidebarItems": [
+      "🐱 1. 百合花（所有 Lilium/Hemerocallis）——舔一下就肾衰竭",
+      "🐱 2. 洋葱和大蒜（煮熟、生、粉状）——溶血性贫血",
+      "🐱 3. 扑热息痛——猫无法代谢，连婴儿剂量都致命",
+      "🐱 4. 精油和液体香薰——严重肝损伤",
+      "🐱 5. 氯菊酯（狗用跳蚤滴剂）——震颤、癫痫、死亡"
+    ]
+  },
+  "es": {
+    "articleCatTitle": "Por qué los gatos necesitan su propia guía de seguridad alimentaria",
+    "articleCatP1": "Los gatos no son perros pequeños. Son carnívoros obligados — carecen de varias enzimas hepáticas que los perros y los humanos usan para desintoxicar compuestos vegetales. Esto los hace extremadamente sensibles a alimentos que un perro podría tolerar. Las cebollas y el ajo, por ejemplo, destruyen los glóbulos rojos de los gatos en dosis mucho más bajas que para los perros. Los lirios, completamente seguros para los perros, causan insuficiencia renal mortal en los gatos con una sola hoja o lamida de polen.",
+    "articleCatP2": "Las cinco sustancias más peligrosas para los gatos, según datos de toxicología veterinaria, son: lirios (todas las especies Lilium y Hemerocallis), paracetamol/acetaminofén (nunca dar a gatos), etilenglicol (anticongelante — los gatos lo lamen en garajes), cebolla/ajo (familia allium, más potente para gatos que para perros), y permetrina (tratamientos antipulgas para perros). Sorprendentemente, muchas intoxicaciones en gatos ocurren cuando dueños bienintencionados usan productos para perros en gatos.",
+    "articleToxicTitle": "Los alimentos más peligrosos para los gatos",
+    "articleToxicP1": "Los gatos encuentran menos toxinas alimentarias que los perros — generalmente son más quisquillosos para comer — pero las que los dañan tienden a ser desproporcionadamente graves. Los gatos carecen de la enzima hepática glucuronil transferasa, lo que les impide procesar muchos compuestos que los perros y humanos manejan fácilmente. Esta única diferencia metabólica explica por qué un alimento que es solo levemente dañino para un perro puede ser catastrófico para un gato.",
+    "articleToxicP2": "Las verduras de la familia allium (cebolla, ajo, chalotes, puerros, cebolletas) son especialmente peligrosas. Incluso la cebolla o el ajo en polvo — en comida para bebés, caldo de sopa o salsa para pasta — pueden desencadenar anemia hemolítica en gatos. La formación de cuerpos de Heinz en los glóbulos rojos comienza a las pocas horas de la ingestión y puede escalar a una anemia potencialmente mortal en días. El umbral es más bajo para gatos que para perros: una cucharadita de cebolla en polvo puede ser suficiente para hospitalizar a un gato.",
+    "articleSafeTitle": "Alimentos humanos seguros para gatos (solo en cantidades mínimas)",
+    "articleSafeP1": "Como los gatos son carnívoros obligados, la lista de alimentos humanos que pueden comer es más corta que para los perros. Pechuga de pollo sin piel ni huesos, completamente cocida, o pescado magro bien cocido (sin espinas) son las opciones más seguras. El puré de calabaza cocido al vapor y sin condimentos puede ayudar con el estreñimiento leve. Unos pocos arándanos o una pequeña rodaja de plátano no son tóxicos pero son nutricionalmente innecesarios — los gatos no tienen requerimientos dietéticos de carbohidratos ni frutas.",
+    "articleSafeP2": "Nunca alimentes a los gatos con carne, pescado o huevos crudos. El salmón crudo puede portar Neorickettsia helminthoeca, que causa la enfermedad del envenenamiento por salmón — mortal sin tratamiento. Las claras de huevo crudas contienen avidina, que bloquea la absorción de biotina con el tiempo y causa problemas de piel y pelaje. Las golosinas de cualquier tipo nunca deben exceder el 5% de las calorías diarias de un gato — incluso menos que la regla del 10% para perros.",
+    "articleEmergencyTitle": "Qué hacer si tu gato come algo tóxico",
+    "articleEmergencyP1": "Los gatos son más difíciles de tratar por intoxicación que los perros porque metabolizan las toxinas de manera diferente y en la mayoría de los casos no se les puede inducir el vómito de forma segura en casa. Inducir el vómito en un gato puede causar neumonía por aspiración o daño esofágico. En su lugar, ve directamente al hospital veterinario de urgencias más cercano. Lleva el envase, una foto de la sustancia y una estimación de cuánto consumió y cuándo.",
+    "articleEmergencyP2": "<strong>Centro de Control de Envenenamiento Animal de ASPCA</strong>: (888) 426-4435 (EE. UU., tarifa de consulta de $95). <strong>Línea de Ayuda de Envenenamiento de Mascotas</strong>: (855) 764-7661 (tarifa de $85). Ambos servicios mantienen un número de caso que tu veterinario puede consultar para protocolos de tratamiento. Nota: el ASPCA APCC tiene un especialista en toxicología felina dedicado — pide hablar con el equipo felino cuando llames.",
+    "articleFaqTitle": "Preguntas frecuentes",
+    "articleFaqs": [
+      {
+        "q": "Mi gato lamió un lirio — ¿es una emergencia?",
+        "a": "Sí, ve a un veterinario de urgencias inmediatamente. Los lirios verdaderos (especies Lilium y Hemerocallis incluyendo lirio de Pascua, lirio tigre, lirio de día, lirio Stargazer) causan insuficiencia renal aguda en gatos. Todas las partes son tóxicas — pétalos, hojas, polen, estambres y el agua del florero. Incluso unos pocos granos de polen lamidos del pelaje pueden ser letales. El tratamiento debe comenzar en cuestión de horas para tener posibilidad de recuperación. No esperes a que aparezcan síntomas — cuando aparecen vómitos y letargo, el daño renal ya ha comenzado."
+      },
+      {
+        "q": "Le di a mi gato un poquito de comida con cebolla en polvo — ¿es peligroso?",
+        "a": "Sí, potencialmente. La cebolla en polvo está concentrada — una cucharadita de cebolla en polvo contiene el equivalente a una cebolla mediana. Para un gato de 4 kg, tan solo 5 g de cebolla por kilogramo de peso corporal pueden causar anemia hemolítica por cuerpos de Heinz. Incluso si la cantidad parece mínima, llama a un veterinario. Los síntomas pueden no aparecer durante 2–5 días pero el daño a las células sanguíneas comienza en horas. Vigila si hay encías pálidas, debilidad, respiración rápida u orina oscura."
+      },
+      {
+        "q": "¿Pueden los gatos comer uvas o pasas?",
+        "a": "La posición veterinaria oficial es tratar la ingestión de uvas como potencialmente peligrosa también para gatos, aunque los casos documentados de toxicidad por uvas en gatos son mucho más raros que en perros. Se cree que el mecanismo de toxicidad de uvas/pasas es la sensibilidad al ácido tartárico, que teóricamente también podría afectar a los gatos. Dada la gravedad del resultado (insuficiencia renal aguda), no des uvas ni pasas a los gatos, y si tu gato come una, llama a tu veterinario."
+      },
+      {
+        "q": "¿Por qué no puedo darle a mi gato comida o golosinas para perros?",
+        "a": "La comida para perros es nutricionalmente incompleta para los gatos. Los gatos necesitan taurina (un aminoácido que los perros pueden sintetizar pero los gatos no), ácido araquidónico, vitamina A preformada y niveles más altos de proteína. Comer comida para perros regularmente causa deficiencia de taurina que conduce a cardiomiopatía dilatada (insuficiencia cardíaca), degeneración retiniana (ceguera) y fallo reproductivo. Una croqueta robada ocasionalmente no dañará a un gato, pero la comida para gatos debe ser su dieta principal."
+      },
+      {
+        "q": "¿La leche es realmente mala para los gatos?",
+        "a": "La mayoría de los gatos adultos son intolerantes a la lactosa. Los gatitos producen lactasa (la enzima que digiere el azúcar de la leche) pero la producción disminuye después del destete alrededor de las 8–12 semanas. Darle a un gato adulto un platito de leche a menudo causa diarrea en cuestión de horas. Pequeñas cantidades de leche sin lactosa para gatos o cantidades muy pequeñas de yogur natural a veces se toleran pero son innecesarias. El agua fresca es todo lo que un gato sano necesita beber."
+      },
+      {
+        "q": "¿Esta base de datos es completa — faltan alimentos?",
+        "a": "Ninguna base de datos de alimentos tóxicos para gatos es verdaderamente completa porque surgen nuevas investigaciones y los gatos individuales pueden tener reacciones idiosincráticas. Esta herramienta cubre los alimentos más comúnmente buscados y aquellos con la evidencia más sólida. Para cualquier sustancia no listada aquí, consulta el sitio web del Centro de Control de Envenenamiento Animal de ASPCA (aspca.org/pet-care/animal-poison-control) o llama a una línea de ayuda de envenenamiento 24/7 antes de dejar que tu gato lo pruebe."
+      }
+    ],
+    "articleDisclaimer": "Esta herramienta es solo para fines educativos generales. No reemplaza el consejo veterinario profesional. Si sospechas que tu gato ha comido algo tóxico, contacta a un veterinario inmediatamente — no te bases solo en una consulta en línea.",
+    "sidebarTitle": "Principales toxinas para gatos",
+    "sidebarSubtitle": "Más peligrosas para gatos — clasificadas",
+    "sidebarItems": [
+      "🐱 1. Lirios (todos Lilium/Hemerocallis) — insuficiencia renal con una sola lamida",
+      "🐱 2. Cebolla y ajo (cocidos, crudos, en polvo) — anemia hemolítica",
+      "🐱 3. Paracetamol — los gatos no pueden metabolizarlo, fatal incluso en dosis infantiles",
+      "🐱 4. Aceites esenciales y popurrí líquido — daño hepático grave",
+      "🐱 5. Permetrina (pipetas antipulgas para perros) — temblores, convulsiones, muerte"
+    ]
+  }
+}
