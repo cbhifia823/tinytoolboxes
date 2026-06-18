@@ -380,10 +380,11 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function RhymeZone() {
-  const [locale, setLocale] = useState<keyof typeof LOCALES>(() => {
+  type LocaleId = typeof LOCALES[number]["id"];
+  const [locale, setLocale] = useState<LocaleId>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as keyof typeof LOCALES | null;
-    return saved && LOCALES[saved] ? saved : "en";
+    const saved = window.localStorage.getItem("ttb-locale") as LocaleId | null;
+    return saved && LOCALES.some((l) => l.id === saved) ? saved : "en";
   });
   const [query, setQuery] = useState("light");
   const [mode, setMode] = useState<Mode>("rhymes");
@@ -397,12 +398,16 @@ export default function RhymeZone() {
   const content = COPY[locale as keyof typeof COPY] ?? COPY.en;
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
     applySEO({
       title: `${content.pageTitle} | TinyToolboxes`,
       description: content.hero,
       path: PAGE_PATH,
-      jsonLd: { "@context": "https://schema.org", "@type": "WebApplication", name: content.pageTitle, url: SITE_URL + PAGE_PATH, description: content.hero, applicationCategory: "UtilitiesApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+      jsonLd: [
+        { "@context": "https://schema.org", "@type": "WebApplication", name: content.pageTitle, url: SITE_URL + PAGE_PATH, description: content.hero, applicationCategory: "UtilitiesApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: content.faq.map((item: {q: string; a: string}) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) },
+      ],
     });
   }, [content.hero, content.pageTitle, locale]);
 

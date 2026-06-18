@@ -62,26 +62,28 @@ const SEARCH_TOOLS = [
 const SITE_URL = "https://pets.tinytoolboxes.com";
 const PAGE_PATH = "/puppy-adult-weight-calculator";
 
-function applySEO(title: string, description: string) {
+function applySEO(o: { title: string; description: string; path: string; jsonLd?: object | object[] }) {
   if (typeof document === "undefined") return;
-  const url = SITE_URL + PAGE_PATH;
-  document.title = title;
+  const url = "https://www.tinytoolboxes.com" + o.path;
+  document.title = o.title;
   const head = document.head;
-  const upsert = (selector: string, create: () => HTMLElement, attr: string, value: string) => {
-    let el = head.querySelector(selector) as HTMLElement | null;
-    if (!el) {
-      el = create();
-      head.appendChild(el);
-    }
-    el.setAttribute(attr, value);
+  const upsert = (sel: string, mk: () => HTMLElement, attr: string, val: string) => {
+    let el = head.querySelector(sel) as HTMLElement | null;
+    if (!el) { el = mk(); head.appendChild(el); }
+    el.setAttribute(attr, val);
   };
-  upsert('meta[name="description"]', () => { const el = document.createElement("meta"); el.setAttribute("name", "description"); return el; }, "content", description);
-  upsert('link[rel="canonical"]', () => { const el = document.createElement("link"); el.setAttribute("rel", "canonical"); return el; }, "href", url);
-  upsert('meta[property="og:title"]', () => { const el = document.createElement("meta"); el.setAttribute("property", "og:title"); return el; }, "content", title);
-  upsert('meta[property="og:description"]', () => { const el = document.createElement("meta"); el.setAttribute("property", "og:description"); return el; }, "content", description);
-  upsert('meta[property="og:url"]', () => { const el = document.createElement("meta"); el.setAttribute("property", "og:url"); return el; }, "content", url);
-  upsert('meta[property="og:type"]', () => { const el = document.createElement("meta"); el.setAttribute("property", "og:type"); return el; }, "content", "website");
-  upsert('meta[property="og:site_name"]', () => { const el = document.createElement("meta"); el.setAttribute("property", "og:site_name"); return el; }, "content", "TinyToolboxes for Pets");
+  const meta = (name: string, content: string) => upsert(`meta[name="${name}"]`, () => { const m = document.createElement("meta"); m.setAttribute("name", name); return m; }, "content", content);
+  const prop = (p: string, content: string) => upsert(`meta[property="${p}"]`, () => { const m = document.createElement("meta"); m.setAttribute("property", p); return m; }, "content", content);
+  meta("description", o.description);
+  upsert('link[rel="canonical"]', () => { const l = document.createElement("link"); l.setAttribute("rel", "canonical"); return l; }, "href", url);
+  prop("og:title", o.title); prop("og:description", o.description); prop("og:url", url); prop("og:type", "website"); prop("og:site_name", "TinyToolboxes");
+  meta("twitter:card", "summary"); meta("twitter:title", o.title); meta("twitter:description", o.description);
+  const old = head.querySelectorAll('script[type="application/ld+json"][data-ttb]');
+  old.forEach((n) => n.remove());
+  if (o.jsonLd) {
+    const arr = Array.isArray(o.jsonLd) ? o.jsonLd : [o.jsonLd];
+    arr.forEach((data) => { const s = document.createElement("script"); s.setAttribute("type", "application/ld+json"); s.setAttribute("data-ttb", ""); s.textContent = JSON.stringify(data); head.appendChild(s); });
+  }
 }
 
 function toKg(weight: number, unit: "kg" | "lb") {
@@ -110,8 +112,9 @@ export default function PuppyAdultWeightCalculator() {
   const strings = (content as any)[locale];
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
-    applySEO(`${strings.title} | TinyToolboxes`, strings.subtitle);
+    applySEO({ title: `${strings.title} | TinyToolboxes`, description: strings.subtitle, path: PAGE_PATH, jsonLd: [{ "@context": "https://schema.org", "@type": "WebApplication", name: strings.title, url: SITE_URL + PAGE_PATH, description: strings.subtitle, applicationCategory: "HealthApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } }, { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: (content as any)[locale].faqs.map((item: { q: string; a: string }) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) }] });
   }, [locale, strings.title, strings.subtitle]);
 
   const result = useMemo(() => {

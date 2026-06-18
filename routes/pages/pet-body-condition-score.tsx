@@ -604,8 +604,9 @@ export default function PetBodyConditionScore() {
   const content = LANGUAGES[locale];
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
-    applySEO({ title: `${content.title} | TinyToolboxes`, description: content.subtitle, path: PAGE_PATH, jsonLd: { "@context": "https://schema.org", "@type": "WebApplication", name: content.title, url: SITE_URL + PAGE_PATH, description: content.subtitle, applicationCategory: "HealthApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } } });
+    applySEO({ title: `${content.title} | TinyToolboxes`, description: content.subtitle, path: PAGE_PATH, jsonLd: [{ "@context": "https://schema.org", "@type": "WebApplication", name: content.title, url: SITE_URL + PAGE_PATH, description: content.subtitle, applicationCategory: "HealthApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } }, { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: LANGUAGES[locale].faqs.map((item: {q: string; a: string}) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) }] });
   }, [locale, content.title, content.subtitle]);
 
   const questions = species ? content.questions[species] : [];
@@ -618,7 +619,7 @@ export default function PetBodyConditionScore() {
     return Math.round(avg * 10) / 10;
   }, [answers]);
 
-  const result = (done && finalScore !== null) ? categorize(finalScore, content) : null;
+  const result = (done && finalScore !== null) ? categorize(finalScore, content as typeof LANGUAGES["en"]) : null;
 
   const reset = () => { setSpecies(null); setAnswers([]); };
 

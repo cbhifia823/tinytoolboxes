@@ -296,13 +296,17 @@ export default function WheelSpinner() {
   const wheelRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
     const L = LANGUAGES[locale];
     applySEO({
       title: `${L.title} | TinyToolboxes`,
       description: L.subtitle,
       path: PAGE_PATH,
-      jsonLd: { "@context": "https://schema.org", "@type": "WebApplication", name: L.title, url: SITE_URL + PAGE_PATH, description: L.subtitle, applicationCategory: "UtilitiesApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+      jsonLd: [
+        { "@context": "https://schema.org", "@type": "WebApplication", name: L.title, url: SITE_URL + PAGE_PATH, description: L.subtitle, applicationCategory: "UtilitiesApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: L.faq.map((item: {q: string; a: string}) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) },
+      ],
     });
   }, [locale]);
 
@@ -487,7 +491,7 @@ export default function WheelSpinner() {
               <h3 className="text-sm font-semibold text-white">{content.suggestionsTitle}</h3>
               <div className="mt-3 space-y-2">
                 {content.suggestions.map((name) => {
-                  const match = TOOLS.find((t) => t.title === name);
+                  const match = TOOLS.find((t) => t.title[locale] === name);
                   if (!match) return null;
                   return (
                     <a key={name} href={match.href} className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-sm text-white/80 transition hover:bg-white/10">
