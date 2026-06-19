@@ -10,11 +10,16 @@ const LANGUAGES: Record<LocaleKey, {
   searchLabel: string;
   searchPlaceholder: string;
   dobLabel: string;
+  tobLabel: string;
   asOfLabel: string;
   today: string;
   yearsLabel: string;
   monthsLabel: string;
   daysLabel: string;
+  hoursLabel: string;
+  minutesLabel: string;
+  tzLabel: string;
+  liveNote: string;
   totalDays: string;
   nextBirthday: string;
   daysUntil: string;
@@ -32,11 +37,16 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "Search tools",
     searchPlaceholder: "Try: weight, day, invoice, url",
     dobLabel: "Date of Birth",
+    tobLabel: "Time of birth (optional)",
     asOfLabel: "Age as of",
-    today: "Today",
+    today: "Now",
     yearsLabel: "Years",
     monthsLabel: "Months",
     daysLabel: "Days",
+    hoursLabel: "Hours",
+    minutesLabel: "Minutes",
+    tzLabel: "Your time zone",
+    liveNote: "Updating live",
     totalDays: "Total Days",
     nextBirthday: "Next Birthday",
     daysUntil: "days away",
@@ -54,11 +64,16 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "搜尋工具",
     searchPlaceholder: "例如：體積重量、工作日、發票",
     dobLabel: "出生日期",
+    tobLabel: "出生時間（可選）",
     asOfLabel: "計算至",
-    today: "今天",
+    today: "現在",
     yearsLabel: "歲",
     monthsLabel: "月",
     daysLabel: "日",
+    hoursLabel: "小時",
+    minutesLabel: "分鐘",
+    tzLabel: "你的時區",
+    liveNote: "即時更新",
     totalDays: "總天數",
     nextBirthday: "下次生日",
     daysUntil: "天後",
@@ -76,11 +91,16 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "搜索工具",
     searchPlaceholder: "例如：体积重量、工作日、发票",
     dobLabel: "出生日期",
+    tobLabel: "出生时间（可选）",
     asOfLabel: "计算至",
-    today: "今天",
+    today: "现在",
     yearsLabel: "岁",
     monthsLabel: "月",
     daysLabel: "天",
+    hoursLabel: "小时",
+    minutesLabel: "分钟",
+    tzLabel: "你的时区",
+    liveNote: "实时更新",
     totalDays: "总天数",
     nextBirthday: "下次生日",
     daysUntil: "天后",
@@ -98,11 +118,16 @@ const LANGUAGES: Record<LocaleKey, {
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: weight, day, invoice",
     dobLabel: "Fecha de nacimiento",
+    tobLabel: "Hora de nacimiento (opcional)",
     asOfLabel: "Edad al",
-    today: "Hoy",
+    today: "Ahora",
     yearsLabel: "Años",
     monthsLabel: "Meses",
     daysLabel: "Días",
+    hoursLabel: "Horas",
+    minutesLabel: "Minutos",
+    tzLabel: "Tu zona horaria",
+    liveNote: "Actualización en vivo",
     totalDays: "Días totales",
     nextBirthday: "Próximo cumpleaños",
     daysUntil: "días",
@@ -130,13 +155,24 @@ function calcAge(dob: Date, asOf: Date) {
   let years = asOf.getFullYear() - dob.getFullYear();
   let months = asOf.getMonth() - dob.getMonth();
   let days = asOf.getDate() - dob.getDate();
+  let hours = asOf.getHours() - dob.getHours();
+  let minutes = asOf.getMinutes() - dob.getMinutes();
+  if (minutes < 0) { hours--; minutes += 60; }
+  if (hours < 0) { days--; hours += 24; }
   if (days < 0) { months--; days += new Date(asOf.getFullYear(), asOf.getMonth(), 0).getDate(); }
   if (months < 0) { years--; months += 12; }
   const totalDays = Math.floor((asOf.getTime() - dob.getTime()) / 86400000);
+  const today0 = new Date(asOf.getFullYear(), asOf.getMonth(), asOf.getDate());
   const nb = new Date(asOf.getFullYear(), dob.getMonth(), dob.getDate());
-  if (nb <= asOf) nb.setFullYear(asOf.getFullYear() + 1);
-  const daysUntilBirthday = Math.floor((nb.getTime() - asOf.getTime()) / 86400000);
-  return { years, months, days, totalDays, daysUntilBirthday };
+  if (nb <= today0) nb.setFullYear(asOf.getFullYear() + 1);
+  const daysUntilBirthday = Math.round((nb.getTime() - today0.getTime()) / 86400000);
+  return { years, months, days, hours, minutes, totalDays, daysUntilBirthday };
+}
+
+// Local YYYY-MM-DD (the date inputs are local, so avoid UTC toISOString drift)
+function localDateStr(d: Date) {
+  const p = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
 }
 
 const SITE_URL = "https://www.tinytoolboxes.com";
@@ -169,8 +205,16 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 export default function AgeCalculator() {
   const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
   const [dob, setDob] = useState("1990-01-01");
-  const [asOf, setAsOf] = useState(() => new Date().toISOString().split("T")[0]);
+  const [tob, setTob] = useState("");
+  const [asOf, setAsOf] = useState(() => localDateStr(new Date()));
+  const [now, setNow] = useState(() => new Date());
   const [search, setSearch] = useState("");
+
+  // Tick every second so hours/minutes stay live when "as of" is today.
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
@@ -194,12 +238,33 @@ export default function AgeCalculator() {
     });
   }, [locale]);
 
+  const todayStr = localDateStr(now);
+  const isLive = asOf === todayStr;
+
+  const timeZone = typeof Intl !== "undefined" ? Intl.DateTimeFormat().resolvedOptions().timeZone : "";
+  const tzOffset = useMemo(() => {
+    const off = -now.getTimezoneOffset();
+    const sign = off >= 0 ? "+" : "-";
+    const h = Math.floor(Math.abs(off) / 60);
+    const m = Math.abs(off) % 60;
+    return `UTC${sign}${h}${m ? ":" + String(m).padStart(2, "0") : ""}`;
+  }, [now]);
+
   const age = useMemo(() => {
     if (!dob || !asOf) return null;
-    const d = new Date(dob), a = new Date(asOf);
-    if (isNaN(d.getTime()) || isNaN(a.getTime()) || d >= a) return null;
-    return calcAge(d, a);
-  }, [dob, asOf]);
+    const [by, bm, bd] = dob.split("-").map(Number);
+    const [bh, bmin] = (tob || "00:00").split(":").map(Number);
+    const birth = new Date(by, (bm || 1) - 1, bd || 1, bh || 0, bmin || 0);
+    let asOfMoment: Date;
+    if (isLive) {
+      asOfMoment = now;
+    } else {
+      const [ay, am, ad] = asOf.split("-").map(Number);
+      asOfMoment = new Date(ay, (am || 1) - 1, ad || 1, 0, 0, 0);
+    }
+    if (isNaN(birth.getTime()) || isNaN(asOfMoment.getTime()) || birth >= asOfMoment) return null;
+    return calcAge(birth, asOfMoment);
+  }, [dob, tob, asOf, now, isLive]);
 
   const content = LANGUAGES[locale];
   const hints = locale === "zh-hk" ? ["體積重量", "工作日", "百分比", "URL"] : locale === "zh-cn" ? ["体积重量", "工作日", "百分比", "URL"] : locale === "es" ? ["peso", "día", "porcentaje", "url"] : ["weight", "day", "percent", "url"];
@@ -225,22 +290,31 @@ export default function AgeCalculator() {
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
-                <label className="block space-y-2"><span className="text-sm text-neutral-300">{content.dobLabel}</span><input type="date" value={dob} onChange={(e) => setDob(e.target.value)} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" /></label>
+                <label className="block space-y-2"><span className="text-sm text-neutral-300">{content.dobLabel}</span>
+                  <div className="flex gap-2">
+                    <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} className="flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+                    <input type="time" value={tob} onChange={(e) => setTob(e.target.value)} aria-label={content.tobLabel} title={content.tobLabel} className="w-32 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
+                  </div>
+                </label>
                 <label className="block space-y-2"><span className="text-sm text-neutral-300">{content.asOfLabel}</span>
                   <div className="flex gap-2">
                     <input type="date" value={asOf} onChange={(e) => setAsOf(e.target.value)} className="flex-1 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
-                    <button onClick={() => setAsOf(new Date().toISOString().split("T")[0])} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70 hover:bg-white/10 transition">{content.today}</button>
+                    <button onClick={() => setAsOf(localDateStr(new Date()))} className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70 hover:bg-white/10 transition">{content.today}</button>
                   </div>
                 </label>
               </div>
               {age && (
                 <div className="space-y-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{content.result}</p>
-                  <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                    {([[content.yearsLabel, age.years],[content.monthsLabel, age.months],[content.daysLabel, age.days],[content.totalDays, age.totalDays.toLocaleString()]] as [string,string|number][]).map(([label, value]) => (
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{content.result}</p>
+                    {isLive && <span className="inline-flex items-center gap-1.5 text-xs text-emerald-300/80"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />{content.liveNote}</span>}
+                  </div>
+                  <div className="grid gap-4 grid-cols-2 sm:grid-cols-3">
+                    {([[content.yearsLabel, age.years],[content.monthsLabel, age.months],[content.daysLabel, age.days],[content.hoursLabel, age.hours],[content.minutesLabel, age.minutes],[content.totalDays, age.totalDays.toLocaleString()]] as [string,string|number][]).map(([label, value]) => (
                       <div key={label} className="rounded-2xl border border-white/10 bg-black/20 p-4"><p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{label}</p><p className="mt-2 text-2xl font-semibold text-white">{String(value)}</p></div>
                     ))}
                   </div>
+                  {timeZone && <p className="text-xs text-neutral-400">{content.tzLabel}: <span className="text-white/70">{timeZone} ({tzOffset})</span></p>}
                   <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-4">
                     <p className="text-xs uppercase tracking-[0.2em] text-emerald-300/70">{content.nextBirthday}</p>
                     <p className="mt-1 text-lg font-medium text-emerald-200">{age.daysUntilBirthday} {content.daysUntil}</p>
