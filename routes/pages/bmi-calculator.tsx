@@ -29,6 +29,8 @@ const LANGUAGES: Record<LocaleKey, {
   suggestions: string[];
   articleTitle: string;
   articleBody: string;
+  faqTitle: string;
+  faqs: { q: string; a: string }[];
 }> = {
   en: {
     name: "English",
@@ -61,7 +63,15 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "You may also like",
     suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "How BMI Works and Its Limitations",
-    articleBody: "Body Mass Index (BMI) is a simple measure that uses your height and weight to estimate your body composition.",
+    articleBody: "Body Mass Index (BMI) is a simple measure that uses your height and weight to estimate your body composition. It is calculated as your weight in kilograms divided by the square of your height in metres (kg/m²). Because it is quick and needs no special equipment, BMI is widely used as a first-pass screening tool by clinicians, insurers, and fitness professionals. However, BMI is not a perfect measure: it does not account for muscle mass, bone density, or how fat is distributed around the body, so it can be misleading for athletes, pregnant people, the elderly, and very muscular individuals. Treat your BMI as a starting point for a conversation about your health rather than a diagnosis.",
+    faqTitle: "Frequently Asked Questions",
+    faqs: [
+      { q: "How is BMI calculated?", a: "BMI equals your weight in kilograms divided by the square of your height in metres (kg/m²). In imperial units, multiply your weight in pounds by 703, then divide by the square of your height in inches. For example, a person who is 1.70 m tall and weighs 65 kg has a BMI of 65 ÷ (1.70 × 1.70) = 22.5." },
+      { q: "What is a healthy BMI range?", a: "Using the standard World Health Organization scale, a BMI below 18.5 is classed as underweight, 18.5–24.9 as a healthy weight, 25–29.9 as overweight, and 30 or above as obese. These ranges apply to most adults aged 20 and over, regardless of sex." },
+      { q: "Why are there separate Asian BMI cut-offs?", a: "People of South and East Asian descent tend to develop higher body-fat percentages and greater health risk at lower BMIs. Many health authorities therefore use lower thresholds — overweight from 23 and obese from 27.5 — so that risk is flagged earlier. Toggle the Asian standard in the calculator to see how your classification changes." },
+      { q: "Is BMI accurate for athletes and very muscular people?", a: "Not reliably. Because muscle is denser than fat, a lean, muscular person can have a 'high' BMI while carrying very little fat. For these individuals, measures such as waist circumference, body-fat percentage, or a waist-to-height ratio give a more accurate picture of health than BMI alone." },
+      { q: "Can I use this calculator for children?", a: "No. BMI for children and teenagers is interpreted differently, using age- and sex-specific percentile charts rather than the fixed adult ranges. This tool is designed for adults aged 20 and over. For anyone younger, consult a paediatric BMI-for-age chart or a healthcare professional." },
+    ],
   },
   "zh-hk": {
     name: "繁體中文",
@@ -94,7 +104,15 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "你可能會喜歡",
     suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "了解 BMI：呢個數字真正代表咩",
-    articleBody: "身體質量指數（BMI）係一個簡單嘅指標，用你嘅身高同體重去估算你嘅體形。但係，BMI 唔係完美嘅測量方法，佢唔考慮肌肉量、骨頭密度或者體脂分布，所以對於運動員、孕婦或者肌肉發達嘅人，BMI 可能會誤導。",
+    articleBody: "身體質量指數（BMI）係一個簡單嘅指標，用你嘅身高同體重去估算你嘅體形。計法係體重（公斤）除以身高（米）嘅平方（kg/m²）。因為夠快又唔使特別儀器，所以醫護人員、保險公司同健身教練都會用 BMI 嚟做初步篩查。不過 BMI 唔係完美嘅測量方法，佢唔考慮肌肉量、骨頭密度或者體脂分布，所以對於運動員、孕婦、長者或者肌肉發達嘅人，BMI 可能會誤導。請將 BMI 當成了解健康嘅起點，而唔係診斷結果。",
+    faqTitle: "常見問題",
+    faqs: [
+      { q: "BMI 點計？", a: "BMI 等於體重（公斤）除以身高（米）嘅平方（kg/m²）。例如身高 1.70 米、體重 65 公斤，BMI 就係 65 ÷（1.70 × 1.70）＝ 22.5。" },
+      { q: "健康嘅 BMI 範圍係幾多？", a: "根據世界衞生組織（WHO）標準，BMI 低於 18.5 屬過輕，18.5–24.9 屬健康，25–29.9 屬超重，30 或以上屬肥胖。呢啲範圍適用於大部分 20 歲以上嘅成年人。" },
+      { q: "點解會有亞洲人專用嘅 BMI 標準？", a: "南亞同東亞人種喺較低嘅 BMI 已經有較高體脂同健康風險，所以好多衞生機構會用較低門檻——23 開始算超重、27.5 開始算肥胖——令風險可以更早被發現。喺計算器揀「亞洲標準」就會睇到分類點變。" },
+      { q: "BMI 對運動員或肌肉發達嘅人準唔準？", a: "唔太準。因為肌肉比脂肪重，肌肉發達嘅人可能 BMI 偏高但體脂其實好低。對呢類人嚟講，腰圍、體脂率或腰高比會比單睇 BMI 更能反映健康狀況。" },
+      { q: "可唔可以用嚟計小朋友？", a: "唔可以。兒童同青少年嘅 BMI 要用按年齡同性別嘅百分位圖去解讀，唔係用固定嘅成人範圍。呢個工具係為 20 歲以上成年人而設；如果係細路，請參考兒童 BMI-for-age 圖表或諮詢醫護人員。" },
+    ],
   },
   "zh-cn": {
     name: "简体中文",
@@ -127,7 +145,15 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "你可能会喜欢",
     suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "了解 BMI：这个数字真正代表什么",
-    articleBody: "身体质量指数（BMI）是一个简单的指标，用你的身高和体重来估算你的体形。但 BMI 并不是完美的测量方法，它不考虑肌肉量、骨密度或脂肪分布，所以对于运动员、孕妇或肌肉发达的人，BMI 可能会产生误导。",
+    articleBody: "身体质量指数（BMI）是一个简单的指标，用你的身高和体重来估算你的体形。计算方法是体重（千克）除以身高（米）的平方（kg/m²）。因为它快速又不需要特殊仪器，医护人员、保险公司和健身教练都会用 BMI 做初步筛查。不过 BMI 并不是完美的测量方法，它不考虑肌肉量、骨密度或脂肪分布，所以对于运动员、孕妇、老年人或肌肉发达的人，BMI 可能会产生误导。请把 BMI 当作了解健康的起点，而不是诊断结果。",
+    faqTitle: "常见问题",
+    faqs: [
+      { q: "BMI 怎么计算？", a: "BMI 等于体重（千克）除以身高（米）的平方（kg/m²）。例如身高 1.70 米、体重 65 千克，BMI 就是 65 ÷（1.70 × 1.70）＝ 22.5。" },
+      { q: "健康的 BMI 范围是多少？", a: "根据世界卫生组织（WHO）标准，BMI 低于 18.5 属偏瘦，18.5–24.9 属健康，25–29.9 属超重，30 或以上属肥胖。这些范围适用于大多数 20 岁以上的成年人。" },
+      { q: "为什么会有亚洲人专用的 BMI 标准？", a: "南亚和东亚人种在较低的 BMI 时就有较高的体脂和健康风险，所以很多卫生机构采用更低的门槛——23 起算超重、27.5 起算肥胖——让风险能更早被发现。在计算器中选择“亚洲标准”就能看到分类如何变化。" },
+      { q: "BMI 对运动员或肌肉发达的人准确吗？", a: "不太准确。因为肌肉比脂肪重，肌肉发达的人可能 BMI 偏高但体脂其实很低。对这类人来说，腰围、体脂率或腰高比比单看 BMI 更能反映健康状况。" },
+      { q: "可以用来计算儿童吗？", a: "不可以。儿童和青少年的 BMI 需要用按年龄和性别的百分位图来解读，而不是用固定的成人范围。本工具是为 20 岁以上成年人设计的；如果是儿童，请参考儿童 BMI-for-age 图表或咨询医护人员。" },
+    ],
   },
   es: {
     name: "Español",
@@ -160,7 +186,15 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "También te puede interesar",
     suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "Entender el IMC: qué significa realmente el número",
-    articleBody: "El Índice de Masa Corporal (IMC) es una medida simple que usa tu altura y peso para estimar tu composición corporal. Sin embargo, el IMC no es una medida perfecta, ya que no considera la masa muscular, la densidad ósea o la distribución de grasa, por lo que puede ser engañoso para atletas, embarazadas o personas con mucha masa muscular.",
+    articleBody: "El Índice de Masa Corporal (IMC) es una medida simple que usa tu altura y peso para estimar tu composición corporal. Se calcula dividiendo tu peso en kilogramos por el cuadrado de tu altura en metros (kg/m²). Como es rápido y no requiere equipo especial, el IMC se usa ampliamente como herramienta de cribado inicial por parte de médicos, aseguradoras y profesionales del fitness. Sin embargo, el IMC no es una medida perfecta: no considera la masa muscular, la densidad ósea ni la distribución de la grasa, por lo que puede ser engañoso para atletas, embarazadas, personas mayores o muy musculadas. Trata tu IMC como un punto de partida para hablar de tu salud, no como un diagnóstico.",
+    faqTitle: "Preguntas frecuentes",
+    faqs: [
+      { q: "¿Cómo se calcula el IMC?", a: "El IMC es tu peso en kilogramos dividido por el cuadrado de tu altura en metros (kg/m²). En unidades imperiales, multiplica tu peso en libras por 703 y divídelo por el cuadrado de tu altura en pulgadas. Por ejemplo, una persona de 1,70 m y 65 kg tiene un IMC de 65 ÷ (1,70 × 1,70) = 22,5." },
+      { q: "¿Cuál es un rango de IMC saludable?", a: "Según la escala estándar de la Organización Mundial de la Salud, un IMC por debajo de 18,5 es bajo peso, de 18,5 a 24,9 es peso saludable, de 25 a 29,9 es sobrepeso y 30 o más es obesidad. Estos rangos se aplican a la mayoría de los adultos de 20 años o más." },
+      { q: "¿Por qué existen cortes de IMC distintos para población asiática?", a: "Las personas de ascendencia del sur y este de Asia tienden a presentar mayor porcentaje de grasa y más riesgo a un IMC más bajo. Por eso muchas autoridades sanitarias usan umbrales menores —sobrepeso a partir de 23 y obesidad a partir de 27,5— para detectar el riesgo antes. Activa el estándar asiático en la calculadora para ver cómo cambia tu clasificación." },
+      { q: "¿Es preciso el IMC para atletas y personas muy musculadas?", a: "No de forma fiable. Como el músculo pesa más que la grasa, una persona magra y musculada puede tener un IMC 'alto' con muy poca grasa. Para estos casos, medidas como el perímetro de cintura, el porcentaje de grasa corporal o la relación cintura-altura reflejan la salud mejor que el IMC por sí solo." },
+      { q: "¿Puedo usar esta calculadora para niños?", a: "No. El IMC en niños y adolescentes se interpreta de forma diferente, con tablas de percentiles según edad y sexo en lugar de los rangos fijos de adultos. Esta herramienta está pensada para adultos de 20 años o más. Para menores, consulta una tabla de IMC por edad o a un profesional de la salud." },
+    ],
   },
 };
 
@@ -233,7 +267,10 @@ export default function BmiCalculator() {
       title: `${L.title} | TinyToolboxes`,
       description: L.subtitle,
       path: PAGE_PATH,
-      jsonLd: { "@context": "https://schema.org", "@type": "WebApplication", name: L.title, url: SITE_URL + PAGE_PATH, description: L.subtitle, applicationCategory: "HealthApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+      jsonLd: [
+        { "@context": "https://schema.org", "@type": "WebApplication", name: L.title, url: SITE_URL + PAGE_PATH, description: L.subtitle, applicationCategory: "HealthApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } },
+        { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: L.faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
+      ],
     });
   }, [locale]);
 
@@ -336,6 +373,15 @@ export default function BmiCalculator() {
             <article className="rounded-3xl border border-white/10 bg-white/5 p-6 prose prose-invert max-w-none prose-headings:text-white prose-headings:font-semibold prose-p:text-white/75 prose-li:text-white/75 prose-strong:text-white">
               <h2 className="text-2xl">{content.articleTitle}</h2>
               <p>{content.articleBody}</p>
+              <h2 className="text-2xl">{content.faqTitle}</h2>
+              <div className="space-y-5">
+                {content.faqs.map((f) => (
+                  <div key={f.q}>
+                    <h3 className="font-semibold text-white">{f.q}</h3>
+                    <p className="mt-1 text-white/70">{f.a}</p>
+                  </div>
+                ))}
+              </div>
             </article>
 
             <section className="rounded-3xl border border-white/10 bg-black/20 p-4">
