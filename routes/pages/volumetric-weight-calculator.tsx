@@ -415,7 +415,6 @@ export default function VolumetricWeightCalculator() {
           <div className="mt-5 flex flex-wrap gap-3 text-sm text-white/60">
             <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1">{copy.heroNote}</span>
             <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1">SEO-ready</span>
-            <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1">AdSense-ready</span>
             <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1">Multi-language</span>
           </div>
         </div>

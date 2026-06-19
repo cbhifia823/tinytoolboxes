@@ -13,7 +13,7 @@ const COPY: Record<LocaleKey, { kicker: string; title: string; p1: string; p2: s
   en: {
     kicker: "TinyToolboxes",
     title: "Privacy Policy",
-    p1: "TinyToolboxes does not intentionally collect personal information from visitors beyond what is needed to operate the website and display ads through third-party providers such as Google AdSense.",
+    p1: "TinyToolboxes does not intentionally collect personal information from visitors beyond what is needed to operate the website and display ads through third-party advertising providers.",
     p2: "Third-party services may use cookies or similar technologies according to their own policies. Please review their documentation for details on how they handle data.",
     p3Prefix: "If you have questions about this site, please use the",
     contactLink: "contact page",
@@ -22,7 +22,7 @@ const COPY: Record<LocaleKey, { kicker: string; title: string; p1: string; p2: s
   "zh-hk": {
     kicker: "TinyToolboxes",
     title: "私隱政策",
-    p1: "除咗營運網站同透過 Google AdSense 等第三方供應商展示廣告所需要嘅資料之外，TinyToolboxes 唔會主動收集訪客嘅個人資料。",
+    p1: "除咗營運網站同透過第三方廣告供應商展示廣告所需要嘅資料之外，TinyToolboxes 唔會主動收集訪客嘅個人資料。",
     p2: "第三方服務可能會根據佢哋自己嘅政策使用 cookie 或類似技術。詳情請參閱佢哋嘅文件，了解點處理資料。",
     p3Prefix: "如果你對本站有任何問題，請透過",
     contactLink: "聯絡頁面",
@@ -31,7 +31,7 @@ const COPY: Record<LocaleKey, { kicker: string; title: string; p1: string; p2: s
   "zh-cn": {
     kicker: "TinyToolboxes",
     title: "隐私政策",
-    p1: "除了运营网站和通过 Google AdSense 等第三方供应商展示广告所需的资料外，TinyToolboxes 不会主动收集访客的个人信息。",
+    p1: "除了运营网站和通过第三方广告供应商展示广告所需的资料外，TinyToolboxes 不会主动收集访客的个人信息。",
     p2: "第三方服务可能根据其自身政策使用 cookie 或类似技术。详情请参阅其官方文件，以了解其数据处理方式。",
     p3Prefix: "如对本站有任何疑问，请通过",
     contactLink: "联系页面",
@@ -40,7 +40,7 @@ const COPY: Record<LocaleKey, { kicker: string; title: string; p1: string; p2: s
   es: {
     kicker: "TinyToolboxes",
     title: "Política de Privacidad",
-    p1: "TinyToolboxes no recopila intencionalmente información personal de los visitantes más allá de lo necesario para operar el sitio web y mostrar anuncios a través de proveedores externos como Google AdSense.",
+    p1: "TinyToolboxes no recopila intencionalmente información personal de los visitantes más allá de lo necesario para operar el sitio web y mostrar anuncios a través de proveedores de publicidad externos.",
     p2: "Los servicios de terceros pueden usar cookies o tecnologías similares según sus propias políticas. Consulta su documentación para conocer los detalles sobre cómo manejan los datos.",
     p3Prefix: "Si tienes preguntas sobre este sitio, usa la",
     contactLink: "página de contacto",
