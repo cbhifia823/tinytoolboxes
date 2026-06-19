@@ -1,5 +1,6 @@
 import type { Context } from "hono";
 import breedsData from "../../assets/breeds-data.json" with { type: "json" };
+import famousData from "../../assets/famous-people.json" with { type: "json" };
 
 const routes = [
   "/",
@@ -38,12 +39,14 @@ const routes = [
   "/word-counter",
   "/xylitol-toxicity-calculator",
   "/breeds",
+  "/famous-birthdays",
 ];
 
 export default function handler(c: Context) {
   const base = "https://www.tinytoolboxes.com";
   const breedSlugs = Object.keys(breedsData as Record<string, unknown>);
-  const allRoutes = [...routes, ...breedSlugs.map((s) => `/breed/${s}`)];
+  const famousSlugs = (famousData as { people: { slug: string }[] }).people.map((p) => p.slug);
+  const allRoutes = [...routes, ...breedSlugs.map((s) => `/breed/${s}`), ...famousSlugs.map((s) => `/famous/${s}`)];
   const urls = allRoutes.map((path) => `  <url><loc>${base}${path}</loc></url>`).join("\n");
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

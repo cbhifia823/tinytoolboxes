@@ -1,0 +1,30 @@
+{
+  "people": [
+    { "slug": "zendaya", "name": "Zendaya", "dob": "1996-09-01", "category": "actor", "nationality": "American", "wiki": "Zendaya", "summary": "American actress and singer known for Euphoria, Dune, and the Spider-Man films." },
+    { "slug": "tom-holland", "name": "Tom Holland", "dob": "1996-06-01", "category": "actor", "nationality": "British", "wiki": "Tom Holland", "summary": "British actor best known for playing Spider-Man in the Marvel Cinematic Universe." },
+    { "slug": "leonardo-dicaprio", "name": "Leonardo DiCaprio", "dob": "1974-11-11", "category": "actor", "nationality": "American", "wiki": "Leonardo DiCaprio", "summary": "American actor and producer, Academy Award winner for The Revenant." },
+    { "slug": "scarlett-johansson", "name": "Scarlett Johansson", "dob": "1984-11-22", "category": "actor", "nationality": "American", "wiki": "Scarlett Johansson", "summary": "American actress, one of the highest-grossing film stars, known as Black Widow." },
+    { "slug": "denzel-washington", "name": "Denzel Washington", "dob": "1954-12-28", "category": "actor", "nationality": "American", "wiki": "Denzel Washington", "summary": "American actor and director, two-time Academy Award winner." },
+    { "slug": "keanu-reeves", "name": "Keanu Reeves", "dob": "1964-09-02", "category": "actor", "nationality": "Canadian", "wiki": "Keanu Reeves", "summary": "Canadian actor known for The Matrix and John Wick franchises." },
+    { "slug": "taylor-swift", "name": "Taylor Swift", "dob": "1989-12-13", "category": "musician", "nationality": "American", "wiki": "Taylor Swift", "summary": "American singer-songwriter, one of the best-selling music artists of all time." },
+    { "slug": "beyonce", "name": "Beyoncé", "dob": "1981-09-04", "category": "musician", "nationality": "American", "wiki": "Beyoncé", "summary": "American singer and performer, the most Grammy-awarded artist in history." },
+    { "slug": "drake", "name": "Drake", "dob": "1986-10-24", "category": "musician", "nationality": "Canadian", "wiki": "Drake (musician)", "summary": "Canadian rapper and singer, one of the best-selling music artists worldwide." },
+    { "slug": "billie-eilish", "name": "Billie Eilish", "dob": "2001-12-18", "category": "musician", "nationality": "American", "wiki": "Billie Eilish", "summary": "American singer-songwriter, multiple Grammy and Academy Award winner." },
+    { "slug": "bad-bunny", "name": "Bad Bunny", "dob": "1994-03-10", "category": "musician", "nationality": "Puerto Rican", "wiki": "Bad Bunny", "summary": "Puerto Rican rapper and singer, among the most-streamed artists globally." },
+    { "slug": "lionel-messi", "name": "Lionel Messi", "dob": "1987-06-24", "category": "athlete", "nationality": "Argentine", "wiki": "Lionel Messi", "summary": "Argentine footballer, multiple Ballon d'Or winner and 2022 World Cup champion." },
+    { "slug": "cristiano-ronaldo", "name": "Cristiano Ronaldo", "dob": "1985-02-05", "category": "athlete", "nationality": "Portuguese", "wiki": "Cristiano Ronaldo", "summary": "Portuguese footballer and one of the all-time leading goal scorers." },
+    { "slug": "serena-williams", "name": "Serena Williams", "dob": "1981-09-26", "category": "athlete", "nationality": "American", "wiki": "Serena Williams", "summary": "American tennis champion with 23 Grand Slam singles titles." },
+    { "slug": "lebron-james", "name": "LeBron James", "dob": "1984-12-30", "category": "athlete", "nationality": "American", "wiki": "LeBron James", "summary": "American basketball player, the NBA's all-time leading scorer." },
+    { "slug": "simone-biles", "name": "Simone Biles", "dob": "1997-03-14", "category": "athlete", "nationality": "American", "wiki": "Simone Biles", "summary": "American gymnast, the most decorated gymnast in history." },
+    { "slug": "roger-federer", "name": "Roger Federer", "dob": "1981-08-08", "category": "athlete", "nationality": "Swiss", "wiki": "Roger Federer", "summary": "Swiss tennis legend with 20 Grand Slam singles titles." },
+    { "slug": "mrbeast", "name": "MrBeast", "dob": "1998-05-07", "category": "internet", "nationality": "American", "wiki": "MrBeast", "summary": "American YouTuber, one of the most-subscribed creators in the world." },
+    { "slug": "pewdiepie", "name": "PewDiePie", "dob": "1989-10-24", "category": "internet", "nationality": "Swedish", "wiki": "PewDiePie", "summary": "Swedish YouTuber known for gaming and commentary videos." },
+    { "slug": "khaby-lame", "name": "Khaby Lame", "dob": "2000-03-09", "category": "internet", "nationality": "Senegalese-Italian", "wiki": "Khaby Lame", "summary": "Senegalese-Italian creator, one of the most-followed people on TikTok." },
+    { "slug": "charli-damelio", "name": "Charli D'Amelio", "dob": "2004-05-01", "category": "internet", "nationality": "American", "wiki": "Charli D'Amelio", "summary": "American social media star and dancer, a breakout TikTok creator." },
+    { "slug": "misty-copeland", "name": "Misty Copeland", "dob": "1982-09-10", "category": "dancer", "nationality": "American", "wiki": "Misty Copeland", "summary": "American ballet dancer, first African American female principal at ABT." },
+    { "slug": "derek-hough", "name": "Derek Hough", "dob": "1985-05-17", "category": "dancer", "nationality": "American", "wiki": "Derek Hough", "summary": "American dancer and choreographer, multiple-time Dancing with the Stars champion." },
+    { "slug": "christopher-nolan", "name": "Christopher Nolan", "dob": "1970-07-30", "category": "director", "nationality": "British", "wiki": "Christopher Nolan", "summary": "British-American filmmaker behind Inception, Interstellar, and Oppenheimer." },
+    { "slug": "greta-gerwig", "name": "Greta Gerwig", "dob": "1983-08-04", "category": "director", "nationality": "American", "wiki": "Greta Gerwig", "summary": "American director and actress, known for Lady Bird and Barbie." },
+    { "slug": "elon-musk", "name": "Elon Musk", "dob": "1971-06-28", "category": "entrepreneur", "nationality": "American", "wiki": "Elon Musk", "summary": "Entrepreneur and CEO of Tesla and SpaceX." }
+  ]
+}

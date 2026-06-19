@@ -134,6 +134,14 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./breeds-index")),
     public: true,
   },
+  "/famous-birthdays": {
+    component: lazy(() => import("./famous-birthdays")),
+    public: true,
+  },
+  "/famous/:slug": {
+    component: lazy(() => import("./famous-person")),
+    public: true,
+  },
   "/about": {
     component: lazy(() => import("./about")),
     public: true,
