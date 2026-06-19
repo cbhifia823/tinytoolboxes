@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, AlertTriangle, BadgeDollarSign, Dog, Search } from "lucide-react";
+import { ArrowRight, AlertTriangle, Dog, Search } from "lucide-react";
 import articleData from "../data/xylitol-content.json";
 
 const LANGUAGES = {
@@ -7,10 +7,6 @@ const LANGUAGES = {
     name: "English",
     title: "Xylitol Toxicity Calculator for Dogs",
     subtitle: "Enter your dog's weight and the xylitol-containing product eaten to get a dose and risk assessment.",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "You can drop AdSense code here later.",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     emergency: "Emergency Warning",
     emergencyNote: "Xylitol is extremely toxic to dogs — far more than chocolate. Even a single piece of sugar-free gum can be fatal to a small dog. If your dog consumed xylitol, call your vet immediately. Do not wait for symptoms. Xylitol causes rapid insulin release leading to severe hypoglycemia (low blood sugar) within 10-60 minutes and can cause acute liver failure within 24-72 hours.",
     weightLabel: "Your dog's weight",
@@ -48,10 +44,6 @@ const LANGUAGES = {
     name: "繁體中文",
     title: "狗狗木糖醇毒性計算機",
     subtitle: "輸入狗狗體重同食咗嘅木糖醇產品，計算劑量同風險評估。",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告",
-    adBadge: "已預留",
     emergency: "緊急警告",
     emergencyNote: "木糖醇對狗狗極度有毒 — 比朱古力更危險。一粒無糖口香糖就足以令細狗致命。如果狗狗食咗木糖醇，立即打去獸醫。唔好等症狀出現。木糖醇會快速釋放胰島素，10-60 分鐘內引發嚴重低血糖，24-72 小時內可能導致急性肝衰竭。",
     weightLabel: "狗狗體重",
@@ -89,10 +81,6 @@ const LANGUAGES = {
     name: "简体中文",
     title: "狗狗木糖醇毒性计算器",
     subtitle: "输入狗狗体重和吃下的木糖醇产品，计算剂量和风险评估。",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码。",
-    adLabel: "广告",
-    adBadge: "已预留",
     emergency: "紧急警告",
     emergencyNote: "木糖醇对狗狗极度有毒 — 比巧克力更危险。一颗无糖口香糖就足以让小犬致命。如果狗狗吃了木糖醇，立即致电兽医。不要等出现症状。木糖醇会快速释放胰岛素，10-60 分钟内引发严重低血糖，24-72 小时内可能导致急性肝衰竭。",
     weightLabel: "狗狗体重",
@@ -130,10 +118,6 @@ const LANGUAGES = {
     name: "Español",
     title: "Calculadora de toxicidad del xilitol para perros",
     subtitle: "Introduce el peso de tu perro y el producto con xilitol ingerido para obtener la dosis y el nivel de riesgo.",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
-    adLabel: "Publicidad",
-    adBadge: "Reservado",
     emergency: "Advertencia de emergencia",
     emergencyNote: "El xilitol es extremadamente tóxico para los perros — mucho más que el chocolate. Un solo chicle sin azúcar puede ser fatal para un perro pequeño. Si tu perro consumió xilitol, llama al veterinario inmediatamente. No esperes a los síntomas. El xilitol provoca liberación rápida de insulina con hipoglucemia grave en 10-60 minutos y puede causar insuficiencia hepática aguda en 24-72 horas.",
     weightLabel: "Peso de tu perro",
@@ -264,7 +248,7 @@ export default function XylitolToxicityCalculator() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
               <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-100">
                 <div className="flex items-center gap-2 font-semibold text-rose-200"><AlertTriangle className="h-4 w-4" />{content.emergency}</div>
@@ -335,10 +319,7 @@ export default function XylitolToxicityCalculator() {
               </div>
               <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85"><strong className="text-amber-200">Disclaimer:</strong> {content.disclaimerText}</div>
             </article>
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-amber-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
+
           </div>
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">
             <div className="flex items-center gap-3"><div className="rounded-2xl bg-amber-400/15 p-3"><Dog className="h-5 w-5 text-amber-300" /></div><div><h2 className="text-lg font-semibold">{content.timeMattersTitle}</h2><p className="text-sm text-amber-100/80">{content.timeMattersSubtitle}</p></div></div>

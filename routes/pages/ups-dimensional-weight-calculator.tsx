@@ -1,63 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { BadgeDollarSign, Scale, Truck } from "lucide-react";
-
-const ADSENSE_CLIENT_ID = "";
-const ADSENSE_SLOTS = {
-  leaderboard: "",
-  inline: "",
-  footer: "",
-};
-
-type AdSenseSlotProps = {
-  label: string;
-  size: string;
-  slotId: string;
-  clientId: string;
-  minHeight?: number;
-};
-
-function AdSenseSlot({ label, size, slotId, clientId, minHeight = 90 }: AdSenseSlotProps) {
-  useEffect(() => {
-    if (!clientId || !slotId) return;
-    const scriptId = `adsense-${clientId}`;
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.async = true;
-      script.crossOrigin = "anonymous";
-      script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`;
-      document.head.appendChild(script);
-    }
-    const adsenseWindow = window as Window & { adsbygoogle?: unknown[] };
-    adsenseWindow.adsbygoogle = adsenseWindow.adsbygoogle || [];
-    try {
-      adsenseWindow.adsbygoogle.push({});
-    } catch {
-    }
-  }, [clientId, slotId]);
-
-  if (!clientId || !slotId) {
-    return (
-      <div className="rounded-3xl border border-dashed border-white/10 bg-white/5 p-5 text-center text-sm text-neutral-300">
-        <div className="mx-auto mb-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-neutral-300">
-          <BadgeDollarSign className="h-3.5 w-3.5" /> Google Ads
-        </div>
-        <p className="text-base font-medium text-white">{size}</p>
-        <p className="mt-1 text-neutral-400">Paste your AdSense client and slot IDs here.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="rounded-3xl border border-dashed border-white/10 bg-white/5 p-5 text-center text-sm text-neutral-300">
-      <div className="mx-auto mb-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-neutral-300">
-        <BadgeDollarSign className="h-3.5 w-3.5" /> {label}
-      </div>
-      <ins className="adsbygoogle block" style={{ display: "block", minHeight }} data-ad-client={clientId} data-ad-slot={slotId} data-ad-format="auto" data-full-width-responsive="true" />
-      <p className="mt-2 text-xs uppercase tracking-[0.2em] text-neutral-400">{size}</p>
-    </div>
-  );
-}
+import { Scale, Truck } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -594,8 +536,6 @@ export default function UpsDimensionalWeightCalculator() {
             </div>
           </div>
         </div>
-
-        <AdSenseSlot clientId={ADSENSE_CLIENT_ID} slotId={ADSENSE_SLOTS.footer} label="Google Ad slot" size="728 × 90 footer slot" minHeight={90} />
 
         <article className="mt-6 space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
           <div>

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Home, Search } from "lucide-react";
+import { ArrowRight, Home, Search } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -9,10 +9,6 @@ const LANGUAGES: Record<LocaleKey, {
   subtitle: string;
   searchLabel: string;
   searchPlaceholder: string;
-  reserveAd: string;
-  reserveAdSub: string;
-  adLabel: string;
-  adBadge: string;
   homePrice: string;
   deposit: string;
   rate: string;
@@ -61,10 +57,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Calculate Australian home loan repayments, stamp duty, and LMI for every state. Built for AU first-home buyers and refinancers.",
     searchLabel: "Search tools",
     searchPlaceholder: "Try: BMI, calorie, percent, age",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "This space is available for advertising.",
-    adLabel: "Advertisement",
-    adBadge: "Ad",
     homePrice: "Property price (AUD)",
     deposit: "Deposit (AUD)",
     rate: "Interest rate (% p.a.)",
@@ -139,10 +131,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "計算澳洲按揭嘅每週／半月／每月供款、印花稅同 LMI，覆蓋全部州。專為澳洲首置或轉按用戶設計。",
     searchLabel: "搜尋工具",
     searchPlaceholder: "試下：BMI、卡路里、百分比、年齡",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "此位置可供廣告使用。",
-    adLabel: "廣告",
-    adBadge: "廣告",
     homePrice: "物業價格（澳元）",
     deposit: "首期（澳元）",
     rate: "年利率（%）",
@@ -217,10 +205,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "计算澳洲按揭的每周／半月／每月还款、印花税和 LMI，覆盖全部州。专为澳洲首次置业或转按用户设计。",
     searchLabel: "搜索工具",
     searchPlaceholder: "试试：BMI、卡路里、百分比、年龄",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "此位置可供广告使用。",
-    adLabel: "广告",
-    adBadge: "广告",
     homePrice: "房价（澳元）",
     deposit: "首付（澳元）",
     rate: "年利率（%）",
@@ -295,10 +279,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Calcula cuotas de hipoteca, impuesto de timbre y LMI en Australia, por estado. Para compradores y refinanciamiento en AU.",
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: BMI, calorie, percent, age",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Este espacio está disponible para publicidad.",
-    adLabel: "Anuncio",
-    adBadge: "Anuncio",
     homePrice: "Precio de la propiedad (AUD)",
     deposit: "Depósito (AUD)",
     rate: "Tasa de interés (% anual)",
@@ -516,7 +496,7 @@ export default function MortgageCalculatorAustralia() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -612,10 +592,6 @@ export default function MortgageCalculatorAustralia() {
               <div className="mt-4 grid gap-2">{filteredTools.slice(0, 5).map((t) => <a key={t.href} href={t.href} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p><p className="mt-1 text-xs text-white/55">{t.description[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></a>)}</div>
             </section>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6">

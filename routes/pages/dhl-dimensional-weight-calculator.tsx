@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { BadgeDollarSign, Calculator, Scale, Truck } from "lucide-react";
+import { Calculator, Scale, Truck } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -386,52 +386,12 @@ const LANGUAGES: Record<LocaleKey, L> = {
   },
 };
 
-const ADSENSE_CLIENT_ID = "";
-const ADSENSE_SLOT_IDS = {
-  leaderboard: "",
-  inContent: "",
-  sidebar: "",
-  footer: "",
-};
-
-function AdSenseSlot({
-  label,
-  size,
-  slotId,
-  className = "",
-}: {
-  label: string;
-  size: string;
-  slotId: string;
-  className?: string;
-}) {
-  return (
-    <div className={`rounded-3xl border border-dashed border-white/10 bg-black/20 p-5 ${className}`}>
-      <div className="mx-auto mb-2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.2em] text-neutral-300">
-        <BadgeDollarSign className="h-3.5 w-3.5" />
-        Google Ads
-      </div>
-      <p className="text-base font-medium text-white">{size}</p>
-      <p className="mt-1 text-sm text-neutral-400">{label}</p>
-      <ins
-        className="adsbygoogle mt-4 block min-h-[90px] w-full rounded-2xl bg-white/5"
-        style={{ display: "block" }}
-        data-ad-client={ADSENSE_CLIENT_ID}
-        data-ad-slot={slotId || undefined}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
-    </div>
-  );
-}
-
-
 function roundToTwo(value: number) {
   return Math.round(value * 100) / 100;
 }
 
 const SITE_URL = "https://www.tinytoolboxes.com";
-const PAGE_PATH = "/fedex-dimensional-weight-calculator";
+const PAGE_PATH = "/dhl-dimensional-weight-calculator";
 
 function applySEO(o: { title: string; description: string; path: string; jsonLd?: object | object[] }) {
   if (typeof document === "undefined") return;
@@ -542,12 +502,6 @@ export default function DHLDimensionalWeightCalculator() {
         </div>
 
         <div className="mt-6 space-y-6">
-          <AdSenseSlot
-            label="Reserve this leaderboard slot for AdSense"
-            size="970 × 250 leaderboard"
-            slotId={ADSENSE_SLOT_IDS.leaderboard}
-          />
-
           <div className="grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-lg shadow-black/20">
               <div className="mb-5 flex items-center gap-3">
@@ -614,12 +568,6 @@ export default function DHLDimensionalWeightCalculator() {
             </div>
           </div>
 
-          <AdSenseSlot
-            label="Reserve this in-content slot for AdSense"
-            size="300 × 250 in-content ad slot"
-            slotId={ADSENSE_SLOT_IDS.inContent}
-          />
-
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
               <h2 className="text-xl font-semibold text-white">{L.examplesTitle}</h2>
@@ -657,13 +605,6 @@ export default function DHLDimensionalWeightCalculator() {
               </div>
             </div>
           </div>
-
-          <AdSenseSlot
-            label="Reserve this footer slot for AdSense"
-            size="728 × 90 footer slot"
-            slotId={ADSENSE_SLOT_IDS.footer}
-            className="mt-6"
-          />
 
           <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
             <div>

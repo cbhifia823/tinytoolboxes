@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, CalendarDays, Search } from "lucide-react";
+import { ArrowRight, CalendarDays, Search } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -9,10 +9,6 @@ const LANGUAGES: Record<LocaleKey, {
   subtitle: string;
   searchLabel: string;
   searchPlaceholder: string;
-  reserveAd: string;
-  reserveAdSub: string;
-  adLabel: string;
-  adBadge: string;
   dobLabel: string;
   asOfLabel: string;
   today: string;
@@ -35,10 +31,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Calculate your exact age in years, months, and days.",
     searchLabel: "Search tools",
     searchPlaceholder: "Try: weight, day, invoice, url",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     dobLabel: "Date of Birth",
     asOfLabel: "Age as of",
     today: "Today",
@@ -61,9 +53,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "即時計算你的確實年齡，以年、月、日顯示。",
     searchLabel: "搜尋工具",
     searchPlaceholder: "例如：體積重量、工作日、發票",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告", adBadge: "已預留",
     dobLabel: "出生日期",
     asOfLabel: "計算至",
     today: "今天",
@@ -86,9 +75,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "即时计算你的确实年龄，以年、月、日显示。",
     searchLabel: "搜索工具",
     searchPlaceholder: "例如：体积重量、工作日、发票",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "广告", adBadge: "已预留",
     dobLabel: "出生日期",
     asOfLabel: "计算至",
     today: "今天",
@@ -111,10 +97,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Calcula tu edad exacta en años, meses y días.",
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: weight, day, invoice",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     dobLabel: "Fecha de nacimiento",
     asOfLabel: "Edad al",
     today: "Hoy",
@@ -237,7 +219,7 @@ export default function AgeCalculator() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -275,10 +257,6 @@ export default function AgeCalculator() {
               <div className="mt-4 grid gap-2">{filteredTools.map((t) => <button key={t.href} type="button" onClick={() => (window.location.href = t.href)} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p><p className="mt-1 text-xs text-white/55">{t.description[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></button>)}</div>
             </section>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5">

@@ -1,59 +1,43 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeftRight, ArrowRight, BadgeDollarSign, Search } from "lucide-react";
+import { ArrowLeftRight, ArrowRight, Search } from "lucide-react";
 
 const LANGUAGES = {
   en: {
     name: "English",
     title: "Unit Converter",
     subtitle: "Convert between different units of measurement.",
-    reserveAd: "Ad",
     fromLabel: "From",
     toLabel: "To",
     searchLabel: "Search",
     searchPlaceholder: "Search tools...",
-    adLabel: "Advertisement",
-    reserveAdSub: "Ad",
-    adBadge: "AD",
-  },
+    },
   "zh-hk": {
     name: "繁體中文",
     title: "單位轉換器",
     subtitle: "喺唔同測量單位之間進行轉換。",
-    reserveAd: "廣告",
     fromLabel: "從",
     toLabel: "到",
     searchLabel: "搜尋",
     searchPlaceholder: "搜尋工具...",
-    adLabel: "廣告",
-    reserveAdSub: "廣告",
-    adBadge: "廣告",
-  },
+    },
   "zh-cn": {
     name: "简体中文",
     title: "单位转换器",
     subtitle: "在不同测量单位之间进行转换。",
-    reserveAd: "广告",
     fromLabel: "从",
     toLabel: "到",
     searchLabel: "搜索",
     searchPlaceholder: "搜索工具...",
-    adLabel: "广告",
-    reserveAdSub: "广告",
-    adBadge: "广告",
-  },
+    },
   es: {
     name: "Español",
     title: "Conversor de unidades",
     subtitle: "Convierte entre diferentes unidades de medida.",
-    reserveAd: "Anuncio",
     fromLabel: "De",
     toLabel: "A",
     searchLabel: "Buscar",
     searchPlaceholder: "Buscar herramientas...",
-    adLabel: "Anuncio",
-    reserveAdSub: "Anuncio",
-    adBadge: "An.",
-  },
+    },
 };
 
 type Category = { name: string; units: { key: string; label: string; toBase: (v: number) => number; fromBase: (v: number) => number }[] };
@@ -383,7 +367,7 @@ export default function UnitConverter() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -497,10 +481,6 @@ export default function UnitConverter() {
               </div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5">
