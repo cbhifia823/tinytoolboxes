@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, BookOpen, Globe2, LoaderCircle, Search, Sparkles, Wand2 } from "lucide-react";
+import { ArrowRight, BookOpen, Globe2, LoaderCircle, Search, Sparkles, Wand2 } from "lucide-react";
 
 const LOCALES = [
   { id: "en", label: "EN" },
@@ -16,9 +16,6 @@ const COPY = {
     searchLabel: "Search the collection",
     searchPlaceholder: "Try: weight, date, word, url",
     searchHint: "Search hints",
-    reserveAd: "Google Ads space reserved",
-    adLabel: "Sponsored ad",
-    adBadge: "Ad",
     lookingUp: "Looking up words...",
     emptyHint: "Search a word to see ranked results.",
     scoreLabel: "Score",
@@ -77,9 +74,6 @@ const COPY = {
     searchLabel: "搜尋系列",
     searchPlaceholder: "例如：體積重量、日期、字數、URL",
     searchHint: "搜尋提示",
-    reserveAd: "預留 Google 廣告位",
-    adLabel: "贊助廣告",
-    adBadge: "廣告",
     lookingUp: "搜尋緊詞彙...",
     emptyHint: "搜尋一個詞語以查看結果排名。",
     scoreLabel: "分數",
@@ -138,9 +132,6 @@ const COPY = {
     searchLabel: "搜索系列",
     searchPlaceholder: "例如：体积重量、日期、字数、URL",
     searchHint: "搜索提示",
-    reserveAd: "预留 Google 广告位",
-    adLabel: "赞助广告",
-    adBadge: "广告",
     lookingUp: "正在查找词汇...",
     emptyHint: "搜索一个词语以查看结果排名。",
     scoreLabel: "分数",
@@ -199,9 +190,6 @@ const COPY = {
     searchLabel: "Buscar la colección",
     searchPlaceholder: "Prueba: weight, date, word, url",
     searchHint: "Sugerencias",
-    reserveAd: "Espacio reservado para Google Ads",
-    adLabel: "Anuncio patrocinado",
-    adBadge: "Anuncio",
     lookingUp: "Buscando palabras...",
     emptyHint: "Busca una palabra para ver resultados ordenados.",
     scoreLabel: "Puntuacion",
@@ -314,7 +302,6 @@ function SearchPanel({ locale }: { locale: string }) {
           <p className="text-sm font-medium text-emerald-300">{c.searchLabel}</p>
           <p className="mt-1 text-sm text-white/60">{c.searchHint}</p>
         </div>
-        <div className="text-xs text-white/45">{c.reserveAd}</div>
       </div>
       <div className="mt-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
         <Search className="h-4 w-4 text-emerald-300" />
@@ -454,7 +441,6 @@ export default function RhymeZone() {
           <p className="mt-3 max-w-3xl text-base leading-7 text-white/70">{content.hero}</p>
         </div>
         <SearchPanel locale={locale} />
-        <div className="mt-6 rounded-3xl border border-dashed border-emerald-300/25 bg-emerald-300/5 p-4 text-sm text-emerald-100/80">{content.reserveAd}</div>
 
         <div className="mt-5 space-y-3">
           {loading ? (

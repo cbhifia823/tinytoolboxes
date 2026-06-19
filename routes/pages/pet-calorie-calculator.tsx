@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Bone, Search } from "lucide-react";
+import { ArrowRight, Bone, Search } from "lucide-react";
 import petCalorieContent from "../data/pet-calorie-content.json";
 
 const LANGUAGES = {
@@ -7,10 +7,6 @@ const LANGUAGES = {
     name: "English",
     title: "Pet Calorie Calculator (RER)",
     subtitle: "Calculate your dog or cat's daily calorie needs using the veterinary-standard RER (Resting Energy Requirement) × activity multiplier method.",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "You can drop AdSense code here later.",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     species: "Species",
     dog: "Dog",
     cat: "Cat",
@@ -26,10 +22,6 @@ const LANGUAGES = {
     name: "繁體中文",
     title: "寵物卡路里計算機（RER）",
     subtitle: "用獸醫標準 RER（靜止能量需求）× 活動指數方法，計算狗狗或貓貓嘅每日卡路里需求。",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告",
-    adBadge: "已預留",
     species: "物種",
     dog: "狗狗",
     cat: "貓貓",
@@ -45,10 +37,6 @@ const LANGUAGES = {
     name: "简体中文",
     title: "宠物卡路里计算器（RER）",
     subtitle: "用兽医标准 RER（静止能量需求）× 活动指数方法，计算狗狗或猫咪的每日卡路里需求。",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码。",
-    adLabel: "广告",
-    adBadge: "已预留",
     species: "物种",
     dog: "狗狗",
     cat: "猫咪",
@@ -64,10 +52,6 @@ const LANGUAGES = {
     name: "Español",
     title: "Calculadora de calorías para mascotas (RER)",
     subtitle: "Calcula las necesidades calóricas diarias de tu perro o gato usando el método veterinario RER (Requerimiento Energético en Reposo) × multiplicador de actividad.",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
-    adLabel: "Publicidad",
-    adBadge: "Reservado",
     species: "Especie",
     dog: "Perro",
     cat: "Gato",
@@ -189,7 +173,7 @@ export default function PetCalorieCalculator() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -284,10 +268,6 @@ export default function PetCalorieCalculator() {
               </div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-amber-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">

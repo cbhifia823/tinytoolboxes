@@ -19,8 +19,6 @@ const COPY: Record<LocaleKey, {
   searchLabel: string;
   searchPlaceholder: string;
   searchHints: string[];
-  adLabel: string;
-  adNote: string;
   sectionTitle: string;
   sectionSubtitle: string;
   footer: string;
@@ -40,8 +38,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Search the collection",
     searchPlaceholder: "Try: age, date, weight, words",
     searchHints: ["age", "date", "weight", "words"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "Tools",
     sectionSubtitle: "Direct tools, grouped by what people actually need.",
     footer: "TinyToolboxes",
@@ -113,8 +109,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜尋系列",
     searchPlaceholder: "例如：體積重量、日期、字數、URL、押韻",
     searchHints: ["體積重量", "日期", "字數", "URL", "押韻"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "工具",
     sectionSubtitle: "點任何一頁都可以打開一個單一功能工具。",
     footer: "TinyToolboxes",
@@ -186,8 +180,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜索系列",
     searchPlaceholder: "例如：体积重量、日期、字数、URL、押韵",
     searchHints: ["体积重量", "日期", "字数", "URL", "押韵"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "工具",
     sectionSubtitle: "点击任意页面打开一个单一功能工具。",
     footer: "TinyToolboxes",
@@ -259,8 +251,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Buscar la colección",
     searchPlaceholder: "Prueba: weight, date, word, url, rhyme",
     searchHints: ["weight", "date", "word", "url", "rhyme"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "Herramientas",
     sectionSubtitle: "Abre cualquier página para usar una herramienta de un solo propósito.",
     footer: "TinyToolboxes",
@@ -444,19 +434,6 @@ function Header({ locale, onLocaleChange }: { locale: LocaleKey; onLocaleChange:
   );
 }
 
-function AdBlock({ title, note }: { title: string; note: string }) {
-  return (
-    <section className="rounded-3xl border border-dashed border-white/10 bg-white/5 p-5 text-sm text-white/75">
-      <div className="flex items-center gap-2 text-emerald-200">
-        <BadgeDollarSign className="h-4 w-4" />
-        <span className="font-medium">{title}</span>
-      </div>
-      <p className="mt-2 text-white/55">{note}</p>
-      <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-    </section>
-  );
-}
-
 function SearchBar({ locale }: { locale: LocaleKey }) {
   const copy = COPY[locale];
   const [query, setQuery] = useState("");
@@ -469,7 +446,6 @@ function SearchBar({ locale }: { locale: LocaleKey }) {
           <p className="text-sm font-medium text-emerald-300">{copy.searchLabel}</p>
           <p className="mt-1 text-sm text-white/60">{copy.searchFooter}</p>
         </div>
-        <div className="text-xs text-white/45">{copy.adLabel}</div>
       </div>
       <div className="mt-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
         <Search className="h-4 w-4 text-emerald-300" />
@@ -544,7 +520,6 @@ function MainHomePage() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
           <div className="space-y-6">
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
             <section className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
               <div className="flex items-center justify-between gap-3">
                 <div>
@@ -628,7 +603,6 @@ function MainHomePage() {
                 ))}
               </div>
             </section>
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
           </aside>
         </div>
 

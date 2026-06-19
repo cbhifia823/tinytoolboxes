@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeftRight, ArrowRight, BadgeDollarSign, DollarSign, Search } from "lucide-react";
+import { ArrowLeftRight, ArrowRight, DollarSign, Search } from "lucide-react";
 
 const LANGUAGES = {
   en: {
@@ -8,7 +8,6 @@ const LANGUAGES = {
     subtitle: "Convert between 30+ currencies with live exchange rates.",
     searchLabel: "Search tools",
     searchPlaceholder: "Try: age, percent, unit, date",
-    reserveAd: "Google Ads space reserved",
     amountLabel: "Amount",
     fromLabel: "From",
     toLabel: "To",
@@ -24,8 +23,6 @@ const LANGUAGES = {
     suggestionsSubtitle: "Other tiny tools that pair well with currency work.",
     suggestions: ["Loan Calculator", "Percentage Calculator", "Unit Converter"],
     searchHint: "Search for tools",
-    adLabel: "Advertisement",
-    adBadge: "Ad",
     faqTitle: "Frequently Asked Questions",
     faq: [
       {
@@ -75,7 +72,6 @@ const LANGUAGES = {
     subtitle: "即時換算 30+ 種貨幣，使用最新匯率。",
     searchLabel: "搜尋工具",
     searchPlaceholder: "例如：年齡、百分比、單位",
-    reserveAd: "預留 Google 廣告位",
     amountLabel: "金額",
     fromLabel: "從",
     toLabel: "換算到",
@@ -91,8 +87,6 @@ const LANGUAGES = {
     suggestionsSubtitle: "同貨幣工作配搭得好嘅工具。",
     suggestions: ["貸款計算器", "百分比計算器", "單位換算器"],
     searchHint: "搜尋工具",
-    adLabel: "廣告",
-    adBadge: "廣告",
     faqTitle: "常見問題",
     faq: [
       {
@@ -142,7 +136,6 @@ const LANGUAGES = {
     subtitle: "实时换算 30+ 种货币，使用最新汇率。",
     searchLabel: "搜索工具",
     searchPlaceholder: "例如：年龄、百分比、单位",
-    reserveAd: "预留 Google 广告位",
     amountLabel: "金额",
     fromLabel: "从",
     toLabel: "换算到",
@@ -158,8 +151,6 @@ const LANGUAGES = {
     suggestionsSubtitle: "和货币工作很搭的工具。",
     suggestions: ["贷款计算器", "百分比计算器", "单位换算器"],
     searchHint: "搜索工具",
-    adLabel: "广告",
-    adBadge: "广告",
     faqTitle: "常见问题",
     faq: [
       {
@@ -209,7 +200,6 @@ const LANGUAGES = {
     subtitle: "Convierte entre 30+ divisas con tasas de cambio en tiempo real.",
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: age, percent, unit",
-    reserveAd: "Espacio reservado para Google Ads",
     amountLabel: "Cantidad",
     fromLabel: "De",
     toLabel: "A",
@@ -225,8 +215,6 @@ const LANGUAGES = {
     suggestionsSubtitle: "Otras herramientas que encajan bien aquí.",
     suggestions: ["Calculadora de préstamos", "Calculadora de porcentajes", "Conversor de unidades"],
     searchHint: "Buscar herramientas",
-    adLabel: "Anuncio",
-    adBadge: "Ad",
     faqTitle: "Preguntas frecuentes",
     faq: [
       {
@@ -389,7 +377,7 @@ export default function CurrencyConverter() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -474,10 +462,6 @@ export default function CurrencyConverter() {
               </div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5">

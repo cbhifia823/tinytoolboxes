@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { AlertTriangle, ArrowRight, BadgeDollarSign, Bone, BookOpen, Cat, Dog, Flower2, Globe2, Heart, PawPrint, Scale, Search, Sparkles } from "lucide-react";
+import { AlertTriangle, ArrowRight, Bone, BookOpen, Cat, Dog, Flower2, Globe2, Heart, PawPrint, Scale, Search, Sparkles } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -19,8 +19,6 @@ const COPY: Record<LocaleKey, {
   searchLabel: string;
   searchPlaceholder: string;
   searchHints: string[];
-  adLabel: string;
-  adNote: string;
   emergencyTitle: string;
   emergencySubtitle: string;
   emergencyBanner: string;
@@ -46,8 +44,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Search pet tools",
     searchPlaceholder: "Try: chocolate, age, calorie, lily",
     searchHints: ["chocolate", "xylitol", "age", "calorie", "lily"],
-    adLabel: "Advertisement",
-    adNote: "Pet pages are kept clean — ads stay in defined slots.",
     emergencyTitle: "Emergency & toxicity",
     emergencySubtitle: "If your pet ate something they shouldn't have, check the risk here — then call your vet.",
     emergencyBanner: "If your pet shows symptoms, call your vet or a poison hotline now. These tools estimate risk, not diagnose.",
@@ -78,8 +74,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜尋寵物工具",
     searchPlaceholder: "例如：朱古力、年齡、卡路里、百合",
     searchHints: ["朱古力", "木糖醇", "年齡", "卡路里", "百合"],
-    adLabel: "Advertisement",
-    adNote: "寵物頁面保持乾淨，廣告只放固定位置。",
     emergencyTitle: "緊急 & 中毒",
     emergencySubtitle: "如果你嘅寵物食錯嘢，喺呢度查風險 — 然後即刻打去獸醫。",
     emergencyBanner: "如果寵物已經出現症狀，立即聯絡獸醫或中毒熱線。呢啲工具係估算風險，唔係診斷。",
@@ -110,8 +104,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜索宠物工具",
     searchPlaceholder: "例如：巧克力、年龄、卡路里、百合",
     searchHints: ["巧克力", "木糖醇", "年龄", "卡路里", "百合"],
-    adLabel: "Advertisement",
-    adNote: "宠物页面保持干净，广告只放固定位置。",
     emergencyTitle: "紧急 & 中毒",
     emergencySubtitle: "如果宠物吃错东西，先在这里查风险 — 再立刻联系兽医。",
     emergencyBanner: "如果宠物已经出现症状，立刻联系兽医或中毒热线。这些工具只能估算风险，不能诊断。",
@@ -142,8 +134,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: chocolate, edad, caloría, lirio",
     searchHints: ["chocolate", "xilitol", "edad", "caloría", "lirio"],
-    adLabel: "Advertisement",
-    adNote: "Mantenemos las páginas limpias — los anuncios quedan en zonas fijas.",
     emergencyTitle: "Emergencia y toxicidad",
     emergencySubtitle: "Si tu mascota comió algo que no debía, comprueba el riesgo aquí — y llama al veterinario.",
     emergencyBanner: "Si tu mascota muestra síntomas, llama ya al veterinario o a una línea de envenenamiento. Estas herramientas estiman riesgo, no diagnostican.",
@@ -251,19 +241,6 @@ function Header({ locale, onLocaleChange, copy }: { locale: LocaleKey; onLocaleC
   );
 }
 
-function AdBlock({ title, note }: { title: string; note: string }) {
-  return (
-    <section className="rounded-3xl border border-dashed border-amber-200/10 bg-amber-200/5 p-5 text-sm text-amber-100/75">
-      <div className="flex items-center gap-2 text-amber-200">
-        <BadgeDollarSign className="h-4 w-4" />
-        <span className="font-medium">{title}</span>
-      </div>
-      <p className="mt-2 text-amber-100/55">{note}</p>
-      <div className="mt-4 min-h-[120px] rounded-2xl border border-amber-200/10 bg-black/30" />
-    </section>
-  );
-}
-
 function ToolCard({ tool, locale }: { tool: PetTool; locale: LocaleKey }) {
   const Icon = tool.icon;
   const isEmergency = tool.group === "emergency";
@@ -300,7 +277,6 @@ function SearchBar({ copy, locale }: { copy: typeof COPY[LocaleKey]; locale: Loc
           <p className="text-sm font-medium text-amber-300">{copy.searchLabel}</p>
           <p className="mt-1 text-sm text-amber-100/60">{copy.searchFooter}</p>
         </div>
-        <div className="text-xs text-amber-100/45">{copy.adLabel}</div>
       </div>
       <div className="mt-4 flex items-center gap-3 rounded-2xl border border-amber-200/10 bg-black/30 px-4 py-3">
         <Search className="h-4 w-4 text-amber-300" />
@@ -378,7 +354,6 @@ export default function PetsHome() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
           <div className="space-y-6">
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
 
             {/* Emergency section */}
             <section className="rounded-3xl border border-red-400/20 bg-red-400/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.3)] backdrop-blur">
@@ -469,7 +444,6 @@ export default function PetsHome() {
                 ))}
               </div>
             </section>
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
           </aside>
         </div>
 

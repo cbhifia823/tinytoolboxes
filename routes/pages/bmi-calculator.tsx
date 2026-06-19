@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, HeartPulse, Search } from "lucide-react";
+import { ArrowRight, HeartPulse, Search } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -9,10 +9,6 @@ const LANGUAGES: Record<LocaleKey, {
   subtitle: string;
   searchLabel: string;
   searchPlaceholder: string;
-  reserveAd: string;
-  reserveAdSub: string;
-  adLabel: string;
-  adBadge: string;
   heightLabel: string;
   weightLabel: string;
   unitsMetric: string;
@@ -40,10 +36,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Calculate your Body Mass Index (BMI) and see whether you fall in the underweight, healthy, overweight, or obese range.",
     searchLabel: "Search tools",
     searchPlaceholder: "Try: calorie, mortgage, age, percent",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     heightLabel: "Height",
     weightLabel: "Weight",
     unitsMetric: "Metric (cm / kg)",
@@ -67,7 +59,7 @@ const LANGUAGES: Record<LocaleKey, {
       "Fitness goal planning.",
     ],
     suggestionsTitle: "You may also like",
-    suggestions: ["Calorie Calculator", "Percentage Calculator", "Unit Converter"],
+    suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "How BMI Works and Its Limitations",
     articleBody: "Body Mass Index (BMI) is a simple measure that uses your height and weight to estimate your body composition.",
   },
@@ -77,9 +69,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "計算你嘅 BMI（身體質量指數），睇下屬於過輕、健康、超重定肥胖。",
     searchLabel: "搜尋工具",
     searchPlaceholder: "試下：卡路里、按揭、年齡、百分比",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告", adBadge: "已預留",
     heightLabel: "身高",
     weightLabel: "體重",
     unitsMetric: "公制（cm / kg）",
@@ -103,7 +92,7 @@ const LANGUAGES: Record<LocaleKey, {
       "健身目標規劃。",
     ],
     suggestionsTitle: "你可能會喜歡",
-    suggestions: ["卡路里計算器", "百分比計算器", "單位換算器"],
+    suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "了解 BMI：呢個數字真正代表咩",
     articleBody: "身體質量指數（BMI）係一個簡單嘅指標，用你嘅身高同體重去估算你嘅體形。但係，BMI 唔係完美嘅測量方法，佢唔考慮肌肉量、骨頭密度或者體脂分布，所以對於運動員、孕婦或者肌肉發達嘅人，BMI 可能會誤導。",
   },
@@ -113,9 +102,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "计算你的 BMI（身体质量指数），看看属于偏瘦、健康、超重还是肥胖。",
     searchLabel: "搜索工具",
     searchPlaceholder: "试试：卡路里、按揭、年龄、百分比",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "广告", adBadge: "已预留",
     heightLabel: "身高",
     weightLabel: "体重",
     unitsMetric: "公制（cm / kg）",
@@ -139,7 +125,7 @@ const LANGUAGES: Record<LocaleKey, {
       "健身目标规划。",
     ],
     suggestionsTitle: "你可能会喜欢",
-    suggestions: ["卡路里计算器", "百分比计算器", "单位换算器"],
+    suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "了解 BMI：这个数字真正代表什么",
     articleBody: "身体质量指数（BMI）是一个简单的指标，用你的身高和体重来估算你的体形。但 BMI 并不是完美的测量方法，它不考虑肌肉量、骨密度或脂肪分布，所以对于运动员、孕妇或肌肉发达的人，BMI 可能会产生误导。",
   },
@@ -149,10 +135,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Calcula tu Índice de Masa Corporal (IMC) y descubre si estás bajo de peso, en peso saludable, con sobrepeso u obesidad.",
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: calorie, mortgage, age, percent",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     heightLabel: "Altura",
     weightLabel: "Peso",
     unitsMetric: "Métrico (cm / kg)",
@@ -176,19 +158,19 @@ const LANGUAGES: Record<LocaleKey, {
       "Planificación de objetivos fitness.",
     ],
     suggestionsTitle: "También te puede interesar",
-    suggestions: ["Calculadora de calorías", "Calculadora de porcentajes", "Conversor de unidades"],
+    suggestions: ["/calorie-calculator", "/percentage-calculator", "/unit-converter"],
     articleTitle: "Entender el IMC: qué significa realmente el número",
     articleBody: "El Índice de Masa Corporal (IMC) es una medida simple que usa tu altura y peso para estimar tu composición corporal. Sin embargo, el IMC no es una medida perfecta, ya que no considera la masa muscular, la densidad ósea o la distribución de grasa, por lo que puede ser engañoso para atletas, embarazadas o personas con mucha masa muscular.",
   },
 };
 
 const TOOLS = [
-  { title: { en: "Currency Converter", "zh-hk": "貨幣轉換器", "zh-cn": "货币转换器", "es": "Conversor de divisas" }, description: "Estimate daily calories with TDEE.", href: "/calorie-calculator", keywords: ["calorie", "tdee"] },
-  { title: "Percentage Calculator", description: "Percentage of a number.", href: "/percentage-calculator", keywords: ["percent"] },
-  { title: "Unit Converter", description: "Convert length, weight, temperature.", href: "/unit-converter", keywords: ["convert"] },
-  { title: "Age Calculator", description: "Calculate exact age.", href: "/age-calculator", keywords: ["age"] },
-  { title: "Wheel Spinner", description: "Pick random names.", href: "/wheel-spinner", keywords: ["random"] },
-  { title: "Mortgage Calculator (Australia)", description: "AU mortgage repayments.", href: "/mortgage-calculator-australia", keywords: ["mortgage"] },
+  { title: { en: "Calorie Calculator", "zh-hk": "卡路里計算器", "zh-cn": "卡路里计算器", es: "Calculadora de calorías" }, description: { en: "Estimate daily calories with TDEE.", "zh-hk": "用 TDEE 估算每日卡路里需要。", "zh-cn": "用 TDEE 估算每日卡路里需要。", es: "Estima las calorías diarias con TDEE." }, href: "/calorie-calculator", keywords: ["calorie", "tdee"] },
+  { title: { en: "Percentage Calculator", "zh-hk": "百分比計算器", "zh-cn": "百分比计算器", es: "Calculadora de porcentajes" }, description: { en: "Work out percentages of a number.", "zh-hk": "計一個數嘅百分比。", "zh-cn": "计算一个数的百分比。", es: "Calcula porcentajes de un número." }, href: "/percentage-calculator", keywords: ["percent"] },
+  { title: { en: "Unit Converter", "zh-hk": "單位換算器", "zh-cn": "单位换算器", es: "Conversor de unidades" }, description: { en: "Convert length, weight, and temperature.", "zh-hk": "換算長度、重量同溫度。", "zh-cn": "换算长度、重量和温度。", es: "Convierte longitud, peso y temperatura." }, href: "/unit-converter", keywords: ["convert"] },
+  { title: { en: "Age Calculator", "zh-hk": "年齡計算器", "zh-cn": "年龄计算器", es: "Calculadora de edad" }, description: { en: "Calculate your exact age.", "zh-hk": "計你嘅準確年齡。", "zh-cn": "计算你的确切年龄。", es: "Calcula tu edad exacta." }, href: "/age-calculator", keywords: ["age"] },
+  { title: { en: "Wheel Spinner", "zh-hk": "幸運轉盤", "zh-cn": "幸运转盘", es: "Ruleta aleatoria" }, description: { en: "Pick random names or options.", "zh-hk": "隨機抽名或選項。", "zh-cn": "随机抽取名字或选项。", es: "Elige nombres u opciones al azar." }, href: "/wheel-spinner", keywords: ["random"] },
+  { title: { en: "Mortgage Calculator (Australia)", "zh-hk": "按揭計算器（澳洲）", "zh-cn": "房贷计算器（澳大利亚）", es: "Calculadora de hipoteca (Australia)" }, description: { en: "AU home loan repayments.", "zh-hk": "澳洲按揭還款。", "zh-cn": "澳大利亚房贷还款。", es: "Repagos de hipoteca en Australia." }, href: "/mortgage-calculator-australia", keywords: ["mortgage"] },
 ];
 
 const SITE_URL = "https://www.tinytoolboxes.com";
@@ -296,7 +278,7 @@ export default function BmiCalculator() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -363,10 +345,6 @@ export default function BmiCalculator() {
               <div className="mt-4 grid gap-2">{filteredTools.slice(0, 5).map((t) => <a key={t.href} href={t.href} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p><p className="mt-1 text-xs text-white/55">{t.description[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></a>)}</div>
             </section>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6">
@@ -379,12 +357,12 @@ export default function BmiCalculator() {
             <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
               <h3 className="text-sm font-semibold text-white">{content.suggestionsTitle}</h3>
               <div className="mt-3 space-y-2">
-                {content.suggestions.map((name) => {
-                  const match = TOOLS.find((t) => t.title === name);
+                {content.suggestions.map((href) => {
+                  const match = TOOLS.find((t) => t.href === href);
                   if (!match) return null;
                   return (
-                    <a key={name} href={match.href} className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-sm text-white/80 transition hover:bg-white/10">
-                      <span>{name}</span><ArrowRight className="h-4 w-4 text-white/35" />
+                    <a key={href} href={match.href} className="flex w-full items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-sm text-white/80 transition hover:bg-white/10">
+                      <span>{match.title[locale]}</span><ArrowRight className="h-4 w-4 text-white/35" />
                     </a>
                   );
                 })}
