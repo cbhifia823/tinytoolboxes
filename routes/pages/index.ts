@@ -114,6 +114,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./pet-calorie-calculator")),
     public: true,
   },
+  "/famous-birthdays": {
+    component: lazy(() => import("./famous-birthdays")),
+    public: true,
+  },
   "/wheel-spinner": {
     component: lazy(() => import("./wheel-spinner")),
     public: true,

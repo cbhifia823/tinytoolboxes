@@ -35,6 +35,7 @@ const routes = [
   "/url-encoder-decoder",
   "/volumetric-weight-calculator",
   "/wheel-spinner",
+  "/famous-birthdays",
   "/word-counter",
   "/xylitol-toxicity-calculator",
   "/breeds",
