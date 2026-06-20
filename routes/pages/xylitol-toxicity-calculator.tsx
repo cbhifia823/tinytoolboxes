@@ -151,6 +151,7 @@ const LANGUAGES = {
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: chocolate, lirio, calorías, comida",
   },
+  es: { name: "Español", title: "Calculadora de toxicidad por xilitol (perros)", subtitle: "Versión en español.", searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: age, percent, unit, date", reserveAd: "Espacio reservado para Google Ads", reserveAdSub: "Puedes insertar AdSense aquí más adelante.", } ,
 };
 
 const TOOLS = [
