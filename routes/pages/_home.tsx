@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Cake,
-   ArrowLeftRight, ArrowRight, BadgeDollarSign, Bone, BookOpen, Braces, Building2, CalendarDays, CalendarRange, Calculator, CaseSensitive, Cat, Clock, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, KeyRound, Link2, Percent, QrCode, RotateCw, Scale, Search, Sparkles, Tag, Grid3X3 } from "lucide-react";
+   ArrowLeftRight, ArrowRight, BadgeDollarSign, Binary, Bone, BookOpen, Braces, Building2, CalendarDays, CalendarRange, Calculator, CaseSensitive, Cat, Clock, Clock3, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, KeyRound, Link2, Palette, Percent, QrCode, RotateCw, Scale, Search, Sparkles, Tag, Tags, Grid3X3 } from "lucide-react";
 import PetsHome from "./_pets-home";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
@@ -359,6 +359,10 @@ const TOOLS: Array<{
   { category: "text", href: "/json-formatter", icon: Braces, title: { en: "JSON Formatter / Validator", "zh-hk": "JSON 格式化／驗證器", "zh-cn": "JSON 格式化/验证器", es: "Formateador / validador JSON" }, description: { en: "Format, validate, and beautify JSON instantly in your browser.", "zh-hk": "喺瀏覽器即時格式化、驗證同美化 JSON。", "zh-cn": "在浏览器即时格式化、验证和美化 JSON。", es: "Formatea, valida y embellece JSON al instante en tu navegador." } },
   { category: "calculators", href: "/tip-calculator", icon: Calculator, title: { en: "Tip Calculator", "zh-hk": "貼士計算機", "zh-cn": "小费计算器", es: "Calculadora de propinas" }, description: { en: "Calculate the tip and split the bill for any group size.", "zh-hk": "計貼士同夾錢，啱任何人數。", "zh-cn": "计算小费并按人数分摊账单。", es: "Calcula la propina y divide la cuenta para cualquier grupo." } },
   { category: "calculators", href: "/discount-calculator", icon: Tag, title: { en: "Discount Calculator", "zh-hk": "折扣計算機", "zh-cn": "折扣计算器", es: "Calculadora de descuentos" }, description: { en: "Work out the sale price and how much you save from any discount.", "zh-hk": "計折扣後嘅售價同慳到幾多。", "zh-cn": "计算折扣后的售价和省下的金额。", es: "Calcula el precio final y cuánto ahorras con cualquier descuento." } },
+  { category: "text", href: "/base64-encoder-decoder", icon: Binary, title: { en: "Base64 Encoder / Decoder", "zh-hk": "Base64 編碼／解碼器", "zh-cn": "Base64 编码/解码器", es: "Codificador / decodificador Base64" }, description: { en: "Encode text to Base64 or decode it back, UTF-8 safe.", "zh-hk": "將文字編碼成 Base64 或者解碼返，支援 UTF-8。", "zh-cn": "将文字编码为 Base64 或解码回来，支持 UTF-8。", es: "Codifica texto a Base64 o decodifícalo, compatible con UTF-8." } },
+  { category: "converters", href: "/unix-timestamp-converter", icon: Clock3, title: { en: "Unix Timestamp Converter", "zh-hk": "Unix 時間戳轉換器", "zh-cn": "Unix 时间戳转换器", es: "Conversor de marca de tiempo Unix" }, description: { en: "Convert Unix timestamps to dates and back, seconds or ms.", "zh-hk": "Unix 時間戳同日期互換，支援秒同毫秒。", "zh-cn": "Unix 时间戳与日期互转，支持秒和毫秒。", es: "Convierte marcas de tiempo Unix a fechas y viceversa." } },
+  { category: "tools", href: "/color-palette-generator", icon: Palette, title: { en: "Color Palette Generator", "zh-hk": "配色產生器", "zh-cn": "配色生成器", es: "Generador de paletas de colores" }, description: { en: "Generate harmonious color schemes and copy hex codes.", "zh-hk": "產生和諧配色，複製 hex 色碼。", "zh-cn": "生成和谐配色，复制 hex 色值。", es: "Genera esquemas de color armoniosos y copia códigos hex." } },
+  { category: "text", href: "/meta-tag-preview", icon: Tags, title: { en: "Meta Tag Preview", "zh-hk": "Meta 標籤預覽", "zh-cn": "Meta 标签预览", es: "Vista previa de meta tags" }, description: { en: "Preview Google & social snippets and generate meta tags.", "zh-hk": "預覽 Google 同社交片段，產生 meta 標籤。", "zh-cn": "预览 Google 和社交片段，生成 meta 标签。", es: "Previsualiza fragmentos de Google y redes y genera meta tags." } },
 ];
 
 const SITE_URL = "https://www.tinytoolboxes.com";
@@ -389,12 +393,12 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 
 const GROUPS: Array<{ id: string; title: Record<LocaleKey, string>; items: string[] }> = [
   { id: "calculators", title: { en: "Calculators", "zh-hk": "計算器", "zh-cn": "计算器", es: "Calculadoras" }, items: ["/age-calculator", "/date-difference-calculator", "/business-day-calculator", "/volumetric-weight-calculator", "/loan-calculator", "/percentage-calculator", "/invoice-due-date-calculator", "/tip-calculator", "/discount-calculator"] },
-  { id: "converters", title: { en: "Converters", "zh-hk": "轉換器", "zh-cn": "转换器", es: "Conversores" }, items: ["/currency-converter", "/unit-converter", "/time-zone-converter", "/url-encoder-decoder"] },
+  { id: "converters", title: { en: "Converters", "zh-hk": "轉換器", "zh-cn": "转换器", es: "Conversores" }, items: ["/currency-converter", "/unit-converter", "/time-zone-converter", "/url-encoder-decoder", "/unix-timestamp-converter"] },
   { id: "health", title: { en: "Health", "zh-hk": "健康", "zh-cn": "健康", es: "Salud" }, items: ["/bmi-calculator", "/calorie-calculator"] },
   { id: "finance", title: { en: "Finance", "zh-hk": "財務", "zh-cn": "财务", es: "Finanzas" }, items: ["/mortgage-calculator-australia"] },
   { id: "pets", title: { en: "Pets", "zh-hk": "寵物", "zh-cn": "宠物", es: "Mascotas" }, items: ["/dog-age-calculator", "/cat-age-calculator", "/pet-calorie-calculator", "/can-my-dog-eat", "/chocolate-toxicity-calculator", "/xylitol-toxicity-calculator", "/lily-toxicity-checker"] },
-  { id: "text", title: { en: "Text & Language", "zh-hk": "文字及語言", "zh-cn": "文字和语言", es: "Texto e idioma" }, items: ["/word-counter", "/rhyme-zone", "/case-converter", "/json-formatter"] },
-  { id: "tools", title: { en: "Tools", "zh-hk": "工具", "zh-cn": "工具", es: "Herramientas" }, items: ["/wheel-spinner", "/famous-birthdays", "/qr-code-generator", "/password-generator"] },
+  { id: "text", title: { en: "Text & Language", "zh-hk": "文字及語言", "zh-cn": "文字和语言", es: "Texto e idioma" }, items: ["/word-counter", "/rhyme-zone", "/case-converter", "/json-formatter", "/base64-encoder-decoder", "/meta-tag-preview"] },
+  { id: "tools", title: { en: "Tools", "zh-hk": "工具", "zh-cn": "工具", es: "Herramientas" }, items: ["/wheel-spinner", "/famous-birthdays", "/qr-code-generator", "/password-generator", "/color-palette-generator"] },
   { id: "games", title: { en: "Games", "zh-hk": "遊戲", "zh-cn": "游戏", es: "Juegos" }, items: ["/minesweeper"] },
 ];
 

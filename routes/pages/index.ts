@@ -182,4 +182,20 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./qr-code-generator")),
     public: true,
   },
+  "/base64-encoder-decoder": {
+    component: lazy(() => import("./base64-encoder-decoder")),
+    public: true,
+  },
+  "/unix-timestamp-converter": {
+    component: lazy(() => import("./unix-timestamp-converter")),
+    public: true,
+  },
+  "/color-palette-generator": {
+    component: lazy(() => import("./color-palette-generator")),
+    public: true,
+  },
+  "/meta-tag-preview": {
+    component: lazy(() => import("./meta-tag-preview")),
+    public: true,
+  },
 };
