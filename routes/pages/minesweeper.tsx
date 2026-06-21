@@ -1,13 +1,13 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
-import { ArrowRight, BadgeDollarSign, RotateCcw, Search } from "lucide-react";
+import { ArrowRight, RotateCcw, Search } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
-const L: Record<LocaleKey, { name: string; title: string; subtitle: string; searchLabel: string; searchPlaceholder: string; reserveAd: string; adLabel: string; adBadge: string; newGame: string; sidebarTitle: string; sidebarSubtitle: string; howToPlay: string[]; suggestionsTitle: string; suggestions: string[]; mines: string; time: string; beginner: string; intermediate: string; expert: string }> = {
-  en: { name: "English", title: "Minesweeper", subtitle: "Classic minesweeper game. Find all the mines without detonating one.", searchLabel: "Search tools", searchPlaceholder: "Try: weight, day, invoice, url", reserveAd: "Google Ads space reserved", adLabel: "Advertisement", adBadge: "Reserved", newGame: "New Game", sidebarTitle: "How to play", sidebarSubtitle: "Clear the board without hitting a mine.", howToPlay: ["Left-click a cell to reveal it","Right-click to place or remove a flag","Numbers show how many mines are adjacent","Reveal all safe cells to win"], suggestionsTitle: "You may also like", suggestions: ["Wheel Spinner", "Word Counter", "Percentage Calculator", "Age Calculator", "Unit Converter"], mines: "Mines", time: "Time", beginner: "Beginner", intermediate: "Intermediate", expert: "Expert" },
-  "zh-hk": { name: "繁體中文", title: "掃雷", subtitle: "經典掃雷遊戲。搵晒所有地雷，但唔好撳爆佢。", searchLabel: "搜尋工具", searchPlaceholder: "例如：體積重量、工作日、發票", reserveAd: "預留 Google 廣告位", adLabel: "廣告", adBadge: "已預留", newGame: "新遊戲", sidebarTitle: "點玩", sidebarSubtitle: "唔撳爆地雷，清晒所有安全格。", howToPlay: ["左撳揭開一格","右撳插旗或者拔旗","數字代表隔籬有幾多粒地雷","揭晒所有安全格就贏"], suggestionsTitle: "你可能會喜歡", suggestions: ["輪盤", "字數統計", "百分比計算機", "年齡計算機", "單位轉換器"], mines: "地雷", time: "時間", beginner: "初級", intermediate: "中級", expert: "高級" },
-  "zh-cn": { name: "简体中文", title: "扫雷", subtitle: "经典扫雷游戏。找到所有地雷，但别踩爆。", searchLabel: "搜索工具", searchPlaceholder: "例如：体积重量、工作日、发票", reserveAd: "预留 Google 广告位", adLabel: "广告", adBadge: "已预留", newGame: "新游戏", sidebarTitle: "怎么玩", sidebarSubtitle: "不踩爆地雷，清空所有安全格。", howToPlay: ["左键点击揭开一格","右键点击插旗或拔旗","数字代表周围有几颗地雷","揭开所有安全格就赢"], suggestionsTitle: "你可能会喜欢", suggestions: ["轮盘", "字数统计", "百分比计算器", "年龄计算器", "单位转换器"], mines: "地雷", time: "时间", beginner: "初级", intermediate: "中级", expert: "高级" },
-  es: { name: "Español", title: "Buscaminas", subtitle: "El clásico juego de buscaminas.", searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: weight, day, invoice", reserveAd: "Espacio reservado para Google Ads", adLabel: "Advertisement", adBadge: "Reserved", newGame: "Nueva partida", sidebarTitle: "Cómo jugar", sidebarSubtitle: "Limpia el tablero sin tocar una mina.", howToPlay: ["Clic izquierdo para revelar una celda","Clic derecho para poner o quitar una bandera","Los números muestran cuántas minas hay adyacentes","Revela todas las celdas seguras para ganar"], suggestionsTitle: "Te puede interesar", suggestions: ["Rueda giratoria", "Contador de palabras", "Calculadora de porcentajes", "Calculadora de edad", "Conversor de unidades"], mines: "Minas", time: "Tiempo", beginner: "Principiante", intermediate: "Intermedio", expert: "Experto" },
+const L: Record<LocaleKey, { name: string; title: string; subtitle: string; searchLabel: string; searchPlaceholder: string; newGame: string; sidebarTitle: string; sidebarSubtitle: string; howToPlay: string[]; suggestionsTitle: string; suggestions: string[]; mines: string; time: string; beginner: string; intermediate: string; expert: string }> = {
+  en: { name: "English", title: "Minesweeper", subtitle: "Classic minesweeper game. Find all the mines without detonating one.", searchLabel: "Search tools", searchPlaceholder: "Try: weight, day, invoice, url", newGame: "New Game", sidebarTitle: "How to play", sidebarSubtitle: "Clear the board without hitting a mine.", howToPlay: ["Left-click a cell to reveal it","Right-click to place or remove a flag","Numbers show how many mines are adjacent","Reveal all safe cells to win"], suggestionsTitle: "You may also like", suggestions: ["Wheel Spinner", "Word Counter", "Percentage Calculator", "Age Calculator", "Unit Converter"], mines: "Mines", time: "Time", beginner: "Beginner", intermediate: "Intermediate", expert: "Expert" },
+  "zh-hk": { name: "繁體中文", title: "掃雷", subtitle: "經典掃雷遊戲。搵晒所有地雷，但唔好撳爆佢。", searchLabel: "搜尋工具", searchPlaceholder: "例如：體積重量、工作日、發票", newGame: "新遊戲", sidebarTitle: "點玩", sidebarSubtitle: "唔撳爆地雷，清晒所有安全格。", howToPlay: ["左撳揭開一格","右撳插旗或者拔旗","數字代表隔籬有幾多粒地雷","揭晒所有安全格就贏"], suggestionsTitle: "你可能會喜歡", suggestions: ["輪盤", "字數統計", "百分比計算機", "年齡計算機", "單位轉換器"], mines: "地雷", time: "時間", beginner: "初級", intermediate: "中級", expert: "高級" },
+  "zh-cn": { name: "简体中文", title: "扫雷", subtitle: "经典扫雷游戏。找到所有地雷，但别踩爆。", searchLabel: "搜索工具", searchPlaceholder: "例如：体积重量、工作日、发票", newGame: "新游戏", sidebarTitle: "怎么玩", sidebarSubtitle: "不踩爆地雷，清空所有安全格。", howToPlay: ["左键点击揭开一格","右键点击插旗或拔旗","数字代表周围有几颗地雷","揭开所有安全格就赢"], suggestionsTitle: "你可能会喜欢", suggestions: ["轮盘", "字数统计", "百分比计算器", "年龄计算器", "单位转换器"], mines: "地雷", time: "时间", beginner: "初级", intermediate: "中级", expert: "高级" },
+  es: { name: "Español", title: "Buscaminas", subtitle: "El clásico juego de buscaminas.", searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: weight, day, invoice", newGame: "Nueva partida", sidebarTitle: "Cómo jugar", sidebarSubtitle: "Limpia el tablero sin tocar una mina.", howToPlay: ["Clic izquierdo para revelar una celda","Clic derecho para poner o quitar una bandera","Los números muestran cuántas minas hay adyacentes","Revela todas las celdas seguras para ganar"], suggestionsTitle: "Te puede interesar", suggestions: ["Rueda giratoria", "Contador de palabras", "Calculadora de porcentajes", "Calculadora de edad", "Conversor de unidades"], mines: "Minas", time: "Tiempo", beginner: "Principiante", intermediate: "Intermedio", expert: "Experto" },
 };
 
 const DIFF = { beginner: { rows: 9, cols: 9, mines: 10 }, intermediate: { rows: 16, cols: 16, mines: 40 }, expert: { rows: 16, cols: 30, mines: 99 } } as const;
@@ -146,7 +146,7 @@ export default function Minesweeper() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-6">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -209,10 +209,7 @@ export default function Minesweeper() {
             </section>
 
             {/* Ad placeholder */}
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
+
           </div>
 
           {/* Sidebar */}

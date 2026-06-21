@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Code2, Search, Link2 } from "lucide-react";
+import { ArrowRight, Code2, Search, Link2 } from "lucide-react";
 
 const LANGUAGES = {
   en: {
@@ -9,10 +9,6 @@ const LANGUAGES = {
     searchLabel: "Search tools",
     searchPlaceholder: "Try: weight, day, invoice, word",
     searchHint: "Search hints",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-adLabel: "Advertisement",
-adBadge: "Reserved",
     inputLabel: "Input",
     encodedLabel: "Encoded",
     decodedLabel: "Decoded",
@@ -65,10 +61,6 @@ adBadge: "Reserved",
     searchLabel: "搜尋工具",
     searchPlaceholder: "例如：體積重量、工作日、發票、字數",
     searchHint: "搜尋提示",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-adLabel: "廣告", adBadge: "已預留",
-
     inputLabel: "輸入",
     encodedLabel: "已編碼",
     decodedLabel: "已解碼",
@@ -121,10 +113,6 @@ adLabel: "廣告", adBadge: "已預留",
     searchLabel: "搜索工具",
     searchPlaceholder: "例如：体积重量、工作日、发票、字数",
     searchHint: "搜索提示",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-adLabel: "广告", adBadge: "已预留",
-
     inputLabel: "输入",
     encodedLabel: "已编码",
     decodedLabel: "已解码",
@@ -177,11 +165,6 @@ adLabel: "广告", adBadge: "已预留",
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: weight, day, invoice, word",
     searchHint: "Sugerencias de búsqueda",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-adLabel: "Advertisement",
-adBadge: "Reserved",
-
     inputLabel: "Entrada",
     encodedLabel: "Codificado",
     decodedLabel: "Decodificado",
@@ -326,7 +309,7 @@ export default function UrlEncoderDecoder() {
 
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
-            <div className="max-w-3xl space-y-5"><div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div><div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div></div>
+            <div className="max-w-3xl space-y-5"><div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div></div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <label className="block space-y-2">
@@ -413,7 +396,6 @@ export default function UrlEncoderDecoder() {
               </div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5"><div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">AdSense space reserved</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div><div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" /></section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5"><div className="flex items-center gap-3"><div className="rounded-2xl bg-white/10 p-3 text-white"><Link2 className="h-5 w-5" /></div><div><h2 className="text-lg font-semibold">{content.sidebarTitle}</h2><p className="text-sm text-neutral-300">{content.sidebarSub}</p></div></div><div className="space-y-3 text-sm text-neutral-300"><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{content.sidebarItem1}</p><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{content.sidebarItem2}</p></div></aside>

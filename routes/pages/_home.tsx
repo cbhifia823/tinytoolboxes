@@ -1,5 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
-import { ArrowLeftRight, ArrowRight, BadgeDollarSign, Bone, BookOpen, Building2, CalendarDays, CalendarRange, Calculator, Cat, Clock, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, Link2, Percent, RotateCw, Scale, Search, Sparkles, Grid3X3 } from "lucide-react";
+import { Cake,
+   useEffect, useMemo, useState } from "react";
+import { Cake,
+   ArrowLeftRight, ArrowRight, BadgeDollarSign, Bone, BookOpen, Building2, CalendarDays, CalendarRange, Calculator, Cat, Clock, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, Link2, Percent, RotateCw, Scale, Search, Sparkles, Grid3X3 } from "lucide-react";
 import PetsHome from "./_pets-home";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
@@ -19,8 +21,6 @@ const COPY: Record<LocaleKey, {
   searchLabel: string;
   searchPlaceholder: string;
   searchHints: string[];
-  adLabel: string;
-  adNote: string;
   sectionTitle: string;
   sectionSubtitle: string;
   footer: string;
@@ -40,8 +40,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Search the collection",
     searchPlaceholder: "Try: age, date, weight, words",
     searchHints: ["age", "date", "weight", "words"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "Tools",
     sectionSubtitle: "Direct tools, grouped by what people actually need.",
     footer: "TinyToolboxes",
@@ -113,8 +111,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜尋系列",
     searchPlaceholder: "例如：體積重量、日期、字數、URL、押韻",
     searchHints: ["體積重量", "日期", "字數", "URL", "押韻"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "工具",
     sectionSubtitle: "點任何一頁都可以打開一個單一功能工具。",
     footer: "TinyToolboxes",
@@ -186,8 +182,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜索系列",
     searchPlaceholder: "例如：体积重量、日期、字数、URL、押韵",
     searchHints: ["体积重量", "日期", "字数", "URL", "押韵"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "工具",
     sectionSubtitle: "点击任意页面打开一个单一功能工具。",
     footer: "TinyToolboxes",
@@ -259,8 +253,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Buscar la colección",
     searchPlaceholder: "Prueba: weight, date, word, url, rhyme",
     searchHints: ["weight", "date", "word", "url", "rhyme"],
-    adLabel: "Advertisement",
-    adNote: "Reserved for AdSense",
     sectionTitle: "Herramientas",
     sectionSubtitle: "Abre cualquier página para usar una herramienta de un solo propósito.",
     footer: "TinyToolboxes",
@@ -360,6 +352,7 @@ const TOOLS: Array<{
   { category: "pets", href: "/xylitol-toxicity-calculator", icon: Dog, title: { en: "Xylitol Toxicity Calculator", "zh-hk": "木糖醇毒性計算機", "zh-cn": "木糖醇毒性计算器", es: "Calculadora de toxicidad del xilitol" }, description: { en: "Xylitol risk from gum and sugar-free products for dogs.", "zh-hk": "計狗食木糖醇嘅風險，來自口香糖同無糖產品。", "zh-cn": "计算狗食用木糖醇的风险，来自口香糖和无糖产品。", es: "Riesgo de xilitol en gomas y productos sin azúcar para perros." } },
   { category: "pets", href: "/lily-toxicity-checker", icon: Flower2, title: { en: "Lily Toxicity Checker for Cats", "zh-hk": "貓嘅百合毒性檢查器", "zh-cn": "猫百合毒性检查器", es: "Verificador de toxicidad de lirios para gatos" }, description: { en: "Look up which lilies are deadly for cats.", "zh-hk": "查邊啲百合係致命嘅。", "zh-cn": "查找哪些百合对猫是致命的。", es: "Busca qué lirios son mortales para gatos." } },
   { category: "tools", href: "/wheel-spinner", icon: RotateCw, title: { en: "Wheel Spinner", "zh-hk": "輪盤", "zh-cn": "轮盘", es: "Rueda giratoria" }, description: { en: "Spin a random wheel to pick a name or make a fair decision.", "zh-hk": "轉一個隨機輪盤，揀一個名字或者做一個公平決定。", "zh-cn": "旋转随机轮盘选择名字或做出公平决定。", es: "Gira una rueda aleatoria para elegir un nombre o tomar una decisión justa." } },
+  { category: "tools", href: "/famous-birthdays", icon: Cake, title: { en: "Famous Birthdays", "zh-hk": "名人出生日", "zh-cn": "名人出生日", es: "Cumpleaños famosos" }, description: { en: "Discover famous people born on any date throughout history.", "zh-hk": "睇下歷史入面邊啲名人生日係同一日。", "zh-cn": "发现历史上任何一天出生的名人。", es: "Descubre personas famosas nacidas en cualquier fecha." } },
   { category: "games", href: "/minesweeper", icon: Grid3X3, title: { en: "Minesweeper", "zh-hk": "掃雷", "zh-cn": "扫雷", es: "Minesweeper" }, description: { en: "Play a classic game of Minesweeper.", "zh-hk": "玩經典掃雷遊戲。", "zh-cn": "玩经典扫雷游戏。", es: "Juega al clásico juego de Minesweeper." } },
 ];
 
@@ -396,7 +389,7 @@ const GROUPS: Array<{ id: string; title: Record<LocaleKey, string>; items: strin
   { id: "finance", title: { en: "Finance", "zh-hk": "財務", "zh-cn": "财务", es: "Finanzas" }, items: ["/mortgage-calculator-australia"] },
   { id: "pets", title: { en: "Pets", "zh-hk": "寵物", "zh-cn": "宠物", es: "Mascotas" }, items: ["/dog-age-calculator", "/cat-age-calculator", "/pet-calorie-calculator", "/can-my-dog-eat", "/chocolate-toxicity-calculator", "/xylitol-toxicity-calculator", "/lily-toxicity-checker"] },
   { id: "text", title: { en: "Text & Language", "zh-hk": "文字及語言", "zh-cn": "文字和语言", es: "Texto e idioma" }, items: ["/word-counter", "/rhyme-zone"] },
-  { id: "tools", title: { en: "Tools", "zh-hk": "工具", "zh-cn": "工具", es: "Herramientas" }, items: ["/wheel-spinner"] },
+  { id: "tools", title: { en: "Tools", "zh-hk": "工具", "zh-cn": "工具", es: "Herramientas" }, items: ["/wheel-spinner", "/famous-birthdays"] },
   { id: "games", title: { en: "Games", "zh-hk": "遊戲", "zh-cn": "游戏", es: "Juegos" }, items: ["/minesweeper"] },
 ];
 
@@ -444,19 +437,6 @@ function Header({ locale, onLocaleChange }: { locale: LocaleKey; onLocaleChange:
   );
 }
 
-function AdBlock({ title, note }: { title: string; note: string }) {
-  return (
-    <section className="rounded-3xl border border-dashed border-white/10 bg-white/5 p-5 text-sm text-white/75">
-      <div className="flex items-center gap-2 text-emerald-200">
-        <BadgeDollarSign className="h-4 w-4" />
-        <span className="font-medium">{title}</span>
-      </div>
-      <p className="mt-2 text-white/55">{note}</p>
-      <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-    </section>
-  );
-}
-
 function SearchBar({ locale }: { locale: LocaleKey }) {
   const copy = COPY[locale];
   const [query, setQuery] = useState("");
@@ -469,7 +449,6 @@ function SearchBar({ locale }: { locale: LocaleKey }) {
           <p className="text-sm font-medium text-emerald-300">{copy.searchLabel}</p>
           <p className="mt-1 text-sm text-white/60">{copy.searchFooter}</p>
         </div>
-        <div className="text-xs text-white/45">{copy.adLabel}</div>
       </div>
       <div className="mt-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
         <Search className="h-4 w-4 text-emerald-300" />
@@ -544,7 +523,6 @@ function MainHomePage() {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_320px]">
           <div className="space-y-6">
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
             <section className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
               <div className="flex items-center justify-between gap-3">
                 <div>
@@ -628,7 +606,6 @@ function MainHomePage() {
                 ))}
               </div>
             </section>
-            <AdBlock title={copy.adLabel} note={copy.adNote} />
           </aside>
         </div>
 

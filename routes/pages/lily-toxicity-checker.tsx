@@ -1,15 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, AlertTriangle, BadgeDollarSign, Cat, Search, Flower2 } from "lucide-react";
+import { ArrowRight, AlertTriangle, Cat, Search, Flower2 } from "lucide-react";
 
 const LANGUAGES = {
   en: {
     name: "English",
     title: "Lily Toxicity Checker for Cats",
     subtitle: "Search for lily species by common or scientific name to see if they're dangerous for cats. True lilies (Lilium and Hemerocallis) cause acute kidney failure — others are safer.",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "You can drop AdSense code here later.",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     emergency: "True Lilies Kill Cats",
     emergencyNote: "All parts of true lilies (Lilium and Hemerocallis species) — petals, leaves, pollen, stamens, and even the water in the vase — can cause acute kidney failure in cats within 24-72 hours. Even a tiny amount can be fatal. If your cat licked pollen off its fur or drank from a vase with cut lilies, go to an emergency vet immediately. Do not wait for symptoms.",
     deadly: "Deadly — Emergency vet NOW",
@@ -47,10 +43,6 @@ const LANGUAGES = {
     name: "繁體中文",
     title: "貓貓百合毒性檢查器",
     subtitle: "用常見名或學名搜尋百合品種，確認對貓有冇危險。真正百合（Lilium 同 Hemerocallis）會引致急性腎衰竭 — 其他品種較安全。",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告",
-    adBadge: "已預留",
     emergency: "真百合會殺貓",
     emergencyNote: "真正百合（Lilium 同 Hemerocallis 品種）嘅所有部分 — 花瓣、葉、花粉、雄蕊，甚至花瓶入面嘅水 — 都可以喺 24-72 小時內引致貓貓急性腎衰竭。即使極微量都可能致命。如果貓貓舔咗身上嘅花粉或者飲咗插花嘅水，立即去急診。唔好等症狀出現。",
     deadly: "致命 — 立即去急診",
@@ -88,10 +80,6 @@ const LANGUAGES = {
     name: "简体中文",
     title: "猫咪百合毒性检查器",
     subtitle: "用常见名或学名搜索百合品种，确认对猫有无危险。真正百合（Lilium 和 Hemerocallis）会引起急性肾衰竭 — 其他品种较安全。",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码。",
-    adLabel: "广告",
-    adBadge: "已预留",
     emergency: "真百合会杀猫",
     emergencyNote: "真正百合（Lilium 和 Hemerocallis 品种）的所有部分 — 花瓣、叶、花粉、雄蕊，甚至花瓶里的水 — 都可以在 24-72 小时内引起猫咪急性肾衰竭。即使极微量都可能致命。如果猫咪舔了身上的花粉或者喝了插花的水，立即去急诊。不要等出现症状。",
     deadly: "致命 — 立即去急诊",
@@ -129,10 +117,6 @@ const LANGUAGES = {
     name: "Español",
     title: "Comprobador de toxicidad de lirios para gatos",
     subtitle: "Busca especies de lirio por nombre común o científico para ver si son peligrosas para gatos. Los lirios verdaderos (Lilium y Hemerocallis) causan insuficiencia renal aguda — otros son más seguros.",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
-    adLabel: "Publicidad",
-    adBadge: "Reservado",
     emergency: "Los lirios verdaderos matan gatos",
     emergencyNote: "Todas las partes de los lirios verdaderos (especies Lilium y Hemerocallis) — pétalos, hojas, polen, estambres e incluso el agua del jarrón — pueden causar insuficiencia renal aguda en gatos en 24-72 horas. Incluso una cantidad minúscula puede ser fatal. Si tu gato se lamió polen del pelaje o bebió del jarrón con lirios, ve a un veterinario de urgencia inmediatamente. No esperes a los síntomas.",
     deadly: "Mortal — Veterinario urgente YA",
@@ -258,7 +242,7 @@ export default function LilyToxicityChecker() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
               <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-4 text-sm text-rose-100">
                 <div className="flex items-center gap-2 font-semibold text-rose-200"><AlertTriangle className="h-4 w-4" />{content.emergency}</div>
@@ -322,10 +306,6 @@ export default function LilyToxicityChecker() {
               <div className="rounded-2xl border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100/85">{content.disclaimer}</div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-amber-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">

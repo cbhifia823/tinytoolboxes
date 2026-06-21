@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Cat, Search, Check, X, AlertTriangle } from "lucide-react";
+import { ArrowRight, Cat, Search, Check, X, AlertTriangle } from "lucide-react";
 import ARTICLE_CONTENT from "../data/can-my-cat-eat-content.json";
 
 const LANGUAGES = {
@@ -7,10 +7,6 @@ const LANGUAGES = {
     name: "English",
     title: "Can My Cat Eat This?",
     subtitle: "Quick lookup for 50+ common human foods — see which are safe, which are dangerous, and which need caution.",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "You can drop AdSense code here later.",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     yes: "Yes — Safe",
     no: "No — Dangerous",
     limit: "Limit — Caution",
@@ -25,10 +21,6 @@ const LANGUAGES = {
     name: "繁體中文",
     title: "貓貓可以食咩？",
     subtitle: "快速查閱 50+ 種常見人類食物 — 睇下邊啲安全、邊啲有危險、邊啲要小心。",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告",
-    adBadge: "已預留",
     yes: "可以 — 安全",
     no: "唔可以 — 危險",
     limit: "有限度 — 小心",
@@ -43,10 +35,6 @@ const LANGUAGES = {
     name: "简体中文",
     title: "猫咪能吃什么？",
     subtitle: "快速查阅 50+ 种常见人类食物 — 看看哪些安全、哪些危险、哪些要小心。",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码。",
-    adLabel: "广告",
-    adBadge: "已预留",
     yes: "可以 — 安全",
     no: "不可以 — 危险",
     limit: "有限 — 小心",
@@ -61,10 +49,6 @@ const LANGUAGES = {
     name: "Español",
     title: "¿Puede mi gato comer esto?",
     subtitle: "Consulta rápida de más de 50 alimentos comunes — descubre cuáles son seguros, peligrosos o requieren precaución.",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
-    adLabel: "Publicidad",
-    adBadge: "Reservado",
     yes: "Sí — Seguro",
     no: "No — Peligroso",
     limit: "Límite — Precaución",
@@ -211,7 +195,7 @@ export default function CanMyCatEat() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-rose-400/30 bg-rose-400/10 px-4 py-2 text-sm text-rose-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -271,10 +255,6 @@ export default function CanMyCatEat() {
               <div className="rounded-2xl border border-rose-400/30 bg-rose-400/5 p-4 text-sm text-rose-100/85"><strong className="text-rose-200">{locale === "en" ? "Disclaimer:" : locale === "zh-hk" ? "\u514d\u8cac\u8072\u660e\uff1a" : locale === "zh-cn" ? "\u514d\u8d23\u58f0\u660e\uff1a" : "Aviso:"}</strong> {articleContent.articleDisclaimer}</div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-rose-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-rose-400/15 bg-rose-400/5 p-5">

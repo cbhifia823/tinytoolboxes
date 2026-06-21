@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, CalendarDays, Search, ReceiptText } from "lucide-react";
+import { ArrowRight, CalendarDays, Search, ReceiptText } from "lucide-react";
 
 const LANGUAGES = {
   en: {
@@ -18,10 +18,6 @@ const LANGUAGES = {
     quickNoteDesc: "Great for simple billing pages.",
     tip1: "Use calendar days for straightforward invoice terms.",
     tip2: "Use business days if your billing policy excludes weekends.",
-    reserveAd: "Google Ads",
-    reserveAdSub: "Drop AdSense here later without changing the layout.",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     articleTitle1: "Understanding Invoice Payment Terms",
     article1: [
       "Invoice payment terms define how long a customer has to pay an invoice. Understanding each type is essential for setting clear expectations, managing cash flow, and avoiding disputes. The most common terms are expressed as \"Net X\" — meaning payment is due within X calendar days of the invoice date.",
@@ -99,10 +95,6 @@ const LANGUAGES = {
     quickNoteDesc: "適合簡單帳單頁面。",
     tip1: "用日曆日處理直接嘅發票條款。",
     tip2: "如果你嘅帳單政策排除週末，就用工作日。",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告",
-    adBadge: "已預留",
     articleTitle1: "了解發票付款條款",
     article1: [
       "發票付款條款定義咗客戶需要幾耐之內找數。明白每種條款對設定清晰期望、管理現金流同避免糾紛都好重要。最常見嘅條款會用「Net X」嚟表達——意思係由發票日期起計 X 個日曆日之內要付款。",
@@ -180,10 +172,6 @@ const LANGUAGES = {
     quickNoteDesc: "适合简单账单页面。",
     tip1: "用日历日处理直接的发票条款。",
     tip2: "如果您的账单政策排除周末，请用工作日。",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码。",
-    adLabel: "广告",
-    adBadge: "已预留",
     articleTitle1: "了解发票付款条款",
     article1: [
       "发票付款条款定义了客户需要在多长时间内付款。理解每种条款对于设定清晰期望、管理现金流和避免纠纷都很重要。最常见的条款用「Net X」表示——意思是从发票日期起计 X 个日历日内付款。",
@@ -261,10 +249,6 @@ const LANGUAGES = {
     quickNoteDesc: "Ideal para páginas de facturación simples.",
     tip1: "Usa días calendario para términos de factura directos.",
     tip2: "Usa días hábiles si tu política de facturación excluye fines de semana.",
-    reserveAd: "Google Ads",
-    reserveAdSub: "Coloca AdSense aquí más tarde sin cambiar el diseño.",
-    adLabel: "Anuncio",
-    adBadge: "Reservado",
     articleTitle1: "Comprendiendo los plazos de pago de facturas",
     article1: [
       "Los plazos de pago definen cuánto tiempo tiene un cliente para pagar una factura. Comprender cada tipo es esencial para establecer expectativas claras, gestionar el flujo de caja y evitar disputas. Los términos más comunes se expresan como «Net X» — lo que significa que el pago vence dentro de X días calendario desde la fecha de la factura.",
@@ -446,7 +430,7 @@ export default function InvoiceDueDateCalculator() {
 
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
-            <div className="max-w-3xl space-y-5"><div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div><div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div></div>
+            <div className="max-w-3xl space-y-5"><div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div></div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
               <div className="grid gap-4 sm:grid-cols-2">
@@ -521,7 +505,6 @@ export default function InvoiceDueDateCalculator() {
               </div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5"><div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div><div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" /></section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5"><div className="flex items-center gap-3"><div className="rounded-2xl bg-white/10 p-3 text-white"><CalendarDays className="h-5 w-5" /></div><div><h2 className="text-lg font-semibold">{content.quickNote}</h2><p className="text-sm text-neutral-300">{content.quickNoteDesc}</p></div></div><div className="space-y-3 text-sm text-neutral-300"><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{content.tip1}</p><p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{content.tip2}</p></div></aside>

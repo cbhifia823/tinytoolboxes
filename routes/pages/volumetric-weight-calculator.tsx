@@ -19,8 +19,6 @@ const COPY: Record<LocaleKey, {
   searchLabel: string;
   searchPlaceholder: string;
   searchHints: string[];
-  adLabel: string;
-  adNote: string;
   sectionTitle: string;
   sectionSubtitle: string;
   footer: string;
@@ -59,8 +57,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Search the collection",
     searchPlaceholder: "Try: weight, date, word, url, rhyme",
     searchHints: ["weight", "date", "word", "url", "rhyme"],
-    adLabel: "Google Ads space reserved",
-    adNote: "Drop AdSense here later without changing the layout.",
     sectionTitle: "Calculator",
     sectionSubtitle: "Enter dimensions, choose units, and get dimensional weight instantly.",
     footer: "TinyToolboxes",
@@ -108,8 +104,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜尋系列",
     searchPlaceholder: "例如：體積重量、日期、字數、URL、押韻",
     searchHints: ["體積重量", "日期", "字數", "URL", "押韻"],
-    adLabel: "預留 Google 廣告位",
-    adNote: "之後直接放 AdSense，唔使改版面。",
     sectionTitle: "計算器",
     sectionSubtitle: "輸入尺寸、選單位，即刻得出體積重量。",
     footer: "TinyToolboxes",
@@ -157,8 +151,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "搜索系列",
     searchPlaceholder: "例如：体积重量、日期、字数、URL、押韵",
     searchHints: ["体积重量", "日期", "字数", "URL", "押韵"],
-    adLabel: "预留 Google 广告位",
-    adNote: "以后直接放 AdSense，不用改布局。",
     sectionTitle: "计算器",
     sectionSubtitle: "输入尺寸、选择单位，立即得到体积重量。",
     footer: "TinyToolboxes",
@@ -206,8 +198,6 @@ const COPY: Record<LocaleKey, {
     searchLabel: "Buscar la colección",
     searchPlaceholder: "Prueba: weight, date, word, url, rhyme",
     searchHints: ["peso", "fecha", "palabra", "url", "rima"],
-    adLabel: "Espacio reservado para Google Ads",
-    adNote: "Luego puedes poner AdSense sin cambiar el diseño.",
     sectionTitle: "Calculadora",
     sectionSubtitle: "Introduce las medidas, elige las unidades y obtiene el peso dimensional al instante.",
     footer: "TinyToolboxes",

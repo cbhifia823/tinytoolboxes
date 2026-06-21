@@ -1,15 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Scale, Cat, Dog, RotateCcw, Check } from "lucide-react";
+import { ArrowRight, Scale, Cat, Dog, RotateCcw, Check } from "lucide-react";
 
 const LANGUAGES = {
   en: {
     name: "English",
     title: "Pet Body Condition Score (BCS) Quiz",
     subtitle: "A vet-style visual quiz to estimate your pet's body condition on the standard 1–9 scale. Get a category, action plan, and vet-visit recommendation.",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "You can drop AdSense code here later.",
-    adLabel: "Advertisement",
-    adBadge: "Reserved",
     speciesQ: "Which pet are you scoring?",
     dog: "Dog",
     cat: "Cat",
@@ -143,10 +139,6 @@ const LANGUAGES = {
     name: "繁體中文",
     title: "寵物體況評分（BCS）測驗",
     subtitle: "獸醫式視覺測驗，用標準 1–9 量表評估你寵物嘅體況。完成後得到分數、體重類別同建議方案。",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼。",
-    adLabel: "廣告",
-    adBadge: "已預留",
     speciesQ: "你想評估邊一種寵物？",
     dog: "狗狗",
     cat: "貓貓",
@@ -280,10 +272,6 @@ const LANGUAGES = {
     name: "简体中文",
     title: "宠物体况评分（BCS）测验",
     subtitle: "兽医式视觉测验，用标准 1–9 量表评估你宠物的体况。完成后得到分数、体重类别和建议方案。",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码。",
-    adLabel: "广告",
-    adBadge: "已预留",
     speciesQ: "你要评估哪种宠物？",
     dog: "狗狗",
     cat: "猫咪",
@@ -417,10 +405,6 @@ const LANGUAGES = {
     name: "Español",
     title: "Quiz de Condición Corporal (BCS) para Mascotas",
     subtitle: "Quiz visual al estilo veterinario que estima la condición corporal de tu mascota en la escala estándar 1–9. Obtén un puntaje, categoría y plan de acción.",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
-    adLabel: "Publicidad",
-    adBadge: "Reservado",
     speciesQ: "¿Qué mascota vas a evaluar?",
     dog: "Perro",
     cat: "Gato",
@@ -640,7 +624,7 @@ export default function PetBodyConditionScore() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -749,16 +733,6 @@ export default function PetBodyConditionScore() {
               </div>
             </article>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-amber-300/80">{content.adLabel}</p>
-                  <p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p>
-                </div>
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span>
-              </div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-amber-400/15 bg-amber-400/5 p-5">

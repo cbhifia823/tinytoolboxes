@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowRight, BadgeDollarSign, RotateCw, Search, Shuffle, Trash2 } from "lucide-react";
+import { ArrowRight, RotateCw, Search, Shuffle, Trash2 } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -9,8 +9,6 @@ const LANGUAGES: Record<LocaleKey, {
   subtitle: string;
   searchLabel: string;
   searchPlaceholder: string;
-  reserveAd: string;
-  reserveAdSub: string;
   entriesLabel: string;
   entriesHelp: string;
   spin: string;
@@ -25,8 +23,6 @@ const LANGUAGES: Record<LocaleKey, {
   suggestionsTitle: string;
   suggestions: string[];
   articleTitle: string;
-  adLabel: string;
-  adBadge: string;
   articleIntro: string;
   fairnessTitle: string;
   fairnessBody: string;
@@ -43,8 +39,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Spin a random wheel to pick a name, choose a winner, or make a fair decision. Free, fast, and works on any device.",
     searchLabel: "Search tools",
     searchPlaceholder: "Try: rhyme, calorie, BMI, mortgage",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "Google Ads space reserved. To advertise here, visit the contact page.",
     entriesLabel: "Entries",
     entriesHelp: "One entry per line. Add the names, options, or choices you want the wheel to pick from.",
     spin: "Spin the wheel",
@@ -65,8 +59,6 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "You may also like",
     suggestions: ["Percentage Calculator", "Date Difference Calculator", "Word Counter"],
     articleTitle: "How a wheel spinner works",
-    adLabel: "Advertisement",
-    adBadge: "AD",
     articleIntro: "A wheel spinner is a digital version of a physical prize wheel. You enter a list of options, the tool draws them as colored slices on a circle, and a randomization algorithm picks one when you spin. Behind the scenes, a uniform pseudo-random number generator selects an index between 0 and N-1 (where N is your entry count), then the visible wheel animates to land on that exact slice. The animation is just visual flair — the result is decided the moment you press spin.",
     fairnessTitle: "What makes the pick truly fair",
     fairnessBody: "Modern browsers use cryptographically-seeded RNGs that are statistically indistinguishable from true randomness for everyday use. Each entry has exactly a 1/N probability of winning. This matters when fairness is being questioned — by a classroom, a contest audience, or family members deciding who buys dinner. Compared to \"pick a number 1 to 10 in your head,\" a wheel spinner removes bias from people who unconsciously avoid certain numbers (5 and 7 are the most picked when humans are asked for a \"random\" digit between 1 and 10).",
@@ -95,8 +87,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "輸入名單，按一下就隨機抽出一個贏家。免費、夠快、手機電腦都用得。",
     searchLabel: "搜尋工具",
     searchPlaceholder: "試下：押韻、卡路里、BMI、按揭",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "預留 Google 廣告位。有意在此刊登廣告，請瀏覽聯絡頁面。",
     entriesLabel: "選項",
     entriesHelp: "每行一個。可以輸入名、選擇或者任何要抽嘅嘢。",
     spin: "轉動輪盤",
@@ -117,8 +107,6 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "你可能會喜歡",
     suggestions: ["百分比計算器", "日期差計算器", "字數統計器"],
     articleTitle: "輪盤抽選器點樣運作？",
-    adLabel: "廣告",
-    adBadge: "廣告",
     articleIntro: "輪盤抽選器係實體抽獎輪嘅數碼版。你入一個選項列表，工具會將佢哋畫成圓圈上嘅彩色扇形，當你轉動時，隨機演算法會揀出一個結果。背後原理係用一個均勻嘅偽隨機數生成器揀出 0 到 N-1 之間嘅索引（N 係你嘅選項數），然後可視化嘅輪盤會動畫化轉到嗰一格。動畫只係視覺效果——結果喺你撳掣嗰一刻已經決定咗。",
     fairnessTitle: "點解抽選結果真係公平",
     fairnessBody: "現代瀏覽器用加密種子嘅 RNG，喺日常使用上同真正嘅隨機性喺統計上冇分別。每個選項都有 1/N 嘅機率中選。當公平性受到質疑——例如課堂上、比賽觀眾、或者家人決定邊個請食飯——呢點就好重要。比起「喺心入面揀 1 至 10 嘅數字」，輪盤抽選器消除咗人嘅偏見——人喺被要求講一個 1 至 10 之間嘅「隨機」數字時，最常揀嘅係 5 同 7。",
@@ -147,8 +135,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "输入名单，点一下就随机抽出一个赢家。免费、快速、手机电脑都能用。",
     searchLabel: "搜索工具",
     searchPlaceholder: "试试：押韵、卡路里、BMI、按揭",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "预留 Google 广告位。有意在此刊登广告，请浏览联系页面。",
     entriesLabel: "选项",
     entriesHelp: "每行一个。可以输入名字、选择或任何要抽的内容。",
     spin: "转动转盘",
@@ -169,8 +155,6 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "你可能会喜欢",
     suggestions: ["百分比计算器", "日期差计算器", "字数统计器"],
     articleTitle: "转盘抽选器如何工作？",
-    adLabel: "广告",
-    adBadge: "广告",
     articleIntro: "转盘抽选器是实体抽奖轮的数码版本。你输入一个选项列表，工具会将它们画成圆圈上的彩色扇形，当你转动时，随机算法会选出一个结果。背后原理是用一个均匀的伪随机数生成器选出 0 到 N-1 之间的索引（N 是你的选项数量），然后可视化的转盘会动画化转到那一格。动画只是视觉效果——结果在你按下按钮的那一刻已经决定了。",
     fairnessTitle: "为什么抽选结果真的公平",
     fairnessBody: "现代浏览器使用加密种子的 RNG，在日常使用上与真正的随机性在统计上没有区别。每个选项都有 1/N 的概率中选。当公平性受到质疑——例如课堂上、比赛观众、或者家人决定谁请吃饭——这点就很重要。比起「在心里选 1 到 10 的数字」，转盘抽选器消除了人的偏见——人在被要求说一个 1 到 10 之间的「随机」数字时，最常选的是 5 和 7。",
@@ -199,8 +183,6 @@ const LANGUAGES: Record<LocaleKey, {
     subtitle: "Gira una ruleta para elegir un nombre, un ganador o tomar una decisión justa. Gratis, rápido y funciona en cualquier dispositivo.",
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: rhyme, calorie, BMI, mortgage",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Espacio reservado para Google Ads. Para anunciarte aquí, visita la página de contacto.",
     entriesLabel: "Entradas",
     entriesHelp: "Una entrada por línea. Añade los nombres u opciones de los que quieras elegir.",
     spin: "Girar la ruleta",
@@ -221,8 +203,6 @@ const LANGUAGES: Record<LocaleKey, {
     suggestionsTitle: "También te puede interesar",
     suggestions: ["Calculadora de porcentajes", "Calculadora de diferencia de fechas", "Contador de palabras"],
     articleTitle: "Cómo funciona una ruleta aleatoria",
-    adLabel: "Publicidad",
-    adBadge: "ANUNCIO",
     articleIntro: "Una ruleta aleatoria es una versión digital de una ruleta física de premios. Ingresas una lista de opciones, la herramienta las dibuja como sectores de colores en un círculo y un algoritmo de aleatorización elige una cuando giras. Detrás de escena, un generador uniforme de números pseudoaleatorios selecciona un índice entre 0 y N-1 (donde N es el número de entradas), luego la ruleta visible se anima para aterrizar en ese sector exacto. La animación es solo un efecto visual: el resultado se decide en el momento en que presionas girar.",
     fairnessTitle: "Qué hace que la selección sea realmente justa",
     fairnessBody: "Los navegadores modernos utilizan RNG con semilla criptográfica que son estadísticamente indistinguibles de la verdadera aleatoriedad para el uso diario. Cada entrada tiene exactamente una probabilidad de 1/N de ganar. Esto importa cuando se cuestiona la imparcialidad: en un aula, una audiencia de concurso o entre familiares que deciden quién paga la cena. En comparación con \"elige un número del 1 al 10 mentalmente\", una ruleta elimina el sesgo de las personas que inconscientemente evitan ciertos números (el 5 y el 7 son los más elegidos cuando se pide a los humanos un dígito \"aleatorio\" entre 1 y 10).",
@@ -392,7 +372,7 @@ export default function WheelSpinner() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
+
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
             </div>
 
@@ -473,10 +453,6 @@ export default function WheelSpinner() {
               <div className="mt-4 grid gap-2">{filteredTools.slice(0, 5).map((t) => <a key={t.href} href={t.href} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p><p className="mt-1 text-xs text-white/55">{t.description[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></a>)}</div>
             </section>
 
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">{content.adLabel}</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{content.adBadge}</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6">

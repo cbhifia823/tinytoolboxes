@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Bone, PawPrint, Search, Sparkles } from "lucide-react";
+import { ArrowRight, Bone, PawPrint, Search, Sparkles } from "lucide-react";
 import content from "../data/puppy-adult-weight-content.json";
 
 type LocaleKey = keyof typeof content;
@@ -163,9 +163,6 @@ export default function PuppyAdultWeightCalculator() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm text-amber-200">
-                <BadgeDollarSign className="h-4 w-4" />{pageCopy.adLabel}
-              </div>
               <div className="space-y-4">
                 <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{pageCopy.title}</h2>
                 <p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{pageCopy.subtitle}</p>
@@ -218,17 +215,6 @@ export default function PuppyAdultWeightCalculator() {
                 </div>
               )}
             </div>
-
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-amber-300/80">{pageCopy.adLabel}</p>
-                  <p className="mt-1 text-sm text-white/55">{pageCopy.adNote}</p>
-                </div>
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">{pageCopy.adBadge}</span>
-              </div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
 
             <article className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
               <div>
