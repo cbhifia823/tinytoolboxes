@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, Braces, Copy, Search } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, Braces, Copy, Search } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -24,6 +24,8 @@ const LANGUAGES: Record<LocaleKey, {
   suggestions: string[];
   useCasesTitle: string;
   useCases: string[];
+  reserveAd: string;
+  reserveAdSub: string;
 }> = {
   en: {
     name: "English", title: "JSON Formatter", subtitle: "Format, validate, and beautify JSON strings instantly. Paste messy JSON, get clean output.",
@@ -32,6 +34,7 @@ const LANGUAGES: Record<LocaleKey, {
     copyBtn: "Copy", copied: "Copied!", formatBtn: "Format", compactBtn: "Compact", error: "Error", valid: "Valid JSON", invalid: "Invalid JSON",
     suggestionsTitle: "You may also like", suggestions: ["Password Generator", "Case Converter", "QR Code Generator"],
     useCasesTitle: "Use cases", useCases: ["API debugging and testing.", "Reading minified JSON responses.", "Preparing JSON for documentation."],
+    reserveAd: "Google Ads space reserved", reserveAdSub: "Drop your AdSense code here later.",
   },
   "zh-hk": {
     name: "繁體中文", title: "JSON 格式化器", subtitle: "即時格式化、驗證同美化 JSON。貼入混亂 JSON，輸出整齊格式。",
@@ -40,6 +43,7 @@ const LANGUAGES: Record<LocaleKey, {
     copyBtn: "複製", copied: "已複製！", formatBtn: "格式化", compactBtn: "壓縮", error: "錯誤", valid: "有效 JSON", invalid: "無效 JSON",
     suggestionsTitle: "你可能會喜歡", suggestions: ["密碼生成器", "大小寫轉換器", "QR 碼生成器"],
     useCasesTitle: "用途", useCases: ["API 除錯同測試。", "閱讀壓縮嘅 JSON 回應。", "準備 JSON 用於文檔。"],
+    reserveAd: "預留 Google 廣告位", reserveAdSub: "之後可直接放 AdSense 程式碼。",
   },
   "zh-cn": {
     name: "简体中文", title: "JSON 格式化器", subtitle: "即时格式化、验证和美化 JSON。粘贴混乱 JSON，输出整齐格式。",
@@ -48,6 +52,7 @@ const LANGUAGES: Record<LocaleKey, {
     copyBtn: "复制", copied: "已复制！", formatBtn: "格式化", compactBtn: "压缩", error: "错误", valid: "有效 JSON", invalid: "无效 JSON",
     suggestionsTitle: "你可能会喜欢", suggestions: ["密码生成器", "大小写转换器", "QR 码生成器"],
     useCasesTitle: "用途", useCases: ["API 调试和测试。", "阅读压缩的 JSON 响应。", "准备 JSON 用于文档。"],
+    reserveAd: "预留 Google 广告位", reserveAdSub: "之后可直接放 AdSense 代码。",
   },
   es: {
     name: "Español", title: "Formateador JSON", subtitle: "Formatea, valida y embellece cadenas JSON al instante. Pega JSON desordenado, obtén salida limpia.",
@@ -56,6 +61,7 @@ const LANGUAGES: Record<LocaleKey, {
     copyBtn: "Copiar", copied: "¡Copiado!", formatBtn: "Formatear", compactBtn: "Compactar", error: "Error", valid: "JSON válido", invalid: "JSON inválido",
     suggestionsTitle: "También te puede interesar", suggestions: ["Generador de contraseñas", "Conversor de mayúsculas", "Generador de QR"],
     useCasesTitle: "Casos de uso", useCases: ["Depuración y pruebas de API.", "Lectura de respuestas JSON comprimidas.", "Preparación de JSON para documentación."],
+    reserveAd: "Espacio reservado para Google Ads", reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
   },
 };
 
@@ -201,6 +207,10 @@ export default function JsonFormatter() {
                   );
                 })}
               </div>
+            </div>
+            <div className="rounded-3xl border border-dashed border-white/15 bg-black/20 p-4">
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-200"><BadgeDollarSign className="h-3.5 w-3.5" />{content.reserveAd}</div>
+              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span></div>
             </div>
           </aside>
         </div>

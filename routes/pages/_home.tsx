@@ -1,7 +1,6 @@
+import { useEffect, useMemo, useState } from "react";
 import { Cake,
-   useEffect, useMemo, useState } from "react";
-import { Cake,
-   ArrowLeftRight, ArrowRight, BadgeDollarSign, Bone, BookOpen, Building2, CalendarDays, CalendarRange, Calculator, Cat, Clock, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, Link2, Percent, RotateCw, Scale, Search, Sparkles, Grid3X3 } from "lucide-react";
+   ArrowLeftRight, ArrowRight, BadgeDollarSign, Bone, BookOpen, Braces, Building2, CalendarDays, CalendarRange, Calculator, CaseSensitive, Cat, Clock, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, KeyRound, Link2, Percent, QrCode, RotateCw, Scale, Search, Sparkles, Tag, Grid3X3 } from "lucide-react";
 import PetsHome from "./_pets-home";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
@@ -354,6 +353,12 @@ const TOOLS: Array<{
   { category: "tools", href: "/wheel-spinner", icon: RotateCw, title: { en: "Wheel Spinner", "zh-hk": "輪盤", "zh-cn": "轮盘", es: "Rueda giratoria" }, description: { en: "Spin a random wheel to pick a name or make a fair decision.", "zh-hk": "轉一個隨機輪盤，揀一個名字或者做一個公平決定。", "zh-cn": "旋转随机轮盘选择名字或做出公平决定。", es: "Gira una rueda aleatoria para elegir un nombre o tomar una decisión justa." } },
   { category: "tools", href: "/famous-birthdays", icon: Cake, title: { en: "Famous Birthdays", "zh-hk": "名人出生日", "zh-cn": "名人出生日", es: "Cumpleaños famosos" }, description: { en: "Discover famous people born on any date throughout history.", "zh-hk": "睇下歷史入面邊啲名人生日係同一日。", "zh-cn": "发现历史上任何一天出生的名人。", es: "Descubre personas famosas nacidas en cualquier fecha." } },
   { category: "games", href: "/minesweeper", icon: Grid3X3, title: { en: "Minesweeper", "zh-hk": "掃雷", "zh-cn": "扫雷", es: "Minesweeper" }, description: { en: "Play a classic game of Minesweeper.", "zh-hk": "玩經典掃雷遊戲。", "zh-cn": "玩经典扫雷游戏。", es: "Juega al clásico juego de Minesweeper." } },
+  { category: "tools", href: "/qr-code-generator", icon: QrCode, title: { en: "QR Code Generator", "zh-hk": "QR 碼產生器", "zh-cn": "二维码生成器", es: "Generador de códigos QR" }, description: { en: "Create a QR code from any text or URL. Free, no sign-up.", "zh-hk": "將任何文字或網址變成 QR 碼。免費、唔使註冊。", "zh-cn": "将任何文字或网址变成二维码。免费、不用注册。", es: "Crea un código QR desde cualquier texto o URL. Gratis, sin registro." } },
+  { category: "tools", href: "/password-generator", icon: KeyRound, title: { en: "Password Generator", "zh-hk": "密碼產生器", "zh-cn": "密码生成器", es: "Generador de contraseñas" }, description: { en: "Generate strong, random passwords of any length.", "zh-hk": "產生任何長度嘅高強度隨機密碼。", "zh-cn": "生成任意长度的高强度随机密码。", es: "Genera contraseñas fuertes y aleatorias de cualquier longitud." } },
+  { category: "text", href: "/case-converter", icon: CaseSensitive, title: { en: "Case Converter", "zh-hk": "大小寫轉換器", "zh-cn": "大小写转换器", es: "Conversor de mayúsculas/minúsculas" }, description: { en: "Convert text to UPPERCASE, lowercase, Title Case, and more.", "zh-hk": "將文字轉做大寫、細寫、標題格式等等。", "zh-cn": "将文字转为大写、小写、标题格式等。", es: "Convierte texto a MAYÚSCULAS, minúsculas, Título y más." } },
+  { category: "text", href: "/json-formatter", icon: Braces, title: { en: "JSON Formatter / Validator", "zh-hk": "JSON 格式化／驗證器", "zh-cn": "JSON 格式化/验证器", es: "Formateador / validador JSON" }, description: { en: "Format, validate, and beautify JSON instantly in your browser.", "zh-hk": "喺瀏覽器即時格式化、驗證同美化 JSON。", "zh-cn": "在浏览器即时格式化、验证和美化 JSON。", es: "Formatea, valida y embellece JSON al instante en tu navegador." } },
+  { category: "calculators", href: "/tip-calculator", icon: Calculator, title: { en: "Tip Calculator", "zh-hk": "貼士計算機", "zh-cn": "小费计算器", es: "Calculadora de propinas" }, description: { en: "Calculate the tip and split the bill for any group size.", "zh-hk": "計貼士同夾錢，啱任何人數。", "zh-cn": "计算小费并按人数分摊账单。", es: "Calcula la propina y divide la cuenta para cualquier grupo." } },
+  { category: "calculators", href: "/discount-calculator", icon: Tag, title: { en: "Discount Calculator", "zh-hk": "折扣計算機", "zh-cn": "折扣计算器", es: "Calculadora de descuentos" }, description: { en: "Work out the sale price and how much you save from any discount.", "zh-hk": "計折扣後嘅售價同慳到幾多。", "zh-cn": "计算折扣后的售价和省下的金额。", es: "Calcula el precio final y cuánto ahorras con cualquier descuento." } },
 ];
 
 const SITE_URL = "https://www.tinytoolboxes.com";
@@ -383,13 +388,13 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 const GROUPS: Array<{ id: string; title: Record<LocaleKey, string>; items: string[] }> = [
-  { id: "calculators", title: { en: "Calculators", "zh-hk": "計算器", "zh-cn": "计算器", es: "Calculadoras" }, items: ["/age-calculator", "/date-difference-calculator", "/business-day-calculator", "/volumetric-weight-calculator", "/loan-calculator", "/percentage-calculator", "/invoice-due-date-calculator"] },
+  { id: "calculators", title: { en: "Calculators", "zh-hk": "計算器", "zh-cn": "计算器", es: "Calculadoras" }, items: ["/age-calculator", "/date-difference-calculator", "/business-day-calculator", "/volumetric-weight-calculator", "/loan-calculator", "/percentage-calculator", "/invoice-due-date-calculator", "/tip-calculator", "/discount-calculator"] },
   { id: "converters", title: { en: "Converters", "zh-hk": "轉換器", "zh-cn": "转换器", es: "Conversores" }, items: ["/currency-converter", "/unit-converter", "/time-zone-converter", "/url-encoder-decoder"] },
   { id: "health", title: { en: "Health", "zh-hk": "健康", "zh-cn": "健康", es: "Salud" }, items: ["/bmi-calculator", "/calorie-calculator"] },
   { id: "finance", title: { en: "Finance", "zh-hk": "財務", "zh-cn": "财务", es: "Finanzas" }, items: ["/mortgage-calculator-australia"] },
   { id: "pets", title: { en: "Pets", "zh-hk": "寵物", "zh-cn": "宠物", es: "Mascotas" }, items: ["/dog-age-calculator", "/cat-age-calculator", "/pet-calorie-calculator", "/can-my-dog-eat", "/chocolate-toxicity-calculator", "/xylitol-toxicity-calculator", "/lily-toxicity-checker"] },
-  { id: "text", title: { en: "Text & Language", "zh-hk": "文字及語言", "zh-cn": "文字和语言", es: "Texto e idioma" }, items: ["/word-counter", "/rhyme-zone"] },
-  { id: "tools", title: { en: "Tools", "zh-hk": "工具", "zh-cn": "工具", es: "Herramientas" }, items: ["/wheel-spinner", "/famous-birthdays"] },
+  { id: "text", title: { en: "Text & Language", "zh-hk": "文字及語言", "zh-cn": "文字和语言", es: "Texto e idioma" }, items: ["/word-counter", "/rhyme-zone", "/case-converter", "/json-formatter"] },
+  { id: "tools", title: { en: "Tools", "zh-hk": "工具", "zh-cn": "工具", es: "Herramientas" }, items: ["/wheel-spinner", "/famous-birthdays", "/qr-code-generator", "/password-generator"] },
   { id: "games", title: { en: "Games", "zh-hk": "遊戲", "zh-cn": "游戏", es: "Juegos" }, items: ["/minesweeper"] },
 ];
 
