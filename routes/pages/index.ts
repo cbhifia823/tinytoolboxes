@@ -6,6 +6,10 @@ export interface PageRouteConfig {
 }
 
 export const pageRoutes: Record<string, PageRouteConfig> = {
+  "/case-converter": {
+    component: lazy(() => import("./case-converter")),
+    public: true,
+  },
   "/": {
     component: lazy(() => import("./_home")),
     public: true,
@@ -26,6 +30,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./date-difference-calculator")),
     public: true,
   },
+    "/discount-calculator": {
+    component: lazy(() => import("./discount-calculator")),
+    public: true,
+  },
   "/dhl-dimensional-weight-calculator": {
     component: lazy(() => import("./dhl-dimensional-weight-calculator")),
     public: true,
@@ -36,6 +44,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
   },
   "/invoice-due-date-calculator": {
     component: lazy(() => import("./invoice-due-date-calculator")),
+    public: true,
+  },
+    "/json-formatter": {
+    component: lazy(() => import("./json-formatter")),
     public: true,
   },
   "/loan-calculator": {
@@ -56,6 +68,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
   },
   "/unit-converter": {
     component: lazy(() => import("./unit-converter")),
+    public: true,
+  },
+  "/tip-calculator": {
+    component: lazy(() => import("./tip-calculator")),
     public: true,
   },
   "/ups-dimensional-weight-calculator": {
@@ -118,6 +134,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./famous-birthdays")),
     public: true,
   },
+  "/password-generator": {
+    component: lazy(() => import("./password-generator")),
+    public: true,
+  },
   "/wheel-spinner": {
     component: lazy(() => import("./wheel-spinner")),
     public: true,
@@ -156,6 +176,10 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
   },
   "/pet-body-condition-score": {
     component: lazy(() => import("./pet-body-condition-score")),
+    public: true,
+  },
+  "/qr-code-generator": {
+    component: lazy(() => import("./qr-code-generator")),
     public: true,
   },
 };
