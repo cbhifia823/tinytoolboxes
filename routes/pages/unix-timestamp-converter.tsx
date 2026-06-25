@@ -236,11 +236,6 @@ export default function UnixTimestampConverter() {
               </label>
               <div className="mt-4 grid gap-2">{filteredTools.map((t) => <a key={t.href} href={t.href} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><p className="text-sm font-medium text-white">{t.title[locale]}</p><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></a>)}</div>
             </section>
-
-            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p><p className="mt-1 text-sm text-white/55">Google Ads space reserved</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span></div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5">
