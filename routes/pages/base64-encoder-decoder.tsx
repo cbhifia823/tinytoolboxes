@@ -1,26 +1,71 @@
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BadgeDollarSign, Binary, Copy, Search } from "lucide-react";
+import { ArrowRight, Binary, Copy, Search } from "lucide-react";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
-const LANGUAGES: Record<LocaleKey, any> = {
-  en: { name: "English", title: "Base64 Encoder / Decoder", subtitle: "Encode text to Base64 or decode Base64 back to text instantly. UTF-8 safe, runs entirely in your browser.", searchLabel: "Search tools", searchPlaceholder: "Try: url, json, password, qr", inputLabel: "Text or Base64", encodedLabel: "Base64 encoded", decodedLabel: "Decoded text", copyBtn: "Copy", copiedBtn: "Copied!", invalid: "Not valid Base64", articleTitle: "What Is Base64 Encoding?", articleBody: "Base64 is a way of representing binary data using 64 printable ASCII characters. It is widely used to embed images in CSS or HTML, send attachments by email, store data in JSON or URLs, and transmit credentials in HTTP headers. Encoding is reversible and lossless — it is not encryption, so never use it to hide secrets. This tool encodes and decodes simultaneously and handles full UTF-8 text including emoji and accented characters.", reserveAd: "Google Ads space reserved", reserveAdSub: "Drop your AdSense code here later." },
-  "zh-hk": { name: "繁體中文", title: "Base64 編碼／解碼器", subtitle: "即時將文字編碼成 Base64，或者將 Base64 解碼返做文字。支援 UTF-8，全程喺你瀏覽器運行。", searchLabel: "搜尋工具", searchPlaceholder: "試下：URL、JSON、密碼、QR", inputLabel: "文字或 Base64", encodedLabel: "Base64 編碼", decodedLabel: "解碼文字", copyBtn: "複製", copiedBtn: "已複製！", invalid: "唔係有效嘅 Base64", articleTitle: "咩係 Base64 編碼？", articleBody: "Base64 係用 64 個可列印 ASCII 字元嚟表示二進位資料嘅方法。常用嚟喺 CSS 或 HTML 嵌入圖片、用電郵傳送附件、喺 JSON 或網址儲存資料、或者喺 HTTP header 傳送認證資料。編碼係可逆同無損嘅——佢唔係加密，所以唔好用嚟收埋秘密。呢個工具會同時編碼同解碼，並支援完整 UTF-8 文字，包括 emoji 同有腔調嘅字母。", reserveAd: "預留 Google 廣告位", reserveAdSub: "之後可直接放 AdSense 程式碼。" },
-  "zh-cn": { name: "简体中文", title: "Base64 编码/解码器", subtitle: "即时将文字编码为 Base64，或将 Base64 解码回文字。支持 UTF-8，全程在你的浏览器运行。", searchLabel: "搜索工具", searchPlaceholder: "试试：URL、JSON、密码、QR", inputLabel: "文字或 Base64", encodedLabel: "Base64 编码", decodedLabel: "解码文字", copyBtn: "复制", copiedBtn: "已复制！", invalid: "不是有效的 Base64", articleTitle: "什么是 Base64 编码？", articleBody: "Base64 是用 64 个可打印 ASCII 字符来表示二进制数据的方法。常用于在 CSS 或 HTML 嵌入图片、通过电子邮件发送附件、在 JSON 或网址中存储数据、或在 HTTP header 中传送认证信息。编码是可逆且无损的——它不是加密，所以不要用来隐藏机密。此工具会同时编码和解码，并支持完整 UTF-8 文字，包括 emoji 和带变音符的字母。", reserveAd: "预留 Google 广告位", reserveAdSub: "之后可直接放 AdSense 代码。" },
-  es: { name: "Español", title: "Codificador / decodificador Base64", subtitle: "Codifica texto a Base64 o decodifica Base64 a texto al instante. Compatible con UTF-8, se ejecuta por completo en tu navegador.", searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: url, json, password, qr", inputLabel: "Texto o Base64", encodedLabel: "Codificado en Base64", decodedLabel: "Texto decodificado", copyBtn: "Copiar", copiedBtn: "¡Copiado!", invalid: "Base64 no válido", articleTitle: "¿Qué es la codificación Base64?", articleBody: "Base64 es una forma de representar datos binarios usando 64 caracteres ASCII imprimibles. Se usa mucho para incrustar imágenes en CSS o HTML, enviar adjuntos por correo, almacenar datos en JSON o URLs y transmitir credenciales en cabeceras HTTP. La codificación es reversible y sin pérdidas — no es cifrado, así que nunca la uses para ocultar secretos. Esta herramienta codifica y decodifica a la vez y admite texto UTF-8 completo, incluidos emojis y letras acentuadas.", reserveAd: "Espacio reservado para Google Ads", reserveAdSub: "Puedes insertar AdSense aquí más adelante." },
+const LANGUAGES: Record<LocaleKey, {
+  name: string; title: string; subtitle: string;
+  inputLabel: string; outputLabel: string;
+  encode: string; decode: string; copy: string; copied: string;
+  searchLabel: string; searchPlaceholder: string;
+  useCasesTitle: string; useCasesSubtitle: string; useCases: string[];
+  suggestionsTitle: string; suggestionsSubtitle: string; suggestions: string[];
+}> = {
+  en: {
+    name: "English", title: "Base64 Encoder / Decoder", subtitle: "Encode text to Base64 or decode Base64 back to plain text. Free, no sign-up.",
+    inputLabel: "Input", outputLabel: "Output",
+    encode: "Encode", decode: "Decode", copy: "Copy", copied: "Copied!",
+    searchLabel: "Search tools", searchPlaceholder: "Try: json, timestamp, password, qr",
+    useCasesTitle: "Use cases", useCasesSubtitle: "Where Base64 encoding is used.",
+    useCases: ["Embed images inline in HTML/CSS with data URIs.", "Encode API credentials for Basic Auth headers.", "Transfer binary data in JSON payloads."],
+    suggestionsTitle: "You may also like", suggestionsSubtitle: "Other developer tools.",
+    suggestions: ["JSON Formatter", "URL Encoder / Decoder", "QR Code Generator"],
+  },
+  "zh-hk": {
+    name: "繁體中文", title: "Base64 編碼／解碼器", subtitle: "將文字轉做 Base64 或將 Base64 還原。免費、唔使註冊。",
+    inputLabel: "輸入", outputLabel: "輸出",
+    encode: "編碼", decode: "解碼", copy: "複製", copied: "已複製！",
+    searchLabel: "搜尋工具", searchPlaceholder: "例如：json、timestamp、password、qr",
+    useCasesTitle: "使用情境", useCasesSubtitle: "Base64 編碼嘅常見用途。",
+    useCases: ["喺 HTML/CSS 用 data URI 嵌入圖片。", "編碼 API 憑證做 Basic Auth。", "喺 JSON 入面傳送 binary 數據。"],
+    suggestionsTitle: "你可能會喜歡", suggestionsSubtitle: "其他開發者工具。",
+    suggestions: ["JSON 格式化", "URL 編碼／解碼", "QR 碼產生器"],
+  },
+  "zh-cn": {
+    name: "简体中文", title: "Base64 编码／解码器", subtitle: "将文字转为 Base64 或将 Base64 还原。免费、不用注册。",
+    inputLabel: "输入", outputLabel: "输出",
+    encode: "编码", decode: "解码", copy: "复制", copied: "已复制！",
+    searchLabel: "搜索工具", searchPlaceholder: "例如：json、timestamp、password、qr",
+    useCasesTitle: "使用场景", useCasesSubtitle: "Base64 编码的常见用途。",
+    useCases: ["在 HTML/CSS 用 data URI 嵌入图片。", "编码 API 凭证做 Basic Auth。", "在 JSON 中传送 binary 数据。"],
+    suggestionsTitle: "你可能会喜欢", suggestionsSubtitle: "其他开发者工具。",
+    suggestions: ["JSON 格式化", "URL 编码／解码", "二维码生成器"],
+  },
+  es: {
+    name: "Español", title: "Codificador Base64", subtitle: "Codifica texto a Base64 o decodifica de vuelta. Gratis, sin registro.",
+    inputLabel: "Entrada", outputLabel: "Salida",
+    encode: "Codificar", decode: "Decodificar", copy: "Copiar", copied: "¡Copiado!",
+    searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: json, timestamp, password, qr",
+    useCasesTitle: "Casos de uso", useCasesSubtitle: "Dónde se usa la codificación Base64.",
+    useCases: ["Insertar imágenes en HTML/CSS con data URIs.", "Codificar credenciales para Basic Auth.", "Transferir datos binarios en JSON."],
+    suggestionsTitle: "También te puede interesar", suggestionsSubtitle: "Otras herramientas para desarrolladores.",
+    suggestions: ["Formateador JSON", "Codificador URL", "Generador QR"],
+  },
 };
 
 const TOOLS = [
-  { title: { en: "URL Encoder / Decoder", "zh-hk": "URL 編解碼", "zh-cn": "URL 编解码", es: "Codif/Decod URL" }, href: "/url-encoder-decoder", keywords: ["url","encode"] },
-  { title: { en: "JSON Formatter", "zh-hk": "JSON 格式化器", "zh-cn": "JSON 格式化器", es: "Formateador JSON" }, href: "/json-formatter", keywords: ["json"] },
-  { title: { en: "Password Generator", "zh-hk": "密碼生成器", "zh-cn": "密码生成器", es: "Generador de contraseñas" }, href: "/password-generator", keywords: ["password"] },
-  { title: { en: "QR Code Generator", "zh-hk": "QR 碼生成器", "zh-cn": "二维码生成器", es: "Generador QR" }, href: "/qr-code-generator", keywords: ["qr"] },
+  { title: { en: "JSON Formatter", "zh-hk": "JSON 格式化", "zh-cn": "JSON 格式化", es: "Formateador JSON" }, href: "/json-formatter", keywords: ["json"] },
+  { title: { en: "Unix Timestamp Converter", "zh-hk": "Unix 時間戳轉換器", "zh-cn": "Unix 时间戳转换器", es: "Conversor timestamp Unix" }, href: "/unix-timestamp-converter", keywords: ["timestamp", "unix"] },
+  { title: { en: "Color Palette Generator", "zh-hk": "調色板產生器", "zh-cn": "调色板生成器", es: "Generador de paletas" }, href: "/color-palette-generator", keywords: ["color", "palette"] },
+  { title: { en: "Meta Tag Preview", "zh-hk": "Meta Tag 預覽", "zh-cn": "Meta 标签预览", es: "Vista previa meta tags" }, href: "/meta-tag-preview", keywords: ["meta", "seo"] },
+  { title: { en: "Password Generator", "zh-hk": "密碼產生器", "zh-cn": "密码生成器", es: "Generador de contraseñas" }, href: "/password-generator", keywords: ["password"] },
+  { title: { en: "QR Code Generator", "zh-hk": "QR 碼產生器", "zh-cn": "二维码生成器", es: "Generador QR" }, href: "/qr-code-generator", keywords: ["qr"] },
 ];
 
 const SITE_URL = "https://www.tinytoolboxes.com";
 const PAGE_PATH = "/base64-encoder-decoder";
 
-function applySEO(o: { title: string; description: string; path: string; jsonLd?: object | object[] }) {
+function applySEO(o: { title: string; description: string; path: string }) {
   if (typeof document === "undefined") return;
   const url = SITE_URL + o.path;
   document.title = o.title;
@@ -30,55 +75,87 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
     if (!el) { el = mk(); head.appendChild(el); }
     el.setAttribute(attr, val);
   };
-  const meta = (name: string, content: string) => upsert('meta[name="'+name+'"]', () => { const m = document.createElement("meta"); m.setAttribute("name", name); return m; }, "content", content);
-  const prop = (p: string, content: string) => upsert('meta[property="'+p+'"]', () => { const m = document.createElement("meta"); m.setAttribute("property", p); return m; }, "content", content);
+  const meta = (name: string, content: string) => upsert(`meta[name="${name}"]`, () => { const m = document.createElement("meta"); m.setAttribute("name", name); return m; }, "content", content);
+  const prop = (p: string, content: string) => upsert(`meta[property="${p}"]`, () => { const m = document.createElement("meta"); m.setAttribute("property", p); return m; }, "content", content);
   meta("description", o.description);
   upsert('link[rel="canonical"]', () => { const l = document.createElement("link"); l.setAttribute("rel", "canonical"); return l; }, "href", url);
   prop("og:title", o.title); prop("og:description", o.description); prop("og:url", url); prop("og:type", "website"); prop("og:site_name", "TinyToolboxes");
   meta("twitter:card", "summary"); meta("twitter:title", o.title); meta("twitter:description", o.description);
   const old = head.querySelectorAll('script[type="application/ld+json"][data-ttb]');
   old.forEach((n) => n.remove());
-  if (o.jsonLd) { const arr = Array.isArray(o.jsonLd) ? o.jsonLd : [o.jsonLd]; arr.forEach((data) => { const s = document.createElement("script"); s.setAttribute("type", "application/ld+json"); s.setAttribute("data-ttb", ""); s.textContent = JSON.stringify(data); head.appendChild(s); }); }
+  const data = { "@context": "https://schema.org", "@type": "WebApplication", name: o.title, url, description: o.description, applicationCategory: "DeveloperApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } };
+  const s = document.createElement("script"); s.setAttribute("type", "application/ld+json"); s.setAttribute("data-ttb", ""); s.textContent = JSON.stringify(data); head.appendChild(s);
 }
 
-const encodeB64 = (s: string) => { try { return btoa(unescape(encodeURIComponent(s))); } catch { return ""; } };
-const decodeB64 = (s: string) => { try { return decodeURIComponent(escape(atob(s.trim()))); } catch { return null; } };
-
 export default function Base64EncoderDecoder() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
-  const [input, setInput] = useState("Hello, TinyToolboxes! 👋");
+  const [locale, setLocale] = useState<LocaleKey>(() => {
+    if (typeof window === "undefined") return "en";
+    const saved = window.localStorage.getItem("ttb-locale") as LocaleKey | null;
+    return saved && LANGUAGES[saved] ? saved : "en";
+  });
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
+  const [copied, setCopied] = useState(false);
   const [search, setSearch] = useState("");
-  const [copied, setCopied] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    document.documentElement.lang = locale === "zh-hk" ? "zh-Hant-HK" : locale === "zh-cn" ? "zh-Hans-CN" : locale;
     window.localStorage.setItem("ttb-locale", locale);
+    document.documentElement.lang = locale;
     const L = LANGUAGES[locale];
-    applySEO({ title: L.title + " | TinyToolboxes", description: L.subtitle, path: PAGE_PATH, jsonLd: { "@context": "https://schema.org", "@type": "WebApplication", name: L.title, url: SITE_URL + PAGE_PATH, description: L.subtitle, applicationCategory: "DeveloperApplication", operatingSystem: "Web", offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }, publisher: { "@type": "Organization", name: "TinyToolboxes", url: SITE_URL } } });
+    applySEO({ title: `${L.title} | TinyToolboxes`, description: L.subtitle, path: PAGE_PATH });
   }, [locale]);
 
-  const copyText = async (text: string, key: string) => {
-    await navigator.clipboard.writeText(text);
-    setCopied((prev) => ({ ...prev, [key]: true }));
-    setTimeout(() => setCopied((prev) => ({ ...prev, [key]: false })), 1500);
+  const content = LANGUAGES[locale];
+  const filteredTools = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return TOOLS;
+    return TOOLS.filter((t) => `${t.title[locale]} ${t.keywords.join(" ")}`.toLowerCase().includes(q));
+  }, [search]);
+
+  const encode = () => {
+    try {
+      setOutput(btoa(unescape(encodeURIComponent(input))));
+    } catch {
+      setOutput("Error: invalid input for Base64 encoding");
+    }
   };
 
-  const encoded = useMemo(() => encodeB64(input), [input]);
-  const decoded = useMemo(() => decodeB64(input), [input]);
+  const decode = () => {
+    try {
+      setOutput(decodeURIComponent(escape(atob(input.trim()))));
+    } catch {
+      setOutput("Error: invalid Base64 string");
+    }
+  };
 
-  const content = LANGUAGES[locale];
-  const hints = locale === "zh-hk" ? ["URL", "JSON", "密碼", "QR"] : locale === "zh-cn" ? ["URL", "JSON", "密码", "二维码"] : ["url", "json", "password", "qr"];
-  const filteredTools = useMemo(() => { const q = search.trim().toLowerCase(); if (!q) return TOOLS; return TOOLS.filter((t) => (t.title[locale] + " " + t.keywords.join(" ")).toLowerCase().includes(q)); }, [search, locale]);
+  const copyOutput = async () => {
+    if (!output) return;
+    await navigator.clipboard.writeText(output);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-50">
+      <header className="sticky top-0 z-30 border-b border-white/10 bg-[#071018]/85 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
+          <a href="/" className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-emerald-300 to-cyan-300 text-sm font-black text-slate-950 shadow-lg shadow-emerald-900/30">TT</span>
+            <div>
+              <div className="flex items-center gap-2"><span className="text-base font-semibold tracking-wide text-white">TinyToolboxes</span><span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2 py-0.5 text-[11px] uppercase tracking-[0.18em] text-emerald-200">Collection</span></div>
+              <p className="text-sm text-white/50">Boring, useful, searchable.</p>
+            </div>
+          </a>
+          <div className="flex flex-wrap items-center gap-2">{(Object.keys(LANGUAGES) as LocaleKey[]).map((key) => <button key={key} onClick={() => setLocale(key)} className={`rounded-full border px-3 py-1 text-xs font-medium transition ${locale === key ? "border-emerald-300/60 bg-emerald-300/15 text-emerald-100" : "border-white/10 bg-white/5 text-white/65 hover:border-emerald-300/30 hover:text-white"}`}>{LANGUAGES[key].name}</button>)}</div>
+        </div>
+      </header>
+
       <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-10 lg:px-8">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-400/15 ring-1 ring-emerald-300/20"><Binary className="h-5 w-5 text-emerald-300" /></div>
             <div><p className="text-sm uppercase tracking-[0.3em] text-emerald-300/80">TinyToolboxes</p><h1 className="text-xl font-semibold">{content.title}</h1></div>
           </div>
-          <div className="flex flex-wrap gap-2">{(Object.keys(LANGUAGES) as LocaleKey[]).map((key) => <button key={key} onClick={() => setLocale(key)} className={`rounded-full border px-3 py-2 text-sm transition ${locale === key ? "border-emerald-400/70 bg-emerald-400/15 text-emerald-200" : "border-white/10 bg-white/5 text-white/70 hover:bg-white/10"}`}>{LANGUAGES[key].name}</button>)}</div>
         </div>
 
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
@@ -88,50 +165,58 @@ export default function Base64EncoderDecoder() {
             </div>
 
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 space-y-5">
-              <label className="block space-y-2"><span className="text-sm text-neutral-300">{content.inputLabel}</span>
-                <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={4} className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white outline-none focus:border-emerald-400/60" />
-              </label>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-emerald-400/20 bg-emerald-400/5 p-4">
-                  <div className="flex items-center justify-between gap-2 mb-2"><span className="text-xs uppercase tracking-[0.15em] text-white/55">{content.encodedLabel}</span>
-                    <button onClick={() => copyText(encoded, "enc")} className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/65 hover:bg-white/10 transition"><Copy className="h-3 w-3" />{copied.enc ? content.copiedBtn : content.copyBtn}</button>
-                  </div>
-                  <p className="text-sm text-white/85 break-all font-mono">{encoded}</p>
-                </div>
-                <div className="rounded-2xl border border-blue-400/20 bg-blue-400/5 p-4">
-                  <div className="flex items-center justify-between gap-2 mb-2"><span className="text-xs uppercase tracking-[0.15em] text-white/55">{content.decodedLabel}</span>
-                    {decoded !== null && <button onClick={() => copyText(decoded, "dec")} className="flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/65 hover:bg-white/10 transition"><Copy className="h-3 w-3" />{copied.dec ? content.copiedBtn : content.copyBtn}</button>}
-                  </div>
-                  <p className={"text-sm break-all " + (decoded === null ? "text-red-400" : "text-white/85 font-mono")}>{decoded === null ? content.invalid : decoded}</p>
+              <div className="space-y-3">
+                <label className="block space-y-2">
+                  <span className="text-sm text-neutral-300">{content.inputLabel}</span>
+                  <textarea value={input} onChange={(e) => setInput(e.target.value)} rows={4} className="w-full rounded-2xl border border-white/10 bg-black/30 p-4 text-sm text-white outline-none focus:border-emerald-400/60 resize-y" placeholder="Type or paste text here..." />
+                </label>
+                <div className="flex flex-wrap gap-3">
+                  <button onClick={encode} className="rounded-xl bg-emerald-500/20 border border-emerald-400/30 px-5 py-2.5 text-sm font-medium text-emerald-200 transition hover:bg-emerald-500/30">{content.encode}</button>
+                  <button onClick={decode} className="rounded-xl bg-white/5 border border-white/10 px-5 py-2.5 text-sm font-medium text-white/70 transition hover:bg-white/10">{content.decode}</button>
                 </div>
               </div>
-            </div>
 
-            <article className="space-y-3 rounded-3xl border border-white/10 bg-white/5 p-6 text-white/80">
-              <h2 className="text-2xl font-bold text-white">{content.articleTitle}</h2>
-              <p className="leading-7">{content.articleBody}</p>
-            </article>
+              {output && (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-neutral-300">{content.outputLabel}</span>
+                    <button onClick={copyOutput} className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white/70 transition hover:bg-white/10">
+                      <Copy className="h-3.5 w-3.5" />{copied ? content.copied : content.copy}
+                    </button>
+                  </div>
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-4 max-h-64 overflow-auto">
+                    <pre className="text-sm text-white whitespace-pre-wrap break-all font-mono">{output}</pre>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <section className="rounded-3xl border border-white/10 bg-black/20 p-4">
               <label className="block space-y-2"><span className="text-sm font-medium text-white/80">{content.searchLabel}</span>
                 <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3"><Search className="h-4 w-4 text-emerald-300" /><input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={content.searchPlaceholder} className="w-full bg-transparent text-sm text-white placeholder:text-white/35 outline-none" /></div>
               </label>
-              <div className="mt-3 flex flex-wrap gap-2">{hints.map((h) => <button key={h} type="button" onClick={() => setSearch(h)} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70 hover:bg-white/10 transition">{h}</button>)}</div>
-              <div className="mt-4 grid gap-2">{filteredTools.map((t) => <button key={t.href} type="button" onClick={() => (window.location.href = t.href)} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></button>)}</div>
+              <div className="mt-4 grid gap-2">{filteredTools.map((t) => <a key={t.href} href={t.href} className="flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left hover:border-emerald-300/30 hover:bg-white/10 transition"><div><p className="text-sm font-medium text-white">{t.title[locale]}</p></div><ArrowRight className="h-4 w-4 shrink-0 text-white/35" /></a>)}</div>
+            </section>
+
+            <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
+              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p><p className="mt-1 text-sm text-white/55">Google Ads space reserved</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span></div>
+              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
             </section>
           </div>
 
           <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-5">
-            <div className="flex items-center gap-3"><div className="rounded-2xl bg-white/10 p-3"><Binary className="h-5 w-5" /></div><div><h2 className="text-lg font-semibold">Common uses</h2><p className="text-sm text-neutral-300">Encode and decode at once.</p></div></div>
+            <div className="flex items-center gap-3"><div className="rounded-2xl bg-white/10 p-3"><Binary className="h-5 w-5" /></div><div><h2 className="text-lg font-semibold">{content.useCasesTitle}</h2><p className="text-sm text-neutral-300">{content.useCasesSubtitle}</p></div></div>
             <div className="space-y-3 text-sm text-neutral-300">
-              <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Embed images and fonts as data URIs.</p>
-              <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Decode JWT and HTTP Basic Auth strings.</p>
-              <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Store binary data safely inside JSON.</p>
-              <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Inspect Base64 payloads from APIs.</p>
+              {content.useCases.map((item) => <p key={item} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">{item}</p>)}
             </div>
-            <div className="rounded-2xl border border-dashed border-white/15 bg-black/20 p-4">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-200"><BadgeDollarSign className="h-3.5 w-3.5" />{content.reserveAd}</div>
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span></div>
+            <hr className="border-white/10" />
+            <h2 className="text-lg font-semibold">{content.suggestionsTitle}</h2>
+            <p className="text-sm text-neutral-300">{content.suggestionsSubtitle}</p>
+            <div className="space-y-2">
+              {content.suggestions.map((name) => {
+                const match = TOOLS.find((t) => t.title[locale] === name);
+                return match ? <a key={name} href={match.href} className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80 transition hover:bg-white/10"><span>{name}</span><ArrowRight className="h-4 w-4 text-white/35" /></a> : null;
+              })}
             </div>
           </aside>
         </div>

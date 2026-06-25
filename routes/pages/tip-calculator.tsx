@@ -6,7 +6,6 @@ type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 const LANGUAGES: Record<LocaleKey, {
   name: string; title: string; subtitle: string;
   searchLabel: string; searchPlaceholder: string;
-  reserveAd: string; reserveAdSub: string;
   billLabel: string; tipLabel: string; peopleLabel: string;
   customTip: string; tipPerPerson: string; totalPerPerson: string;
   totalBill: string; totalTip: string;
@@ -16,7 +15,6 @@ const LANGUAGES: Record<LocaleKey, {
   en: {
     name: "English", title: "Tip Calculator", subtitle: "Split a restaurant bill fairly with tip and any number of people.",
     searchLabel: "Search tools", searchPlaceholder: "Try: percent, loan, currency, unit",
-    reserveAd: "Google Ads space reserved", reserveAdSub: "Drop your AdSense code here later.",
     billLabel: "Bill amount", tipLabel: "Tip %", peopleLabel: "Number of people",
     customTip: "Custom", tipPerPerson: "Tip per person", totalPerPerson: "Total per person",
     totalBill: "Total bill", totalTip: "Total tip",
@@ -27,7 +25,6 @@ const LANGUAGES: Record<LocaleKey, {
   "zh-hk": {
     name: "繁體中文", title: "貼士計算機", subtitle: "公平攤分帳單，支援小費同任何人數。",
     searchLabel: "搜尋工具", searchPlaceholder: "例如：百分比、貸款、貨幣、單位",
-    reserveAd: "預留 Google 廣告位", reserveAdSub: "之後可直接放 AdSense 程式碼。",
     billLabel: "帳單金額", tipLabel: "貼士 %", peopleLabel: "人數",
     customTip: "自訂", tipPerPerson: "每人貼士", totalPerPerson: "每人總數",
     totalBill: "總帳單", totalTip: "總貼士",
@@ -38,7 +35,6 @@ const LANGUAGES: Record<LocaleKey, {
   "zh-cn": {
     name: "简体中文", title: "小费计算器", subtitle: "公平分摊账单，支持小费和任意人数。",
     searchLabel: "搜索工具", searchPlaceholder: "例如：百分比、贷款、货币、单位",
-    reserveAd: "预留 Google 广告位", reserveAdSub: "之后可直接放 AdSense 代码。",
     billLabel: "账单金额", tipLabel: "小费 %", peopleLabel: "人数",
     customTip: "自定义", tipPerPerson: "每人小费", totalPerPerson: "每人总数",
     totalBill: "总账单", totalTip: "总小费",
@@ -49,7 +45,6 @@ const LANGUAGES: Record<LocaleKey, {
   es: {
     name: "Español", title: "Calculadora de propinas", subtitle: "Divide una cuenta de forma justa con propina y cualquier número de personas.",
     searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: percent, loan, currency",
-    reserveAd: "Espacio reservado para Google Ads", reserveAdSub: "Puedes insertar AdSense aquí más adelante.",
     billLabel: "Total de la cuenta", tipLabel: "Propina %", peopleLabel: "Número de personas",
     customTip: "Personalizado", tipPerPerson: "Propina por persona", totalPerPerson: "Total por persona",
     totalBill: "Total factura", totalTip: "Propina total",

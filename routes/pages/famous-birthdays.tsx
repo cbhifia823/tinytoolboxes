@@ -11,8 +11,6 @@ const LANGUAGES: Record<LocaleKey, {
   searchPlaceholder: string;
   dateLabel: string;
   resultLabel: string;
-  reserveAd: string;
-  reserveAdSub: string;
   introTitle: string;
   introBody: string;
   useCasesTitle: string;
@@ -28,8 +26,6 @@ const LANGUAGES: Record<LocaleKey, {
     searchPlaceholder: "Try: age, weight, date, url",
     dateLabel: "Date",
     resultLabel: "People born on this day",
-    reserveAd: "Google Ads space reserved",
-    reserveAdSub: "Drop your AdSense code here later without changing the layout.",
     introTitle: "What this page does",
     introBody: "Enter any date and see a curated list of famous people born on that day. It is a simple, boredom-proof page that fits the TinyToolboxes model very well.",
     useCasesTitle: "Use cases",
@@ -45,8 +41,6 @@ const LANGUAGES: Record<LocaleKey, {
     searchPlaceholder: "例如：年齡、體積重量、日期、URL",
     dateLabel: "日期",
     resultLabel: "當日出生嘅名人",
-    reserveAd: "預留 Google 廣告位",
-    reserveAdSub: "之後可直接放 AdSense 程式碼，版面唔使改。",
     introTitle: "呢頁做乜",
     introBody: "輸入任何一日，就可以見到一個精選名單，列出歷史上喺嗰日出生嘅名人。簡單、無聊、又幾實用。",
     useCasesTitle: "用途",
@@ -62,8 +56,6 @@ const LANGUAGES: Record<LocaleKey, {
     searchPlaceholder: "例如：年龄、体积重量、日期、URL",
     dateLabel: "日期",
     resultLabel: "当日出生的名人",
-    reserveAd: "预留 Google 广告位",
-    reserveAdSub: "之后可直接放 AdSense 代码，不用改版面。",
     introTitle: "这个页面做什么",
     introBody: "输入任意日期，就能看到一份精选名单，列出历史上在这一天出生的名人。简单、无聊、但很实用。",
     useCasesTitle: "用途",
@@ -79,8 +71,6 @@ const LANGUAGES: Record<LocaleKey, {
     searchPlaceholder: "Prueba: age, weight, date, url",
     dateLabel: "Fecha",
     resultLabel: "Personas nacidas en este día",
-    reserveAd: "Espacio reservado para Google Ads",
-    reserveAdSub: "Puedes insertar AdSense aquí más adelante sin cambiar el diseño.",
     introTitle: "Qué hace esta página",
     introBody: "Introduce cualquier fecha y verás una lista seleccionada de personas famosas nacidas ese día. Es una página simple y muy útil para búsquedas de curiosidad.",
     useCasesTitle: "Casos de uso",
