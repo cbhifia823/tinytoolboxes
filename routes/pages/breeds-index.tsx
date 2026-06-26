@@ -56,13 +56,6 @@ export default function BreedsIndex() {
             ))}
           </div>
         </div>
-        <section className="mt-6 rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-          <div className="flex items-center justify-between gap-4">
-            <p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p>
-            <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span>
-          </div>
-          <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-        </section>
         {loading ? (
           <div className="flex items-center justify-center py-20 text-white/60 gap-3"><Loader2 className="h-5 w-5 animate-spin" /><span>{t.loading}</span></div>
         ) : (
@@ -99,13 +92,6 @@ export default function BreedsIndex() {
               ))}
             </div>
             {filtered.length === 0 && <div className="py-20 text-center text-white/40"><Search className="h-10 w-10 mx-auto mb-3 opacity-30" /><p>No breeds found</p></div>}
-            <section className="mt-8 rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-              <div className="flex items-center justify-between gap-4">
-                <p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p>
-                <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span>
-              </div>
-              <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-            </section>
             <div className="mt-8 pt-8 border-t border-white/10 text-center">
               <p className="text-sm text-white/40 mb-4">Part of the <a href="https://www.tinytoolboxes.com" className="text-emerald-300 hover:underline">TinyToolboxes</a> free tools network</p>
               <div className="flex flex-wrap justify-center gap-3">

@@ -197,7 +197,6 @@ export default function FamousBirthdays() {
         <div className="grid flex-1 gap-8 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div className="space-y-8">
             <div className="max-w-3xl space-y-5">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-sm text-emerald-200"><BadgeDollarSign className="h-4 w-4" />{content.reserveAd}</div>
               <div className="space-y-4"><h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">{content.title}</h2><p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">{content.subtitle}</p></div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4"><p className="text-sm text-white/60">{content.introTitle}</p><p className="mt-2 text-base leading-7 text-white/80">{content.introBody}</p></div>
             </div>

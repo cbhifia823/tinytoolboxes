@@ -124,7 +124,7 @@ const PALETTES: Record<string, { name: Record<LocaleKey, string>; colors: string
 const TOOLS = [
   { title: { en: "JSON Formatter", "zh-hk": "JSON 格式化器", "zh-cn": "JSON 格式化器", es: "Formateador JSON" }, description: { en: "Format and validate JSON.", "zh-hk": "格式化同驗證 JSON。", "zh-cn": "格式化和验证 JSON。", es: "Formatea y valida JSON." }, href: "/json-formatter", keywords: ["json", "format"] },
   { title: { en: "QR Code Generator", "zh-hk": "QR 碼生成器", "zh-cn": "二维码生成器", es: "Generador de QR" }, description: { en: "Create QR codes instantly.", "zh-hk": "即時生成 QR 碼。", "zh-cn": "即时生成二维码。", es: "Crea códigos QR al instante." }, href: "/qr-code-generator", keywords: ["qr", "code"] },
-  { title: { en: "Base64 Encode/Decode", "zh-hk": "Base64 編碼／解碼", "zh-cn": "Base64 编码／解码", es: "Codificador Base64" }, description: { en: "Encode or decode Base64 strings.", "zh-hk": "編碼或解碼 Base64 字串。", "zh-cn": "编码或解码 Base64 字符串。", es: "Codifica o decodifica cadenas Base64." }, href: "/base64-encode-decode", keywords: ["base64", "encode", "decode"] },
+  { title: { en: "Base64 Encode/Decode", "zh-hk": "Base64 編碼／解碼", "zh-cn": "Base64 编码／解码", es: "Codificador Base64" }, description: { en: "Encode or decode Base64 strings.", "zh-hk": "編碼或解碼 Base64 字串。", "zh-cn": "编码或解码 Base64 字符串。", es: "Codifica o decodifica cadenas Base64." }, href: "/base64-encoder-decoder", keywords: ["base64", "encode", "decode"] },
   { title: { en: "Unix Timestamp Converter", "zh-hk": "Unix 時間戳轉換器", "zh-cn": "Unix 时间戳转换器", es: "Conversor de timestamp" }, description: { en: "Convert Unix timestamps to dates.", "zh-hk": "轉換 Unix 時間戳為日期。", "zh-cn": "转换 Unix 时间戳为日期。", es: "Convierte timestamps Unix a fechas." }, href: "/unix-timestamp-converter", keywords: ["unix", "timestamp"] },
   { title: { en: "Meta Tag Preview", "zh-hk": "Meta 標籤預覽器", "zh-cn": "Meta 标签预览器", es: "Preview de meta tags" }, description: { en: "Preview social media meta tags.", "zh-hk": "預覽社交媒體 meta 標籤。", "zh-cn": "预览社交媒体 meta 标签。", es: "Previsualiza meta tags para redes." }, href: "/meta-tag-preview", keywords: ["meta", "og", "twitter"] },
   { title: { en: "Password Generator", "zh-hk": "密碼生成器", "zh-cn": "密码生成器", es: "Generador de contraseñas" }, description: { en: "Generate strong passwords.", "zh-hk": "生成強密碼。", "zh-cn": "生成强密码。", es: "Genera contraseñas seguras." }, href: "/password-generator", keywords: ["password", "secure"] },
@@ -381,13 +381,6 @@ export default function ColorPaletteGenerator() {
             </div>
 
             <SearchBox locale={locale} value={search} onChange={setSearch} />
-
-            <section className="rounded-3xl border border-white/10 bg-white/5 p-5">
-              <p className="text-center text-xs uppercase tracking-[0.25em] text-white/30">{content.adText}</p>
-              <div className="mt-4 flex h-32 items-center justify-center rounded-2xl border border-white/10 bg-black/20">
-                <span className="text-sm text-white/25">{content.adText}</span>
-              </div>
-            </section>
           </div>
 
           <aside className="space-y-6">

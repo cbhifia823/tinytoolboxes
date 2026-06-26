@@ -136,10 +136,6 @@ export default function CaseConverter() {
               <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Create alternating case for styles and social media.</p>
               <p className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">Invert case to quickly fix caps lock mistakes.</p>
             </div>
-            <div className="rounded-2xl border border-dashed border-white/15 bg-black/20 p-4">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-200"><BadgeDollarSign className="h-3.5 w-3.5" />{content.reserveAd}</div>
-              <div className="flex items-center justify-between gap-4"><div><p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p><p className="mt-1 text-sm text-white/55">{content.reserveAdSub}</p></div><span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span></div>
-            </div>
           </aside>
         </div>
       </section>

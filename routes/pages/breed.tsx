@@ -268,13 +268,6 @@ export default function BreedPage() {
           {breed.hypoallergenic&&<span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300 flex items-center gap-1"><Sparkles className="h-3 w-3"/>{t.hypoallergenic}</span>}
         </div>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{name}</h1>
-        <section className="mt-6 rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-          <div className="flex items-center justify-between gap-4">
-            <p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p>
-            <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span>
-          </div>
-          <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-        </section>
       </div>
       <div className="grid gap-8 lg:grid-cols-[1fr_340px]">
         <div className="space-y-8">
@@ -313,13 +306,6 @@ export default function BreedPage() {
             <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3"><Search className="h-4 w-4 text-emerald-300 shrink-0"/><input value={search} onChange={e=>setSearch(e.target.value)} placeholder={t.searchPlaceholder} className="w-full bg-transparent text-sm text-white placeholder:text-white/35 outline-none"/></div>
             <div className="space-y-1 max-h-[360px] overflow-y-auto">{allList.map(([s,b])=>{const n=b.names[lang]||b.names.en;const isActive=s===slug;return <Link key={s} to={`/breed/${s}`} onClick={()=>setSearch("")} className={`flex items-center justify-between rounded-xl px-3 py-2.5 text-sm transition ${isActive?"bg-emerald-400/10 text-emerald-200":"text-white/60 hover:bg-white/5 hover:text-white/80"}`}><span className="flex items-center gap-2">{b.type==="dog"?<Dog className="h-3.5 w-3.5 text-amber-400/60"/>:<Cat className="h-3.5 w-3.5 text-sky-400/60"/>}{n}</span>{isActive&&<ChevronRight className="h-3.5 w-3.5"/>}</Link>;})}</div>
           </div>
-          <section className="rounded-3xl border border-dashed border-white/15 bg-white/5 p-5">
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-sm uppercase tracking-[0.28em] text-emerald-300/80">Advertisement</p>
-              <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/35">Reserved</span>
-            </div>
-            <div className="mt-4 min-h-[120px] rounded-2xl border border-white/10 bg-black/20" />
-          </section>
           <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
             <h3 className="text-sm font-semibold text-white mb-3">{t.relatedBreeds}</h3>
             <div className="space-y-1">{sameType.map(([s,b])=>{const n=b.names[lang]||b.names.en;return <Link key={s} to={`/breed/${s}`} className="flex items-center justify-between rounded-xl px-3 py-2.5 text-sm text-white/60 hover:bg-white/5 hover:text-white/80"><span>{n}</span><ChevronRight className="h-3.5 w-3.5 text-white/30"/></Link>;})}</div>
