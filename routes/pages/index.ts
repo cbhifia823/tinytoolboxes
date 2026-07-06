@@ -202,4 +202,8 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./meta-tag-preview")),
     public: true,
   },
+  "/mbti-test": {
+    component: lazy(() => import("./mbti-test")),
+    public: true,
+  },
 };
