@@ -291,31 +291,6 @@ function Header({ locale, setLocale }: { locale: string; setLocale: (v: any) => 
   );
 }
 
-function SearchPanel({ locale }: { locale: string }) {
-  const c = COPY[locale as keyof typeof COPY] ?? COPY.en;
-  const [query, setQuery] = useState("");
-  const filtered = ["weight", "date", "word", "url", "rhyme"].filter((hint) => hint.includes(query.toLowerCase()) || !query);
-  return (
-    <section className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.24)] backdrop-blur">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-sm font-medium text-emerald-300">{c.searchLabel}</p>
-          <p className="mt-1 text-sm text-white/60">{c.searchHint}</p>
-        </div>
-      </div>
-      <div className="mt-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
-        <Search className="h-4 w-4 text-emerald-300" />
-        <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder={c.searchPlaceholder} className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/35" />
-      </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {filtered.map((hint) => (
-          <button key={hint} onClick={() => setQuery(hint)} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75 hover:border-emerald-300/40 hover:bg-emerald-300/10">{hint}</button>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function labelFromTag(tag: string | null) {
   switch (tag) {
     case "n":
@@ -440,7 +415,66 @@ export default function RhymeZone() {
           <h1 className="mt-3 text-4xl font-black tracking-tight sm:text-5xl">{content.pageTitle}</h1>
           <p className="mt-3 max-w-3xl text-base leading-7 text-white/70">{content.hero}</p>
         </div>
-        <SearchPanel locale={locale} />
+        <div className="mt-5 rounded-3xl border border-white/10 bg-white/5 p-5 shadow-2xl shadow-black/30 backdrop-blur">
+          <div className="flex items-center gap-2">
+            <Wand2 className="h-4 w-4 text-emerald-300" />
+            <span className="text-sm font-medium text-emerald-300">Enter a word to find rhymes</span>
+          </div>
+          <div className="mt-4 flex items-center gap-3">
+            <div className="flex-1 flex items-center gap-3 rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
+              <Search className="h-4 w-4 text-emerald-300" />
+              <input
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") runSearch(); }}
+                placeholder="Type a word..."
+                className="w-full bg-transparent text-lg text-white outline-none placeholder:text-white/35"
+              />
+            </div>
+            <button
+              onClick={() => runSearch()}
+              disabled={loading || !query.trim()}
+              className="flex items-center gap-2 rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-black transition hover:bg-emerald-400 disabled:opacity-40"
+            >
+              {loading ? <LoaderCircle className="h-4 w-4 animate-spin" /> : null}
+              Find
+            </button>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {content.modes.map((m) => (
+              <button
+                key={m.id}
+                onClick={() => { setMode(m.id as Mode); }}
+                className={`rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                  mode === m.id
+                    ? "border-emerald-300/60 bg-emerald-300/15 text-emerald-100"
+                    : "border-white/10 bg-white/5 text-white/65 hover:border-emerald-300/30 hover:text-white"
+                }`}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-white/40">
+            {content.modes.find((m) => m.id === mode)?.helper}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="text-xs text-white/35 self-center mr-1">Try:</span>
+            {QUICK_PICKS.map((word) => (
+              <button
+                key={word}
+                onClick={() => { setQuery(word); runSearch(word, mode); }}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75 hover:border-emerald-300/40 hover:bg-emerald-300/10"
+              >
+                {word}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {error ? (
+          <div className="mt-5 rounded-2xl border border-red-400/20 bg-red-400/5 p-5 text-sm text-red-300">{error}</div>
+        ) : null}
 
         <div className="mt-5 space-y-3">
           {loading ? (
