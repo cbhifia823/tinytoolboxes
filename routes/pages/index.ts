@@ -202,4 +202,12 @@ export const pageRoutes: Record<string, PageRouteConfig> = {
     component: lazy(() => import("./meta-tag-preview")),
     public: true,
   },
+  "/uuid-generator": {
+    component: lazy(() => import("./uuid-generator")),
+    public: true,
+  },
+  "/lorem-ipsum-generator": {
+    component: lazy(() => import("./lorem-ipsum-generator")),
+    public: true,
+  },
 };
