@@ -26,7 +26,7 @@ interface BreedData {
 
 type BreedsMap = Record<string, BreedData>;
 
-const SITE_URL = "https://pets.tinytoolboxes.com";
+const SITE_URL = "https://www.tinytoolboxes.com";
 
 const UI: Record<string, Record<string, any>> = {
   en: {
