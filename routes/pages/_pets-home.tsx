@@ -179,7 +179,7 @@ const PET_TOOLS: PetTool[] = [
   { group: "fun", title: { en: "Cat Age in Human Years", "zh-hk": "貓貓年齡換算（人類年齡）", "zh-cn": "猫咪年龄换算（人类年龄）", es: "Edad de gato en años humanos" }, description: { en: "Feline life-stage chart based on AAFP/IOM guidelines.", "zh-hk": "根據 AAFP／IOM 貓科生命階段指引換算。", "zh-cn": "根据 AAFP／IOM 猫科生命阶段指引换算。", es: "Tabla de etapas de vida felina basada en las guías AAFP/IOM." }, href: "/cat-age-calculator", icon: Cat, emoji: "🐱" },
 ];
 
-const SITE_URL = "https://pets.tinytoolboxes.com";
+const SITE_URL = "https://www.tinytoolboxes.com";
 
 function applySEO(o: { title: string; description: string; path: string; jsonLd?: object | object[] }) {
   if (typeof document === "undefined") return;
