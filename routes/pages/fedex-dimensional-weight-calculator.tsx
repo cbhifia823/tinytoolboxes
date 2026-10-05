@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Calculator, Scale, Truck } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -418,7 +419,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function FedExDimensionalWeightCalculator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const L0 = LANGUAGES[locale];
   const [unitSystem, setUnitSystem] = useState<"metric" | "imperial">("metric");
   const [factor, setFactor] = useState(String(L0.metricFactor));

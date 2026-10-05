@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BadgeDollarSign, Braces, Copy, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -91,7 +92,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function JsonFormatter() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [input, setInput] = useState('{"name":"TinyToolboxes","tools":["calculator","converter"]}');
   const [indent, setIndent] = useState(2);
   const [compact, setCompact] = useState(false);

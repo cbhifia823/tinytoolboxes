@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, ExternalLink, Globe, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -131,7 +132,7 @@ async function fetchMeta(url: string): Promise<MetaData> {
 export default function MetaTagPreview() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as LocaleKey | null;
+    const saved = readSavedLocale() as LocaleKey | null;
     return saved && LANGUAGES[saved] ? saved : "en";
   });
   const [inputUrl, setInputUrl] = useState("");

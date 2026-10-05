@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, Download, QrCode, Search } from "lucide-react";
 import QRCode from "https://esm.sh/qrcode@1.5.3";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -80,7 +81,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function QrCodeGenerator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [input, setInput] = useState("https://www.tinytoolboxes.com");
   const [size, setSize] = useState(256);
   const [fg, setFg] = useState("#000000");

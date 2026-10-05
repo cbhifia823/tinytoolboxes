@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { ArrowRight, Percent, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -313,7 +314,7 @@ const EDUCATION = {
 };
 
 export default function PercentageCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [mode, setMode] = useState<"pof" | "what" | "change">("pof");
   const [a, setA] = useState("25");
   const [b, setB] = useState("200");

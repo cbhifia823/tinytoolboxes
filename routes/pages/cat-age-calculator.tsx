@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Cat, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: { name: "English", title: "Cat Age in Human Years Calculator", subtitle: "Convert your cat's age to human years using the standard AAFP / IOM feline life-stage chart.", searchLabel: "Search tools", searchPlaceholder: "Try: dog age, lily, calorie", catAge: "Cat age (years)", humanAge: "Human age equivalent", stage: "Life stage", article1Title: "How Cat Years Convert to Human Years", article1Body1: "Cats develop rapidly in their first two years. The AAFP/IOM standard: year 1 = roughly 15 human years, year 2 adds about 9 more (bringing them to ~24), and each year after adds approximately 4 human years.", article1Body2: "A 7-year-old cat is roughly a 44-year-old human. A 14-year-old cat is roughly 72 human years. A 20-year-old cat is around 96 human years.", article2Title: "Feline Life Stages", article2List: [{ label: "Kitten (0-1 year)", detail: "Rapid growth, vaccinations, socialization." }, { label: "Junior (1-2 years)", detail: "Reaching social maturity." }, { label: "Prime adult (3-6 years)", detail: "Healthiest years. Annual wellness exams." }, { label: "Mature (7-10 years)", detail: "Monitor weight, dental health, kidney values." }, { label: "Senior (11-14 years)", detail: "Twice-yearly vet checks." }, { label: "Geriatric (15+ years)", detail: "Frequent checks, comfortable elder care." }], sourceText: "AAFP-AAHA Feline Life Stage Guidelines, Journal of Feline Medicine and Surgery, 2021.", sidebarTitle: "Senior cat tips", sidebarSubtitle: "Keep them happy and healthy.", sidebarTips: ["Bi-annual vet visits after age 10.", "Step stools to favorite spots — joints stiffen.", "Watch water intake — kidney disease is the #1 senior cat illness."] },
@@ -65,7 +66,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function CatAgeCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [catAge, setCatAge] = useState("5");
   const [search, setSearch] = useState("");
 

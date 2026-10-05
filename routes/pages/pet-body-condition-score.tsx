@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Scale, Cat, Dog, RotateCcw, Check } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -580,7 +581,7 @@ function categorize(bcs: number, content: typeof LANGUAGES["en"]) {
 }
 
 export default function PetBodyConditionScore() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [species, setSpecies] = useState<Species | null>(null);
   const [answers, setAnswers] = useState<number[]>([]);
   const [search, setSearch] = useState("");

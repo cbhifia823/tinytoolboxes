@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, ArrowRight, Bone, BookOpen, Cat, Dog, Flower2, Globe2, Heart, PawPrint, Scale, Search, Sparkles } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -310,7 +311,7 @@ function SearchBar({ copy, locale }: { copy: typeof COPY[LocaleKey]; locale: Loc
 export default function PetsHome() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale");
+    const saved = readSavedLocale();
     return (saved === "en" || saved === "zh-hk" || saved === "zh-cn" || saved === "es") ? saved : "en";
   });
 

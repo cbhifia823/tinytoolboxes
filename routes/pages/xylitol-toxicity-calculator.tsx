@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, AlertTriangle, Dog, Search } from "lucide-react";
 import articleData from "../data/xylitol-content.json";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -151,7 +152,6 @@ const LANGUAGES = {
     searchLabel: "Buscar herramientas",
     searchPlaceholder: "Prueba: chocolate, lirio, calorías, comida",
   },
-  es: { name: "Español", title: "Calculadora de toxicidad por xilitol (perros)", subtitle: "Versión en español.", searchLabel: "Buscar herramientas", searchPlaceholder: "Prueba: age, percent, unit, date", } ,
 };
 
 const TOOLS = [
@@ -197,7 +197,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function XylitolToxicityCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [weight, setWeight] = useState("10");
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
   const [product, setProduct] = useState<keyof typeof PRODUCTS>("gum_piece");

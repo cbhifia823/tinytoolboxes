@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, FileType2, Languages, Search, Type } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -173,7 +174,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 export default function WordCounter() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as LocaleKey | null;
+    const saved = readSavedLocale() as LocaleKey | null;
     return saved && LANGUAGES[saved] ? saved : "en";
   });
   const [text, setText] = useState("TinyToolboxes is a boring website series.\n\nIt is useful.");

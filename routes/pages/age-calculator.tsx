@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, CalendarDays, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -167,7 +168,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function AgeCalculator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [dob, setDob] = useState("1990-01-01");
   const [asOf, setAsOf] = useState(() => new Date().toISOString().split("T")[0]);
   const [search, setSearch] = useState("");

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, HeartPulse, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -215,7 +216,7 @@ function bmiCategory(bmi: number, asian: boolean, t: LocaleKey): { label: string
 }
 
 export default function BmiCalculator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [units, setUnits] = useState<"metric" | "imperial">("metric");
   const [heightCm, setHeightCm] = useState("170");
   const [heightFt, setHeightFt] = useState("5");

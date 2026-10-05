@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeftRight, ArrowRight, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -309,7 +310,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function UnitConverter() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [category, setCategory] = useState("length");
   const [fromUnit, setFromUnit] = useState("m");
   const [toUnit, setToUnit] = useState("ft");

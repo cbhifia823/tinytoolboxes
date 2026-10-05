@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight, RotateCw, Search, Shuffle, Trash2 } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -267,7 +268,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function WheelSpinner() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [rawEntries, setRawEntries] = useState("Alice\nBob\nCharlie\nDana\nElla\nFrank");
   const [rotation, setRotation] = useState(0);
   const [spinning, setSpinning] = useState(false);

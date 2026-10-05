@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Building2, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 // UI labels for the loan calculator
 const LANGUAGES = {
@@ -365,7 +366,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function LoanCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [principal, setPrincipal] = useState("300000");
   const [rate, setRate] = useState("4.5");
   const [term, setTerm] = useState("30");

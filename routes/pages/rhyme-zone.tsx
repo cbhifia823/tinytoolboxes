@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BookOpen, Globe2, LoaderCircle, Search, Sparkles, Wand2 } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LOCALES = [
   { id: "en", label: "EN" },
@@ -345,7 +346,7 @@ export default function RhymeZone() {
   type LocaleId = typeof LOCALES[number]["id"];
   const [locale, setLocale] = useState<LocaleId>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as LocaleId | null;
+    const saved = readSavedLocale() as LocaleId | null;
     return saved && LOCALES.some((l) => l.id === saved) ? saved : "en";
   });
   const [query, setQuery] = useState("light");

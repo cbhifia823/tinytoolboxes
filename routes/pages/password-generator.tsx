@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Copy, Key, RefreshCw, Search, Check } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -83,7 +84,7 @@ function applySEO(o: { title: string; description: string; path: string }) {
 }
 
 export default function PasswordGenerator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [length, setLen] = useState(24);
   const [useUpper, setUpper] = useState(true);
   const [useLower, setLower] = useState(true);

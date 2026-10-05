@@ -1,3 +1,4 @@
+import { readSavedLocale } from "@/lib/locale";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
@@ -208,7 +209,7 @@ export default function BreedPage() {
   const [loading, setLoading] = useState(true);
   const [lang, setLang] = useState<string>(() => {
     if (typeof window === "undefined") return "en";
-    return window.localStorage.getItem("ttb-locale") || "en";
+    return readSavedLocale(Object.keys(UI)) || "en";
   });
   const [search, setSearch] = useState("");
 

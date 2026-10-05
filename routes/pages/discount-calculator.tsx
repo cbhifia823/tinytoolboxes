@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BadgeDollarSign, Percent, Search, Tag } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: { name: "English", title: "Discount Calculator", subtitle: "Calculate sale price after discount, or find the discount percent from original and sale price.", searchLabel: "Search tools", searchPlaceholder: "Try: percent, tip, loan, currency", mode1: "Find sale price", mode2: "Find discount %", originalLabel: "Original price", discountLabel: "Discount (%)", saleLabel: "Sale price", result: "You pay", saved: "You save", calculate: "Calculate" },
@@ -41,7 +42,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function DiscountCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [mode, setMode] = useState<"sale" | "percent">("sale");
   const [original, setOriginal] = useState("100");
   const [discount, setDiscount] = useState("20");

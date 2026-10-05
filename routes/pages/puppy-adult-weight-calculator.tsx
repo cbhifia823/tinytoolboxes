@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Bone, PawPrint, Search, Sparkles } from "lucide-react";
 import content from "../data/puppy-adult-weight-content.json";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = keyof typeof content;
 
@@ -101,7 +102,7 @@ function estimatedAdultKg(weightKg: number, ageWeeks: number, factor: number) {
 export default function PuppyAdultWeightCalculator() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    return (window.localStorage.getItem("ttb-locale") as LocaleKey) || "en";
+    return (readSavedLocale() as LocaleKey) || "en";
   });
   const [ageWeeks, setAgeWeeks] = useState("12");
   const [weight, setWeight] = useState("8");

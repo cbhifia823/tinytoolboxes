@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
 import { ArrowRight, RotateCcw, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -81,7 +82,7 @@ function checkWin(b: Cell[][], rows: number, cols: number): boolean {
 const numColors: Record<number, string> = { 1: "text-blue-400", 2: "text-green-400", 3: "text-red-400", 4: "text-purple-400", 5: "text-yellow-600", 6: "text-teal-400", 7: "text-white", 8: "text-gray-400" };
 
 export default function Minesweeper() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [difficulty, setDifficulty] = useState<Difficulty>("beginner");
   const [board, setBoard] = useState<Cell[][] | null>(null);
   const [gameState, setGameState] = useState<GS>("playing");

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, AlertTriangle, Dog, Search } from "lucide-react";
 import CHOCOLATE_CONTENT from "../data/chocolate-content.json";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -127,7 +128,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function ChocolateToxicityCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [weight, setWeight] = useState("10");
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
   const [chocType, setChocType] = useState<keyof typeof CHOCOLATE_TYPES>("milk");

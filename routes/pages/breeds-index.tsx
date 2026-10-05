@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Dog, Cat, Search, Sparkles, ArrowRight, Loader2 } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type BreedEntry = { slug: string; type: "dog" | "cat"; name: string; hypoallergenic: boolean };
 
@@ -18,7 +19,7 @@ const UI: Record<string, any> = {
 export default function BreedsIndex() {
   const [breeds, setBreeds] = useState<BreedEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [lang, setLang] = useState<string>(() => { if (typeof window === "undefined") return "en"; return window.localStorage.getItem("ttb-locale") || "en"; });
+  const [lang, setLang] = useState<string>(() => { if (typeof window === "undefined") return "en"; return readSavedLocale(Object.keys(UI)) || "en"; });
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | "dog" | "cat">("all");
 
