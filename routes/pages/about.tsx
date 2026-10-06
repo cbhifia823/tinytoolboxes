@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -64,7 +65,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function AboutPage() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const L = LANGUAGES[locale];
 
   useEffect(() => {

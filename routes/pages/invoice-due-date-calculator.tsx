@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, CalendarDays, Search, ReceiptText } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -393,7 +394,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function InvoiceDueDateCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => (typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en")));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => (typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en")));
   const today = useMemo(() => localDateString(new Date()), []);
   const [invoiceDate, setInvoiceDate] = useState(today);
   const [termsDays, setTermsDays] = useState("30");

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Cake,
    ArrowLeftRight, ArrowRight, BadgeDollarSign, Binary, Bone, BookOpen, Braces, Building2, CalendarDays, CalendarRange, Calculator, CaseSensitive, Cat, Clock, Clock3, Dog, DollarSign, FileType, Flame, Flower2, Globe2, HeartPulse, Home, KeyRound, Link2, Palette, Percent, QrCode, RotateCw, Scale, Search, Sparkles, Tag, Tags, Grid3X3 } from "lucide-react";
 import PetsHome from "./_pets-home";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -491,7 +492,7 @@ function SearchBar({ locale }: { locale: LocaleKey }) {
 function MainHomePage() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale");
+    const saved = readSavedLocale();
     return (saved as string) || "en";
   });
 

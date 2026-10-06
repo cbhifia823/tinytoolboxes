@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Copy, RefreshCw, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -87,7 +88,7 @@ function applySEO(o: { title: string; description: string; path: string }) {
 }
 
 export default function LoremIpsumGenerator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => (typeof localStorage !== "undefined" ? (localStorage.getItem("tt-locale") as LocaleKey) || "en" : "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => (typeof localStorage !== "undefined" ? (readSavedLocale() as LocaleKey) || "en" : "en"));
   const [paras, setParas] = useState(3);
   const [mode, setMode] = useState<"paragraphs"|"words"|"bytes">("paragraphs");
   const [output, setOutput] = useState("");
@@ -98,7 +99,7 @@ export default function LoremIpsumGenerator() {
 
   useEffect(() => {
     applySEO({ title: content.title, description: content.subtitle, path: PAGE_PATH });
-    localStorage.setItem("tt-locale", locale);
+    localStorage.setItem("ttb-locale", locale);
   }, [locale, content.title, content.subtitle]);
 
   function generate() {

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Clock, Copy, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -120,7 +121,7 @@ function formatRelative(d: Date) {
 export default function UnixTimestampConverter() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as LocaleKey | null;
+    const saved = readSavedLocale() as LocaleKey | null;
     return saved && LANGUAGES[saved] ? saved : "en";
   });
   const [timestamp, setTimestamp] = useState(Math.floor(Date.now() / 1000).toString());

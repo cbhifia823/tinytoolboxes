@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Clock, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -308,7 +309,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function TimeZoneConverter() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [inputTime, setInputTime] = useState(() => { const d = new Date(); d.setSeconds(0, 0); return d.toISOString().slice(0, 16); });
   const [fromZone, setFromZone] = useState("UTC");
   const [toZones, setToZones] = useState(["America/New_York", "Europe/London", "Asia/Hong_Kong", "Asia/Tokyo"]);

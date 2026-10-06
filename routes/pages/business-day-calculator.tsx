@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, CalendarDays, Calculator, Clock3, Globe2, MapPin, Search } from "lucide-react";
 import Holidays from "https://esm.sh/date-holidays@3.28.0?bundle";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 type Mode = "forward" | "count" | "reverse";
@@ -601,7 +602,7 @@ function SearchBar({ locale }: { locale: LocaleKey }) {
 export default function BusinessDayCalculator() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as LocaleKey | null;
+    const saved = readSavedLocale() as LocaleKey | null;
     return saved && LANGUAGES[saved] ? saved : "en";
   });
   const [mode, setMode] = useState<Mode>("forward");

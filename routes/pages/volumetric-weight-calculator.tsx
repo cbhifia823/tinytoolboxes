@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Calculator, Globe2, Search, Scale, Sparkles, Truck } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "ja" | "es";
 
@@ -342,7 +343,7 @@ const EXAMPLE_PRESETS = [
 ] as const;
 
 export default function VolumetricWeightCalculator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [carrier, setCarrier] = useState<CarrierId>("generic");
   const [unit, setUnit] = useState<"cm" | "in">("cm");
   const [length, setLength] = useState("40");

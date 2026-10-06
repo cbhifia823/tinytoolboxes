@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Scale, Truck } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -378,7 +379,7 @@ function roundToTwo(value: number) {
 }
 
 export default function UpsDimensionalWeightCalculator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as LocaleKey) || "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as LocaleKey) || "en"));
   const [unitSystem, setUnitSystem] = useState<"metric" | "imperial">("metric");
   const [factor, setFactor] = useState(String(METRIC_FACTOR));
   const [length, setLength] = useState("40");

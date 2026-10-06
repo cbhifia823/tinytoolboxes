@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowRight, Check, Copy, Lock, LockKeyhole, Palette, Search, Unlock } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -222,7 +223,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 export default function ColorPaletteGenerator() {
   const [locale, setLocale] = useState<LocaleKey>(() => {
     if (typeof window === "undefined") return "en";
-    const saved = window.localStorage.getItem("ttb-locale") as LocaleKey | null;
+    const saved = readSavedLocale() as LocaleKey | null;
     return saved && LANGUAGES[saved] ? saved : "en";
   });
   const [activeColors, setActiveColors] = useState<string[]>(["#006994", "#003D5B", "#00B4D8", "#90E0EF", "#CAF0F8"]);

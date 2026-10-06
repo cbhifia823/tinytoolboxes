@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Dog, Search, Check, X, AlertTriangle } from "lucide-react";
 import ARTICLE_CONTENT from "../data/can-eat-content.json";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -150,7 +151,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function CanMyDogEat() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<"all" | Verdict>("all");
   const [search, setSearch] = useState("");

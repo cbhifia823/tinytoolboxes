@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Copy, RefreshCw, Search } from "lucide-react";
+import { readSavedLocale } from "@/lib/locale";
 
 type LocaleKey = "en" | "zh-hk" | "zh-cn" | "es";
 
@@ -324,7 +325,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 const PAGE_PATH = "/uuid-generator";
 
 export default function UUIDGenerator() {
-  const [locale, setLocale] = useState<LocaleKey>(() => (typeof localStorage !== "undefined" ? (localStorage.getItem("tt-locale") as LocaleKey) || "en" : "en"));
+  const [locale, setLocale] = useState<LocaleKey>(() => (typeof localStorage !== "undefined" ? (readSavedLocale() as LocaleKey) || "en" : "en"));
   const [uuid, setUuid] = useState("");
   const [uuids, setUuids] = useState<string[]>([]);
   const [count, setCount] = useState(1);
@@ -335,7 +336,7 @@ export default function UUIDGenerator() {
 
   useEffect(() => {
     applySEO({ title: content.title, description: content.subtitle, path: PAGE_PATH, jsonLd: { "@context": "https://schema.org", "@type": "WebApplication", name: content.title, url: "https://www.tinytoolboxes.com" + PAGE_PATH, description: content.subtitle, applicationCategory: "DeveloperApplication" } });
-    localStorage.setItem("tt-locale", locale);
+    localStorage.setItem("ttb-locale", locale);
   }, [locale, content.title, content.subtitle]);
 
   function handleGenerate() {

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, Bone, Search } from "lucide-react";
 import petCalorieContent from "../data/pet-calorie-content.json";
+import { readSavedLocale } from "@/lib/locale";
 
 const LANGUAGES = {
   en: {
@@ -124,7 +125,7 @@ function applySEO(o: { title: string; description: string; path: string; jsonLd?
 }
 
 export default function PetCalorieCalculator() {
-  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((window.localStorage.getItem("ttb-locale") as keyof typeof LANGUAGES) || "en"));
+  const [locale, setLocale] = useState<keyof typeof LANGUAGES>(() => typeof window === "undefined" ? "en" : ((readSavedLocale() as keyof typeof LANGUAGES) || "en"));
   const [species, setSpecies] = useState<"dog" | "cat">("dog");
   const [weight, setWeight] = useState("10");
   const [weightUnit, setWeightUnit] = useState<"kg" | "lb">("kg");
